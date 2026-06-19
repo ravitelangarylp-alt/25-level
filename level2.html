@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samskrita Level 2 - सः, सा, तत्</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-parchment: #fdf5e6;
+            --text-brown: #4a2511;
+            --text-maroon: #800000;
+            --accent-gold: #d4af37;
+            --card-bg: #ffffff;
+            --success-green: #22c55e;
+            --error-red: #ef4444;
+            --masc-blue: #1e3a8a;
+            --fem-pink: #9d174d;
+            --neut-green: #14532d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Laila', sans-serif;
+            background-color: var(--bg-parchment);
+            color: var(--text-brown);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 20px 60px; }
+
+        /* Motto Section */
+        .motto-box {
+            text-align: center;
+            background: rgba(128, 0, 0, 0.05);
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .motto-sk {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.5rem;
+            color: var(--text-maroon);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .motto-kn {
+            font-size: 0.95rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .motto-source {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            display: block;
+            margin-top: 8px;
+        }
+
+        header { text-align: center; margin-bottom: 40px; }
+
+        .level-badge {
+            display: inline-block;
+            background-color: var(--text-maroon);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Inknut Antiqua', serif;
+            color: var(--text-maroon);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .sk-text {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--text-maroon);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        /* Grammar Note - The 3 Genders */
+        .grammar-note {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 5px solid var(--accent-gold);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Lesson Cards */
+        .lesson-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(74, 37, 17, 0.1);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .lesson-card:nth-child(even) { flex-direction: row-reverse; }
+
+        .card-content { flex: 1; }
+        .card-image {
+            flex: 1;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #eee;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phrase-box {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .masc-box { border-left: 4px solid var(--masc-blue); }
+        .fem-box { border-left: 4px solid var(--fem-pink); }
+        .neut-box { border-left: 4px solid var(--neut-green); }
+
+        /* Subhashita Section */
+        .subhashita-card {
+            background: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .subhashita-card h3 {
+            color: var(--text-brown);
+            margin-bottom: 15px;
+            font-family: 'Inknut Antiqua', serif;
+        }
+
+        .shloka {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.6rem;
+            color: var(--text-maroon);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .shloka-meaning {
+            font-size: 1rem;
+            color: #444;
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(255,255,255,0.6);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.2);
+            border-left: 4px solid var(--text-maroon);
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
+            border-top: 5px solid var(--text-maroon);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .quiz-title { font-size: 1.5rem; color: var(--text-brown); font-weight: 700; }
+        .quiz-progress { font-weight: 600; color: var(--accent-gold); }
+        .quiz-question { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .option-btn {
+            background: var(--bg-parchment);
+            border: 2px solid #ddd;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-btn:hover { border-color: var(--accent-gold); background: #fff; transform: translateY(-2px); }
+        .option-btn.correct { background: rgba(34, 197, 94, 0.1); border-color: var(--success-green); color: #065f46; }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--error-red); color: #991b1b; }
+
+        .quiz-controls { text-align: center; margin-top: 25px; }
+
+        /* Nav Buttons */
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; }
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; }
+        .btn-outline { border: 2px solid var(--text-maroon); color: var(--text-maroon); background: transparent; }
+        .btn-outline:hover { background: rgba(128, 0, 0, 0.05); }
+        .btn-primary { background: var(--text-maroon); color: white; }
+        .btn-primary:hover { background: #600000; box-shadow: 0 5px 15px rgba(128,0,0,0.3); }
+
+        @media (max-width: 768px) {
+            .lesson-card, .lesson-card:nth-child(even) { flex-direction: column; }
+            .card-image { height: 200px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="motto-box">
+    <span class="motto-sk">सा विद्या या विमुक्तये । तत् कर्म यन्न बन्धाय ॥</span>
+    <span class="motto-kn">"ಯಾವುದು ಮುಕ್ತಿಗೆ ದಾರಿ ತೋರುವುದೋ, <strong>ಅವಳೇ (ಆ)</strong> ನೈಜ ವಿದ್ಯೆ. ಯಾವುದು ನಮ್ಮನ್ನು ಬಂಧಿಸುವುದಿಲ್ಲವೋ, <strong>ಅದೇ (ಆ)</strong> ನೈಜ ಕರ್ಮ."</span>
+    <span class="motto-source">— ಶ್ರೀವಿಷ್ಣುಪುರಾಣಮ್ (ಈ ಪಾಠದಲ್ಲಿ ಬರುವ 'ಸಾ' ಮತ್ತು 'ತತ್' ಶಬ್ದಗಳ ಸುಂದರ ಬಳಕೆ)</span>
+</div>
+
+<div class="container">
+
+    <header>
+        <div class="level-badge">Level 2</div>
+        <h1>ಅನ್ಯರ ಪರಿಚಯ (The Other)</h1>
+        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">ಪ್ರಥಮ ಪುರುಷ - ತ್ರಿಲಿಂಗ (Third Person in Three Genders)</p>
+    </header>
+
+    <div class="grammar-note">
+        <h3 style="color: var(--text-maroon); font-size: 1.3rem; margin-bottom: 10px;">✨ ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗ ವ್ಯವಸ್ಥೆ (Gender in Sanskrit)</h3>
+        <p style="margin-bottom: 15px;">
+            ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗವು (Gender) ಕೇವಲ ಗಂಡು-ಹೆಣ್ಣಿನ <strong>ಜೀವಶಾಸ್ತ್ರಕ್ಕೆ (Biology)</strong> ಸೀಮಿತವಾಗಿಲ್ಲ; ಇದು <strong>ಶಬ್ದಗಳ ರಚನೆಗೆ (Grammatical word)</strong> ಸಂಬಂಧಿಸಿದೆ. 
+            ಉದಾಹರಣೆಗೆ: 'ಸ್ನೇಹಿತ' ಮನುಷ್ಯನಾದರೂ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದ (मित्रम्). 'ಮರ' ಜೀವವಿಲ್ಲದಿದ್ದರೂ ಪುಂಲಿಂಗ ಶಬ್ದ (वृक्षः). 
+            ಆದ್ದರಿಂದ, ನಾವು ವ್ಯಕ್ತಿ ಅಥವಾ ವಸ್ತುವನ್ನು ಸೂಚಿಸಲು ಬಳಸುವ ಸರ್ವನಾಮಗಳು (Pronouns) ಆ <strong>ಪದದ ಲಿಂಗವನ್ನು</strong> ಆಧರಿಸಿ ಮೂರು ವಿಧವಾಗಿರುತ್ತವೆ.
+        </p>
+    </div>
+
+    <div class="lesson-card">
+        <div class="card-content">
+            <h2 style="color: var(--masc-blue); margin-bottom: 10px;">೧. ಪುಂಲಿಂಗ (Masculine)</h2>
+            <p>ಪುರುಷರನ್ನು ಅಥವಾ ಪುಂಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सः' (ಅವನು)</strong> ಮತ್ತು <strong>'तस्य' (ಅವನ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <div class="phrase-box masc-box">
+                <div class="sk-text">सः रामः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅವನು ರಾಮ (He is Rama).</div>
+            </div>
+            <div class="phrase-box masc-box">
+                <div class="sk-text">तस्य जनकः दशरथः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅವನ ತಂದೆ ದಶರಥ (His father is Dasharatha).</div>
+            </div>
+        </div>
+        <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1598387181032-a3103a2db733?auto=format&fit=crop&q=80&w=400" alt="Traditional Indian Prince / Rama">
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <div class="card-content">
+            <h2 style="color: var(--fem-pink); margin-bottom: 10px;">೨. ಸ್ತ್ರೀಲಿಂಗ (Feminine)</h2>
+            <p>ಸ್ತ್ರೀಯರನ್ನು ಅಥವಾ ಸ್ತ್ರೀಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सा' (ಅವಳು)</strong> ಮತ್ತು <strong>'तस्याः' (ಅವಳ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <div class="phrase-box fem-box">
+                <div class="sk-text">सा सीता ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅವಳು ಸೀತೆ (She is Sita).</div>
+            </div>
+            <div class="phrase-box fem-box">
+                <div class="sk-text">तस्याः पतिः रामः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅವಳ ಪತಿ ರಾಮ (Her husband is Rama).</div>
+            </div>
+        </div>
+        <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1610173827002-861c8a14b0ea?auto=format&fit=crop&q=80&w=400" alt="Traditional Indian Princess / Sita">
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <div class="card-content">
+            <h2 style="color: var(--neut-green); margin-bottom: 10px;">೩. ನಪುಂಸಕಲಿಂಗ (Neuter)</h2>
+            <p>ವಸ್ತುಗಳನ್ನು ಅಥವಾ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'तत्' (ಅದು)</strong> ಮತ್ತು <strong>'तस्य' (ಅದರ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <div class="phrase-box neut-box">
+                <div class="sk-text">तत् यानम् ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅದು ವಾಹನ / ರಥ (That is a vehicle).</div>
+            </div>
+            <div class="phrase-box neut-box">
+                <div class="sk-text">तस्य वर्णः श्वेतः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ಅದರ ಬಣ್ಣ ಬಿಳಿ (Its color is white).</div>
+            </div>
+        </div>
+        <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1533036665042-45a85012e361?auto=format&fit=crop&q=80&w=400" alt="Wooden Chariot Wheel / Yana">
+        </div>
+    </div>
+
+    <div class="subhashita-card">
+        <h3>सुभाषितम् - २</h3>
+        <p class="shloka">
+            हस्तस्य भूषणं दानं सत्यं कण्ठस्य भूषणम् ।<br>
+            श्रोत्रस्य भूषणं शास्त्रं भूषणैः किं प्रयोजनम् ॥
+        </p>
+        <div class="shloka-meaning">
+            <strong>ಅರ್ಥ:</strong> ಕೈಗೆ ದಾನವೇ ಆಭರಣ, ಕಂಠಕ್ಕೆ ಸತ್ಯವೇ ಆಭರಣ, ಕಿವಿಗೆ ಜ್ಞಾನದ (ಶಾಸ್ತ್ರ) ಶ್ರವಣವೇ ಆಭರಣ. ಈ ನೈಜ ಆಭರಣಗಳಿರುವಾಗ ಇತರ ಚಿನ್ನ-ಬೆಳ್ಳಿಯ ಆಭರಣಗಳ (भूषणैः) ಪ್ರಯೋಜನವೇನು?
+        </div>
+        
+        <div class="highlight-box">
+            <h4 style="color: var(--text-brown); margin-bottom: 5px;">🔍 ಪಾಠದ ಪ್ರಮುಖಾಂಶ (Grammar Check):</h4>
+            <p style="font-size: 0.95rem;">
+                ನಾವು ಮೇಲಿನ ಪಾಠದಲ್ಲಿ <strong>तस्य (ತಸ್ಯ)</strong> ಎಂದರೆ "ಅವನ / ಅದರ" (ಷಷ್ಠೀ ವಿಭಕ್ತಿ - Possessive case) ಎಂದು ಕಲಿತೆವು. ಅದೇ ರೀತಿ ಈ ಸುಭಾಷಿತದಲ್ಲಿರುವ ಶಬ್ದಗಳನ್ನು ಗಮನಿಸಿ:<br>
+                • हस्त + <strong>स्य</strong> = हस्तस्य (ಕೈಯ / ಕೈಯ-<strong>ದ</strong>)<br>
+                • कण्ठ + <strong>स्य</strong> = कण्ठस्य (ಕಂಠದ)<br>
+                • श्रोत्र + <strong>स्य</strong> = श्रोत्रस्य (ಕಿವಿಯ)<br>
+                ಸಂಸ್ಕೃತದಲ್ಲಿ ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳಿಗೆ <strong>"-स्य" (-sya)</strong> ಸೇರಿಸಿದರೆ ಅದು "ಅವನ / ಅದರ" ಎಂಬ ಸಂಬಂಧವನ್ನು ಸೂಚಿಸುತ್ತದೆ!
+            </p>
+        </div>
+    </div>
+
+    <div class="quiz-section" id="quiz-container">
+        <div class="quiz-header">
+            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
+            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 10</div>
+        </div>
+        
+        <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+        <div class="options-grid" id="quiz-options"></div>
+
+        <div class="quiz-controls">
+            <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="level1.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 1)</a>
+        <a href="level3.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 3) →</a>
+    </div>
+
+</div>
+
+<script>
+    // Quiz Data - 10 Questions
+    const questions = [
+        { q: "'ಅವನು (He)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["सा", "सः", "तत्", "अहम्"], ans: 1 },
+        { q: "'ಅವಳ (Her)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["तस्य", "मम", "तस्याः", "तव"], ans: 2 },
+        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ सीता ।' (ಅವಳು ಸೀತೆ)", options: ["सः", "सा", "तत्", "तस्य"], ans: 1 },
+        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ जनकः दशरथः ।' (ಅವನ ತಂದೆ ದಶರಥ)", options: ["तस्य", "तस्याः", "सः", "मम"], ans: 0 },
+        { q: "'तत्' (ಅದು) ಎಂಬುದು ಯಾವ ಲಿಂಗದ ಪದ?", options: ["ಪುಂಲಿಂಗ", "ಸ್ತ್ರೀಲಿಂಗ", "ನಪುಂಸಕಲಿಂಗ", "ಯಾವುದೂ ಅಲ್ಲ"], ans: 2 },
+        { q: "ಸರಿಯಾದ ವಾಕ್ಯವನ್ನು ಗುರುತಿಸಿ (ಅದು ವಾಹನ):", options: ["सः यानम्", "सा यानम्", "तत् यानम्", "तस्य यानम्"], ans: 2 },
+        { q: "'तस्य वर्णः श्वेतः' - ಇದರ ಅರ್ಥವೇನು?", options: ["ಅವಳ ಬಣ್ಣ ಬಿಳಿ", "ಅದರ/ಅವನ ಬಣ್ಣ ಬಿಳಿ", "ನನ್ನ ಬಣ್ಣ ಬಿಳಿ", "ನಿನ್ನ ಬಣ್ಣ ಬಿಳಿ"], ans: 1 },
+        { q: "ಇವುಗಳಲ್ಲಿ ಸ್ತ್ರೀಲಿಂಗದ ಪದವನ್ನು ಗುರುತಿಸಿ:", options: ["सः", "तत्", "तस्य", "सा"], ans: 3 },
+        { q: "ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'हस्तस्य' ಪದದ ಅರ್ಥವೇನು?", options: ["ಕೈಗೆ", "ಕೈಯಿಂದ", "ಕೈಯ (ಕೈಯ-ದ)", "ಕೈಯಲ್ಲಿ"], ans: 2 },
+        { q: "ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಎರಡಕ್ಕೂ 'ಅವನ / ಅದರ' ಎಂದು ಸೂಚಿಸಲು ಯಾವ ಒಂದೇ ಪದ ಬಳಸಲಾಗುತ್ತದೆ?", options: ["तस्याः", "तस्य", "सः", "तत्"], ans: 1 }
+    ];
+
+    let currentQIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById('quiz-question');
+    const optionsEl = document.getElementById('quiz-options');
+    const progressEl = document.getElementById('quiz-progress');
+    const feedbackEl = document.getElementById('quiz-feedback');
+    const nextQBtn = document.getElementById('next-q-btn');
+    const finishBtn = document.getElementById('finish-btn');
+
+    function loadQuestion() {
+        feedbackEl.innerHTML = '';
+        nextQBtn.style.display = 'none';
+        
+        const currentQ = questions[currentQIndex];
+        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10`;
+        questionEl.textContent = currentQ.q;
+        
+        optionsEl.innerHTML = '';
+        currentQ.options.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            
+            const isSanskrit = /[\u0900-\u097F]/.test(opt);
+            if (isSanskrit) {
+                btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span style="font-family:'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem;">${opt}</span>`;
+            } else {
+                btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span>${opt}</span>`;
+            }
+            
+            btn.onclick = () => checkAnswer(index, currentQ.ans, btn);
+            optionsEl.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(selectedIndex, correctIndex, btnClicked) {
+        const allBtns = optionsEl.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (selectedIndex === correctIndex) {
+            btnClicked.classList.add('correct');
+            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.style.color = 'var(--success-green)';
+            score++;
+        } else {
+            btnClicked.classList.add('wrong');
+            allBtns[correctIndex].classList.add('correct'); 
+            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.style.color = 'var(--error-red)';
+        }
+
+        if (currentQIndex < questions.length - 1) {
+            nextQBtn.style.display = 'inline-block';
+        } else {
+            showFinalResult();
+        }
+    }
+
+    function nextQuestion() {
+        currentQIndex++;
+        loadQuestion();
+    }
+
+    function showFinalResult() {
+        nextQBtn.style.display = 'none';
+        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
+            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 10</strong>
+        </div>`;
+        
+        if(score >= 8) {
+            feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಲಿಂಗವ್ಯವಸ್ಥೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.';
+            feedbackEl.style.color = 'var(--success-green)';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.style.color = 'var(--text-brown)';
+            const retryBtn = document.createElement('button');
+            retryBtn.className = 'btn btn-outline';
+            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
+            optionsEl.appendChild(retryBtn);
+        }
+    }
+
+    window.onload = loadQuestion;
+</script>
+
+</body>
+</html>
