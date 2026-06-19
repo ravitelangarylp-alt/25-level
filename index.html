@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ಸಂಸ್ಕೃತ-ಸ್ವಯಂ-ಶಿಕ್ಷಕಃ | 360 Levels</title>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-parchment: #fdf5e6;
+    --text-brown: #4a2511;
+    --text-maroon: #800000;
+    --accent-gold: #d4af37;
+    --locked-grey: #b5a695;
+    --path-color: rgba(74, 37, 17, 0.2);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Laila', sans-serif;
+    background-color: var(--bg-parchment);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    color: var(--text-brown);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* --- HEADER --- */
+  .header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background: linear-gradient(180deg, rgba(222,184,135,0.4) 0%, transparent 100%);
+    border-bottom: 2px solid var(--path-color);
+  }
+
+  .team-name {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-brown);
+    margin-bottom: 10px;
+  }
+
+  .main-title {
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-maroon);
+    line-height: 1.3;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .sub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-brown);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .progress-bar-container {
+    max-width: 400px;
+    margin: 20px auto 0;
+    background: rgba(74, 37, 17, 0.1);
+    border-radius: 20px;
+    height: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(74, 37, 17, 0.2);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--text-maroon);
+    width: 0%; /* Will be set by JS */
+    transition: width 0.5s ease;
+  }
+
+  /* --- LEVEL MAP (Candy Crush Style) --- */
+  .map-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  /* SVG Path connecting nodes */
+  .map-path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .level-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Staggering nodes left and right */
+  .level-row:nth-child(even) { justify-content: flex-start; padding-left: 20%; }
+  .level-row:nth-child(odd) { justify-content: flex-end; padding-right: 20%; }
+  .level-row:first-child { justify-content: center; padding: 0; }
+
+  .level-node {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Inknut Antiqua', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    background: var(--bg-parchment);
+    border: 4px solid var(--text-maroon);
+    color: var(--text-maroon);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15), inset 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+
+  .level-node.unlocked {
+    background: radial-gradient(circle, #fffdf8 0%, var(--bg-parchment) 100%);
+    cursor: pointer;
+  }
+
+  .level-node.unlocked:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 20px rgba(128, 0, 0, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.5);
+  }
+
+  .level-node.locked {
+    border-color: var(--locked-grey);
+    color: var(--locked-grey);
+    background: #e8ded1;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  .level-node .stars {
+    font-size: 0.6rem;
+    position: absolute;
+    bottom: -20px;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    display: none;
+  }
+
+  .level-node.completed .stars {
+    display: block;
+  }
+
+  .level-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 140px;
+    font-family: 'Laila', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-brown);
+    background: rgba(253, 245, 230, 0.9);
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--path-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    pointer-events: none;
+  }
+
+  .level-row:nth-child(even) .level-label { left: 95px; }
+  .level-row:nth-child(odd) .level-label { right: 95px; text-align: right; }
+  .level-row:first-child .level-label { top: 95px; right: auto; transform: none; text-align: center; }
+
+  /* Mascot Placeholder */
+  .mascot-container {
+    width: 120px;
+    height: 120px;
+    margin: -60px auto 30px;
+    border-radius: 50%;
+    background: var(--bg-parchment);
+    border: 3px solid var(--text-maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+  }
+
+  .mascot-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 600px) {
+    .main-title { font-size: 1.8rem; }
+    .level-node { width: 70px; height: 70px; font-size: 1.2rem; }
+    .level-label { width: 120px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="team-name">Team Trayee Presents</div>
+    <h1 class="main-title">संस्कृत-स्वयं-शिक्षकः</h1>
+    <p class="sub-title">ದಿನಕ್ಕೆ ಕೇವಲ ೧೦ ನಿಮಿಷ! ೩೬೦ ಹಂತಗಳಲ್ಲಿ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿರರ್ಗಳವಾಗಿ ಮಾತನಾಡುವ ಪ್ರಾವಿಣ್ಯತೆ ಪಡೆಯಿರಿ.</p>
+    
+    <div class="progress-bar-container">
+      <div class="progress-fill" id="overall-progress"></div>
+    </div>
+    <p style="font-size: 0.8rem; margin-top: 5px; font-weight: 600;">ಪುನರಾವರ್ತನೆ: ೦/೩೬೦ ಹಂತಗಳು</p>
+  </header>
+
+  <div class="mascot-container">
+    <img src="https://via.placeholder.com/120x120/fdf5e6/800000?text=Baby+Krishna" alt="Balakrishna Mascot">
+  </div>
+
+  <div class="map-container" id="map-container">
+    <svg class="map-path" id="map-svg"></svg>
+    </div>
+
+<script>
+  // Level Data: First 25 Levels (Foundation Stage)
+  const levelsData = [
+    { id: 1, title: "अहं रविः | त्वं गणेशः", desc: "ಉತ್ತಮ & ಮಧ್ಯಮ ಪುರುಷ", status: "unlocked", stars: 0 },
+    { id: 2, title: "सः रामः | सा सीता", desc: "ಪ್ರಥಮ ಪುರುಷ (ತ್ರಿಲಿಂಗ)", status: "unlocked", stars: 0 },
+    { id: 3, title: "रामः पठति | अहं पठामि", desc: "ಏಕವಚನ ಕ್ರಿಯಾಪದಗಳು", status: "unlocked", stars: 0 },
+    { id: 4, title: "वयम् | यूयम् | ते", desc: "ಬಹುವಚನ ಸರ್ವನಾಮಗಳು", status: "locked", stars: 0 },
+    { id: 5, title: "पठामः | पठथ | पठन्ति", desc: "ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳು", status: "locked", stars: 0 },
+    { id: 6, title: "किम् | कुत्र | कः", desc: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೧", status: "locked", stars: 0 },
+    { id: 7, title: "अस्ति | नास्ति", desc: "ಇದೆ / ಇಲ್ಲ ಪರಿಚಯ", status: "locked", stars: 0 },
+    { id: 8, title: "पुस्तकं पठति", desc: "ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)", status: "locked", stars: 0 },
+    { id: 9, title: "हस्तेन खादामि", desc: "ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಸಾಧನ)", status: "locked", stars: 0 },
+    { id: 10, title: "मित्राय ददाति", desc: "ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಉದ್ದೇಶ)", status: "locked", stars: 0 },
+    { id: 11, title: "वृक्षात् पतति", desc: "ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಬೇರ್ಪಡುವುದು)", status: "locked", stars: 0 },
+    { id: 12, title: "वृक्षे पक्षिणः", desc: "ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಸ್ಥಳ)", status: "locked", stars: 0 },
+    { id: 13, title: "कति | कदा | कुतः", desc: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೨", status: "locked", stars: 0 },
+    { id: 14, title: "गमिष्यति", desc: "ಭವಿಷ್ಯತ್ ಕಾಲದ ಪರಿಚಯ", status: "locked", stars: 0 },
+    { id: 15, title: "वादनम् | सपाद", desc: "ಸಮಯ ತಿಳಿಯುವುದು", status: "locked", stars: 0 },
+    { id: 16, title: "अद्य | श्वः | ह्यः", desc: "ವಾರಗಳು ಮತ್ತು ದಿನಗಳು", status: "locked", stars: 0 },
+    { id: 17, title: "एकं फलम्", desc: "ಸಂಖ್ಯೆಗಳು ೧-೨೦", status: "locked", stars: 0 },
+    { id: 18, title: "अत्र | तत्र | सर्वत्र", desc: "ಪ್ರಮುಖ ಅವ್ಯಯಗಳು", status: "locked", stars: 0 },
+    { id: 19, title: "इच्छामि", desc: "ಇಷ್ಟಾರ್ಥ (Tumun)", status: "locked", stars: 0 },
+    { id: 20, title: "गच्छतु | वदतु", desc: "ಆದೇಶ/ವಿನಂತಿ (ಆಜ್ಞಾರ್ಥ)", status: "locked", stars: 0 },
+    { id: 21, title: "गतवान् | गतवती", desc: "ಭೂತಕಾಲದ ಪರಿಚಯ", status: "locked", stars: 0 },
+    { id: 22, title: "पठित्वा गच्छति", desc: "ವಾಕ್ಯಗಳ ಜೋಡಣೆ (ಕ್ತ್ವಾ)", status: "locked", stars: 0 },
+    { id: 23, title: "यत्र - तत्र", desc: "ಸಂಬಂಧಾರ್ಥಕ ವಾಕ್ಯಗಳು", status: "locked", stars: 0 },
+    { id: 24, title: "कथा वाचनम्", desc: "ಸಣ್ಣ ಕಥೆ ಓದುವುದು", status: "locked", stars: 0 },
+    { id: 25, title: "ಮೈಲ್‌ಸ್ಟೋನ್ ಪರೀಕ್ಷೆ", desc: "ಮೊದಲ ಹಂತದ ಸಮಗ್ರ ರಸಪ್ರಶ್ನೆ", status: "locked", stars: 0 }
+  ];
+
+  const mapContainer = document.getElementById('map-container');
+
+  // Render Levels
+  levelsData.forEach((level, index) => {
+    const row = document.createElement('div');
+    row.className = 'level-row';
+    
+    // Level Node Button
+    const node = document.createElement('a');
+    node.className = `level-node ${level.status}`;
+    // Link to individual level files if unlocked
+    node.href = level.status === 'unlocked' ? `level${level.id}.html` : 'javascript:void(0)';
+    node.innerHTML = `
+      ${level.id}
+      <div class="stars">★★★</div>
+    `;
+
+    // Tooltip / Label
+    const label = document.createElement('div');
+    label.className = 'level-label';
+    label.innerHTML = `<span style="color:var(--text-maroon);font-weight:700;">${level.title}</span><br>${level.desc}`;
+
+    row.appendChild(node);
+    row.appendChild(label);
+    mapContainer.appendChild(row);
+  });
+
+  // Draw connecting winding lines using SVG
+  window.addEventListener('load', drawLines);
+  window.addEventListener('resize', drawLines);
+
+  function drawLines() {
+    const svg = document.getElementById('map-svg');
+    const nodes = document.querySelectorAll('.level-node');
+    const containerRect = mapContainer.getBoundingClientRect();
+    
+    let pathString = '';
+    
+    for (let i = 0; i < nodes.length - 1; i++) {
+      const rect1 = nodes[i].getBoundingClientRect();
+      const rect2 = nodes[i+1].getBoundingClientRect();
+      
+      const x1 = rect1.left + rect1.width / 2 - containerRect.left;
+      const y1 = rect1.top + rect1.height / 2 - containerRect.top;
+      const x2 = rect2.left + rect2.width / 2 - containerRect.left;
+      const y2 = rect2.top + rect2.height / 2 - containerRect.top;
+      
+      if (i === 0) {
+        pathString += `M ${x1} ${y1} `;
+      }
+      
+      // Create a smooth bezier curve between nodes
+      const cpX = (x1 + x2) / 2;
+      pathString += `S ${x1} ${y2}, ${x2} ${y2} `;
+    }
+    
+    svg.innerHTML = `
+      <path d="${pathString}" fill="none" stroke="var(--path-color)" stroke-width="8" stroke-dasharray="10,10" stroke-linecap="round"/>
+    `;
+  }
+</script>
+</body>
+</html>
