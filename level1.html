@@ -36,14 +36,36 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px 60px;
+        }
+
+        /* Motto Section */
+        .motto-box {
+            text-align: center;
+            background: rgba(128, 0, 0, 0.05);
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 15px;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .motto-sk {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.4rem;
+            color: var(--text-maroon);
+            font-weight: 600;
+            display: block;
+        }
+
+        .motto-kn {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
-            border-bottom: 2px solid rgba(128, 0, 0, 0.2);
-            padding-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .level-badge {
@@ -96,10 +118,7 @@
             flex-direction: row-reverse;
         }
 
-        .card-content {
-            flex: 1;
-        }
-
+        .card-content { flex: 1; }
         .card-image {
             flex: 1;
             height: 250px;
@@ -122,6 +141,38 @@
             border-radius: 0 8px 8px 0;
         }
 
+        /* Subhashita Card */
+        .subhashita-card {
+            background: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .subhashita-card h3 {
+            color: var(--text-brown);
+            margin-bottom: 15px;
+            font-family: 'Inknut Antiqua', serif;
+        }
+
+        .shloka {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.6rem;
+            color: var(--text-maroon);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .shloka-meaning {
+            font-size: 1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         /* Grammar Note */
         .grammar-note {
             background: #f8f9fa;
@@ -129,32 +180,18 @@
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 40px;
-            position: relative;
-        }
-
-        .grammar-note h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .grammar-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 15px;
         }
 
         .grammar-table th, .grammar-table td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-        }
-
-        .grammar-table th {
-            color: var(--text-maroon);
-            font-weight: 700;
         }
 
         /* Quiz Section */
@@ -164,25 +201,38 @@
             padding: 40px;
             box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
             border-top: 5px solid var(--text-maroon);
-            text-align: center;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
 
         .quiz-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
             color: var(--text-brown);
+        }
+
+        .quiz-progress {
+            font-weight: 600;
+            color: var(--accent-gold);
         }
 
         .quiz-question {
             font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .options-grid {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
             max-width: 500px;
             margin: 0 auto;
         }
@@ -192,20 +242,15 @@
             border: 2px solid #ddd;
             padding: 15px 20px;
             border-radius: 10px;
-            font-size: 1.2rem;
-            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .option-btn:hover {
             border-color: var(--accent-gold);
             background: #fff;
-            transform: translateY(-2px);
         }
 
         .option-btn.correct {
@@ -220,11 +265,9 @@
             color: #991b1b;
         }
 
-        .feedback-msg {
-            margin-top: 20px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            min-height: 30px;
+        .quiz-controls {
+            text-align: center;
+            margin-top: 25px;
         }
 
         /* Nav Buttons */
@@ -250,31 +293,27 @@
             background: transparent;
         }
 
-        .btn-outline:hover {
-            background: rgba(128, 0, 0, 0.05);
-        }
-
         .btn-primary {
             background: var(--text-maroon);
             color: white;
-            display: none; /* Shown after passing quiz */
         }
 
         .btn-primary:hover {
             background: #600000;
-            box-shadow: 0 5px 15px rgba(128,0,0,0.3);
         }
 
         @media (max-width: 768px) {
-            .lesson-card, .lesson-card:nth-child(even) {
-                flex-direction: column;
-            }
+            .lesson-card, .lesson-card:nth-child(even) { flex-direction: column; }
             .card-image { height: 200px; width: 100%; }
-            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+
+<div class="motto-box">
+    <span class="motto-sk">अहं छात्रः, त्वं गुरुः । मम श्रद्धा, तव ज्ञानम् ॥</span>
+    <span class="motto-kn">"ನಾನು ವಿದ್ಯಾರ್ಥಿ, ನೀನು ಗುರು. ನನ್ನ ಶ್ರದ್ಧೆ, ನಿನ್ನ ಜ್ಞಾನ."</span>
+</div>
 
 <div class="container">
     
@@ -288,12 +327,10 @@
         <div class="card-content">
             <h2 style="color: var(--text-brown); margin-bottom: 10px;">೧. ತನ್ನ ಬಗ್ಗೆ ಹೇಳಿಕೊಳ್ಳುವುದು</h2>
             <p>ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</p>
-            
             <div class="phrase-box">
                 <div class="sk-text">अहं रविः ।</div>
                 <div style="font-weight: 600; margin-top: 5px;">ನಾನು ರವಿ (I am Ravi).</div>
             </div>
-            
             <div class="phrase-box">
                 <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
                 <div style="font-weight: 600; margin-top: 5px;">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</div>
@@ -308,12 +345,10 @@
         <div class="card-content">
             <h2 style="color: var(--text-brown); margin-bottom: 10px;">೨. ಎದುರಿಗಿರುವವರನ್ನು ಪರಿಚಯಿಸುವುದು</h2>
             <p>ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</p>
-            
             <div class="phrase-box">
                 <div class="sk-text">त्वं गणेशः ।</div>
                 <div style="font-weight: 600; margin-top: 5px;">ನೀನು ಗಣೇಶ (You are Ganesh).</div>
             </div>
-            
             <div class="phrase-box">
                 <div class="sk-text">तव ग्रामः मैसूरु ।</div>
                 <div style="font-weight: 600; margin-top: 5px;">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</div>
@@ -324,90 +359,174 @@
         </div>
     </div>
 
+    <div class="subhashita-card">
+        <h3>सुभाषितम् - १</h3>
+        <p class="shloka">
+            अहं पृच्छामि भो मित्र, त्वं च उत्तरं वद ।<br>
+            मम प्रश्नः तव ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥
+        </p>
+        <p class="shloka-meaning">
+            <strong>ಅರ್ಥ:</strong> ಎಲೈ ಮಿತ್ರನೇ, <b>ನಾನು (अहं)</b> ಕೇಳುತ್ತೇನೆ, <b>ನೀನು (त्वं)</b> ಉತ್ತರಿಸು. <b>ನನ್ನ (मम)</b> ಪ್ರಶ್ನೆ ಹಾಗೂ <b>ನಿನ್ನ (तव)</b> ಜ್ಞಾನದಿಂದ ನಮ್ಮಿಬ್ಬರ ಜ್ಞಾನವೃದ್ಧಿಯಾಗುತ್ತದೆ.
+        </p>
+    </div>
+
     <div class="grammar-note">
         <h3>📚 ವ್ಯಾಕರಣದ ಸಾರಾಂಶ (Grammar Insight)</h3>
-        <p style="margin-bottom: 15px; color: #555;">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possession) ಸೂಚಿಸುತ್ತವೆ.</p>
-        
+        <p style="color: #555;">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possessive) ಸೂಚಿಸುತ್ತವೆ.</p>
         <table class="grammar-table">
             <tr>
-                <th>ಸ್ಥಾನ (Role)</th>
-                <th>ನಾನು (1st Person)</th>
-                <th>ನೀನು (2nd Person)</th>
+                <th style="color:var(--text-maroon);">ಸ್ಥಾನ (Role)</th>
+                <th style="color:var(--text-maroon);">ನಾನು (1st Person)</th>
+                <th style="color:var(--text-maroon);">ನೀನು (2nd Person)</th>
             </tr>
             <tr>
                 <td>ಕರ್ತೃ (Subject)</td>
-                <td><span class="sk-text" style="font-size: 1.4rem;">अहम्</span> (Aham)</td>
-                <td><span class="sk-text" style="font-size: 1.4rem;">त्वम्</span> (Tvam)</td>
+                <td><span class="sk-text" style="font-size: 1.3rem;">अहम्</span></td>
+                <td><span class="sk-text" style="font-size: 1.3rem;">त्वम्</span></td>
             </tr>
             <tr>
                 <td>ಸಂಬಂಧ (Possessive)</td>
-                <td><span class="sk-text" style="font-size: 1.4rem;">मम</span> (Mama)</td>
-                <td><span class="sk-text" style="font-size: 1.4rem;">तव</span> (Tava)</td>
+                <td><span class="sk-text" style="font-size: 1.3rem;">मम</span></td>
+                <td><span class="sk-text" style="font-size: 1.3rem;">तव</span></td>
             </tr>
         </table>
     </div>
 
-    <div class="quiz-section">
-        <h2 class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</h2>
-        <p class="quiz-question">"ನಿನ್ನ ಊರು ಮೈಸೂರು" - ಇದನ್ನು ಸಂಸ್ಕೃತದಲ್ಲಿ ಸರಿಯಾಗಿ ಹೇಗೆ ಹೇಳುವಿರಿ?</p>
-        
-        <div class="options-grid" id="quiz-options">
-            <button class="option-btn" onclick="checkAnswer(this, false)">
-                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">A</span> 
-                त्वं ग्रामः मैसूरु ।
-            </button>
-            <button class="option-btn" onclick="checkAnswer(this, true)">
-                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">B</span> 
-                तव ग्रामः मैसूरु ।
-            </button>
-            <button class="option-btn" onclick="checkAnswer(this, false)">
-                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">C</span> 
-                मम ग्रामः मैसूरु ।
-            </button>
+    <div class="quiz-section" id="quiz-container">
+        <div class="quiz-header">
+            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
+            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 5</div>
         </div>
         
-        <div id="feedback" class="feedback-msg"></div>
+        <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+        
+        <div class="options-grid" id="quiz-options">
+            </div>
+
+        <div class="quiz-controls">
+            <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+        </div>
     </div>
 
     <div class="nav-buttons">
         <a href="index.html" class="btn btn-outline">← ಮ್ಯಾಪ್‌ಗೆ ಹಿಂತಿರುಗಿ</a>
-        <a href="level2.html" id="next-btn" class="btn btn-primary">ಮುಂದಿನ ಹಂತ (Level 2) →</a>
+        <a href="level2.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 2) →</a>
     </div>
 
 </div>
 
 <script>
-    function checkAnswer(btn, isCorrect) {
-        // Reset all buttons
-        const allBtns = document.querySelectorAll('.option-btn');
-        allBtns.forEach(b => {
-            b.classList.remove('correct', 'wrong');
-            b.disabled = true; // Disable after one click to prevent guessing
+    // Quiz Data
+    const questions = [
+        {
+            q: "ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನನ್ನ ಹೆಸರು' ಎಂದು ಹೇಳಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?",
+            options: ["अहं नाम", "मम नाम", "तव नाम"],
+            ans: 1
+        },
+        {
+            q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ रविः ।' (ನಾನು ರವಿ)",
+            options: ["त्वम्", "मम", "अहम्"],
+            ans: 2
+        },
+        {
+            q: "'ನಿನ್ನ ಊರು ಮೈಸೂರು' - ಸರಿಯಾದ ಸಂಸ್ಕೃತ ವಾಕ್ಯ ಯಾವುದು?",
+            options: ["तव ग्रामः मैसूरु ।", "त्वं ग्रामः मैसूरु ।", "मम ग्रामः मैसूरु ।"],
+            ans: 0
+        },
+        {
+            q: "ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನೀನು (You)' ಎಂಬುದನ್ನು ಸೂಚಿಸುವ ಪದ ಯಾವುದು?",
+            options: ["मम", "अहम्", "त्वम्"],
+            ans: 2
+        },
+        {
+            q: "ಸರಿಯಾದ ಜೋಡಣೆಯನ್ನು ಗುರುತಿಸಿ:",
+            options: ["अहम् = ನಿನ್ನ", "मम = ನನ್ನ", "तव = ನಾನು"],
+            ans: 1
+        }
+    ];
+
+    let currentQIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById('quiz-question');
+    const optionsEl = document.getElementById('quiz-options');
+    const progressEl = document.getElementById('quiz-progress');
+    const feedbackEl = document.getElementById('quiz-feedback');
+    const nextQBtn = document.getElementById('next-q-btn');
+    const finishBtn = document.getElementById('finish-btn');
+
+    function loadQuestion() {
+        feedbackEl.innerHTML = '';
+        nextQBtn.style.display = 'none';
+        
+        const currentQ = questions[currentQIndex];
+        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 5`;
+        questionEl.textContent = currentQ.q;
+        
+        optionsEl.innerHTML = '';
+        currentQ.options.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerHTML = `<span style="font-family:'Tiro Devanagari Sanskrit', serif;">${opt}</span>`;
+            btn.onclick = () => checkAnswer(index, currentQ.ans, btn);
+            optionsEl.appendChild(btn);
         });
+    }
 
-        const feedback = document.getElementById('feedback');
-        const nextBtn = document.getElementById('next-btn');
+    function checkAnswer(selectedIndex, correctIndex, btnClicked) {
+        // Disable all buttons
+        const allBtns = optionsEl.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
 
-        if (isCorrect) {
-            btn.classList.add('correct');
-            feedback.innerHTML = '✅ ಉತ್ತಮಮ್! (Excellent!) ಸರಿಯಾದ ಉತ್ತರ.';
-            feedback.style.color = 'var(--success-green)';
-            nextBtn.style.display = 'inline-block'; // Show next button
+        if (selectedIndex === correctIndex) {
+            btnClicked.classList.add('correct');
+            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.style.color = 'var(--success-green)';
+            score++;
         } else {
-            btn.classList.add('wrong');
-            feedback.innerHTML = '❌ ತಪ್ಪು. (Wrong). ಸರಿಯಾದ ಉತ್ತರ: तव ग्रामः मैसूरु ।';
-            feedback.style.color = 'var(--error-red)';
-            
-            // Allow retry after 2 seconds
-            setTimeout(() => {
-                allBtns.forEach(b => {
-                    b.classList.remove('correct', 'wrong');
-                    b.disabled = false;
-                });
-                feedback.innerHTML = '';
-            }, 2500);
+            btnClicked.classList.add('wrong');
+            allBtns[correctIndex].classList.add('correct'); // Show correct answer
+            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.style.color = 'var(--error-red)';
+        }
+
+        if (currentQIndex < questions.length - 1) {
+            nextQBtn.style.display = 'inline-block';
+        } else {
+            showFinalResult();
         }
     }
+
+    function nextQuestion() {
+        currentQIndex++;
+        loadQuestion();
+    }
+
+    function showFinalResult() {
+        nextQBtn.style.display = 'none';
+        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
+            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 5</strong>
+        </div>`;
+        
+        if(score >= 4) {
+            feedbackEl.textContent = '🎉 ಅದ್ಭುತ! ನೀವು ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಲು ಸಿದ್ಧರಿದ್ದೀರಿ.';
+            feedbackEl.style.color = 'var(--success-green)';
+            finishBtn.style.display = 'inline-block'; // Show link to level2
+        } else {
+            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.style.color = 'var(--text-brown)';
+            const retryBtn = document.createElement('button');
+            retryBtn.className = 'btn btn-outline';
+            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
+            optionsEl.appendChild(retryBtn);
+        }
+    }
+
+    // Initialize Quiz
+    window.onload = loadQuestion;
 </script>
 
 </body>
