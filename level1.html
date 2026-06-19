@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samskrita Level 1 - अहं & मम</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-parchment: #fdf5e6;
+            --text-brown: #4a2511;
+            --text-maroon: #800000;
+            --accent-gold: #d4af37;
+            --card-bg: #ffffff;
+            --success-green: #22c55e;
+            --error-red: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Laila', sans-serif;
+            background-color: var(--bg-parchment);
+            color: var(--text-brown);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid rgba(128, 0, 0, 0.2);
+            padding-bottom: 20px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            background-color: var(--text-maroon);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Inknut Antiqua', serif;
+            color: var(--text-maroon);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .sk-text {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--text-maroon);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        /* Lesson Cards */
+        .lesson-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(74, 37, 17, 0.1);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .lesson-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-image {
+            flex: 1;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #eee;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .phrase-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--accent-gold);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Grammar Note */
+        .grammar-note {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .grammar-note h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .grammar-table th, .grammar-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .grammar-table th {
+            color: var(--text-maroon);
+            font-weight: 700;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
+            border-top: 5px solid var(--text-maroon);
+            text-align: center;
+        }
+
+        .quiz-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-brown);
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .option-btn {
+            background: var(--bg-parchment);
+            border: 2px solid #ddd;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-gold);
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .option-btn.correct {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--success-green);
+            color: #065f46;
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--error-red);
+            color: #991b1b;
+        }
+
+        .feedback-msg {
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            min-height: 30px;
+        }
+
+        /* Nav Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-maroon);
+            color: var(--text-maroon);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(128, 0, 0, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--text-maroon);
+            color: white;
+            display: none; /* Shown after passing quiz */
+        }
+
+        .btn-primary:hover {
+            background: #600000;
+            box-shadow: 0 5px 15px rgba(128,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .lesson-card, .lesson-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .card-image { height: 200px; width: 100%; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <div class="level-badge">Level 1</div>
+        <h1>ಸ್ವಯಂ ಪರಿಚಯಃ (Identity)</h1>
+        <p class="subtitle">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ (First & Second Person)</p>
+    </header>
+
+    <div class="lesson-card">
+        <div class="card-content">
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೧. ತನ್ನ ಬಗ್ಗೆ ಹೇಳಿಕೊಳ್ಳುವುದು</h2>
+            <p>ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</p>
+            
+            <div class="phrase-box">
+                <div class="sk-text">अहं रविः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ನಾನು ರವಿ (I am Ravi).</div>
+            </div>
+            
+            <div class="phrase-box">
+                <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</div>
+            </div>
+        </div>
+        <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400" alt="Professional Man">
+        </div>
+    </div>
+
+    <div class="lesson-card">
+        <div class="card-content">
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೨. ಎದುರಿಗಿರುವವರನ್ನು ಪರಿಚಯಿಸುವುದು</h2>
+            <p>ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</p>
+            
+            <div class="phrase-box">
+                <div class="sk-text">त्वं गणेशः ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ನೀನು ಗಣೇಶ (You are Ganesh).</div>
+            </div>
+            
+            <div class="phrase-box">
+                <div class="sk-text">तव ग्रामः मैसूरु ।</div>
+                <div style="font-weight: 600; margin-top: 5px;">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</div>
+            </div>
+        </div>
+        <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Another Professional Man">
+        </div>
+    </div>
+
+    <div class="grammar-note">
+        <h3>📚 ವ್ಯಾಕರಣದ ಸಾರಾಂಶ (Grammar Insight)</h3>
+        <p style="margin-bottom: 15px; color: #555;">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possession) ಸೂಚಿಸುತ್ತವೆ.</p>
+        
+        <table class="grammar-table">
+            <tr>
+                <th>ಸ್ಥಾನ (Role)</th>
+                <th>ನಾನು (1st Person)</th>
+                <th>ನೀನು (2nd Person)</th>
+            </tr>
+            <tr>
+                <td>ಕರ್ತೃ (Subject)</td>
+                <td><span class="sk-text" style="font-size: 1.4rem;">अहम्</span> (Aham)</td>
+                <td><span class="sk-text" style="font-size: 1.4rem;">त्वम्</span> (Tvam)</td>
+            </tr>
+            <tr>
+                <td>ಸಂಬಂಧ (Possessive)</td>
+                <td><span class="sk-text" style="font-size: 1.4rem;">मम</span> (Mama)</td>
+                <td><span class="sk-text" style="font-size: 1.4rem;">तव</span> (Tava)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="quiz-section">
+        <h2 class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</h2>
+        <p class="quiz-question">"ನಿನ್ನ ಊರು ಮೈಸೂರು" - ಇದನ್ನು ಸಂಸ್ಕೃತದಲ್ಲಿ ಸರಿಯಾಗಿ ಹೇಗೆ ಹೇಳುವಿರಿ?</p>
+        
+        <div class="options-grid" id="quiz-options">
+            <button class="option-btn" onclick="checkAnswer(this, false)">
+                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">A</span> 
+                त्वं ग्रामः मैसूरु ।
+            </button>
+            <button class="option-btn" onclick="checkAnswer(this, true)">
+                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">B</span> 
+                तव ग्रामः मैसूरु ।
+            </button>
+            <button class="option-btn" onclick="checkAnswer(this, false)">
+                <span style="font-family: 'Laila'; font-size: 1rem; color: #888;">C</span> 
+                मम ग्रामः मैसूरु ।
+            </button>
+        </div>
+        
+        <div id="feedback" class="feedback-msg"></div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="index.html" class="btn btn-outline">← ಮ್ಯಾಪ್‌ಗೆ ಹಿಂತಿರುಗಿ</a>
+        <a href="level2.html" id="next-btn" class="btn btn-primary">ಮುಂದಿನ ಹಂತ (Level 2) →</a>
+    </div>
+
+</div>
+
+<script>
+    function checkAnswer(btn, isCorrect) {
+        // Reset all buttons
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => {
+            b.classList.remove('correct', 'wrong');
+            b.disabled = true; // Disable after one click to prevent guessing
+        });
+
+        const feedback = document.getElementById('feedback');
+        const nextBtn = document.getElementById('next-btn');
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            feedback.innerHTML = '✅ ಉತ್ತಮಮ್! (Excellent!) ಸರಿಯಾದ ಉತ್ತರ.';
+            feedback.style.color = 'var(--success-green)';
+            nextBtn.style.display = 'inline-block'; // Show next button
+        } else {
+            btn.classList.add('wrong');
+            feedback.innerHTML = '❌ ತಪ್ಪು. (Wrong). ಸರಿಯಾದ ಉತ್ತರ: तव ग्रामः मैसूरु ।';
+            feedback.style.color = 'var(--error-red)';
+            
+            // Allow retry after 2 seconds
+            setTimeout(() => {
+                allBtns.forEach(b => {
+                    b.classList.remove('correct', 'wrong');
+                    b.disabled = false;
+                });
+                feedback.innerHTML = '';
+            }, 2500);
+        }
+    }
+</script>
+
+</body>
+</html>
