@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="kn" data-distance="far" data-number="sing">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 5 · ಸರ್ವನಾಮ-ದ್ವಾರಪಥಃ | Samskrita Swayam Shikshaka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500;600;700;800&family=Laila:wght@300;400;500;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   DESIGN TOKENS
+   ========================================================= */
+:root{
+  --bg-parchment:#fdf5e6;
+  --bg-parchment-deep:#f3e6c7;
+  --maroon:#800000;
+  --maroon-deep:#5a0000;
+  --gold:#d4af37;
+  --gold-soft:#e8d28f;
+  --brown:#4a2511;
+  --ink:#2e1608;
+  --paper:#fffdf8;
+  --masc:#1e3a8a;
+  --fem:#9d174d;
+  --neut:#166534;
+  --self:#5b21b6;
+  --success:#1d8a4e;
+  --error:#b3261e;
+  --shadow-soft:0 12px 32px rgba(74,37,17,.12);
+  --shadow-deep:0 18px 40px rgba(90,0,0,.18);
+  --radius-lg:22px;
+  --radius-md:14px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Laila', sans-serif;
+  background-color:var(--bg-parchment);
+  color:var(--ink);
+  line-height:1.65;
+  background-image:
+    radial-gradient(circle at 10% 0%, rgba(212,175,55,.08), transparent 40%),
+    radial-gradient(circle at 95% 20%, rgba(128,0,0,.06), transparent 35%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+a{ color:inherit; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:6px; }
+
+.container{ max-width:1120px; margin:0 auto; padding:0 22px 70px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Tiro Devanagari Sanskrit', serif;
+  font-size:.95rem; letter-spacing:.04em; color:var(--maroon);
+  background:rgba(128,0,0,.06); border:1px solid rgba(128,0,0,.18);
+  padding:5px 16px; border-radius:30px; margin-bottom:14px;
+}
+
+.section-head{ text-align:center; max-width:680px; margin:0 auto 30px; }
+.section-head h2{ font-family:'Inknut Antiqua', serif; color:var(--brown); font-size:1.85rem; margin-bottom:8px; }
+.section-head p{ color:#5e4a3a; font-size:1rem; }
+
+.divider-glyph{ width:34px; height:34px; margin:0 auto 14px; opacity:.85; }
+
+/* =========================================================
+   TOP RULE / HEADER
+   ========================================================= */
+.top-rule{
+  height:10px;
+  background:repeating-linear-gradient(90deg, var(--gold) 0 18px, var(--maroon) 18px 24px, var(--gold) 24px 42px, transparent 42px 54px);
+  opacity:.8;
+}
+
+header.hero{ text-align:center; padding:50px 20px 10px; }
+
+.hero-eyebrow{ font-weight:700; letter-spacing:.12em; color:var(--maroon); text-transform:uppercase; font-size:.78rem; }
+
+.hero h1{
+  font-family:'Inknut Antiqua', serif; color:var(--maroon-deep);
+  font-size:clamp(2rem, 5vw, 3rem); margin:14px 0 6px; line-height:1.2;
+}
+.hero .hero-sk{ font-family:'Tiro Devanagari Sanskrit', serif; display:block; font-size:.6em; color:var(--gold); margin-top:4px;}
+
+.hero-sub{ color:#6b5847; font-size:1.05rem; font-weight:600; max-width:560px; margin:0 auto 30px; }
+
+/* Motto plaque - styled like a copper inscription tablet */
+.motto-plaque{
+  max-width:760px; margin:0 auto 46px;
+  background:linear-gradient(160deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+  border:2px solid var(--gold);
+  border-radius:var(--radius-lg);
+  padding:26px 30px;
+  box-shadow:var(--shadow-deep);
+  position:relative;
+}
+.motto-plaque::before, .motto-plaque::after{
+  content:"❖"; position:absolute; top:10px; color:var(--gold-soft); font-size:1rem;
+}
+.motto-plaque::before{ left:16px; }
+.motto-plaque::after{ right:16px; }
+.motto-sk{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.5rem; color:#fff6e0; display:block; margin-bottom:8px; }
+.motto-kn{ font-size:.96rem; color:#f3dca0; font-style:italic; display:block; }
+.motto-source{ font-size:.8rem; font-weight:700; color:var(--gold); display:block; margin-top:10px; letter-spacing:.03em; }
+
+/* =========================================================
+   THE GATEWAY OF DISTANCE  (signature interactive element)
+   ========================================================= */
+.gate-section{ margin-bottom:60px; }
+
+.toggle-row{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:30px;
+}
+.toggle-col{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+.toggle-col-label{ font-size:.74rem; font-weight:700; letter-spacing:.06em; color:#8a7763; text-transform:uppercase; }
+
+.gate-toggle{
+  position:relative; display:flex; width:min(330px, 100%); margin:0 auto;
+  background:rgba(255,255,255,.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:2px solid var(--gold); border-radius:50px; padding:6px; gap:4px;
+}
+.gate-indicator.indicator-gold{
+  background:linear-gradient(135deg, var(--gold), #a9821f);
+  box-shadow:0 6px 14px rgba(212,175,55,.4);
+}
+.gate-btn{
+  position:relative; z-index:2; flex:1; min-width:0;
+  border:none; background:transparent; cursor:pointer;
+  padding:12px 10px; border-radius:50px;
+  font-family:'Laila', sans-serif; font-weight:700; font-size:1rem;
+  color:var(--brown); display:flex; flex-direction:column; align-items:center; gap:1px;
+  transition:color .35s ease;
+}
+.gate-btn .sk{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.15rem; }
+.gate-btn small{ font-size:.68rem; font-weight:600; opacity:.75; letter-spacing:.03em; }
+.gate-btn.active{ color:#fff8e8; }
+.gate-indicator{
+  position:absolute; top:6px; bottom:6px; left:6px;
+  width:calc(50% - 6px);
+  background:linear-gradient(135deg, var(--maroon), var(--maroon-deep));
+  border-radius:50px; z-index:1;
+  box-shadow:0 6px 14px rgba(128,0,0,.35);
+  transition:transform .45s cubic-bezier(.4,0,.2,1);
+}
+html[data-distance="near"] #gate-indicator{ transform:translateX(100%); }
+html[data-number="plural"] #number-indicator{ transform:translateX(100%); }
+
+/* The corridor: a perspective stage where two figure-sets cross-fade in/out of depth */
+.corridor{
+  position:relative; height:230px; border-radius:var(--radius-lg);
+  overflow:hidden; perspective:900px;
+  background:linear-gradient(180deg, #fffaf0 0%, var(--bg-parchment-deep) 75%);
+  border:2px dashed var(--gold);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.5), var(--shadow-soft);
+}
+.corridor-floor{
+  position:absolute; left:0; right:0; bottom:0; height:55%;
+  background:
+    repeating-linear-gradient(90deg, rgba(128,0,0,.07) 0 2px, transparent 2px 38px);
+  transform:perspective(400px) rotateX(55deg);
+  transform-origin:bottom;
+  opacity:.6;
+}
+.corridor-figures{ position:relative; width:100%; height:100%; transform-style:preserve-3d; }
+.fig-set{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center; gap:clamp(18px,5vw,44px);
+  transition:transform .8s cubic-bezier(.22,1,.36,1), opacity .7s ease, filter .7s ease;
+}
+.fig-chip{
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  background:rgba(255,255,255,.7); border:1px solid rgba(212,175,55,.5);
+  border-radius:12px; padding:8px 10px 10px; min-width:64px;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+}
+.fig-chip .emo{ font-size:1.6rem; line-height:1; }
+.fig-chip .sk{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.15rem; color:var(--maroon); }
+.fig-chip .kn{ font-size:.68rem; font-weight:600; color:#665; }
+
+.fig-set{ opacity:0; transform:translateZ(-280px) scale(.5); filter:blur(4px); pointer-events:none; }
+html[data-distance="far"][data-number="sing"] .fig-set.set-far-sing,
+html[data-distance="far"][data-number="plural"] .fig-set.set-far-plural{
+  opacity:1; transform:translateZ(0) scale(1); filter:blur(0); pointer-events:auto;
+}
+html[data-distance="near"][data-number="sing"] .fig-set.set-near-sing,
+html[data-distance="near"][data-number="plural"] .fig-set.set-near-plural{
+  opacity:1; transform:translateZ(25px) scale(1.07); filter:blur(0); pointer-events:auto;
+}
+
+/* =========================================================
+   MASTER MATRIX  (flip-door cards)
+   ========================================================= */
+.matrix-section{ margin-bottom:64px; }
+.matrix-hint{ text-align:center; font-size:.88rem; color:#7a6450; margin-bottom:18px; font-weight:600;}
+
+.matrix-grid{
+  display:grid;
+  grid-template-columns: 150px 1fr 1fr;
+  gap:10px;
+  background:rgba(255,255,255,.4);
+  border:2px solid var(--gold);
+  border-radius:var(--radius-lg);
+  padding:14px;
+  box-shadow:var(--shadow-soft);
+}
+.mx-corner{ }
+.mx-col-head{
+  text-align:center; font-weight:700; color:var(--brown);
+  font-family:'Inknut Antiqua', serif; font-size:.95rem;
+  display:flex; flex-direction:column; justify-content:center; padding:8px;
+}
+.mx-col-head span{ font-family:'Laila',sans-serif; font-weight:600; font-size:.72rem; color:#8a7763; }
+
+.mx-row-head{
+  display:flex; align-items:center; gap:8px; font-weight:700; font-size:.92rem;
+  border-radius:10px; padding:10px 12px;
+}
+.mx-row-head.masc{ background:rgba(30,58,138,.08); color:var(--masc); }
+.mx-row-head.fem{ background:rgba(157,23,77,.08); color:var(--fem); }
+.mx-row-head.neut{ background:rgba(22,101,52,.08); color:var(--neut); }
+.mx-row-head.self{ background:rgba(91,33,182,.08); color:var(--self); }
+
+.matrix-cell{ perspective:1000px; min-height:130px; cursor:pointer; }
+.cell-inner{
+  position:relative; width:100%; height:100%; min-height:130px;
+  transition:transform .6s cubic-bezier(.4,0,.2,1); transform-style:preserve-3d;
+}
+.matrix-cell.flipped .cell-inner{ transform:rotateY(180deg); }
+.cell-front, .cell-back{
+  position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  padding:10px; text-align:center;
+}
+.cell-front{ background:#fff; border:1px solid #ecdfc4; color:#9a8a72; font-weight:600; font-size:.82rem; }
+.cell-front .ic{ font-size:1.5rem; }
+.cell-back{ background:var(--paper); border:1px solid var(--gold-soft); transform:rotateY(180deg); }
+.cell-back .emoji{ font-size:1.5rem; }
+.cell-back .word{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.4rem; color:var(--maroon); display:none; }
+.cell-back .meaning{ font-size:.78rem; font-weight:700; color:#5e4a3a; display:none; }
+html[data-distance="far"] .cell-back .far-word{ display:block; }
+html[data-distance="near"] .cell-back .near-word{ display:block; }
+
+.two-up{ flex-direction:row; gap:14px; }
+.self-item{ display:flex; flex-direction:column; align-items:center; gap:2px; }
+.self-item .word{ display:block; font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.25rem; color:var(--self); }
+.self-item .meaning{ display:block; font-size:.72rem; font-weight:700; color:#5e4a3a; }
+
+/* =========================================================
+   SENTENCE BUILDER  (drag & drop / tap)
+   ========================================================= */
+.builder-section{ margin-bottom:64px; }
+
+.word-bank{
+  display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+  background:rgba(255,255,255,.5); border:2px dashed var(--gold);
+  border-radius:var(--radius-md); padding:18px; margin-bottom:26px;
+}
+.pronoun-chip{
+  font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.3rem; color:var(--maroon);
+  background:var(--paper); border:2px solid var(--gold-soft); border-radius:12px;
+  padding:9px 18px; cursor:grab; box-shadow:0 3px 7px rgba(0,0,0,.07);
+  transition:transform .2s ease, box-shadow .2s ease, outline-color .2s ease;
+  user-select:none;
+}
+.pronoun-chip:hover{ transform:translateY(-3px); box-shadow:0 8px 16px rgba(0,0,0,.1); }
+.pronoun-chip.selected{ outline:3px solid var(--maroon); transform:translateY(-3px); }
+.pronoun-chip.used{ opacity:.2; pointer-events:none; cursor:default; transform:none; box-shadow:none; }
+.pronoun-chip.dragging{ opacity:.4; }
+
+.sentence-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:16px;
+}
+.sentence-card{
+  background:#fff; border:1px solid #ecdfc4; border-radius:var(--radius-md);
+  padding:16px; display:flex; align-items:center; gap:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.subject-emoji{ font-size:1.8rem; line-height:1; display:flex; flex-direction:column; align-items:center; gap:2px; }
+.subject-emoji small{ font-size:.6rem; font-weight:700; color:#8a7763; }
+.sentence-text{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.25rem; color:var(--ink); display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+.sent-kn{ font-family:'Laila', sans-serif; font-size:.72rem; color:#8a7763; font-weight:600; }
+
+.dropzone{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:62px; height:38px; border:2px dashed var(--gold);
+  border-radius:8px; background:rgba(212,175,55,.08);
+  font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.2rem;
+  transition:background .2s, border-color .2s;
+}
+.dropzone.correct{ border-style:solid; border-color:var(--success); background:rgba(29,138,78,.12); color:var(--success); font-weight:700; }
+.dropzone.wrong{ animation:shake .5s; border-color:var(--error); background:rgba(179,38,30,.1); }
+
+@keyframes shake{
+  10%,90%{ transform:translateX(-2px); }
+  20%,80%{ transform:translateX(4px); }
+  30%,50%,70%{ transform:translateX(-7px); }
+  40%,60%{ transform:translateX(7px); }
+}
+
+.builder-status{
+  text-align:center; margin-top:20px; font-weight:700; color:var(--maroon);
+  font-size:1.05rem;
+}
+
+/* =========================================================
+   SUBHASHITA
+   ========================================================= */
+.subhashita-card{
+  background:linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+  border:2px solid var(--gold); border-radius:var(--radius-lg);
+  padding:34px; text-align:center; margin-bottom:64px;
+  box-shadow:0 10px 24px rgba(212,175,55,.18);
+}
+.subhashita-card h3{ font-family:'Inknut Antiqua', serif; color:var(--brown); margin-bottom:18px; }
+.shloka{ font-family:'Tiro Devanagari Sanskrit', serif; font-size:1.5rem; color:var(--maroon-deep); line-height:1.9; margin-bottom:22px; }
+.grammar-target{ padding:1px 7px; border-radius:6px; transition:background .35s, box-shadow .35s; }
+.grammar-target.active{ background:var(--gold); color:var(--maroon-deep); box-shadow:0 0 0 4px rgba(212,175,55,.25); }
+.shloka-meaning{ font-size:1rem; color:#444; text-align:left; background:rgba(255,255,255,.65); padding:16px 18px; border-radius:12px; }
+
+.btn-gold{
+  margin-top:22px; background:linear-gradient(135deg, var(--gold), #b8932a);
+  border:none; color:#3a2606; font-weight:700; font-size:1rem;
+  padding:13px 26px; border-radius:50px; cursor:pointer;
+  box-shadow:0 6px 14px rgba(212,175,55,.4); transition:transform .2s, box-shadow .2s;
+}
+.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(212,175,55,.5); }
+
+.grammar-popup{
+  margin-top:18px; text-align:left; padding:16px 18px; border-radius:12px;
+  background:rgba(255,255,255,.6); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  border-left:4px solid var(--maroon); font-size:.96rem; color:#3a2c1d;
+  animation:popIn .35s ease;
+}
+@keyframes popIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:translateY(0); } }
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+.quiz-section{
+  background:#fff; border-radius:var(--radius-lg); padding:38px 32px;
+  box-shadow:var(--shadow-soft); border-top:5px solid var(--maroon);
+  margin-bottom:50px;
+}
+.quiz-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.quiz-title{ font-family:'Inknut Antiqua', serif; font-size:1.3rem; color:var(--brown); }
+.quiz-progress{ font-weight:700; color:var(--gold); }
+.quiz-bar-track{ height:6px; border-radius:6px; background:#f0e6cf; margin-bottom:24px; overflow:hidden; }
+.quiz-bar-fill{ height:100%; background:linear-gradient(90deg, var(--gold), var(--maroon)); width:10%; transition:width .4s ease; }
+.quiz-question{ font-size:1.2rem; font-weight:700; margin-bottom:22px; text-align:center; color:var(--ink); }
+.options-grid{ display:flex; flex-direction:column; gap:12px; max-width:520px; margin:0 auto; }
+.option-btn{
+  background:var(--bg-parchment); border:2px solid #e3d4ae; padding:14px 20px;
+  border-radius:12px; font-size:1.08rem; cursor:pointer; text-align:left;
+  display:flex; align-items:center; gap:14px; transition:all .25s ease;
+}
+.option-btn:hover:not(:disabled){ border-color:var(--gold); background:#fff; transform:translateY(-2px); }
+.option-btn .letter{ font-weight:700; color:#9a8a72; }
+.option-btn.correct{ background:rgba(29,138,78,.1); border-color:var(--success); color:#0d5c34; }
+.option-btn.wrong{ background:rgba(179,38,30,.1); border-color:var(--error); color:#7d211b; }
+.option-btn:disabled{ cursor:default; }
+.quiz-controls{ text-align:center; margin-top:24px; }
+.quiz-feedback{ font-weight:700; min-height:24px; margin-bottom:14px; }
+.score-line{ text-align:center; font-size:1.4rem; margin-bottom:18px; }
+.score-line strong{ color:var(--maroon); }
+
+/* =========================================================
+   NAV / FOOTER
+   ========================================================= */
+.nav-buttons{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+.btn{ padding:13px 26px; border-radius:50px; text-decoration:none; font-weight:700; cursor:pointer; border:none; transition:all .25s; font-family:'Laila',sans-serif; font-size:1rem; }
+.btn-outline{ border:2px solid var(--maroon); color:var(--maroon); background:transparent; }
+.btn-outline:hover{ background:rgba(128,0,0,.06); }
+.btn-primary{ background:var(--maroon); color:#fff; }
+.btn-primary:hover{ background:var(--maroon-deep); box-shadow:0 6px 16px rgba(128,0,0,.3); }
+
+footer{ text-align:center; padding:24px 20px 50px; color:#8a7763; font-size:.82rem; }
+footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); display:block; margin-bottom:4px; font-size:1rem; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:900px){
+  .matrix-grid{ grid-template-columns:110px 1fr 1fr; }
+  .corridor{ height:200px; }
+}
+@media (max-width:640px){
+  .container{ padding:0 14px 50px; }
+  .matrix-grid{ grid-template-columns:1fr; }
+  .mx-col-head{ display:none; }
+  .matrix-cell{ min-height:110px; }
+  .mx-row-head{ margin-top:10px; }
+  .fig-set{ gap:10px; }
+  .fig-chip{ min-width:54px; padding:6px 7px 8px; }
+  .fig-chip .sk{ font-size:1rem; }
+  .quiz-section{ padding:26px 18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<header class="hero">
+  <div class="hero-eyebrow">टीम् त्रयी · Team Trayee Presents</div>
+  <h1>सर्वनाम-द्वारपथः<span class="hero-sk">Pronoun Masterclass</span></h1>
+  <p class="hero-sub">ದೂರ ಮತ್ತು ಹತ್ತಿರದ ಪರಿಕಲ್ಪನೆಯೊಂದಿಗೆ — Level 5 ಸಮಗ್ರ ಸರ್ವನಾಮ ಪಾಠ</p>
+
+  <div class="motto-plaque">
+    <span class="motto-sk">आत्मवत् सर्वभूतेषु यः पश्यति स पश्यति ।</span>
+    <span class="motto-kn">"ಯಾರು ಎಲ್ಲಾ ಜೀವಿಗಳನ್ನು ತನ್ನಂತೆಯೇ (ತನ್ನ ಆತ್ಮದಂತೆಯೇ) ನೋಡುತ್ತಾನೋ, ಅವನೇ ನಿಜವಾದ ಜ್ಞಾನಿ."</span>
+    <span class="motto-source">— चाणक्यनीतिः (ಈ ವಾಕ್ಯವು 'ನಾನು' ಮತ್ತು 'ಎಲ್ಲರೂ' ಎಂಬ ಭೇದವನ್ನು ಅಳಿಸುವ ಮಹೋನ್ನತ ತತ್ವವನ್ನು ಸಾರುತ್ತದೆ)</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ============ THE GATEWAY OF DISTANCE ============ -->
+  <section class="gate-section" aria-label="Near and far pronoun gateway">
+    <div class="section-head">
+      <span class="eyebrow">दूरत्व-सिद्धान्तः</span>
+      <h2>ದ್ವಾರಪಥ — ದೂರ ಮತ್ತು ಹತ್ತಿರ</h2>
+      <p>ಎರಡೂ ದ್ವಾರಗಳನ್ನು ಒತ್ತಿ, ಪಥ ಬದಲಾಗುವುದನ್ನು ಗಮನಿಸಿ. ಕೆಳಗಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಕೂಡ ಮೊದಲ ದ್ವಾರವನ್ನು ಅನುಸರಿಸುತ್ತದೆ.</p>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-col">
+        <span class="toggle-col-label">दूरत्वम् · ದೂರ/ಹತ್ತಿರ</span>
+        <div class="gate-toggle" role="group" aria-label="ದೂರ ಅಥವಾ ಹತ್ತಿರ ಆಯ್ಕೆಮಾಡಿ">
+          <div class="gate-indicator" id="gate-indicator"></div>
+          <button class="gate-btn active" id="btn-far" type="button" aria-pressed="true">
+            <span class="sk">👉 दूरम्</span><small>ದೂರ</small>
+          </button>
+          <button class="gate-btn" id="btn-near" type="button" aria-pressed="false">
+            <span class="sk">👇 समीपम्</span><small>ಹತ್ತಿರ</small>
+          </button>
+        </div>
+      </div>
+
+      <div class="toggle-col">
+        <span class="toggle-col-label">वचनम् · ಏಕ/ಬಹುವಚನ</span>
+        <div class="gate-toggle" role="group" aria-label="ಏಕವಚನ ಅಥವಾ ಬಹುವಚನ ಆಯ್ಕೆಮಾಡಿ">
+          <div class="gate-indicator indicator-gold" id="number-indicator"></div>
+          <button class="gate-btn active" id="btn-sing" type="button" aria-pressed="true">
+            <span class="sk">１ एकः</span><small>ಏಕವಚನ</small>
+          </button>
+          <button class="gate-btn" id="btn-plural" type="button" aria-pressed="false">
+            <span class="sk">⁂ बहु</span><small>ಬಹುವಚನ</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="corridor">
+      <div class="corridor-floor"></div>
+      <div class="corridor-figures">
+        <div class="fig-set set-far-sing">
+          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">सः</span><span class="kn">ಅವನು</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">सा</span><span class="kn">ಅವಳು</span></div>
+          <div class="fig-chip"><span class="emo">📦</span><span class="sk">तत्</span><span class="kn">ಅದು</span></div>
+        </div>
+        <div class="fig-set set-far-plural">
+          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">ते</span><span class="kn">ಅವರು</span></div>
+          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">ताः</span><span class="kn">ಅವರು</span></div>
+          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">तानि</span><span class="kn">ಅವು</span></div>
+        </div>
+        <div class="fig-set set-near-sing">
+          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">एषः</span><span class="kn">ಇವನು</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">एषा</span><span class="kn">ಇವಳು</span></div>
+          <div class="fig-chip"><span class="emo">📦</span><span class="sk">एतत्</span><span class="kn">ಇದು</span></div>
+        </div>
+        <div class="fig-set set-near-plural">
+          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">एते</span><span class="kn">ಇವರು</span></div>
+          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">एताः</span><span class="kn">ಇವರು</span></div>
+          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">एतानि</span><span class="kn">ಇವು</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MASTER MATRIX ============ -->
+  <section class="matrix-section">
+    <div class="section-head">
+      <span class="eyebrow">सर्वनाम-तालिका</span>
+      <h2>ಸಮಗ್ರ ಸರ್ವನಾಮ ಮ್ಯಾಟ್ರಿಕ್ಸ್</h2>
+      <p>ಲಿಂಗ ಮತ್ತು ವಚನದ ಪ್ರಕಾರ ಜೋಡಿಸಲಾದ ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳು — ದ್ವಾರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ತೆರೆಯಿರಿ.</p>
+    </div>
+    <p class="matrix-hint">👆 ಪ್ರತಿ ಕಾರ್ಡ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ Enter ಒತ್ತಿ ಪದ ನೋಡಲು</p>
+
+    <div class="matrix-grid">
+      <div class="mx-corner"></div>
+      <div class="mx-col-head">ಏಕವಚನ<span>Singular</span></div>
+      <div class="mx-col-head">ಬಹುವಚನ<span>Plural</span></div>
+
+      <div class="mx-row-head masc">🔵 ಪುಂಲಿಂಗ</div>
+      <div class="matrix-cell" data-gender="masc" data-number="sing">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🔵</span>ಪುಂ · ಏಕ</div>
+          <div class="cell-back">
+            <span class="emoji">🧍‍♂️</span>
+            <span class="word far-word">सः</span><span class="word near-word">एषः</span>
+            <span class="meaning far-word">ಅವನು</span><span class="meaning near-word">ಇವನು</span>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-cell" data-gender="masc" data-number="plural">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🔵</span>ಪುಂ · ಬಹು</div>
+          <div class="cell-back">
+            <span class="emoji">👨‍👦‍👦</span>
+            <span class="word far-word">ते</span><span class="word near-word">एते</span>
+            <span class="meaning far-word">ಅವರು</span><span class="meaning near-word">ಇವರು</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-row-head fem">🌸 ಸ್ತ್ರೀಲಿಂಗ</div>
+      <div class="matrix-cell" data-gender="fem" data-number="sing">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🌸</span>ಸ್ತ್ರೀ · ಏಕ</div>
+          <div class="cell-back">
+            <span class="emoji">🧍‍♀️</span>
+            <span class="word far-word">सा</span><span class="word near-word">एषा</span>
+            <span class="meaning far-word">ಅವಳು</span><span class="meaning near-word">ಇವಳು</span>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-cell" data-gender="fem" data-number="plural">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🌸</span>ಸ್ತ್ರೀ · ಬಹು</div>
+          <div class="cell-back">
+            <span class="emoji">👩‍👧‍👧</span>
+            <span class="word far-word">ताः</span><span class="word near-word">एताः</span>
+            <span class="meaning far-word">ಅವರು</span><span class="meaning near-word">ಇವರು</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-row-head neut">🟢 ನಪುಂಸಕಲಿಂಗ</div>
+      <div class="matrix-cell" data-gender="neut" data-number="sing">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🟢</span>ನಪುಂ · ಏಕ</div>
+          <div class="cell-back">
+            <span class="emoji">📦</span>
+            <span class="word far-word">तत्</span><span class="word near-word">एतत्</span>
+            <span class="meaning far-word">ಅದು</span><span class="meaning near-word">ಇದು</span>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-cell" data-gender="neut" data-number="plural">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">🟢</span>ನಪುಂ · ಬಹು</div>
+          <div class="cell-back">
+            <span class="emoji">📦📦</span>
+            <span class="word far-word">तानि</span><span class="word near-word">एतानि</span>
+            <span class="meaning far-word">ಅವು</span><span class="meaning near-word">ಇವು</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-row-head self">⭐ ಉತ್ತಮ/ಮಧ್ಯಮ</div>
+      <div class="matrix-cell" data-gender="self" data-number="sing">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">⭐</span>1/2 · ಏಕ</div>
+          <div class="cell-back two-up">
+            <div class="self-item"><span class="emoji">🙋‍♂️</span><span class="word">अहम्</span><span class="meaning">ನಾನು</span></div>
+            <div class="self-item"><span class="emoji">🫵</span><span class="word">त्वम्</span><span class="meaning">ನೀನು</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-cell" data-gender="self" data-number="plural">
+        <div class="cell-inner">
+          <div class="cell-front"><span class="ic">⭐</span>1/2 · ಬಹು</div>
+          <div class="cell-back two-up">
+            <div class="self-item"><span class="emoji">🫂</span><span class="word">वयम्</span><span class="meaning">ನಾವು</span></div>
+            <div class="self-item"><span class="emoji">🫵🫵</span><span class="word">यूयम्</span><span class="meaning">ನೀವೆಲ್ಲರೂ</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SENTENCE BUILDER GAME ============ -->
+  <section class="builder-section">
+    <div class="section-head">
+      <span class="eyebrow">वाक्य-निर्माणम्</span>
+      <h2>ವಾಕ್ಯ ನಿರ್ಮಾಣ ಆಟ</h2>
+      <p>ಸರಿಯಾದ ಸರ್ವನಾಮವನ್ನು ಎಳೆದು (drag) ಖಾಲಿ ಜಾಗಕ್ಕೆ ಬಿಡಿ — ಮೊಬೈಲ್‌ನಲ್ಲಿ ಮೊದಲು ಪದ ಒತ್ತಿ, ನಂತರ ಖಾಲಿ ಜಾಗ ಒತ್ತಿ.</p>
+    </div>
+
+    <div class="word-bank" id="word-bank">
+      <div class="pronoun-chip" draggable="true" id="chip-1" data-pronoun="सः">सः</div>
+      <div class="pronoun-chip" draggable="true" id="chip-2" data-pronoun="एषा">एषा</div>
+      <div class="pronoun-chip" draggable="true" id="chip-3" data-pronoun="तत्">तत्</div>
+      <div class="pronoun-chip" draggable="true" id="chip-4" data-pronoun="अहम्">अहम्</div>
+      <div class="pronoun-chip" draggable="true" id="chip-5" data-pronoun="त्वम्">त्वम्</div>
+      <div class="pronoun-chip" draggable="true" id="chip-6" data-pronoun="वयम्">वयम्</div>
+      <div class="pronoun-chip" draggable="true" id="chip-7" data-pronoun="ते">ते</div>
+      <div class="pronoun-chip" draggable="true" id="chip-8" data-pronoun="एताः">एताः</div>
+      <div class="pronoun-chip" draggable="true" id="chip-9" data-pronoun="एषः">एषः</div>
+      <div class="pronoun-chip" draggable="true" id="chip-10" data-pronoun="सा">सा</div>
+      <div class="pronoun-chip" draggable="true" id="chip-11" data-pronoun="ताः">ताः</div>
+      <div class="pronoun-chip" draggable="true" id="chip-12" data-pronoun="यूयम्">यूयम्</div>
+    </div>
+
+    <div class="sentence-grid" id="sentence-grid">
+      <div class="sentence-card">
+        <span class="subject-emoji">🧍‍♂️<small>ದೂರ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="सः"></span> पठति। <span class="sent-kn">ಅವನು ಓದುತ್ತಾನೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">🧍‍♀️<small>ಹತ್ತಿರ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="एषा"></span> नृत्यति। <span class="sent-kn">ಇವಳು ನೃತ್ಯ ಮಾಡುತ್ತಾಳೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">📦<small>ದೂರ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="तत्"></span> चलति। <span class="sent-kn">ಅದು ಚಲಿಸುತ್ತದೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">🙋‍♂️<small>ಸ್ವಯಂ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="अहम्"></span> लिखामि। <span class="sent-kn">ನಾನು ಬರೆಯುತ್ತೇನೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">🫵<small>ಮಧ್ಯಮ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="त्वम्"></span> पश्यसि। <span class="sent-kn">ನೀನು ನೋಡುತ್ತೀಯೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">🫂<small>ಬಹು</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="वयम्"></span> क्रीडामः। <span class="sent-kn">ನಾವು ಆಡುತ್ತೇವೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">👨‍👦‍👦<small>ದೂರ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="ते"></span> गच्छन्ति। <span class="sent-kn">ಅವರು ಹೋಗುತ್ತಾರೆ</span></div>
+      </div>
+      <div class="sentence-card">
+        <span class="subject-emoji">👩‍👧‍👧<small>ಹತ್ತಿರ</small></span>
+        <div class="sentence-text"><span class="dropzone" data-answer="एताः"></span> हसन्ति। <span class="sent-kn">ಇವರು ನಗುತ್ತಾರೆ</span></div>
+      </div>
+    </div>
+
+    <div class="builder-status" id="builder-status">0 / 8 ಪೂರ್ಣಗೊಂಡಿದೆ</div>
+  </section>
+
+  <!-- ============ SUBHASHITA ============ -->
+  <section class="subhashita-card">
+    <h3>सुभाषितम् - ५</h3>
+    <p class="shloka">
+      काकः कृष्णः पिकः कृष्णः <span class="grammar-target" id="grammar-word">को</span> भेदः पिककाकयोः ।<br>
+      वसन्तसमये प्राप्ते काकः काकः पिकः पिकः ॥
+    </p>
+    <div class="shloka-meaning">
+      <strong>ಅರ್ಥ:</strong> ಕಾಗೆಯೂ ಕಪ್ಪಾಗಿದೆ, ಕೋಗಿಲೆಯೂ ಕಪ್ಪಾಗಿದೆ. ಹಾಗಾದರೆ ಅವೆರಡರ ನಡುವೆ ಯಾವ ಭೇದವನ್ನು ಹುಡುಕಬಲ್ಲರು? ಆದರೆ ವಸಂತ ಕಾಲ ಬಂದಾಗ (ಕೂಗಲು ಆರಂಭಿಸಿದಾಗ), ಕಾಗೆಯು ಕಾಗೆಯೇ ಸರಿ, ಕೋಗಿಲೆಯು ಕೋಗಿಲೆಯೇ ಸರಿ ಎಂದು ಎಲ್ಲರಿಗೂ ತಿಳಿಯುತ್ತದೆ. (ಬಾಹ್ಯ ರೂಪಕ್ಕಿಂತ ಆಂತರಿಕ ಗುಣವೇ ಮುಖ್ಯ).
+    </div>
+    <button class="btn-gold" id="highlight-btn" type="button">✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)</button>
+    <div class="grammar-popup" id="grammar-popup" hidden>
+      <strong>को (ಕಃ → को)</strong> — ಇದು ಮೂಲತಃ <strong>कः</strong> (ಪುಂಲಿಂಗ ಪ್ರಶ್ನಾರ್ಥಕ ಸರ್ವನಾಮ, "ಯಾರು/ಯಾವುದು") ಎಂಬ ಪದ. "कः + भेदः" ಎರಡು ಪದಗಳು ಸೇರಿದಾಗ ವಿಸರ್ಗ ಸಂಧಿಯ ಕಾರಣದಿಂದ <strong>को भेदः</strong> ಎಂದು ರೂಪಾಂತರಗೊಳ್ಳುತ್ತದೆ. ಮೇಲಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್‌ನಲ್ಲಿ ಇದೇ कः ಪದವನ್ನು ಪುಂಲಿಂಗ ಏಕವಚನ ಪ್ರಶ್ನಾರ್ಥಕವಾಗಿ ನೀವು ಗುರುತಿಸಬಹುದು.
+    </div>
+  </section>
+
+  <!-- ============ MEGA QUIZ ============ -->
+  <section class="quiz-section" id="quiz-container">
+    <div class="quiz-header">
+      <div class="quiz-title">ಮಹಾ ರಸಪ್ರಶ್ನೆ</div>
+      <div class="quiz-progress" id="quiz-progress">1 / 10</div>
+    </div>
+    <div class="quiz-bar-track"><div class="quiz-bar-fill" id="quiz-bar-fill"></div></div>
+
+    <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+    <div class="options-grid" id="quiz-options"></div>
+
+    <div class="quiz-controls">
+      <p class="quiz-feedback" id="quiz-feedback"></p>
+      <button id="next-q-btn" class="btn btn-primary" style="display:none;" type="button">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+    </div>
+  </section>
+
+  <div class="nav-buttons">
+    <a href="level4.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 4)</a>
+    <a href="level6.html" id="finish-btn" class="btn btn-primary" style="display:none;">ಮುಂದಿನ ಹಂತ (Level 6) →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="fk">टीम् त्रयी</span>
+  Samskrita-Swayam-Shikshaka · Level 5 · Pronoun Masterclass
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Gateway of Distance ---------- */
+  var html = document.documentElement;
+  var btnFar = document.getElementById('btn-far');
+  var btnNear = document.getElementById('btn-near');
+  var btnSing = document.getElementById('btn-sing');
+  var btnPlural = document.getElementById('btn-plural');
+
+  function setDistance(state){
+    html.setAttribute('data-distance', state);
+    btnFar.classList.toggle('active', state === 'far');
+    btnNear.classList.toggle('active', state === 'near');
+    btnFar.setAttribute('aria-pressed', state === 'far');
+    btnNear.setAttribute('aria-pressed', state === 'near');
+  }
+  btnFar.addEventListener('click', function(){ setDistance('far'); });
+  btnNear.addEventListener('click', function(){ setDistance('near'); });
+
+  function setNumber(state){
+    html.setAttribute('data-number', state);
+    btnSing.classList.toggle('active', state === 'sing');
+    btnPlural.classList.toggle('active', state === 'plural');
+    btnSing.setAttribute('aria-pressed', state === 'sing');
+    btnPlural.setAttribute('aria-pressed', state === 'plural');
+  }
+  btnSing.addEventListener('click', function(){ setNumber('sing'); });
+  btnPlural.addEventListener('click', function(){ setNumber('plural'); });
+
+  /* ---------- Matrix flip cards ---------- */
+  var cells = document.querySelectorAll('.matrix-cell');
+  cells.forEach(function(cell){
+    cell.setAttribute('tabindex', '0');
+    cell.setAttribute('role', 'button');
+    cell.setAttribute('aria-pressed', 'false');
+    function toggle(){
+      var flipped = cell.classList.toggle('flipped');
+      cell.setAttribute('aria-pressed', flipped);
+    }
+    cell.addEventListener('click', toggle);
+    cell.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+  /* ---------- Sentence Builder (drag + tap fallback) ---------- */
+  var selectedChip = null;
+  var chips = document.querySelectorAll('.pronoun-chip');
+  var zones = document.querySelectorAll('.dropzone');
+
+  function clearSelection(){
+    chips.forEach(function(c){ c.classList.remove('selected'); });
+    selectedChip = null;
+  }
+
+  function attemptPlacement(zone, pronoun, chipEl){
+    if(zone.classList.contains('correct')) return;
+    if(pronoun === zone.getAttribute('data-answer')){
+      zone.textContent = pronoun;
+      zone.classList.add('correct');
+      if(chipEl){
+        chipEl.classList.add('used');
+        chipEl.setAttribute('draggable', 'false');
+      }
+      clearSelection();
+      updateBuilderStatus();
+    } else {
+      zone.classList.remove('wrong');
+      void zone.offsetWidth; /* restart animation */
+      zone.classList.add('wrong');
+      setTimeout(function(){ zone.classList.remove('wrong'); }, 500);
+      clearSelection();
+    }
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('dragstart', function(e){
+      e.dataTransfer.setData('text/plain', chip.getAttribute('data-pronoun'));
+      e.dataTransfer.setData('text/chip-id', chip.id);
+      chip.classList.add('dragging');
+    });
+    chip.addEventListener('dragend', function(){ chip.classList.remove('dragging'); });
+
+    chip.addEventListener('click', function(){
+      if(chip.classList.contains('used')) return;
+      if(selectedChip === chip){ clearSelection(); return; }
+      chips.forEach(function(c){ c.classList.remove('selected'); });
+      chip.classList.add('selected');
+      selectedChip = chip;
+    });
+  });
+
+  zones.forEach(function(zone){
+    zone.addEventListener('dragover', function(e){ e.preventDefault(); });
+    zone.addEventListener('drop', function(e){
+      e.preventDefault();
+      var pronoun = e.dataTransfer.getData('text/plain');
+      var chipId = e.dataTransfer.getData('text/chip-id');
+      var chipEl = chipId ? document.getElementById(chipId) : null;
+      attemptPlacement(zone, pronoun, chipEl);
+    });
+    zone.addEventListener('click', function(){
+      if(!selectedChip) return;
+      attemptPlacement(zone, selectedChip.getAttribute('data-pronoun'), selectedChip);
+    });
+  });
+
+  function updateBuilderStatus(){
+    var total = zones.length;
+    var done = document.querySelectorAll('.dropzone.correct').length;
+    var statusEl = document.getElementById('builder-status');
+    statusEl.textContent = done + ' / ' + total + ' ಪೂರ್ಣಗೊಂಡಿದೆ';
+    if(done === total){
+      statusEl.textContent += '  🎉 ಅಭಿನಂದನೆಗಳು! ಎಲ್ಲಾ ವಾಕ್ಯಗಳು ಸರಿಯಾಗಿವೆ.';
+    }
+  }
+
+  /* ---------- Subhashita grammar highlight ---------- */
+  var grammarBtn = document.getElementById('highlight-btn');
+  var grammarWord = document.getElementById('grammar-word');
+  var grammarPopup = document.getElementById('grammar-popup');
+
+  grammarBtn.addEventListener('click', function(){
+    var active = grammarWord.classList.toggle('active');
+    grammarPopup.hidden = !active;
+    grammarBtn.textContent = active
+      ? '✖ ಮುಚ್ಚಿ (Close)'
+      : '✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)';
+  });
+
+  /* ---------- Mega Quiz ---------- */
+  var questions = [
+    { q: "ನಿಮ್ಮ ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಪುರುಷನನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?", options: ["सः", "एषः", "एषा", "कः"], ans: 1 },
+    { q: "ದೂರದಲ್ಲಿರುವ (👉) ಮಹಿಳೆಯನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸಬೇಕು?", options: ["सा", "एषा", "ताः", "एताः"], ans: 0 },
+    { q: "'ತಾವು' ಎಂದು ಸ್ತ್ರೀಯರನ್ನು ಗೌರವಯುತವಾಗಿ ಕರೆಯಲು ಬಳಸುವ ಪದ?", options: ["भवान्", "भवती", "एषा", "त्वम्"], ans: 1 },
+    { q: "'ಏನು?' ಎಂದು ಪ್ರಶ್ನಿಸಲು ನಪುಂಸಕಲಿಂಗದಲ್ಲಿ ಬಳಸುವ ಪದ?", options: ["कः", "का", "किम्", "तत्"], ans: 2 },
+    { q: "ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಅನೇಕ ಪುರುಷರನ್ನು (Masculine Plural) ಸೂಚಿಸಲು?", options: ["एताः", "एते", "ते", "एतानि"], ans: 1 },
+    { q: "ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'को' ಪದದ ಮೂಲರೂಪ ಮತ್ತು ಅರ್ಥವೇನು?", options: ["किम् - ಏನು?", "कः - ಯಾರು/ಯಾವುದು? (ಪು)", "का - ಯಾರು? (ಸ್ತ್ರೀ)", "कुत्र - ಎಲ್ಲಿ?"], ans: 1 },
+    { q: "'ನಾನು' ಮತ್ತು 'ನಾವು' ಎಂಬುದಕ್ಕೆ ಸರಿಯಾದ ಸಂಸ್ಕೃತ ಜೋಡಿ ಯಾವುದು?", options: ["त्वम् - यूयम्", "अहम् - यूयम्", "अहम् - वयम्", "सः - ते"], ans: 2 },
+    { q: "ದೂರದಲ್ಲಿರುವ (👉) ಅನೇಕ ವಸ್ತುಗಳನ್ನು (ನಪುಂಸಕಲಿಂಗ ಬಹುವಚನ) ಸೂಚಿಸಲು?", options: ["तानि", "एतानि", "ताः", "ते"], ans: 0 },
+    { q: "ಯಾರನ್ನಾದರೂ ಪ್ರಶ್ನಿಸಲು 'ಯಾರು?' ಎಂದು ಪುಂಲಿಂಗದಲ್ಲಿ ಹೇಗೆ ಕೇಳುವಿರಿ?", options: ["का", "किम्", "कः", "सः"], ans: 2 },
+    { q: "'एतत्' (ಹತ್ತಿರದಲ್ಲಿರುವ ವಸ್ತು) ಪದದ ಬಹುವಚನ ರೂಪವೇನು?", options: ["तानि", "एतानि", "एते", "एताः"], ans: 1 }
+  ];
+
+  var currentQIndex = 0;
+  var score = 0;
+
+  var questionEl = document.getElementById('quiz-question');
+  var optionsEl = document.getElementById('quiz-options');
+  var progressEl = document.getElementById('quiz-progress');
+  var barFillEl = document.getElementById('quiz-bar-fill');
+  var feedbackEl = document.getElementById('quiz-feedback');
+  var nextQBtn = document.getElementById('next-q-btn');
+  var finishBtn = document.getElementById('finish-btn');
+
+  var letters = ['A','B','C','D'];
+
+  function loadQuestion(){
+    feedbackEl.textContent = '';
+    nextQBtn.style.display = 'none';
+
+    var currentQ = questions[currentQIndex];
+    progressEl.textContent = (currentQIndex + 1) + ' / ' + questions.length;
+    barFillEl.style.width = (((currentQIndex + 1) / questions.length) * 100) + '%';
+    questionEl.textContent = currentQ.q;
+
+    optionsEl.innerHTML = '';
+    currentQ.options.forEach(function(opt, index){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn';
+      var isSanskrit = /[\u0900-\u097F]/.test(opt);
+      var letterSpan = '<span class="letter">' + letters[index] + '</span>';
+      var textSpan = isSanskrit
+        ? '<span style="font-family:\'Tiro Devanagari Sanskrit\', serif; font-size:1.25rem;">' + opt + '</span>'
+        : '<span>' + opt + '</span>';
+      btn.innerHTML = letterSpan + textSpan;
+      btn.addEventListener('click', function(){ checkAnswer(index, currentQ.ans, btn); });
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(selectedIndex, correctIndex, btnClicked){
+    var allBtns = optionsEl.querySelectorAll('.option-btn');
+    allBtns.forEach(function(b){ b.disabled = true; });
+
+    if(selectedIndex === correctIndex){
+      btnClicked.classList.add('correct');
+      feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+      feedbackEl.style.color = 'var(--success)';
+      score++;
+    } else {
+      btnClicked.classList.add('wrong');
+      allBtns[correctIndex].classList.add('correct');
+      feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+      feedbackEl.style.color = 'var(--error)';
+    }
+
+    if(currentQIndex < questions.length - 1){
+      nextQBtn.style.display = 'inline-block';
+    } else {
+      showFinalResult();
+    }
+  }
+
+  nextQBtn.addEventListener('click', function(){
+    currentQIndex++;
+    loadQuestion();
+  });
+
+  function showFinalResult(){
+    nextQBtn.style.display = 'none';
+    questionEl.textContent = 'ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!';
+    optionsEl.innerHTML = '<div class="score-line">ನಿಮ್ಮ ಅಂಕಗಳು: <strong>' + score + ' / ' + questions.length + '</strong></div>';
+
+    if(score >= 8){
+      feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕರಗತ ಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.';
+      feedbackEl.style.color = 'var(--success)';
+      finishBtn.style.display = 'inline-block';
+    } else {
+      feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಕೋಷ್ಟಕವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+      feedbackEl.style.color = 'var(--brown)';
+      var retryBtn = document.createElement('button');
+      retryBtn.type = 'button';
+      retryBtn.className = 'btn btn-outline';
+      retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+      retryBtn.style.marginTop = '10px';
+      retryBtn.addEventListener('click', function(){
+        currentQIndex = 0; score = 0; loadQuestion();
+      });
+      optionsEl.appendChild(retryBtn);
+    }
+  }
+
+  loadQuestion();
+})();
+</script>
+</body>
+</html>
