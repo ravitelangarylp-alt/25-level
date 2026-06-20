@@ -41,6 +41,10 @@
 
 html{ scroll-behavior:smooth; }
 
+/* --- LANGUAGE TOGGLE CSS MAGIC --- */
+body.lang-en .kn-text { display: none !important; }
+body.lang-kn .en-text { display: none !important; }
+
 body{
   font-family:'Laila', sans-serif;
   background-color:var(--bg-parchment);
@@ -54,6 +58,30 @@ body{
 
 a{ color:inherit; }
 :focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:6px; }
+
+/* Top Nav */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.logo-home { 
+    font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+    font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+    transition: transform 0.2s;
+}
+.logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+
+.lang-switch-btn {
+    background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+    padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+}
+.lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
 .container{ max-width:1120px; margin:0 auto; padding:0 22px 70px; }
 
@@ -69,8 +97,6 @@ a{ color:inherit; }
 .section-head h2{ font-family:'Inknut Antiqua', serif; color:var(--brown); font-size:1.85rem; margin-bottom:8px; }
 .section-head p{ color:#5e4a3a; font-size:1rem; }
 
-.divider-glyph{ width:34px; height:34px; margin:0 auto 14px; opacity:.85; }
-
 /* =========================================================
    TOP RULE / HEADER
    ========================================================= */
@@ -80,7 +106,7 @@ a{ color:inherit; }
   opacity:.8;
 }
 
-header.hero{ text-align:center; padding:50px 20px 10px; }
+header.hero{ text-align:center; padding:30px 20px 10px; }
 
 .hero-eyebrow{ font-weight:700; letter-spacing:.12em; color:var(--maroon); text-transform:uppercase; font-size:.78rem; }
 
@@ -92,7 +118,7 @@ header.hero{ text-align:center; padding:50px 20px 10px; }
 
 .hero-sub{ color:#6b5847; font-size:1.05rem; font-weight:600; max-width:560px; margin:0 auto 30px; }
 
-/* Motto plaque - styled like a copper inscription tablet */
+/* Motto plaque */
 .motto-plaque{
   max-width:760px; margin:0 auto 46px;
   background:linear-gradient(160deg, var(--maroon) 0%, var(--maroon-deep) 100%);
@@ -112,7 +138,7 @@ header.hero{ text-align:center; padding:50px 20px 10px; }
 .motto-source{ font-size:.8rem; font-weight:700; color:var(--gold); display:block; margin-top:10px; letter-spacing:.03em; }
 
 /* =========================================================
-   THE GATEWAY OF DISTANCE  (signature interactive element)
+   THE GATEWAY OF DISTANCE 
    ========================================================= */
 .gate-section{ margin-bottom:60px; }
 
@@ -153,7 +179,6 @@ header.hero{ text-align:center; padding:50px 20px 10px; }
 html[data-distance="near"] #gate-indicator{ transform:translateX(100%); }
 html[data-number="plural"] #number-indicator{ transform:translateX(100%); }
 
-/* The corridor: a perspective stage where two figure-sets cross-fade in/out of depth */
 .corridor{
   position:relative; height:230px; border-radius:var(--radius-lg);
   overflow:hidden; perspective:900px;
@@ -195,7 +220,7 @@ html[data-distance="near"][data-number="plural"] .fig-set.set-near-plural{
 }
 
 /* =========================================================
-   MASTER MATRIX  (flip-door cards)
+   MASTER MATRIX 
    ========================================================= */
 .matrix-section{ margin-bottom:64px; }
 .matrix-hint{ text-align:center; font-size:.88rem; color:#7a6450; margin-bottom:18px; font-weight:600;}
@@ -210,7 +235,6 @@ html[data-distance="near"][data-number="plural"] .fig-set.set-near-plural{
   padding:14px;
   box-shadow:var(--shadow-soft);
 }
-.mx-corner{ }
 .mx-col-head{
   text-align:center; font-weight:700; color:var(--brown);
   font-family:'Inknut Antiqua', serif; font-size:.95rem;
@@ -253,7 +277,7 @@ html[data-distance="near"] .cell-back .near-word{ display:block; }
 .self-item .meaning{ display:block; font-size:.72rem; font-weight:700; color:#5e4a3a; }
 
 /* =========================================================
-   SENTENCE BUILDER  (drag & drop / tap)
+   SENTENCE BUILDER 
    ========================================================= */
 .builder-section{ margin-bottom:64px; }
 
@@ -374,7 +398,7 @@ html[data-distance="near"] .cell-back .near-word{ display:block; }
    NAV / FOOTER
    ========================================================= */
 .nav-buttons{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
-.btn{ padding:13px 26px; border-radius:50px; text-decoration:none; font-weight:700; cursor:pointer; border:none; transition:all .25s; font-family:'Laila',sans-serif; font-size:1rem; }
+.btn{ padding:13px 26px; border-radius:50px; text-decoration:none; font-weight:700; cursor:pointer; border:none; transition:all .25s; font-family:'Laila',sans-serif; font-size:1rem; display: flex; align-items: center; gap: 5px;}
 .btn-outline{ border:2px solid var(--maroon); color:var(--maroon); background:transparent; }
 .btn-outline:hover{ background:rgba(128,0,0,.06); }
 .btn-primary{ background:var(--maroon); color:#fff; }
@@ -403,55 +427,113 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
 }
 </style>
 </head>
-<body>
+<body class="lang-kn">
 
 <div class="top-rule"></div>
 
+<nav class="top-nav">
+    <a href="index.html" class="logo-home">
+        <span>🏠</span>
+        <span class="kn-text">ಮುಖಪುಟ</span>
+        <span class="en-text">Home</span>
+    </a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
+
 <header class="hero">
-  <div class="hero-eyebrow">टीम् त्रयी · Team Trayee Presents</div>
-  <h1>सर्वनाम-द्वारपथः<span class="hero-sk">Pronoun Masterclass</span></h1>
-  <p class="hero-sub">ದೂರ ಮತ್ತು ಹತ್ತಿರದ ಪರಿಕಲ್ಪನೆಯೊಂದಿಗೆ — Level 5 ಸಮಗ್ರ ಸರ್ವನಾಮ ಪಾಠ</p>
+  <div class="hero-eyebrow">
+      <span class="kn-text">टीम् त्रयी · Team Trayee Presents</span>
+      <span class="en-text">Team Trayee Presents</span>
+  </div>
+  <h1>
+      <span class="kn-text">सर्वनाम-द्वारपथः</span>
+      <span class="en-text">Pronoun Masterclass</span>
+      <span class="hero-sk">Pronoun Masterclass</span>
+  </h1>
+  <p class="hero-sub">
+      <span class="kn-text">ದೂರ ಮತ್ತು ಹತ್ತಿರದ ಪರಿಕಲ್ಪನೆಯೊಂದಿಗೆ — Level 5 ಸಮಗ್ರ ಸರ್ವನಾಮ ಪಾಠ</span>
+      <span class="en-text">With the concept of Far and Near — Level 5 Pronoun Masterclass</span>
+  </p>
 
   <div class="motto-plaque">
     <span class="motto-sk">आत्मवत् सर्वभूतेषु यः पश्यति स पश्यति ।</span>
-    <span class="motto-kn">"ಯಾರು ಎಲ್ಲಾ ಜೀವಿಗಳನ್ನು ತನ್ನಂತೆಯೇ (ತನ್ನ ಆತ್ಮದಂತೆಯೇ) ನೋಡುತ್ತಾನೋ, ಅವನೇ ನಿಜವಾದ ಜ್ಞಾನಿ."</span>
-    <span class="motto-source">— चाणक्यनीतिः (ಈ ವಾಕ್ಯವು 'ನಾನು' ಮತ್ತು 'ಎಲ್ಲರೂ' ಎಂಬ ಭೇದವನ್ನು ಅಳಿಸುವ ಮಹೋನ್ನತ ತತ್ವವನ್ನು ಸಾರುತ್ತದೆ)</span>
+    <span class="motto-kn">
+        <span class="kn-text">"ಯಾರು ಎಲ್ಲಾ ಜೀವಿಗಳನ್ನು ತನ್ನಂತೆಯೇ (ತನ್ನ ಆತ್ಮದಂತೆಯೇ) ನೋಡುತ್ತಾನೋ, ಅವನೇ ನಿಜವಾದ ಜ್ಞಾನಿ."</span>
+        <span class="en-text">"He who sees all beings as himself (as his own soul), is the truly wise one."</span>
+    </span>
+    <span class="motto-source">
+        <span class="kn-text">— चाणक्यनीतिः (ಈ ವಾಕ್ಯವು 'ನಾನು' ಮತ್ತು 'ಎಲ್ಲರೂ' ಎಂಬ ಭೇದವನ್ನು ಅಳಿಸುವ ಮಹೋನ್ನತ ತತ್ವವನ್ನು ಸಾರುತ್ತದೆ)</span>
+        <span class="en-text">— Chanakya Neeti (This verse conveys the noble principle of erasing the difference between 'I' and 'Everyone else')</span>
+    </span>
   </div>
 </header>
 
 <div class="container">
 
-  <!-- ============ THE GATEWAY OF DISTANCE ============ -->
   <section class="gate-section" aria-label="Near and far pronoun gateway">
     <div class="section-head">
-      <span class="eyebrow">दूरत्व-सिद्धान्तः</span>
-      <h2>ದ್ವಾರಪಥ — ದೂರ ಮತ್ತು ಹತ್ತಿರ</h2>
-      <p>ಎರಡೂ ದ್ವಾರಗಳನ್ನು ಒತ್ತಿ, ಪಥ ಬದಲಾಗುವುದನ್ನು ಗಮನಿಸಿ. ಕೆಳಗಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಕೂಡ ಮೊದಲ ದ್ವಾರವನ್ನು ಅನುಸರಿಸುತ್ತದೆ.</p>
+      <span class="eyebrow">
+          <span class="kn-text">दूरत्व-सिद्धान्तः</span>
+          <span class="en-text">Principle of Distance</span>
+      </span>
+      <h2>
+          <span class="kn-text">ದ್ವಾರಪಥ — ದೂರ ಮತ್ತು ಹತ್ತಿರ</span>
+          <span class="en-text">Gateway — Far and Near</span>
+      </h2>
+      <p>
+          <span class="kn-text">ಎರಡೂ ದ್ವಾರಗಳನ್ನು ಒತ್ತಿ, ಪಥ ಬದಲಾಗುವುದನ್ನು ಗಮನಿಸಿ. ಕೆಳಗಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಕೂಡ ಮೊದಲ ದ್ವಾರವನ್ನು ಅನುಸರಿಸುತ್ತದೆ.</span>
+          <span class="en-text">Press both gateways and observe the path changing. The matrix below also follows the first gateway.</span>
+      </p>
     </div>
 
     <div class="toggle-row">
       <div class="toggle-col">
-        <span class="toggle-col-label">दूरत्वम् · ದೂರ/ಹತ್ತಿರ</span>
+        <span class="toggle-col-label">
+            <span class="kn-text">दूरत्वम् · ದೂರ/ಹತ್ತಿರ</span>
+            <span class="en-text">Distance · Far/Near</span>
+        </span>
         <div class="gate-toggle" role="group" aria-label="ದೂರ ಅಥವಾ ಹತ್ತಿರ ಆಯ್ಕೆಮಾಡಿ">
           <div class="gate-indicator" id="gate-indicator"></div>
           <button class="gate-btn active" id="btn-far" type="button" aria-pressed="true">
-            <span class="sk">👉 दूरम्</span><small>ದೂರ</small>
+            <span class="sk">👉 दूरम्</span>
+            <small>
+                <span class="kn-text">ದೂರ</span>
+                <span class="en-text">Far</span>
+            </small>
           </button>
           <button class="gate-btn" id="btn-near" type="button" aria-pressed="false">
-            <span class="sk">👇 समीपम्</span><small>ಹತ್ತಿರ</small>
+            <span class="sk">👇 समीपम्</span>
+            <small>
+                <span class="kn-text">ಹತ್ತಿರ</span>
+                <span class="en-text">Near</span>
+            </small>
           </button>
         </div>
       </div>
 
       <div class="toggle-col">
-        <span class="toggle-col-label">वचनम् · ಏಕ/ಬಹುವಚನ</span>
+        <span class="toggle-col-label">
+            <span class="kn-text">वचनम् · ಏಕ/ಬಹುವಚನ</span>
+            <span class="en-text">Number · Sing/Plural</span>
+        </span>
         <div class="gate-toggle" role="group" aria-label="ಏಕವಚನ ಅಥವಾ ಬಹುವಚನ ಆಯ್ಕೆಮಾಡಿ">
           <div class="gate-indicator indicator-gold" id="number-indicator"></div>
           <button class="gate-btn active" id="btn-sing" type="button" aria-pressed="true">
-            <span class="sk">１ एकः</span><small>ಏಕವಚನ</small>
+            <span class="sk">１ एकः</span>
+            <small>
+                <span class="kn-text">ಏಕವಚನ</span>
+                <span class="en-text">Singular</span>
+            </small>
           </button>
           <button class="gate-btn" id="btn-plural" type="button" aria-pressed="false">
-            <span class="sk">⁂ बहु</span><small>ಬಹುವಚನ</small>
+            <span class="sk">⁂ बहु</span>
+            <small>
+                <span class="kn-text">ಬಹುವಚನ</span>
+                <span class="en-text">Plural</span>
+            </small>
           </button>
         </div>
       </div>
@@ -461,137 +543,228 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
       <div class="corridor-floor"></div>
       <div class="corridor-figures">
         <div class="fig-set set-far-sing">
-          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">सः</span><span class="kn">ಅವನು</span></div>
-          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">सा</span><span class="kn">ಅವಳು</span></div>
-          <div class="fig-chip"><span class="emo">📦</span><span class="sk">तत्</span><span class="kn">ಅದು</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">सः</span><span class="kn kn-text">ಅವನು</span><span class="kn en-text">He</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">सा</span><span class="kn kn-text">ಅವಳು</span><span class="kn en-text">She</span></div>
+          <div class="fig-chip"><span class="emo">📦</span><span class="sk">तत्</span><span class="kn kn-text">ಅದು</span><span class="kn en-text">It</span></div>
         </div>
         <div class="fig-set set-far-plural">
-          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">ते</span><span class="kn">ಅವರು</span></div>
-          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">ताः</span><span class="kn">ಅವರು</span></div>
-          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">तानि</span><span class="kn">ಅವು</span></div>
+          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">ते</span><span class="kn kn-text">ಅವರು</span><span class="kn en-text">They (M)</span></div>
+          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">ताः</span><span class="kn kn-text">ಅವರು</span><span class="kn en-text">They (F)</span></div>
+          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">तानि</span><span class="kn kn-text">ಅವು</span><span class="kn en-text">Those</span></div>
         </div>
         <div class="fig-set set-near-sing">
-          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">एषः</span><span class="kn">ಇವನು</span></div>
-          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">एषा</span><span class="kn">ಇವಳು</span></div>
-          <div class="fig-chip"><span class="emo">📦</span><span class="sk">एतत्</span><span class="kn">ಇದು</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♂️</span><span class="sk">एषः</span><span class="kn kn-text">ಇವನು</span><span class="kn en-text">This man</span></div>
+          <div class="fig-chip"><span class="emo">🧍‍♀️</span><span class="sk">एषा</span><span class="kn kn-text">ಇವಳು</span><span class="kn en-text">This woman</span></div>
+          <div class="fig-chip"><span class="emo">📦</span><span class="sk">एतत्</span><span class="kn kn-text">ಇದು</span><span class="kn en-text">This thing</span></div>
         </div>
         <div class="fig-set set-near-plural">
-          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">एते</span><span class="kn">ಇವರು</span></div>
-          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">एताः</span><span class="kn">ಇವರು</span></div>
-          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">एतानि</span><span class="kn">ಇವು</span></div>
+          <div class="fig-chip"><span class="emo">👨‍👦‍👦</span><span class="sk">एते</span><span class="kn kn-text">ಇವರು</span><span class="kn en-text">These men</span></div>
+          <div class="fig-chip"><span class="emo">👩‍👧‍👧</span><span class="sk">एताः</span><span class="kn kn-text">ಇವರು</span><span class="kn en-text">These women</span></div>
+          <div class="fig-chip"><span class="emo">📦📦</span><span class="sk">एतानि</span><span class="kn kn-text">ಇವು</span><span class="kn en-text">These things</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ MASTER MATRIX ============ -->
   <section class="matrix-section">
     <div class="section-head">
-      <span class="eyebrow">सर्वनाम-तालिका</span>
-      <h2>ಸಮಗ್ರ ಸರ್ವನಾಮ ಮ್ಯಾಟ್ರಿಕ್ಸ್</h2>
-      <p>ಲಿಂಗ ಮತ್ತು ವಚನದ ಪ್ರಕಾರ ಜೋಡಿಸಲಾದ ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳು — ದ್ವಾರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ತೆರೆಯಿರಿ.</p>
+      <span class="eyebrow">
+          <span class="kn-text">सर्वनाम-तालिका</span>
+          <span class="en-text">Pronoun Table</span>
+      </span>
+      <h2>
+          <span class="kn-text">ಸಮಗ್ರ ಸರ್ವನಾಮ ಮ್ಯಾಟ್ರಿಕ್ಸ್</span>
+          <span class="en-text">Complete Pronoun Matrix</span>
+      </h2>
+      <p>
+          <span class="kn-text">ಲಿಂಗ ಮತ್ತು ವಚನದ ಪ್ರಕಾರ ಜೋಡಿಸಲಾದ ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳು — ದ್ವಾರದ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ತೆರೆಯಿರಿ.</span>
+          <span class="en-text">All pronouns arranged by gender and number — Click on the door to open.</span>
+      </p>
     </div>
-    <p class="matrix-hint">👆 ಪ್ರತಿ ಕಾರ್ಡ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ Enter ಒತ್ತಿ ಪದ ನೋಡಲು</p>
+    <p class="matrix-hint">
+        <span class="kn-text">👆 ಪ್ರತಿ ಕಾರ್ಡ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ Enter ಒತ್ತಿ ಪದ ನೋಡಲು</span>
+        <span class="en-text">👆 Click each card or press Enter to reveal the word</span>
+    </p>
 
     <div class="matrix-grid">
       <div class="mx-corner"></div>
-      <div class="mx-col-head">ಏಕವಚನ<span>Singular</span></div>
-      <div class="mx-col-head">ಬಹುವಚನ<span>Plural</span></div>
+      <div class="mx-col-head">
+          <span class="kn-text">ಏಕವಚನ</span><span class="en-text">Singular</span>
+          <span>Singular</span>
+      </div>
+      <div class="mx-col-head">
+          <span class="kn-text">ಬಹುವಚನ</span><span class="en-text">Plural</span>
+          <span>Plural</span>
+      </div>
 
-      <div class="mx-row-head masc">🔵 ಪುಂಲಿಂಗ</div>
+      <div class="mx-row-head masc">
+          <span class="kn-text">🔵 ಪುಂಲಿಂಗ</span>
+          <span class="en-text">🔵 Masculine</span>
+      </div>
       <div class="matrix-cell" data-gender="masc" data-number="sing">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🔵</span>ಪುಂ · ಏಕ</div>
+          <div class="cell-front">
+              <span class="ic">🔵</span>
+              <span class="kn-text">ಪುಂ · ಏಕ</span>
+              <span class="en-text">Masc · Sing</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">🧍‍♂️</span>
             <span class="word far-word">सः</span><span class="word near-word">एषः</span>
-            <span class="meaning far-word">ಅವನು</span><span class="meaning near-word">ಇವನು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅವನು</span><span class="en-text">He</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇವನು</span><span class="en-text">This man</span></span>
           </div>
         </div>
       </div>
       <div class="matrix-cell" data-gender="masc" data-number="plural">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🔵</span>ಪುಂ · ಬಹು</div>
+          <div class="cell-front">
+              <span class="ic">🔵</span>
+              <span class="kn-text">ಪುಂ · ಬಹು</span>
+              <span class="en-text">Masc · Plural</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">👨‍👦‍👦</span>
             <span class="word far-word">ते</span><span class="word near-word">एते</span>
-            <span class="meaning far-word">ಅವರು</span><span class="meaning near-word">ಇವರು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅವರು</span><span class="en-text">They</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇವರು</span><span class="en-text">These men</span></span>
           </div>
         </div>
       </div>
 
-      <div class="mx-row-head fem">🌸 ಸ್ತ್ರೀಲಿಂಗ</div>
+      <div class="mx-row-head fem">
+          <span class="kn-text">🌸 ಸ್ತ್ರೀಲಿಂಗ</span>
+          <span class="en-text">🌸 Feminine</span>
+      </div>
       <div class="matrix-cell" data-gender="fem" data-number="sing">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🌸</span>ಸ್ತ್ರೀ · ಏಕ</div>
+          <div class="cell-front">
+              <span class="ic">🌸</span>
+              <span class="kn-text">ಸ್ತ್ರೀ · ಏಕ</span>
+              <span class="en-text">Fem · Sing</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">🧍‍♀️</span>
             <span class="word far-word">सा</span><span class="word near-word">एषा</span>
-            <span class="meaning far-word">ಅವಳು</span><span class="meaning near-word">ಇವಳು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅವಳು</span><span class="en-text">She</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇವಳು</span><span class="en-text">This woman</span></span>
           </div>
         </div>
       </div>
       <div class="matrix-cell" data-gender="fem" data-number="plural">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🌸</span>ಸ್ತ್ರೀ · ಬಹು</div>
+          <div class="cell-front">
+              <span class="ic">🌸</span>
+              <span class="kn-text">ಸ್ತ್ರೀ · ಬಹು</span>
+              <span class="en-text">Fem · Plural</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">👩‍👧‍👧</span>
             <span class="word far-word">ताः</span><span class="word near-word">एताः</span>
-            <span class="meaning far-word">ಅವರು</span><span class="meaning near-word">ಇವರು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅವರು</span><span class="en-text">They</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇವರು</span><span class="en-text">These women</span></span>
           </div>
         </div>
       </div>
 
-      <div class="mx-row-head neut">🟢 ನಪುಂಸಕಲಿಂಗ</div>
+      <div class="mx-row-head neut">
+          <span class="kn-text">🟢 ನಪುಂಸಕಲಿಂಗ</span>
+          <span class="en-text">🟢 Neuter</span>
+      </div>
       <div class="matrix-cell" data-gender="neut" data-number="sing">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🟢</span>ನಪುಂ · ಏಕ</div>
+          <div class="cell-front">
+              <span class="ic">🟢</span>
+              <span class="kn-text">ನಪುಂ · ಏಕ</span>
+              <span class="en-text">Neut · Sing</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">📦</span>
             <span class="word far-word">तत्</span><span class="word near-word">एतत्</span>
-            <span class="meaning far-word">ಅದು</span><span class="meaning near-word">ಇದು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅದು</span><span class="en-text">That/It</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇದು</span><span class="en-text">This</span></span>
           </div>
         </div>
       </div>
       <div class="matrix-cell" data-gender="neut" data-number="plural">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">🟢</span>ನಪುಂ · ಬಹು</div>
+          <div class="cell-front">
+              <span class="ic">🟢</span>
+              <span class="kn-text">ನಪುಂ · ಬಹು</span>
+              <span class="en-text">Neut · Plural</span>
+          </div>
           <div class="cell-back">
             <span class="emoji">📦📦</span>
             <span class="word far-word">तानि</span><span class="word near-word">एतानि</span>
-            <span class="meaning far-word">ಅವು</span><span class="meaning near-word">ಇವು</span>
+            <span class="meaning far-word"><span class="kn-text">ಅವು</span><span class="en-text">Those</span></span>
+            <span class="meaning near-word"><span class="kn-text">ಇವು</span><span class="en-text">These</span></span>
           </div>
         </div>
       </div>
 
-      <div class="mx-row-head self">⭐ ಉತ್ತಮ/ಮಧ್ಯಮ</div>
+      <div class="mx-row-head self">
+          <span class="kn-text">⭐ ಉತ್ತಮ/ಮಧ್ಯಮ</span>
+          <span class="en-text">⭐ First/Second</span>
+      </div>
       <div class="matrix-cell" data-gender="self" data-number="sing">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">⭐</span>1/2 · ಏಕ</div>
+          <div class="cell-front">
+              <span class="ic">⭐</span>
+              <span class="kn-text">1/2 · ಏಕ</span>
+              <span class="en-text">1/2 · Sing</span>
+          </div>
           <div class="cell-back two-up">
-            <div class="self-item"><span class="emoji">🙋‍♂️</span><span class="word">अहम्</span><span class="meaning">ನಾನು</span></div>
-            <div class="self-item"><span class="emoji">🫵</span><span class="word">त्वम्</span><span class="meaning">ನೀನು</span></div>
+            <div class="self-item">
+                <span class="emoji">🙋‍♂️</span>
+                <span class="word">अहम्</span>
+                <span class="meaning"><span class="kn-text">ನಾನು</span><span class="en-text">I</span></span>
+            </div>
+            <div class="self-item">
+                <span class="emoji">🫵</span>
+                <span class="word">त्वम्</span>
+                <span class="meaning"><span class="kn-text">ನೀನು</span><span class="en-text">You</span></span>
+            </div>
           </div>
         </div>
       </div>
       <div class="matrix-cell" data-gender="self" data-number="plural">
         <div class="cell-inner">
-          <div class="cell-front"><span class="ic">⭐</span>1/2 · ಬಹು</div>
+          <div class="cell-front">
+              <span class="ic">⭐</span>
+              <span class="kn-text">1/2 · ಬಹು</span>
+              <span class="en-text">1/2 · Plural</span>
+          </div>
           <div class="cell-back two-up">
-            <div class="self-item"><span class="emoji">🫂</span><span class="word">वयम्</span><span class="meaning">ನಾವು</span></div>
-            <div class="self-item"><span class="emoji">🫵🫵</span><span class="word">यूयम्</span><span class="meaning">ನೀವೆಲ್ಲರೂ</span></div>
+            <div class="self-item">
+                <span class="emoji">🫂</span>
+                <span class="word">वयम्</span>
+                <span class="meaning"><span class="kn-text">ನಾವು</span><span class="en-text">We</span></span>
+            </div>
+            <div class="self-item">
+                <span class="emoji">🫵🫵</span>
+                <span class="word">यूयम्</span>
+                <span class="meaning"><span class="kn-text">ನೀವೆಲ್ಲರೂ</span><span class="en-text">You all</span></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ SENTENCE BUILDER GAME ============ -->
   <section class="builder-section">
     <div class="section-head">
-      <span class="eyebrow">वाक्य-निर्माणम्</span>
-      <h2>ವಾಕ್ಯ ನಿರ್ಮಾಣ ಆಟ</h2>
-      <p>ಸರಿಯಾದ ಸರ್ವನಾಮವನ್ನು ಎಳೆದು (drag) ಖಾಲಿ ಜಾಗಕ್ಕೆ ಬಿಡಿ — ಮೊಬೈಲ್‌ನಲ್ಲಿ ಮೊದಲು ಪದ ಒತ್ತಿ, ನಂತರ ಖಾಲಿ ಜಾಗ ಒತ್ತಿ.</p>
+      <span class="eyebrow">
+          <span class="kn-text">वाक्य-निर्माणम्</span>
+          <span class="en-text">Sentence Builder</span>
+      </span>
+      <h2>
+          <span class="kn-text">ವಾಕ್ಯ ನಿರ್ಮಾಣ ಆಟ</span>
+          <span class="en-text">Sentence Building Game</span>
+      </h2>
+      <p>
+          <span class="kn-text">ಸರಿಯಾದ ಸರ್ವನಾಮವನ್ನು ಎಳೆದು (drag) ಖಾಲಿ ಜಾಗಕ್ಕೆ ಬಿಡಿ — ಮೊಬೈಲ್‌ನಲ್ಲಿ ಮೊದಲು ಪದ ಒತ್ತಿ, ನಂತರ ಖಾಲಿ ಜಾಗ ಒತ್ತಿ.</span>
+          <span class="en-text">Drag and drop the correct pronoun into the blank space — On mobile, tap the word first, then tap the blank space.</span>
+      </p>
     </div>
 
     <div class="word-bank" id="word-bank">
@@ -611,62 +784,122 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
 
     <div class="sentence-grid" id="sentence-grid">
       <div class="sentence-card">
-        <span class="subject-emoji">🧍‍♂️<small>ದೂರ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="सः"></span> पठति। <span class="sent-kn">ಅವನು ಓದುತ್ತಾನೆ</span></div>
+        <span class="subject-emoji">🧍‍♂️<small><span class="kn-text">ದೂರ</span><span class="en-text">Far</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="सः"></span> पठति। 
+            <span class="sent-kn">
+                <span class="kn-text">ಅವನು ಓದುತ್ತಾನೆ</span>
+                <span class="en-text">He reads</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">🧍‍♀️<small>ಹತ್ತಿರ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="एषा"></span> नृत्यति। <span class="sent-kn">ಇವಳು ನೃತ್ಯ ಮಾಡುತ್ತಾಳೆ</span></div>
+        <span class="subject-emoji">🧍‍♀️<small><span class="kn-text">ಹತ್ತಿರ</span><span class="en-text">Near</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="एषा"></span> नृत्यति। 
+            <span class="sent-kn">
+                <span class="kn-text">ಇವಳು ನೃತ್ಯ ಮಾಡುತ್ತಾಳೆ</span>
+                <span class="en-text">This woman dances</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">📦<small>ದೂರ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="तत्"></span> चलति। <span class="sent-kn">ಅದು ಚಲಿಸುತ್ತದೆ</span></div>
+        <span class="subject-emoji">📦<small><span class="kn-text">ದೂರ</span><span class="en-text">Far</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="तत्"></span> चलति। 
+            <span class="sent-kn">
+                <span class="kn-text">ಅದು ಚಲಿಸುತ್ತದೆ</span>
+                <span class="en-text">That moves</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">🙋‍♂️<small>ಸ್ವಯಂ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="अहम्"></span> लिखामि। <span class="sent-kn">ನಾನು ಬರೆಯುತ್ತೇನೆ</span></div>
+        <span class="subject-emoji">🙋‍♂️<small><span class="kn-text">ಸ್ವಯಂ</span><span class="en-text">Self</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="अहम्"></span> लिखामि। 
+            <span class="sent-kn">
+                <span class="kn-text">ನಾನು ಬರೆಯುತ್ತೇನೆ</span>
+                <span class="en-text">I write</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">🫵<small>ಮಧ್ಯಮ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="त्वम्"></span> पश्यसि। <span class="sent-kn">ನೀನು ನೋಡುತ್ತೀಯೆ</span></div>
+        <span class="subject-emoji">🫵<small><span class="kn-text">ಮಧ್ಯಮ</span><span class="en-text">Second</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="त्वम्"></span> पश्यसि। 
+            <span class="sent-kn">
+                <span class="kn-text">ನೀನು ನೋಡುತ್ತೀಯೆ</span>
+                <span class="en-text">You see</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">🫂<small>ಬಹು</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="वयम्"></span> क्रीडामः। <span class="sent-kn">ನಾವು ಆಡುತ್ತೇವೆ</span></div>
+        <span class="subject-emoji">🫂<small><span class="kn-text">ಬಹು</span><span class="en-text">Plural</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="वयम्"></span> क्रीडामः। 
+            <span class="sent-kn">
+                <span class="kn-text">ನಾವು ಆಡುತ್ತೇವೆ</span>
+                <span class="en-text">We play</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">👨‍👦‍👦<small>ದೂರ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="ते"></span> गच्छन्ति। <span class="sent-kn">ಅವರು ಹೋಗುತ್ತಾರೆ</span></div>
+        <span class="subject-emoji">👨‍👦‍👦<small><span class="kn-text">ದೂರ</span><span class="en-text">Far</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="ते"></span> गच्छन्ति। 
+            <span class="sent-kn">
+                <span class="kn-text">ಅವರು ಹೋಗುತ್ತಾರೆ</span>
+                <span class="en-text">They go</span>
+            </span>
+        </div>
       </div>
       <div class="sentence-card">
-        <span class="subject-emoji">👩‍👧‍👧<small>ಹತ್ತಿರ</small></span>
-        <div class="sentence-text"><span class="dropzone" data-answer="एताः"></span> हसन्ति। <span class="sent-kn">ಇವರು ನಗುತ್ತಾರೆ</span></div>
+        <span class="subject-emoji">👩‍👧‍👧<small><span class="kn-text">ಹತ್ತಿರ</span><span class="en-text">Near</span></small></span>
+        <div class="sentence-text">
+            <span class="dropzone" data-answer="एताः"></span> हसन्ति। 
+            <span class="sent-kn">
+                <span class="kn-text">ಇವರು ನಗುತ್ತಾರೆ</span>
+                <span class="en-text">These women laugh</span>
+            </span>
+        </div>
       </div>
     </div>
 
-    <div class="builder-status" id="builder-status">0 / 8 ಪೂರ್ಣಗೊಂಡಿದೆ</div>
+    <div class="builder-status" id="builder-status">
+        <span class="kn-text">0 / 8 ಪೂರ್ಣಗೊಂಡಿದೆ</span>
+        <span class="en-text">0 / 8 Completed</span>
+    </div>
   </section>
 
-  <!-- ============ SUBHASHITA ============ -->
   <section class="subhashita-card">
-    <h3>सुभाषितम् - ५</h3>
+    <h3>
+        <span class="kn-text">सुभाषितम् - ५</span>
+        <span class="en-text">Subhashitam - 5</span>
+    </h3>
     <p class="shloka">
       काकः कृष्णः पिकः कृष्णः <span class="grammar-target" id="grammar-word">को</span> भेदः पिककाकयोः ।<br>
       वसन्तसमये प्राप्ते काकः काकः पिकः पिकः ॥
     </p>
     <div class="shloka-meaning">
-      <strong>ಅರ್ಥ:</strong> ಕಾಗೆಯೂ ಕಪ್ಪಾಗಿದೆ, ಕೋಗಿಲೆಯೂ ಕಪ್ಪಾಗಿದೆ. ಹಾಗಾದರೆ ಅವೆರಡರ ನಡುವೆ ಯಾವ ಭೇದವನ್ನು ಹುಡುಕಬಲ್ಲರು? ಆದರೆ ವಸಂತ ಕಾಲ ಬಂದಾಗ (ಕೂಗಲು ಆರಂಭಿಸಿದಾಗ), ಕಾಗೆಯು ಕಾಗೆಯೇ ಸರಿ, ಕೋಗಿಲೆಯು ಕೋಗಿಲೆಯೇ ಸರಿ ಎಂದು ಎಲ್ಲರಿಗೂ ತಿಳಿಯುತ್ತದೆ. (ಬಾಹ್ಯ ರೂಪಕ್ಕಿಂತ ಆಂತರಿಕ ಗುಣವೇ ಮುಖ್ಯ).
+        <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಕಾಗೆಯೂ ಕಪ್ಪಾಗಿದೆ, ಕೋಗಿಲೆಯೂ ಕಪ್ಪಾಗಿದೆ. ಹಾಗಾದರೆ ಅವೆರಡರ ನಡುವೆ ಯಾವ ಭೇದವನ್ನು ಹುಡುಕಬಲ್ಲರು? ಆದರೆ ವಸಂತ ಕಾಲ ಬಂದಾಗ (ಕೂಗಲು ಆರಂಭಿಸಿದಾಗ), ಕಾಗೆಯು ಕಾಗೆಯೇ ಸರಿ, ಕೋಗಿಲೆಯು ಕೋಗಿಲೆಯೇ ಸರಿ ಎಂದು ಎಲ್ಲರಿಗೂ ತಿಳಿಯುತ್ತದೆ. (ಬಾಹ್ಯ ರೂಪಕ್ಕಿಂತ ಆಂತರಿಕ ಗುಣವೇ ಮುಖ್ಯ).</span>
+        <span class="en-text"><strong>Meaning:</strong> The crow is black, the cuckoo is black. What is the difference between the two? But when spring arrives (and they sing), it is clear that a crow is a crow, and a cuckoo is a cuckoo. (Inner qualities matter more than outer appearance).</span>
     </div>
-    <button class="btn-gold" id="highlight-btn" type="button">✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)</button>
+    <button class="btn-gold" id="highlight-btn" type="button">
+        <span class="kn-text">✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)</span>
+        <span class="en-text">✨ Highlight Grammar</span>
+    </button>
     <div class="grammar-popup" id="grammar-popup" hidden>
-      <strong>को (ಕಃ → को)</strong> — ಇದು ಮೂಲತಃ <strong>कः</strong> (ಪುಂಲಿಂಗ ಪ್ರಶ್ನಾರ್ಥಕ ಸರ್ವನಾಮ, "ಯಾರು/ಯಾವುದು") ಎಂಬ ಪದ. "कः + भेदः" ಎರಡು ಪದಗಳು ಸೇರಿದಾಗ ವಿಸರ್ಗ ಸಂಧಿಯ ಕಾರಣದಿಂದ <strong>को भेदः</strong> ಎಂದು ರೂಪಾಂತರಗೊಳ್ಳುತ್ತದೆ. ಮೇಲಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್‌ನಲ್ಲಿ ಇದೇ कः ಪದವನ್ನು ಪುಂಲಿಂಗ ಏಕವಚನ ಪ್ರಶ್ನಾರ್ಥಕವಾಗಿ ನೀವು ಗುರುತಿಸಬಹುದು.
+        <span class="kn-text"><strong>को (ಕಃ → को)</strong> — ಇದು ಮೂಲತಃ <strong>कः</strong> (ಪುಂಲಿಂಗ ಪ್ರಶ್ನಾರ್ಥಕ ಸರ್ವನಾಮ, "ಯಾರು/ಯಾವುದು") ಎಂಬ ಪದ. "कः + भेदः" ಎರಡು ಪದಗಳು ಸೇರಿದಾಗ ವಿಸರ್ಗ ಸಂಧಿಯ ಕಾರಣದಿಂದ <strong>को भेदः</strong> ಎಂದು ರೂಪಾಂತರಗೊಳ್ಳುತ್ತದೆ. ಮೇಲಿನ ಮ್ಯಾಟ್ರಿಕ್ಸ್‌ನಲ್ಲಿ ಇದೇ कः ಪದವನ್ನು ಪುಂಲಿಂಗ ಏಕವಚನ ಪ್ರಶ್ನಾರ್ಥಕವಾಗಿ ನೀವು ಗುರುತಿಸಬಹುದು.</span>
+        <span class="en-text"><strong>को (Kah → Ko)</strong> — This is originally <strong>कः</strong> (Masculine interrogative pronoun, "Who/What"). When "कः + भेदः" join together, due to Visarga Sandhi, it transforms into <strong>को भेदः</strong>. You can identify this 'कः' as the masculine singular interrogative in the matrix above.</span>
     </div>
   </section>
 
-  <!-- ============ MEGA QUIZ ============ -->
   <section class="quiz-section" id="quiz-container">
     <div class="quiz-header">
-      <div class="quiz-title">ಮಹಾ ರಸಪ್ರಶ್ನೆ</div>
+      <div class="quiz-title">
+          <span class="kn-text">ಮಹಾ ರಸಪ್ರಶ್ನೆ</span>
+          <span class="en-text">Mega Quiz</span>
+      </div>
       <div class="quiz-progress" id="quiz-progress">1 / 10</div>
     </div>
     <div class="quiz-bar-track"><div class="quiz-bar-fill" id="quiz-bar-fill"></div></div>
@@ -676,24 +909,62 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
 
     <div class="quiz-controls">
       <p class="quiz-feedback" id="quiz-feedback"></p>
-      <button id="next-q-btn" class="btn btn-primary" style="display:none;" type="button">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+      <button id="next-q-btn" class="btn btn-primary" style="display:none;" type="button">
+          <span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span>
+          <span class="en-text">Next Question →</span>
+      </button>
     </div>
   </section>
 
   <div class="nav-buttons">
-    <a href="level4.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 4)</a>
-    <a href="level6.html" id="finish-btn" class="btn btn-primary" style="display:none;">ಮುಂದಿನ ಹಂತ (Level 6) →</a>
+    <a href="level4.html" class="btn btn-outline">
+        ← <span class="kn-text">ಹಿಂದಿನ ಹಂತ</span><span class="en-text">Prev Level</span>
+    </a>
+    
+    <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
+        🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
+    </a>
+    
+    <a href="level6.html" id="finish-btn" class="btn btn-primary" style="display:none;">
+        <span class="kn-text">ಮುಂದಿನ ಹಂತ</span><span class="en-text">Next Level</span> →
+    </a>
   </div>
 </div>
 
 <footer>
-  <span class="fk">टीम् त्रयी</span>
+  <span class="fk">
+      <span class="kn-text">टीम् त्रयी</span>
+      <span class="en-text">Team Trayee</span>
+  </span>
   Samskrita-Swayam-Shikshaka · Level 5 · Pronoun Masterclass
 </footer>
 
 <script>
 (function(){
   "use strict";
+
+  // --- LANGUAGE MANAGEMENT SCRIPT ---
+  function setLanguage(lang) {
+      document.body.classList.remove('lang-kn', 'lang-en');
+      document.body.classList.add(`lang-${lang}`);
+      localStorage.setItem('trayeeLang', lang);
+      
+      // Update Quiz Text if loaded
+      if(document.getElementById('quiz-question').innerHTML !== "ಲೋಡ್ ಆಗುತ್ತಿದೆ...") {
+          loadQuestion();
+      }
+  }
+
+  window.toggleLanguage = function() {
+      const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+      const newLang = currentLang === 'kn' ? 'en' : 'kn';
+      setLanguage(newLang);
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+      setLanguage(savedLang);
+  });
 
   /* ---------- Gateway of Distance ---------- */
   var html = document.documentElement;
@@ -741,7 +1012,7 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
     });
   });
 
-  /* ---------- Sentence Builder (drag + tap fallback) ---------- */
+  /* ---------- Sentence Builder ---------- */
   var selectedChip = null;
   var chips = document.querySelectorAll('.pronoun-chip');
   var zones = document.querySelectorAll('.dropzone');
@@ -764,7 +1035,7 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
       updateBuilderStatus();
     } else {
       zone.classList.remove('wrong');
-      void zone.offsetWidth; /* restart animation */
+      void zone.offsetWidth; 
       zone.classList.add('wrong');
       setTimeout(function(){ zone.classList.remove('wrong'); }, 500);
       clearSelection();
@@ -807,9 +1078,19 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
     var total = zones.length;
     var done = document.querySelectorAll('.dropzone.correct').length;
     var statusEl = document.getElementById('builder-status');
-    statusEl.textContent = done + ' / ' + total + ' ಪೂರ್ಣಗೊಂಡಿದೆ';
-    if(done === total){
-      statusEl.textContent += '  🎉 ಅಭಿನಂದನೆಗಳು! ಎಲ್ಲಾ ವಾಕ್ಯಗಳು ಸರಿಯಾಗಿವೆ.';
+    
+    // Update based on language
+    const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+    if(currentLang === 'kn') {
+        statusEl.innerHTML = `<span class="kn-text">${done} / ${total} ಪೂರ್ಣಗೊಂಡಿದೆ</span>`;
+        if(done === total){
+          statusEl.innerHTML += '<span class="kn-text"> 🎉 ಅಭಿನಂದನೆಗಳು! ಎಲ್ಲಾ ವಾಕ್ಯಗಳು ಸರಿಯಾಗಿವೆ.</span>';
+        }
+    } else {
+        statusEl.innerHTML = `<span class="en-text">${done} / ${total} Completed</span>`;
+        if(done === total){
+          statusEl.innerHTML += '<span class="en-text"> 🎉 Congratulations! All sentences are correct.</span>';
+        }
     }
   }
 
@@ -821,23 +1102,72 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
   grammarBtn.addEventListener('click', function(){
     var active = grammarWord.classList.toggle('active');
     grammarPopup.hidden = !active;
-    grammarBtn.textContent = active
-      ? '✖ ಮುಚ್ಚಿ (Close)'
-      : '✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)';
+    
+    const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+    if(active) {
+        grammarBtn.innerHTML = currentLang === 'kn' ? '<span class="kn-text">✖ ಮುಚ್ಚಿ (Close)</span>' : '<span class="en-text">✖ Close</span>';
+    } else {
+        grammarBtn.innerHTML = currentLang === 'kn' ? '<span class="kn-text">✨ ವ್ಯಾಕರಣ ಗುರುತಿಸಿ (Highlight Grammar)</span>' : '<span class="en-text">✨ Highlight Grammar</span>';
+    }
   });
 
   /* ---------- Mega Quiz ---------- */
   var questions = [
-    { q: "ನಿಮ್ಮ ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಪುರುಷನನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?", options: ["सः", "एषः", "एषा", "कः"], ans: 1 },
-    { q: "ದೂರದಲ್ಲಿರುವ (👉) ಮಹಿಳೆಯನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸಬೇಕು?", options: ["सा", "एषा", "ताः", "एताः"], ans: 0 },
-    { q: "'ತಾವು' ಎಂದು ಸ್ತ್ರೀಯರನ್ನು ಗೌರವಯುತವಾಗಿ ಕರೆಯಲು ಬಳಸುವ ಪದ?", options: ["भवान्", "भवती", "एषा", "त्वम्"], ans: 1 },
-    { q: "'ಏನು?' ಎಂದು ಪ್ರಶ್ನಿಸಲು ನಪುಂಸಕಲಿಂಗದಲ್ಲಿ ಬಳಸುವ ಪದ?", options: ["कः", "का", "किम्", "तत्"], ans: 2 },
-    { q: "ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಅನೇಕ ಪುರುಷರನ್ನು (Masculine Plural) ಸೂಚಿಸಲು?", options: ["एताः", "एते", "ते", "एतानि"], ans: 1 },
-    { q: "ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'को' ಪದದ ಮೂಲರೂಪ ಮತ್ತು ಅರ್ಥವೇನು?", options: ["किम् - ಏನು?", "कः - ಯಾರು/ಯಾವುದು? (ಪು)", "का - ಯಾರು? (ಸ್ತ್ರೀ)", "कुत्र - ಎಲ್ಲಿ?"], ans: 1 },
-    { q: "'ನಾನು' ಮತ್ತು 'ನಾವು' ಎಂಬುದಕ್ಕೆ ಸರಿಯಾದ ಸಂಸ್ಕೃತ ಜೋಡಿ ಯಾವುದು?", options: ["त्वम् - यूयम्", "अहम् - यूयम्", "अहम् - वयम्", "सः - ते"], ans: 2 },
-    { q: "ದೂರದಲ್ಲಿರುವ (👉) ಅನೇಕ ವಸ್ತುಗಳನ್ನು (ನಪುಂಸಕಲಿಂಗ ಬಹುವಚನ) ಸೂಚಿಸಲು?", options: ["तानि", "एतानि", "ताः", "ते"], ans: 0 },
-    { q: "ಯಾರನ್ನಾದರೂ ಪ್ರಶ್ನಿಸಲು 'ಯಾರು?' ಎಂದು ಪುಂಲಿಂಗದಲ್ಲಿ ಹೇಗೆ ಕೇಳುವಿರಿ?", options: ["का", "किम्", "कः", "सः"], ans: 2 },
-    { q: "'एतत्' (ಹತ್ತಿರದಲ್ಲಿರುವ ವಸ್ತು) ಪದದ ಬಹುವಚನ ರೂಪವೇನು?", options: ["तानि", "एतानि", "एते", "एताः"], ans: 1 }
+    { 
+        q: "<span class='kn-text'>ನಿಮ್ಮ ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಪುರುಷನನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?</span><span class='en-text'>Which word is used to indicate a man near you (👇)?</span>", 
+        options: ["सः", "एषः", "एषा", "कः"], 
+        ans: 1 
+    },
+    { 
+        q: "<span class='kn-text'>ದೂರದಲ್ಲಿರುವ (👉) ಮಹಿಳೆಯನ್ನು ಸೂಚಿಸಲು ಯಾವ ಪದ ಬಳಸಬೇಕು?</span><span class='en-text'>Which word should be used to indicate a woman far away (👉)?</span>", 
+        options: ["सा", "एषा", "ताः", "एताः"], 
+        ans: 0 
+    },
+    { 
+        q: "<span class='kn-text'>'ತಾವು' ಎಂದು ಸ್ತ್ರೀಯರನ್ನು ಗೌರವಯುತವಾಗಿ ಕರೆಯಲು ಬಳಸುವ ಪದ?</span><span class='en-text'>Which word is used to respectfully address a woman as 'You'?</span>", 
+        options: ["भवान्", "भवती", "एषा", "त्वम्"], 
+        ans: 1 
+    },
+    { 
+        q: "<span class='kn-text'>'ಏನು?' ಎಂದು ಪ್ರಶ್ನಿಸಲು ನಪುಂಸಕಲಿಂಗದಲ್ಲಿ ಬಳಸುವ ಪದ?</span><span class='en-text'>Which word is used in the neuter gender to ask 'What?'</span>", 
+        options: ["कः", "का", "किम्", "तत्"], 
+        ans: 2 
+    },
+    { 
+        q: "<span class='kn-text'>ಹತ್ತಿರದಲ್ಲಿರುವ (👇) ಅನೇಕ ಪುರುಷರನ್ನು (Masculine Plural) ಸೂಚಿಸಲು?</span><span class='en-text'>To indicate many men (Masculine Plural) near you (👇)?</span>", 
+        options: ["एताः", "एते", "ते", "एतानि"], 
+        ans: 1 
+    },
+    { 
+        q: "<span class='kn-text'>ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'को' ಪದದ ಮೂಲರೂಪ ಮತ್ತು ಅರ್ಥವೇನು?</span><span class='en-text'>What is the root form and meaning of the word 'को' in the subhashita?</span>", 
+        options: [
+            "<span class='kn-text'>किम् - ಏನು?</span><span class='en-text'>किम् - What?</span>", 
+            "<span class='kn-text'>कः - ಯಾರು/ಯಾವುದು? (ಪು)</span><span class='en-text'>कः - Who/What? (Masc)</span>", 
+            "<span class='kn-text'>का - ಯಾರು? (ಸ್ತ್ರೀ)</span><span class='en-text'>का - Who? (Fem)</span>", 
+            "<span class='kn-text'>कुत्र - ಎಲ್ಲಿ?</span><span class='en-text'>कुत्र - Where?</span>"
+        ], 
+        ans: 1 
+    },
+    { 
+        q: "<span class='kn-text'>'ನಾನು' ಮತ್ತು 'ನಾವು' ಎಂಬುದಕ್ಕೆ ಸರಿಯಾದ ಸಂಸ್ಕೃತ ಜೋಡಿ ಯಾವುದು?</span><span class='en-text'>What is the correct Sanskrit pair for 'I' and 'We'?</span>", 
+        options: ["त्वम् - यूयम्", "अहम् - यूयम्", "अहम् - वयम्", "सः - ते"], 
+        ans: 2 
+    },
+    { 
+        q: "<span class='kn-text'>ದೂರದಲ್ಲಿರುವ (👉) ಅನೇಕ ವಸ್ತುಗಳನ್ನು (ನಪುಂಸಕಲಿಂಗ ಬಹುವಚನ) ಸೂಚಿಸಲು?</span><span class='en-text'>To indicate many objects (Neuter Plural) far away (👉)?</span>", 
+        options: ["तानि", "एतानि", "ताः", "ते"], 
+        ans: 0 
+    },
+    { 
+        q: "<span class='kn-text'>ಯಾರನ್ನಾದರೂ ಪ್ರಶ್ನಿಸಲು 'ಯಾರು?' ಎಂದು ಪುಂಲಿಂಗದಲ್ಲಿ ಹೇಗೆ ಕೇಳುವಿರಿ?</span><span class='en-text'>How would you ask 'Who?' in the masculine gender?</span>", 
+        options: ["का", "किम्", "कः", "सः"], 
+        ans: 2 
+    },
+    { 
+        q: "<span class='kn-text'>'एतत्' (ಹತ್ತಿರದಲ್ಲಿರುವ ವಸ್ತು) ಪದದ ಬಹುವಚನ ರೂಪವೇನು?</span><span class='en-text'>What is the plural form of the word 'एतत्' (this thing)?</span>", 
+        options: ["तानि", "एतानि", "एते", "एताः"], 
+        ans: 1 
+    }
   ];
 
   var currentQIndex = 0;
@@ -860,18 +1190,21 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
     var currentQ = questions[currentQIndex];
     progressEl.textContent = (currentQIndex + 1) + ' / ' + questions.length;
     barFillEl.style.width = (((currentQIndex + 1) / questions.length) * 100) + '%';
-    questionEl.textContent = currentQ.q;
+    questionEl.innerHTML = currentQ.q;
 
     optionsEl.innerHTML = '';
     currentQ.options.forEach(function(opt, index){
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'option-btn';
-      var isSanskrit = /[\u0900-\u097F]/.test(opt);
+      
+      var isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.indexOf('<span') === -1;
       var letterSpan = '<span class="letter">' + letters[index] + '</span>';
+      
       var textSpan = isSanskrit
         ? '<span style="font-family:\'Tiro Devanagari Sanskrit\', serif; font-size:1.25rem;">' + opt + '</span>'
         : '<span>' + opt + '</span>';
+        
       btn.innerHTML = letterSpan + textSpan;
       btn.addEventListener('click', function(){ checkAnswer(index, currentQ.ans, btn); });
       optionsEl.appendChild(btn);
@@ -884,13 +1217,13 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
 
     if(selectedIndex === correctIndex){
       btnClicked.classList.add('correct');
-      feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+      feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)</span><span class="en-text">✅ Uttamam! (Correct Answer)</span>';
       feedbackEl.style.color = 'var(--success)';
       score++;
     } else {
       btnClicked.classList.add('wrong');
       allBtns[correctIndex].classList.add('correct');
-      feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+      feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! The one in green is the correct answer.</span>';
       feedbackEl.style.color = 'var(--error)';
     }
 
@@ -908,20 +1241,25 @@ footer .fk{ font-family:'Tiro Devanagari Sanskrit', serif; color:var(--maroon); 
 
   function showFinalResult(){
     nextQBtn.style.display = 'none';
-    questionEl.textContent = 'ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!';
-    optionsEl.innerHTML = '<div class="score-line">ನಿಮ್ಮ ಅಂಕಗಳು: <strong>' + score + ' / ' + questions.length + '</strong></div>';
+    questionEl.innerHTML = '<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>';
+    optionsEl.innerHTML = `
+        <div class="score-line">
+            <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> 
+            <strong>${score} / ${questions.length}</strong>
+        </div>`;
 
     if(score >= 8){
-      feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕರಗತ ಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.';
+      feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಎಲ್ಲಾ ಸರ್ವನಾಮಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕರಗತ ಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have completely mastered all pronouns.</span>';
       feedbackEl.style.color = 'var(--success)';
       finishBtn.style.display = 'inline-block';
     } else {
-      feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಕೋಷ್ಟಕವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+      feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮೇಲಿನ ಕೋಷ್ಟಕವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please read the table above once more and try again.</span>';
       feedbackEl.style.color = 'var(--brown)';
+      
       var retryBtn = document.createElement('button');
       retryBtn.type = 'button';
       retryBtn.className = 'btn btn-outline';
-      retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+      retryBtn.innerHTML = '<span class="kn-text">↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</span><span class="en-text">↺ Try Again</span>';
       retryBtn.style.marginTop = '10px';
       retryBtn.addEventListener('click', function(){
         currentQIndex = 0; score = 0; loadQuestion();
