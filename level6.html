@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samskrita Level 6 - The Subject (Kartru Pada)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-parchment: #fdf5e6;
+            --text-brown: #4a2511;
+            --text-maroon: #800000;
+            --accent-gold: #d4af37;
+            --card-bg: #ffffff;
+            --success-green: #22c55e;
+            --error-red: #ef4444;
+            --masc-blue: #1e3a8a;
+            --fem-pink: #9d174d;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Laila', sans-serif;
+            background-color: var(--bg-parchment);
+            color: var(--text-brown);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
+
+        /* Motto Section */
+        .motto-box {
+            text-align: center;
+            background: rgba(128, 0, 0, 0.05);
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 25px;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .motto-sk {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.8rem;
+            color: var(--text-maroon);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .motto-kn { font-size: 1.05rem; color: #555; font-style: italic; }
+        .motto-source { font-size: 0.9rem; font-weight: bold; color: var(--accent-gold); display: block; margin-top: 10px; }
+
+        header { text-align: center; margin-bottom: 40px; }
+
+        .level-badge {
+            display: inline-block;
+            background-color: var(--text-maroon);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 2.3rem; margin-bottom: 10px; }
+
+        /* Grammar Hack Section */
+        .hack-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
+            border: 3px solid var(--masc-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hack-card::before {
+            content: '⭐'; position: absolute; top: -15px; right: -15px; font-size: 6rem; opacity: 0.1;
+        }
+
+        .hack-title {
+            color: var(--masc-blue);
+            font-family: 'Inknut Antiqua', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Formula Banner */
+        .formula-showcase {
+            background: rgba(30, 58, 138, 0.05);
+            border: 2px dashed var(--masc-blue);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .f-yesno {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            word-spacing: 10px;
+        }
+
+        .f-vowels {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            font-size: 1.6rem;
+            color: var(--text-brown);
+            font-weight: bold;
+            letter-spacing: 3px;
+            word-spacing: 20px;
+        }
+        
+        .kanthapatha-alert {
+            background: linear-gradient(90deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.4) 50%, rgba(212,175,55,0.2) 100%);
+            color: var(--text-maroon);
+            font-weight: 800;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .visarga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .v-card {
+            background: var(--bg-parchment);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .v-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--accent-gold); }
+
+        .v-sound { font-size: 1.5rem; font-weight: bold; color: var(--text-brown); display: block; font-family: 'Tiro Devanagari Sanskrit', serif;}
+        .v-status { font-size: 1.2rem; margin: 5px 0; font-weight: bold; }
+        .v-yes { color: var(--success-green); }
+        .v-no { color: var(--error-red); }
+        .v-example { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem; color: var(--text-maroon); }
+
+        /* Game Section */
+        .builder-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
+            border-top: 5px solid var(--success-green);
+        }
+
+        .word-bank {
+            display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+            background: rgba(255,255,255,.5); border: 2px dashed var(--accent-gold);
+            border-radius: 12px; padding: 25px; margin-bottom: 30px;
+        }
+
+        .word-chip {
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.5rem; color: var(--text-maroon);
+            background: var(--bg-parchment); border: 2px solid #e3d4ae; border-radius: 10px;
+            padding: 10px 25px; cursor: grab; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s; user-select: none;
+        }
+
+        .word-chip:active { cursor: grabbing; }
+        .word-chip.used { opacity: 0; pointer-events: none; transform: scale(0); transition: all 0.5s; }
+        .word-chip.selected { outline: 3px solid var(--text-maroon); transform: translateY(-5px) scale(1.05); }
+
+        .bucket-container {
+            display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+        }
+
+        .bucket {
+            flex: 1; min-width: 280px; min-height: 200px;
+            border-radius: 15px; padding: 20px;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .bucket-yes { background: rgba(34, 197, 94, 0.1); border: 3px dashed var(--success-green); }
+        .bucket-no { background: rgba(239, 68, 68, 0.1); border: 3px dashed var(--error-red); }
+
+        .bucket-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 10px; text-align: center; }
+        .bucket-yes .bucket-title { color: var(--success-green); }
+        .bucket-no .bucket-title { color: var(--error-red); }
+
+        .bucket-items {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%;
+        }
+
+        .dropped-item {
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem;
+            background: #fff; padding: 5px 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn { 0% { transform: scale(0); } 80% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .bucket.wrong-shake { animation: shake 0.5s; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25%, 75% { transform: translateX(-5px); } 50% { transform: translateX(5px); } }
+
+        /* Subhashita Section */
+        .subhashita-card {
+            background: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
+            border: 2px solid var(--accent-gold); border-radius: 15px;
+            padding: 30px; text-align: center; margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+        }
+        .shloka { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-maroon); line-height: 1.8; margin-bottom: 20px; }
+        .shloka-meaning { font-size: 1rem; color: #444; text-align: left; background: rgba(255,255,255,0.6); padding: 15px; border-radius: 10px; }
+
+        /* Quiz Section */
+        .quiz-section { background: #fff; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08); border-top: 5px solid var(--text-maroon); }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .quiz-title { font-size: 1.5rem; color: var(--text-brown); font-weight: 700; }
+        .quiz-progress { font-weight: 600; color: var(--accent-gold); }
+        .quiz-question { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
+        .options-grid { display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; }
+        .option-btn { background: var(--bg-parchment); border: 2px solid #ddd; padding: 15px 20px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 15px; }
+        .option-btn:hover { border-color: var(--accent-gold); background: #fff; transform: translateY(-2px); }
+        .option-btn.correct { background: rgba(34, 197, 94, 0.1); border-color: var(--success-green); color: #065f46; }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--error-red); color: #991b1b; }
+        .quiz-controls { text-align: center; margin-top: 25px; }
+
+        /* Nav Buttons */
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; }
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; }
+        .btn-outline { border: 2px solid var(--text-maroon); color: var(--text-maroon); background: transparent; }
+        .btn-outline:hover { background: rgba(128, 0, 0, 0.05); }
+        .btn-primary { background: var(--text-maroon); color: white; }
+        .btn-primary:hover { background: #600000; box-shadow: 0 5px 15px rgba(128,0,0,0.3); }
+
+        @media (max-width: 768px) {
+            .f-yesno { font-size: 1rem; word-spacing: 5px; }
+            .f-vowels { font-size: 1.2rem; word-spacing: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="motto-box">
+    <span class="motto-sk">स्वतन्त्रः कर्ता ।</span>
+    <span class="motto-kn">"ಕ್ರಿಯೆಯನ್ನು (ಕೆಲಸವನ್ನು) ಸ್ವತಂತ್ರವಾಗಿ ಮಾಡುವವನೇ ಕರ್ತೃ."</span>
+    <span class="motto-source">— अष्टाध्यायी (ಪಾಠದ ಕೇಂದ್ರಬಿಂದು: ಕರ್ತೃ ಪದ)</span>
+</div>
+
+<div class="container">
+
+    <header>
+        <div class="level-badge">Level 6</div>
+        <h1>ಕರ್ತೃ ಪದದ ರಹಸ್ಯ (The Subject)</h1>
+        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ಮತ್ತು ವಿಸರ್ಗದ (ಃ) ನಿಯಮ</p>
+    </header>
+
+    <div class="hack-card">
+        <h2 class="hack-title">✨ ಗ್ರಾಮರ್ ಹ್ಯಾಕ್: "ವಿಸರ್ಗ (ః) ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ"</h2>
+        
+        <div class="formula-showcase">
+            <div class="f-yesno">
+                <span class="v-yes">YES</span> - <span class="v-no">NO</span> - <span class="v-yes">YES</span> - <span class="v-no">NO</span> - <span class="v-yes">YES</span> - <span class="v-yes">YES</span> - <span class="v-no">NO</span>
+            </div>
+            <div class="f-vowels">अ - आ - इ - ई - उ - ऊ - Rest</div>
+        </div>
+
+        <div class="kanthapatha-alert">
+            "ಇದನ್ನು ಕಂಠಪಾಠ ಮಾಡಿಕೊಳ್ಳಿ! ಇದು ನಿಮ್ಮ ಸಂಸ್ಕೃತ ಪಯಣದಲ್ಲಿ ಸಾವಿರಾರು ತಪ್ಪುಗಳನ್ನು ತಡೆಯುವ ದಿವ್ಯಾಸ್ತ್ರ."
+        </div>
+        <p style="text-align: center; color: #555; font-size: 1.1rem;">ಪುಂಲಿಂಗ ಮತ್ತು ಸ್ತ್ರೀಲಿಂಗದ ಶಬ್ದಗಳ ಕೊನೆಯಲ್ಲಿ ವಿಸರ್ಗ (ಃ) ಯಾವಾಗ ಬರುತ್ತದೆ ಎಂಬುದನ್ನು ನೆನಪಿಡಲು ಈ <strong>"Yes-No"</strong> ಸೂತ್ರ ಬಳಸಿ:</p>
+        
+        <div class="visarga-grid">
+            <div class="v-card">
+                <span class="v-sound">अ (a)</span>
+                <div class="v-status v-yes">✅ YES</div>
+                <span class="v-example">रामः, शिवः</span>
+            </div>
+            <div class="v-card">
+                <span class="v-sound">आ (ā)</span>
+                <div class="v-status v-no">❌ NO</div>
+                <span class="v-example">सीता, लता</span>
+            </div>
+            <div class="v-card">
+                <span class="v-sound">इ (i)</span>
+                <div class="v-status v-yes">✅ YES</div>
+                <span class="v-example">हरिः, कविः</span>
+            </div>
+            <div class="v-card">
+                <span class="v-sound">ई (ī)</span>
+                <div class="v-status v-no">❌ NO</div>
+                <span class="v-example">नदी, जननी</span>
+            </div>
+            <div class="v-card">
+                <span class="v-sound">उ (u)</span>
+                <div class="v-status v-yes">✅ YES</div>
+                <span class="v-example">गुरुः, भानुः</span>
+            </div>
+            <div class="v-card">
+                <span class="v-sound">ऊ (ū)</span>
+                <div class="v-status v-yes">✅ YES</div>
+                <span class="v-example">वधूः, चमूः</span>
+            </div>
+            <div class="v-card" style="grid-column: 1 / -1; background: #fffcf5;">
+                <span class="v-sound" style="font-size:1.1rem;">ಉಳಿದವು (Rest / ಉದಾ: ಋ)</span>
+                <div class="v-status v-no">❌ NO</div>
+                <span class="v-example" style="font-size:1.1rem;">पितृ ➔ पिता (ಪಿತಾಃ ಅಲ್ಲ)</span>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:15px; font-size:0.9rem; color:#888;">* ಗಮನಿಸಿ: <strong>'ಅ' ಕಾರಾಂತ</strong> ನಪುಂಸಕಲಿಂಗದ ಶಬ್ದಗಳು ಮಾತ್ರ ಸಾಮಾನ್ಯವಾಗಿ 'ಮ್' (ಉದಾ: वनम्, जलम्) ಎಂದು ಕೊನೆಗೊಳ್ಳುತ್ತವೆ.</p>
+    </div>
+
+    <div class="builder-section">
+        <h2 style="color: var(--success-green); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif; text-align:center;">ವಿಸರ್ಗ ವಿಂಗಡಣೆ ಆಟ (Sorting Game)</h2>
+        <p style="text-align:center; margin-bottom: 25px; color: #555;">ಮೂಲ ಪದಗಳನ್ನು ನೋಡಿ! ನಮ್ಮ ಸೂತ್ರದ ಪ್ರಕಾರ ಆ ಪದಗಳಿಗೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೋ ಇಲ್ಲವೋ? ಸರಿಯಾದ ಬುಟ್ಟಿಗೆ ಎಳೆದು ಹಾಕಿ.</p>
+
+        <div class="word-bank" id="word-bank">
+            <div class="word-chip" draggable="true" data-word="शिव (अ)" data-target="yes">शिव (अ)</div>
+            <div class="word-chip" draggable="true" data-word="पार्वती (ई)" data-target="no">पार्वती (ई)</div>
+            <div class="word-chip" draggable="true" data-word="मुनि (इ)" data-target="yes">मुनि (इ)</div>
+            <div class="word-chip" draggable="true" data-word="गीता (आ)" data-target="no">गीता (आ)</div>
+            <div class="word-chip" draggable="true" data-word="शिशु (उ)" data-target="yes">शिशु (उ)</div>
+            <div class="word-chip" draggable="true" data-word="मातृ (ऋ)" data-target="no">मातृ (ऋ)</div>
+        </div>
+
+        <div class="bucket-container">
+            <div class="bucket bucket-yes" id="bucket-yes" data-bucket="yes">
+                <div class="bucket-title">✅ ವಿಸರ್ಗ ಬರುತ್ತದೆ (+ ः)</div>
+                <div class="bucket-items" id="items-yes"></div>
+            </div>
+            <div class="bucket bucket-no" id="bucket-no" data-bucket="no">
+                <div class="bucket-title">❌ ವಿಸರ್ಗ ಬರುವುದಿಲ್ಲ</div>
+                <div class="bucket-items" id="items-no"></div>
+            </div>
+        </div>
+        <div id="game-status" style="text-align:center; margin-top:20px; font-weight:bold; color:var(--text-maroon);">0 / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</div>
+    </div>
+
+    <div class="subhashita-card">
+        <h3>सुभाषितम् - ६</h3>
+        <p class="shloka">
+            गच्छन् <strong>पिपीलिको</strong> याति योजनानां शतान्यपि ।<br>
+            अगच्छन् <strong>वैनतेयोऽपि</strong> पदमेकं न गच्छति ॥
+        </p>
+        <div class="shloka-meaning">
+            <strong>ಅರ್ಥ:</strong> ಚಲಿಸುತ್ತಿರುವ (ಪ್ರಯತ್ನಿಸುವ) ಪುಟ್ಟ ಇರುವೆ ನೂರಾರು ಯೋಜನಗಳಷ್ಟು ದೂರ ಕ್ರಮಿಸುತ್ತದೆ. ಆದರೆ ಚಲಿಸದ (ಪ್ರಯತ್ನಿಸದ) ಗರುಡನು ಒಂದು ಹೆಜ್ಜೆಯನ್ನೂ ಮುಂದಿಡುವುದಿಲ್ಲ.<br>
+            <div style="background: rgba(212, 175, 55, 0.2); padding: 10px; border-radius: 8px; margin-top: 15px;">
+                <em style="color:var(--text-maroon); font-size:0.95rem;">
+                    <strong>ಪಾಠದ ಲಿಂಕ್:</strong> ಇಲ್ಲಿ 'पिपीलिकः' (ಇರುವೆ) ಮತ್ತು 'वैनतेयः' (ಗರುಡ) ಎರಡೂ 'ಅ' ಕಾರಾಂತ ಪುಂಲಿಂಗ ಶಬ್ದಗಳು. ಹಾಗಾಗಿ ನಮ್ಮ ಸೂತ್ರದಂತೆ (अ -> Yes) ಇವೆರಡಕ್ಕೂ ವಿಸರ್ಗ (ः) ಬಂದಿದೆ! (ಸಂಧಿಯಿಂದಾಗಿ ಅದು 'को' ಮತ್ತು 'यो' ಎಂದು ಬದಲಾಗಿದೆ).
+                </em>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-section" id="quiz-container">
+        <div class="quiz-header">
+            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
+            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 10</div>
+        </div>
+        
+        <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
+        <div class="options-grid" id="quiz-options"></div>
+
+        <div class="quiz-controls">
+            <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" type="button">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="level5.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 5)</a>
+        <a href="level7.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 7) →</a>
+    </div>
+
+</div>
+
+<script>
+    // --- DRAG AND DROP LOGIC (Sorting Game) ---
+    const chips = document.querySelectorAll('.word-chip');
+    const buckets = document.querySelectorAll('.bucket');
+    let selectedChip = null;
+
+    chips.forEach(chip => {
+        chip.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', chip.dataset.target);
+            e.dataTransfer.setData('word/plain', chip.dataset.word);
+            e.dataTransfer.setData('id/plain', chip.innerText);
+            chip.style.opacity = '0.4';
+        });
+        chip.addEventListener('dragend', () => {
+            chip.style.opacity = '1';
+        });
+
+        // Mobile tap selection
+        chip.addEventListener('click', () => {
+            if (chip.classList.contains('used')) return;
+            chips.forEach(c => c.classList.remove('selected'));
+            chip.classList.add('selected');
+            selectedChip = chip;
+        });
+    });
+
+    function handleDrop(bucket, targetValue, wordText) {
+        const bucketType = bucket.dataset.bucket;
+        
+        if (targetValue === bucketType) {
+            // Correct bucket
+            const itemsContainer = bucket.querySelector('.bucket-items');
+            const newItem = document.createElement('div');
+            newItem.className = 'dropped-item';
+            
+            // Show the final form!
+            let finalWord = wordText.split(' ')[0];
+            if(bucketType === 'yes') finalWord += 'ः';
+            else if(finalWord === 'मातृ') finalWord = 'माता';
+
+            newItem.textContent = finalWord;
+            itemsContainer.appendChild(newItem);
+            
+            // Hide the original chip
+            chips.forEach(c => {
+                if (c.dataset.word === wordText) {
+                    c.classList.add('used');
+                    c.classList.remove('selected');
+                }
+            });
+            selectedChip = null;
+            checkGameCompletion();
+        } else {
+            // Wrong bucket
+            bucket.classList.remove('wrong-shake');
+            void bucket.offsetWidth; // trigger reflow
+            bucket.classList.add('wrong-shake');
+            setTimeout(() => bucket.classList.remove('wrong-shake'), 500);
+        }
+    }
+
+    buckets.forEach(bucket => {
+        bucket.addEventListener('dragover', (e) => e.preventDefault());
+        bucket.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const targetValue = e.dataTransfer.getData('text/plain');
+            const wordText = e.dataTransfer.getData('word/plain');
+            handleDrop(bucket, targetValue, wordText);
+        });
+
+        // Mobile tap drop
+        bucket.addEventListener('click', () => {
+            if (selectedChip) {
+                handleDrop(bucket, selectedChip.dataset.target, selectedChip.dataset.word);
+            }
+        });
+    });
+
+    function checkGameCompletion() {
+        const correctCount = document.querySelectorAll('.dropped-item').length;
+        const status = document.getElementById('game-status');
+        status.textContent = `${correctCount} / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ`;
+        if (correctCount === 6) {
+            status.textContent += ' 🎉 ಅದ್ಭುತ! ನೀವು ಸೂತ್ರವನ್ನು ಕಲಿತಿದ್ದೀರಿ.';
+            status.style.color = 'var(--success-green)';
+        }
+    }
+
+    // --- QUIZ LOGIC ---
+    const questions = [
+        { q: "ನಮ್ಮ 'Yes-No' ಸೂತ್ರದಂತೆ 'ಅ' (a) ಕಾರಾಂತ ಶಬ್ದಗಳಿಗೆ (ಉದಾ: गरुड) ವಿಸರ್ಗ ಬರುತ್ತದೆಯೇ?", options: ["ಇಲ್ಲ (गरुड)", "ಹೌದು (गरुडः)"], ans: 1 },
+        { q: "'ಆ' (ā) ಕಾರಾಂತ ಸ್ತ್ರೀಲಿಂಗ 'विद्या' ಪದದ ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ (ಕರ್ತೃ) ರೂಪವೇನು?", options: ["विद्याः", "विद्या", "विद्यम्", "विद्यः"], ans: 1 },
+        { q: "'ಇ' (i) ಕಾರಾಂತ ಪದವಾದ 'कवि' (ಕವಿ) ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["कवि", "कविः", "कवी", "कवः"], ans: 1 },
+        { q: "'ಈ' (ī) ಕಾರಾಂತ ಪದವಾದ 'नदी' ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["नदीः", "नदिः", "नदी", "नद्यः"], ans: 2 },
+        { q: "ನಮ್ಮ ಸೂತ್ರದಂತೆ 'ಉ' (u) ಕಾರಾಂತ 'गुरु' ಪದಕ್ಕೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೇ?", options: ["ಹೌದು (गुरुः)", "ಇಲ್ಲ (गुरु)"], ans: 0 },
+        { q: "'ಊ' (ū) ಕಾರಾಂತ ಪದ 'वधू' (ವಧು) ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["वधू", "वधुः", "वधूः", "वधु"], ans: 2 },
+        { q: "'ಋ' ಕಾರಾಂತ 'पितृ' (ತಂದೆ) ಪದದ ಸರಿಯಾದ ರೂಪ ಯಾವುದು? (Rest ➔ No)", options: ["पितृः", "पिताः", "पिता", "पितर्"], ans: 2 },
+        { q: "सुभाषितದಲ್ಲಿರುವ 'पिपीलिको' (पिपीलिकः) ಎಂಬುದು ಯಾವ ಕಾರಾಂತ ಪದ?", options: ["ಇ-ಕಾರಾಂತ", "ಅ-ಕಾರಾಂತ (पुं)", "ಆ-ಕಾರಾಂತ", "ಉ-ಕಾರಾಂತ"], ans: 1 },
+        { q: "ನಮ್ಮ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರದ (Yes-No-Yes-No-Yes-Yes-No) ಪ್ರಕಾರ ವಿಸರ್ಗ ಬರುವ ಸ್ವರಗಳು ಯಾವುವು?", options: ["ಅ, ಇ, ಉ, ಊ", "ಆ, ಈ", "ಎಲ್ಲಾ ಸ್ವರಗಳಿಗೂ", "ಯಾವುದಕ್ಕೂ ಬರುವುದಿಲ್ಲ"], ans: 0 },
+        { q: "ಈ ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಸರಿಯಾದ ಪದ ಯಾವುದು?", options: ["लताः", "सीताः", "शिवः", "नदीः"], ans: 2 }
+    ];
+
+    let currentQIndex = 0;
+    let score = 0;
+
+    const questionEl = document.getElementById('quiz-question');
+    const optionsEl = document.getElementById('quiz-options');
+    const progressEl = document.getElementById('quiz-progress');
+    const feedbackEl = document.getElementById('quiz-feedback');
+    const nextQBtn = document.getElementById('next-q-btn');
+    const finishBtn = document.getElementById('finish-btn');
+
+    function loadQuestion() {
+        feedbackEl.innerHTML = '';
+        nextQBtn.style.display = 'none';
+        
+        const currentQ = questions[currentQIndex];
+        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10`;
+        questionEl.textContent = currentQ.q;
+        
+        optionsEl.innerHTML = '';
+        currentQ.options.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            
+            const isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.length < 25;
+            if (isSanskrit) { 
+                btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span style="font-family:'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem;">${opt}</span>`;
+            } else {
+                btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span>${opt}</span>`;
+            }
+            
+            btn.onclick = () => checkAnswer(index, currentQ.ans, btn);
+            optionsEl.appendChild(btn);
+        });
+    }
+
+    function checkAnswer(selectedIndex, correctIndex, btnClicked) {
+        const allBtns = optionsEl.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
+        if (selectedIndex === correctIndex) {
+            btnClicked.classList.add('correct');
+            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.style.color = 'var(--success-green)';
+            score++;
+        } else {
+            btnClicked.classList.add('wrong');
+            allBtns[correctIndex].classList.add('correct'); 
+            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.style.color = 'var(--error-red)';
+        }
+
+        if (currentQIndex < questions.length - 1) {
+            nextQBtn.style.display = 'inline-block';
+        } else {
+            showFinalResult();
+        }
+    }
+
+    nextQBtn.addEventListener('click', () => {
+        currentQIndex++;
+        loadQuestion();
+    });
+
+    function showFinalResult() {
+        nextQBtn.style.display = 'none';
+        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
+            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 10</strong>
+        </div>`;
+        
+        if(score >= 8) {
+            feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ವಿಸರ್ಗದ ಸೂತ್ರವನ್ನು ಕಂಠಪಾಠ ಮಾಡಿದ್ದೀರಿ.';
+            feedbackEl.style.color = 'var(--success-green)';
+            finishBtn.style.display = 'inline-block';
+        } else {
+            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮ್ಯಾಜಿಕ್ ಸೂತ್ರವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.style.color = 'var(--text-brown)';
+            const retryBtn = document.createElement('button');
+            retryBtn.className = 'btn btn-outline';
+            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
+            optionsEl.appendChild(retryBtn);
+        }
+    }
+
+    window.onload = loadQuestion;
+</script>
+
+</body>
+</html>
