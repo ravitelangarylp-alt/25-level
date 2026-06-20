@@ -22,6 +22,10 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        /* --- LANGUAGE TOGGLE CSS MAGIC --- */
+        body.lang-en .kn-text { display: none !important; }
+        body.lang-kn .en-text { display: none !important; }
+
         body {
             font-family: 'Laila', sans-serif;
             background-color: var(--bg-parchment);
@@ -30,7 +34,32 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 20px 20px 60px; }
+        /* Top Nav */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .logo-home { 
+            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+        
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
 
         /* Motto Section */
         .motto-box {
@@ -212,8 +241,8 @@
         .quiz-controls { text-align: center; margin-top: 25px; }
 
         /* Nav Buttons */
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; }
-        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; }
+        .nav-buttons { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; display: flex; align-items: center; gap: 5px;}
         .btn-outline { border: 2px solid var(--text-maroon); color: var(--text-maroon); background: transparent; }
         .btn-outline:hover { background: rgba(128, 0, 0, 0.05); }
         .btn-primary { background: var(--text-maroon); color: white; }
@@ -226,48 +255,90 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-kn">
+
+<nav class="top-nav">
+    <a href="index.html" class="logo-home">
+        <span>🏠</span>
+        <span class="kn-text">ಮುಖಪುಟ</span>
+        <span class="en-text">Home</span>
+    </a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
 
 <div class="motto-box">
     <span class="motto-sk">सङ्गच्छध्वं संवदध्वं सं वो मनांसि जानताम् ।</span>
-    <span class="motto-kn">"ನಾವೆಲ್ಲರೂ ಒಟ್ಟಾಗಿ ಸಾಗೋಣ, ಒಟ್ಟಾಗಿ ಮಾತನಾಡೋಣ, ನಮ್ಮೆಲ್ಲರ ಮನಸ್ಸುಗಳು ಒಂದಾಗಲಿ."</span>
-    <span class="motto-source">— ऋग्वेदः (ಋಗ್ವೇದದ ಈ ಮಂತ್ರವು 'ಒಗ್ಗಟ್ಟು' ಮತ್ತು 'ನಾವು' ಎಂಬ ಬಹುವಚನದ ಭಾವನೆಯನ್ನು ಸಾರುತ್ತದೆ)</span>
+    <span class="motto-kn">
+        <span class="kn-text">"ನಾವೆಲ್ಲರೂ ಒಟ್ಟಾಗಿ ಸಾಗೋಣ, ಒಟ್ಟಾಗಿ ಮಾತನಾಡೋಣ, ನಮ್ಮೆಲ್ಲರ ಮನಸ್ಸುಗಳು ಒಂದಾಗಲಿ."</span>
+        <span class="en-text">"May we move together, speak together, and may our minds be united."</span>
+    </span>
+    <span class="motto-source">
+        <span class="kn-text">— ऋग्वेदः (ಋಗ್ವೇದದ ಈ ಮಂತ್ರವು 'ಒಗ್ಗಟ್ಟು' ಮತ್ತು 'ನಾವು' ಎಂಬ ಬಹುವಚನದ ಭಾವನೆಯನ್ನು ಸಾರುತ್ತದೆ)</span>
+        <span class="en-text">— Rigveda (This mantra conveys the feeling of unity and the plural 'We')</span>
+    </span>
 </div>
 
 <div class="container">
 
     <header>
         <div class="level-badge">Level 4</div>
-        <h1>ಬಹುವಚನ ಪರಿಚಯ (Plurals)</h1>
-        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">ಒಬ್ಬರಿಗಿಂತ ಹೆಚ್ಚಿರುವಾಗ: ನಾವು, ನೀವು, ಅವರು</p>
+        <h1>
+            <span class="kn-text">ಬಹುವಚನ ಪರಿಚಯ</span>
+            <span class="en-text">Plurals</span>
+        </h1>
+        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">
+            <span class="kn-text">ಒಬ್ಬರಿಗಿಂತ ಹೆಚ್ಚಿರುವಾಗ: ನಾವು, ನೀವು, ಅವರು</span>
+            <span class="en-text">More than one: We, You all, They</span>
+        </p>
     </header>
 
     <div class="grammar-note">
-        <h3 style="color: var(--text-maroon); font-size: 1.3rem; margin-bottom: 10px;">✨ ಬಹುವಚನದ ಜಗತ್ತು</h3>
+        <h3 style="color: var(--text-maroon); font-size: 1.3rem; margin-bottom: 10px;">
+            <span class="kn-text">✨ ಬಹುವಚನದ ಜಗತ್ತು</span>
+            <span class="en-text">✨ The World of Plurals</span>
+        </h3>
         <p>
-            ಹಿಂದಿನ ಹಂತದಲ್ಲಿ ನಾವು 'ಅವನು/ಅವಳು', 'ನೀನು', ಮತ್ತು 'ನಾನು' (ಏಕವಚನ) ಬಗ್ಗೆ ಕಲಿತೆವು. ಈಗ ಒಬ್ಬರಿಗಿಂತ ಹೆಚ್ಚಿರುವಾಗ (Plurals) ಶಬ್ದಗಳು ಮತ್ತು ಕ್ರಿಯಾಪದಗಳು ಹೇಗೆ ಬದಲಾಗುತ್ತವೆ ಎಂಬುದನ್ನು ನೋಡೋಣ. 
-            <strong>ಗಮನಿಸಿ:</strong> ಏಕವಚನದಲ್ಲಿ 'ರಾಮಃ' ಇದ್ದರೆ ಬಹುವಚನದಲ್ಲಿ 'ರಾಮಾಃ' ಆಗುತ್ತದೆ. 'ಸೀತಾ' ಇದ್ದರೆ 'ಸೀತಾಃ' ಆಗುತ್ತದೆ. 'ವನಮ್' ಇದ್ದರೆ 'ವನಾನಿ' ಆಗುತ್ತದೆ!
+            <span class="kn-text">ಹಿಂದಿನ ಹಂತದಲ್ಲಿ ನಾವು 'ಅವನು/ಅವಳು', 'ನೀನು', ಮತ್ತು 'ನಾನು' (ಏಕವಚನ) ಬಗ್ಗೆ ಕಲಿತೆವು. ಈಗ ಒಬ್ಬರಿಗಿಂತ ಹೆಚ್ಚಿರುವಾಗ (Plurals) ಶಬ್ದಗಳು ಮತ್ತು ಕ್ರಿಯಾಪದಗಳು ಹೇಗೆ ಬದಲಾಗುತ್ತವೆ ಎಂಬುದನ್ನು ನೋಡೋಣ. <strong>ಗಮನಿಸಿ:</strong> ಏಕವಚನದಲ್ಲಿ 'ರಾಮಃ' ಇದ್ದರೆ ಬಹುವಚನದಲ್ಲಿ 'ರಾಮಾಃ' ಆಗುತ್ತದೆ. 'ಸೀತಾ' ಇದ್ದರೆ 'ಸೀತಾಃ' ಆಗುತ್ತದೆ. 'ವನಮ್' ಇದ್ದರೆ 'ವನಾನಿ' ಆಗುತ್ತದೆ!</span>
+            <span class="en-text">In the previous level, we learned about singulars (He/She, You, I). Now let's see how words and verbs change when there is more than one (Plurals). <strong>Note:</strong> Singular 'Ramaḥ' becomes plural 'Rāmāḥ'. 'Sītā' becomes 'Sītāḥ'. 'Vanam' becomes 'Vanāni'!</span>
         </p>
     </div>
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೧. ಪ್ರಥಮ ಪುರುಷ (ಅವರು / ಅವು)</h2>
-            <p>ಅನೇಕರು ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-न्ति (-nti)</strong> ಸೇರುತ್ತದೆ.</p>
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">
+                <span class="kn-text">೧. ಪ್ರಥಮ ಪುರುಷ (ಅವರು / ಅವು)</span>
+                <span class="en-text">1. Third Person (They / Those)</span>
+            </h2>
+            <p>
+                <span class="kn-text">ಅನೇಕರು ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-न्ति (-nti)</strong> ಸೇರುತ್ತದೆ.</span>
+                <span class="en-text">When many others are performing the action, the verb ends with <strong class="highlight-suffix">-न्ति (-nti)</strong>.</span>
+            </p>
             
             <div class="phrase-box multi">
                 <div class="sk-text">ते रामाः पठ<span class="highlight-suffix">न्ति</span> ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">(ಪು) ಆ ರಾಮರು ಓದುತ್ತಾರೆ (They read).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">(ಪು) ಆ ರಾಮರು ಓದುತ್ತಾರೆ (They read).</span>
+                    <span class="en-text">(Masc) Those Ramas read.</span>
+                </div>
             </div>
             
             <div class="phrase-box multi">
                 <div class="sk-text">ताः सीताः वद<span class="highlight-suffix">न्ति</span> ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">(ಸ್ತ್ರೀ) ಆ ಸೀತೆಯರು ಹೇಳುತ್ತಾರೆ (They speak).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">(ಸ್ತ್ರೀ) ಆ ಸೀತೆಯರು ಹೇಳುತ್ತಾರೆ (They speak).</span>
+                    <span class="en-text">(Fem) Those Sitas speak.</span>
+                </div>
             </div>
             
             <div class="phrase-box multi">
                 <div class="sk-text">तानि वनानि सन्ति ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">(ನಪುಂ) ಆ ಕಾಡುಗಳು ಇವೆ (Those are forests).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">(ನಪುಂ) ಆ ಕಾಡುಗಳು ಇವೆ (Those are forests).</span>
+                    <span class="en-text">(Neuter) Those are forests.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
@@ -277,15 +348,27 @@
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೨. ಮಧ್ಯಮ ಪುರುಷ (ನೀವೆಲ್ಲರೂ)</h2>
-            <p>ನಮ್ಮ ಮುಂದಿರುವ <strong>ಅನೇಕರು (यूयम् - Yuyam)</strong> ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-थ (-tha)</strong> ಸೇರುತ್ತದೆ.</p>
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">
+                <span class="kn-text">೨. ಮಧ್ಯಮ ಪುರುಷ (ನೀವೆಲ್ಲರೂ)</span>
+                <span class="en-text">2. Second Person (You all)</span>
+            </h2>
+            <p>
+                <span class="kn-text">ನಮ್ಮ ಮುಂದಿರುವ <strong>ಅನೇಕರು (यूयम् - Yuyam)</strong> ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-थ (-tha)</strong> ಸೇರುತ್ತದೆ.</span>
+                <span class="en-text">When <strong>many people in front of us (यूयम् - Yuyam)</strong> are performing the action, the verb ends with <strong class="highlight-suffix">-थ (-tha)</strong>.</span>
+            </p>
             <div class="phrase-box">
                 <div class="sk-text">यूयं पठ<span class="highlight-suffix">थ</span> ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನೀವೆಲ್ಲರೂ ಓದುತ್ತೀರಿ (You all read).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನೀವೆಲ್ಲರೂ ಓದುತ್ತೀರಿ (You all read).</span>
+                    <span class="en-text">You all read.</span>
+                </div>
             </div>
             <div class="phrase-box">
                 <div class="sk-text">यूयं चल<span class="highlight-suffix">थ</span> ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನೀವೆಲ್ಲರೂ ನಡೆಯುತ್ತೀರಿ (You all walk).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನೀವೆಲ್ಲರೂ ನಡೆಯುತ್ತೀರಿ (You all walk).</span>
+                    <span class="en-text">You all walk.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
@@ -295,15 +378,27 @@
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೩. ಉತ್ತಮ ಪುರುಷ (ನಾವೆಲ್ಲರೂ)</h2>
-            <p><strong>ನಾವೆಲ್ಲರೂ ಸೇರಿ (वयम् - Vayam)</strong> ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-आमः (-amah)</strong> ಸೇರುತ್ತದೆ.</p>
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">
+                <span class="kn-text">೩. ಉತ್ತಮ ಪುರುಷ (ನಾವೆಲ್ಲರೂ)</span>
+                <span class="en-text">3. First Person (We)</span>
+            </h2>
+            <p>
+                <span class="kn-text"><strong>ನಾವೆಲ್ಲರೂ ಸೇರಿ (वयम् - Vayam)</strong> ಕ್ರಿಯೆ ಮಾಡುತ್ತಿರುವಾಗ, ಕ್ರಿಯಾಪದದ ಕೊನೆಗೆ <strong class="highlight-suffix">-आमः (-amah)</strong> ಸೇರುತ್ತದೆ.</span>
+                <span class="en-text">When <strong>we all together (वयम् - Vayam)</strong> are performing the action, the verb ends with <strong class="highlight-suffix">-आमः (-amah)</strong>.</span>
+            </p>
             <div class="phrase-box">
                 <div class="sk-text">वयं पठ<span class="highlight-suffix">आमः</span> (पठामः) ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನಾವೆಲ್ಲರೂ ಓದುತ್ತೇವೆ (We read).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನಾವೆಲ್ಲರೂ ಓದುತ್ತೇವೆ (We read).</span>
+                    <span class="en-text">We read.</span>
+                </div>
             </div>
             <div class="phrase-box">
                 <div class="sk-text">वयं चल<span class="highlight-suffix">आमः</span> (चलामः) ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನಾವೆಲ್ಲರೂ ನಡೆಯುತ್ತೇವೆ (We walk).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನಾವೆಲ್ಲರೂ ನಡೆಯುತ್ತೇವೆ (We walk).</span>
+                    <span class="en-text">We walk.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
@@ -312,58 +407,96 @@
     </div>
 
     <div class="interactive-board">
-        <div class="unlocked-badge">🔓 ಬಹುವಚನ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ!</div>
-        <h2 style="text-align: center; color: var(--text-maroon); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif;">ಕ್ರಿಯಾಪದ ಕೋಷ್ಟಕ (Verb Lab)</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 20px;">ಯಾವುದಾದರೂ ಪದವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ. ಈ ಬಾರಿ ಬಹುವಚನವನ್ನು ಗಮನಿಸಿ!</p>
+        <div class="unlocked-badge">
+            <span class="kn-text">🔓 ಬಹುವಚನ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ!</span>
+            <span class="en-text">🔓 Plurals Unlocked!</span>
+        </div>
+        <h2 style="text-align: center; color: var(--text-maroon); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif;">
+            <span class="kn-text">ಕ್ರಿಯಾಪದ ಕೋಷ್ಟಕ (Verb Lab)</span>
+            <span class="en-text">Verb Lab</span>
+        </h2>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">
+            <span class="kn-text">ಯಾವುದಾದರೂ ಪದವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ. ಈ ಬಾರಿ ಬಹುವಚನವನ್ನು ಗಮನಿಸಿ!</span>
+            <span class="en-text">Click any word. Observe the plural forms this time!</span>
+        </p>
         
         <div class="verb-buttons" id="verb-buttons">
             </div>
 
         <table class="verb-table">
             <tr>
-                <th>ಸ್ಥಾನ (Person)</th>
-                <th>ಏಕವಚನ (Singular)</th>
-                <th style="background: #22c55e;">ಬಹುವಚನ (Plural)</th>
+                <th>
+                    <span class="kn-text">ಸ್ಥಾನ (Person)</span>
+                    <span class="en-text">Person</span>
+                </th>
+                <th>
+                    <span class="kn-text">ಏಕವಚನ (Singular)</span>
+                    <span class="en-text">Singular</span>
+                </th>
+                <th style="background: #22c55e;">
+                    <span class="kn-text">ಬಹುವಚನ (Plural)</span>
+                    <span class="en-text">Plural</span>
+                </th>
             </tr>
             <tr>
-                <td style="font-weight: bold; background: #f9f9f9;">ಪ್ರಥಮ (ಅವನು / ಅವರು)</td>
-                <td id="t-p1e">पठति<br><span>(सः/सा)</span></td>
-                <td class="plural-col" id="t-p1b">पठन्ति<br><span>(ते/ताः/तानि)</span></td>
+                <td style="font-weight: bold; background: #f9f9f9;">
+                    <span class="kn-text">ಪ್ರಥಮ (ಅವನು/ಅವಳು)</span>
+                    <span class="en-text">Third (He/She/It)</span>
+                </td>
+                <td id="t-p1e"></td>
+                <td class="plural-col" id="t-p1b"></td>
             </tr>
             <tr>
-                <td style="font-weight: bold; background: #f9f9f9;">ಮಧ್ಯಮ (ನೀನು / ನೀವೆಲ್ಲ)</td>
-                <td id="t-p2e">पठसि<br><span>(त्वम्)</span></td>
-                <td class="plural-col" id="t-p2b">पठथ<br><span>(यूयम्)</span></td>
+                <td style="font-weight: bold; background: #f9f9f9;">
+                    <span class="kn-text">ಮಧ್ಯಮ (ನೀನು)</span>
+                    <span class="en-text">Second (You)</span>
+                </td>
+                <td id="t-p2e"></td>
+                <td class="plural-col" id="t-p2b"></td>
             </tr>
             <tr>
-                <td style="font-weight: bold; background: #f9f9f9;">ಉತ್ತಮ (ನಾನು / ನಾವು)</td>
-                <td id="t-p3e">पठामि<br><span>(अहम्)</span></td>
-                <td class="plural-col" id="t-p3b">पठामः<br><span>(वयम्)</span></td>
+                <td style="font-weight: bold; background: #f9f9f9;">
+                    <span class="kn-text">ಉತ್ತಮ (ನಾನು)</span>
+                    <span class="en-text">First (I)</span>
+                </td>
+                <td id="t-p3e"></td>
+                <td class="plural-col" id="t-p3b"></td>
             </tr>
         </table>
     </div>
 
     <div class="subhashita-card">
-        <h3>सुभाषितम् - ४</h3>
+        <h3>
+            <span class="kn-text">सुभाषितम् - ४</span>
+            <span class="en-text">Subhashitam - 4</span>
+        </h3>
         <p class="shloka">
             नमन्ति फलिनो वृक्षाः नमन्ति गुणिनो जनाः ।<br>
             शुष्कवृक्षाश्च मूर्खाश्च न नमन्ति कदाचन ॥
         </p>
         <div class="shloka-meaning">
-            <strong>ಅರ್ಥ:</strong> ಹಣ್ಣು ಬಿಟ್ಟ ಮರಗಳು (वृक्षाः) ಬಾಗುತ್ತವೆ <strong>(नमन्ति)</strong>. ಗುಣವಂತ ಜನರು (जनाः) ವಿನಯದಿಂದ ಬಾಗುತ್ತಾರೆ <strong>(नमन्ति)</strong>. ಆದರೆ ಒಣಗಿದ ಮರಗಳು ಮತ್ತು ಮೂರ್ಖರು ಎಂದಿಗೂ ಬಾಗುವುದಿಲ್ಲ.
+            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಹಣ್ಣು ಬಿಟ್ಟ ಮರಗಳು (वृक्षाः) ಬಾಗುತ್ತವೆ <strong>(नमन्ति)</strong>. ಗುಣವಂತ ಜನರು (जनाः) ವಿನಯದಿಂದ ಬಾಗುತ್ತಾರೆ <strong>(नमन्ति)</strong>. ಆದರೆ ಒಣಗಿದ ಮರಗಳು ಮತ್ತು ಮೂರ್ಖರು ಎಂದಿಗೂ ಬಾಗುವುದಿಲ್ಲ.</span>
+            <span class="en-text"><strong>Meaning:</strong> Trees laden with fruits (वृक्षाः) bow down <strong>(नमन्ति)</strong>. Virtuous people (जनाः) bow down in humility <strong>(नमन्ति)</strong>. But dry trees and foolish people never bow down.</span>
         </div>
         <div class="highlight-box">
-            <h4 style="color: var(--text-brown); margin-bottom: 5px;">🔍 ಪಾಠದ ಪ್ರಮುಖಾಂಶ (Grammar Check):</h4>
+            <h4 style="color: var(--text-brown); margin-bottom: 5px;">
+                <span class="kn-text">🔍 ಪಾಠದ ಪ್ರಮುಖಾಂಶ:</span>
+                <span class="en-text">🔍 Grammar Check:</span>
+            </h4>
             <p style="font-size: 0.95rem;">
-                ಈ ಸುಭಾಷಿತದಲ್ಲಿ 'वृक्षः' (ಒಂದು ಮರ) ಬದಲು <strong>'वृक्षाः' (ಅನೇಕ ಮರಗಳು)</strong> ಮತ್ತು 'जनः' ಬದಲು <strong>'जनाः' (ಜನರು)</strong> ಎಂಬ ಬಹುವಚನ ಬಳಸಲಾಗಿದೆ. ಆದ್ದರಿಂದ ಕ್ರಿಯಾಪದವೂ ಕೂಡ 'नमति' (ಬಾಗುತ್ತಾನೆ/ದೆ) ಬದಲಾಗಿ <strong>'नमन्ति' (ಬಾಗುತ್ತಾರೆ/ವೆ)</strong> ಎಂದು ಬಹುವಚನದಲ್ಲಿದೆ!
+                <span class="kn-text">ಈ ಸುಭಾಷಿತದಲ್ಲಿ 'वृक्षः' (ಒಂದು ಮರ) ಬದಲು <strong>'वृक्षाः' (ಅನೇಕ ಮರಗಳು)</strong> ಮತ್ತು 'जनः' ಬದಲು <strong>'जनाः' (ಜನರು)</strong> ಎಂಬ ಬಹುವಚನ ಬಳಸಲಾಗಿದೆ. ಆದ್ದರಿಂದ ಕ್ರಿಯಾಪದವೂ ಕೂಡ 'नमति' (ಬಾಗುತ್ತಾನೆ/ದೆ) ಬದಲಾಗಿ <strong>'नमन्ति' (ಬಾಗುತ್ತಾರೆ/ವೆ)</strong> ಎಂದು ಬಹುವಚನದಲ್ಲಿದೆ!</span>
+                <span class="en-text">In this subhashita, instead of singular 'वृक्षः' (tree), plural <strong>'वृक्षाः' (trees)</strong> is used, and instead of 'जनः', <strong>'जनाः' (people)</strong> is used. Therefore, the verb is also in plural: <strong>'नमन्ति' (they bow)</strong> instead of singular 'नमति'!</span>
             </p>
         </div>
     </div>
 
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
-            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
-            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 10</div>
+            <div class="quiz-title">
+                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span>
+                <span class="en-text">Knowledge Test (Quiz)</span>
+            </div>
+            <div class="quiz-progress" id="quiz-progress"></div>
         </div>
         
         <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
@@ -371,45 +504,72 @@
 
         <div class="quiz-controls">
             <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
-            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()"></button>
         </div>
     </div>
 
     <div class="nav-buttons">
-        <a href="level3.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 3)</a>
-        <a href="level5.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 5) →</a>
+        <a href="level3.html" class="btn btn-outline">
+            ← <span class="kn-text">ಹಿಂದಿನ ಹಂತ</span><span class="en-text">Prev Level</span>
+        </a>
+        
+        <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
+            🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
+        </a>
+        
+        <a href="level5.html" id="finish-btn" class="btn btn-primary" style="display: none;">
+            <span class="kn-text">ಮುಂದಿನ ಹಂತ</span><span class="en-text">Next Level</span> →
+        </a>
     </div>
 
 </div>
 
 <script>
+    // --- LANGUAGE MANAGEMENT SCRIPT ---
+    function setLanguage(lang) {
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('trayeeLang', lang);
+    }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+        const newLang = currentLang === 'kn' ? 'en' : 'kn';
+        setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+        setLanguage(savedLang);
+    });
+
     // --- INTERACTIVE VERB BOARD DATA ---
     const verbData = [
-        { root: "पठ्", sk: "पठ्", kn: "ಓದು", 
+        { root: "पठ्", sk: "पठ्", kn: "ಓದು", en: "Read", 
           p1e: "पठति", p1b: "पठन्ति", 
           p2e: "पठसि", p2b: "पठथ", 
           p3e: "पठामि", p3b: "पठामः" },
-        { root: "चल्", sk: "चल्", kn: "ನಡೆ", 
+        { root: "चल्", sk: "चल्", kn: "ನಡೆ", en: "Walk",
           p1e: "चलति", p1b: "चलन्ति", 
           p2e: "चलसि", p2b: "चलथ", 
           p3e: "चलामि", p3b: "चलामः" },
-        { root: "पच्", sk: "पच्", kn: "ಅಡುಗೆ ಮಾಡು", 
+        { root: "पच्", sk: "पच्", kn: "ಅಡುಗೆ ಮಾಡು", en: "Cook",
           p1e: "पचति", p1b: "पचन्ति", 
           p2e: "पचसि", p2b: "पचथ", 
           p3e: "पचामि", p3b: "पचामः" },
-        { root: "वद्", sk: "वद्", kn: "ಹೇಳು", 
+        { root: "वद्", sk: "वद्", kn: "ಹೇಳು", en: "Speak",
           p1e: "वदति", p1b: "वदन्ति", 
           p2e: "वदसि", p2b: "वदथ", 
           p3e: "वदामि", p3b: "वदामः" },
-        { root: "क्रीड्", sk: "क्रीड्", kn: "ಆಡು", 
+        { root: "क्रीड्", sk: "क्रीड्", kn: "ಆಡು", en: "Play",
           p1e: "क्रीडति", p1b: "क्रीडन्ति", 
           p2e: "क्रीडसि", p2b: "क्रीडथ", 
           p3e: "क्रीडामि", p3b: "क्रीडामः" },
-        { root: "स्मर्", sk: "स्मर्", kn: "ನೆನಪಿಸು", 
+        { root: "स्मर्", sk: "स्मर्", kn: "ನೆನಪಿಸು", en: "Remember",
           p1e: "स्मरति", p1b: "स्मरन्ति", 
           p2e: "स्मरसि", p2b: "स्मरथ", 
           p3e: "स्मरामि", p3b: "स्मरामः" },
-        { root: "रक्ष्", sk: "रक्ष्", kn: "ರಕ್ಷಿಸು", 
+        { root: "रक्ष्", sk: "रक्ष्", kn: "ರಕ್ಷಿಸು", en: "Protect",
           p1e: "रक्षति", p1b: "रक्षन्ति", 
           p2e: "रक्षसि", p2b: "रक्षथ", 
           p3e: "रक्षामि", p3b: "रक्षामः" }
@@ -421,7 +581,7 @@
             const btn = document.createElement('button');
             btn.className = 'v-btn';
             if(index === 0) btn.classList.add('active');
-            btn.innerHTML = `${v.sk} <span style="font-family:'Laila', sans-serif; font-size:0.8rem;">(${v.kn})</span>`;
+            btn.innerHTML = `${v.sk} <span style="font-family:'Laila', sans-serif; font-size:0.8rem;"><span class="kn-text">(${v.kn})</span><span class="en-text">(${v.en})</span></span>`;
             btn.onclick = () => {
                 document.querySelectorAll('.v-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
@@ -429,29 +589,83 @@
             };
             btnContainer.appendChild(btn);
         });
+        // Init first
+        updateTable(verbData[0]);
     }
 
     function updateTable(v) {
         document.getElementById('t-p1e').innerHTML = `${v.p1e}<br><span>(सः/सा/तत्)</span>`;
         document.getElementById('t-p1b').innerHTML = `${v.p1b}<br><span>(ते/ताः/तानि)</span>`;
+        
         document.getElementById('t-p2e').innerHTML = `${v.p2e}<br><span>(त्वम्)</span>`;
         document.getElementById('t-p2b').innerHTML = `${v.p2b}<br><span>(यूयम्)</span>`;
+        
         document.getElementById('t-p3e').innerHTML = `${v.p3e}<br><span>(अहम्)</span>`;
         document.getElementById('t-p3b').innerHTML = `${v.p3b}<br><span>(वयम्)</span>`;
     }
 
     // --- QUIZ DATA ---
     const questions = [
-        { q: "'ನಾವು (We)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["अहम्", "वयम्", "यूयम्", "ते"], ans: 1 },
-        { q: "'ನೀವೆಲ್ಲರೂ (You all)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["यूयम्", "त्वम्", "वयम्", "ताः"], ans: 0 },
-        { q: "'अहं पठामि' (ನಾನು ಓದುತ್ತೇನೆ) - ಇದರ ಬಹುವಚನ ರೂಪವೇನು?", options: ["यूयं पठथ", "वयं पठामः", "वयं पठामि", "ते पठन्ति"], ans: 1 },
-        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: 'यूयं ___ ।' (ನೀವೆಲ್ಲರೂ ನಡೆಯುತ್ತೀರಿ)", options: ["चलामः", "चलन्ति", "चलथ", "चलसि"], ans: 2 },
-        { q: "'सः रामः पठति' - ಇದರ ಬಹುವಚನ ರೂಪವೇನು?", options: ["ते रामाः पठन्ति", "ताः रामाः पठन्ति", "ते रामः पठन्ति", "यूयं रामाः पठथ"], ans: 0 },
-        { q: "'तानि वनानि' (ಆ ಕಾಡುಗಳು) - ಇಲ್ಲಿ 'तानि' ಯಾವ ಲಿಂಗದಲ್ಲಿದೆ?", options: ["ಪುಂಲಿಂಗ", "ಸ್ತ್ರೀಲಿಂಗ", "ನಪುಂಸಕಲಿಂಗ", "ಯಾವುದೂ ಅಲ್ಲ"], ans: 2 },
-        { q: "ಸುಭಾಷಿತದಲ್ಲಿ 'नमन्ति' (ಬಾಗುತ್ತಾರೆ) ಎಂದು ಯಾವ ವಚನದಲ್ಲಿ ಬಳಸಲಾಗಿದೆ?", options: ["ಏಕವಚನ", "ದ್ವಿವಚನ", "ಬಹುವಚನ", "ಯಾವುದೂ ಅಲ್ಲ"], ans: 2 },
-        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: 'ताः सीताः ___ ।' (ಆ ಸೀತೆಯರು ಹೇಳುತ್ತಾರೆ)", options: ["वदति", "वदथ", "वदन्ति", "वदामः"], ans: 2 },
-        { q: "'वयम्' ಜೊತೆ ಕ್ರಿಯಾಪದದ ಕೊನೆಯಲ್ಲಿ ಯಾವ ಅಕ್ಷರಗಳು ಬರುತ್ತವೆ?", options: ["-थ (-tha)", "-न्ति (-nti)", "-ामः (-amah)", "-सि (-si)"], ans: 2 },
-        { q: "ಸರಿಯಾದ ವಾಕ್ಯವನ್ನು ಗುರುತಿಸಿ:", options: ["वयं पचथ", "यूयं पचन्ति", "ते पचामः", "वयं पचामः"], ans: 3 }
+        { 
+            q: "<span class='kn-text'>'ನಾವು (We)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?</span><span class='en-text'>What is the Sanskrit word for 'We'?</span>", 
+            options: ["अहम्", "वयम्", "यूयम्", "ते"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>'ನೀವೆಲ್ಲರೂ (You all)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?</span><span class='en-text'>What is the Sanskrit word for 'You all'?</span>", 
+            options: ["यूयम्", "त्वम्", "वयम्", "ताः"], 
+            ans: 0 
+        },
+        { 
+            q: "<span class='kn-text'>'अहं पठामि' (ನಾನು ಓದುತ್ತೇನೆ) - ಇದರ ಬಹುವಚನ ರೂಪವೇನು?</span><span class='en-text'>What is the plural form of 'अहं पठामि' (I read)?</span>", 
+            options: ["यूयं पठथ", "वयं पठामः", "वयं पठामि", "ते पठन्ति"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: 'यूयं ___ ।' (ನೀವೆಲ್ಲರೂ ನಡೆಯುತ್ತೀರಿ)</span><span class='en-text'>Fill in the blank: 'यूयं ___ ।' (You all walk)</span>", 
+            options: ["चलामः", "चलन्ति", "चलथ", "चलसि"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>'सः रामः पठति' - ಇದರ ಬಹುವಚನ ರೂಪವೇನು?</span><span class='en-text'>What is the plural form of 'सः रामः पठति'?</span>", 
+            options: ["ते रामाः पठन्ति", "ताः रामाः पठन्ति", "ते रामः पठन्ति", "यूयं रामाः पठथ"], 
+            ans: 0 
+        },
+        { 
+            q: "<span class='kn-text'>'तानि वनानि' (ಆ ಕಾಡುಗಳು) - ಇಲ್ಲಿ 'तानि' ಯಾವ ಲಿಂಗದಲ್ಲಿದೆ?</span><span class='en-text'>In 'तानि वनानि' (Those forests), what gender is 'तानि'?</span>", 
+            options: [
+                "<span class='kn-text'>ಪುಂಲಿಂಗ</span><span class='en-text'>Masculine</span>", 
+                "<span class='kn-text'>ಸ್ತ್ರೀಲಿಂಗ</span><span class='en-text'>Feminine</span>", 
+                "<span class='kn-text'>ನಪುಂಸಕಲಿಂಗ</span><span class='en-text'>Neuter</span>", 
+                "<span class='kn-text'>ಯಾವುದೂ ಅಲ್ಲ</span><span class='en-text'>None</span>"
+            ], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಸುಭಾಷಿತದಲ್ಲಿ 'नमन्ति' (ಬಾಗುತ್ತಾರೆ) ಎಂದು ಯಾವ ವಚನದಲ್ಲಿ ಬಳಸಲಾಗಿದೆ?</span><span class='en-text'>In the subhashita, in which number is 'नमन्ति' (they bow) used?</span>", 
+            options: [
+                "<span class='kn-text'>ಏಕವಚನ</span><span class='en-text'>Singular</span>", 
+                "<span class='kn-text'>ದ್ವಿವಚನ</span><span class='en-text'>Dual</span>", 
+                "<span class='kn-text'>ಬಹುವಚನ</span><span class='en-text'>Plural</span>", 
+                "<span class='kn-text'>ಯಾವುದೂ ಅಲ್ಲ</span><span class='en-text'>None</span>"
+            ], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: 'ताः सीताः ___ ।' (ಆ ಸೀತೆಯರು ಹೇಳುತ್ತಾರೆ)</span><span class='en-text'>Fill in the blank: 'ताः सीताः ___ ।' (Those Sitas speak)</span>", 
+            options: ["वदति", "वदथ", "वदन्ति", "वदामः"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>'वयम्' ಜೊತೆ ಕ್ರಿಯಾಪದದ ಕೊನೆಯಲ್ಲಿ ಯಾವ ಅಕ್ಷರಗಳು ಬರುತ್ತವೆ?</span><span class='en-text'>Which suffix comes at the end of the verb with 'वयम्'?</span>", 
+            options: ["-थ (-tha)", "-न्ति (-nti)", "-ामः (-amah)", "-सि (-si)"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಸರಿಯಾದ ವಾಕ್ಯವನ್ನು ಗುರುತಿಸಿ:</span><span class='en-text'>Identify the correct sentence:</span>", 
+            options: ["वयं पचथ", "यूयं पचन्ति", "ते पचामः", "वयं पचामः"], 
+            ans: 3 
+        }
     ];
 
     let currentQIndex = 0;
@@ -469,15 +683,15 @@
         nextQBtn.style.display = 'none';
         
         const currentQ = questions[currentQIndex];
-        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10`;
-        questionEl.textContent = currentQ.q;
+        progressEl.innerHTML = `<span class="kn-text">ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10</span><span class="en-text">Question ${currentQIndex + 1} / 10</span>`;
+        questionEl.innerHTML = currentQ.q;
         
         optionsEl.innerHTML = '';
         currentQ.options.forEach((opt, index) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             
-            const isSanskrit = /[\u0900-\u097F]/.test(opt);
+            const isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.indexOf('<span') === -1;
             if (isSanskrit && opt.length < 20) { 
                 btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span style="font-family:'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem;">${opt}</span>`;
             } else {
@@ -495,18 +709,19 @@
 
         if (selectedIndex === correctIndex) {
             btnClicked.classList.add('correct');
-            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)</span><span class="en-text">✅ Uttamam! (Correct Answer)</span>';
             feedbackEl.style.color = 'var(--success-green)';
             score++;
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct'); 
-            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! The one in green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
         if (currentQIndex < questions.length - 1) {
             nextQBtn.style.display = 'inline-block';
+            nextQBtn.innerHTML = '<span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span><span class="en-text">Next Question →</span>';
         } else {
             showFinalResult();
         }
@@ -519,21 +734,21 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
-            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 10</strong>
+            <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / 10</strong>
         </div>`;
         
         if(score >= 8) {
-            feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಬಹುವಚನದ ಪರಿಕಲ್ಪನೆಯನ್ನು ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಬಹುವಚನದ ಪರಿಕಲ್ಪನೆಯನ್ನು ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have understood the concept of plurals very well.</span>';
             feedbackEl.style.color = 'var(--success-green)';
             finishBtn.style.display = 'inline-block';
         } else {
-            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಕೋಷ್ಟಕವನ್ನು ಮತ್ತೊಮ್ಮೆ ಅಭ್ಯಾಸ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮೇಲಿನ ಕೋಷ್ಟಕವನ್ನು ಮತ್ತೊಮ್ಮೆ ಅಭ್ಯಾಸ ಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please practice the table above once more and try again.</span>';
             feedbackEl.style.color = 'var(--text-brown)';
             const retryBtn = document.createElement('button');
             retryBtn.className = 'btn btn-outline';
-            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.innerHTML = '<span class="kn-text">↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</span><span class="en-text">↺ Try Again</span>';
             retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
             optionsEl.appendChild(retryBtn);
         }
