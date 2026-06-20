@@ -25,6 +25,10 @@
             padding: 0;
         }
 
+        /* --- LANGUAGE TOGGLE CSS MAGIC --- */
+        body.lang-en .kn-text { display: none !important; }
+        body.lang-kn .en-text { display: none !important; }
+
         body {
             font-family: 'Laila', sans-serif;
             background-color: var(--bg-parchment);
@@ -33,10 +37,35 @@
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
         }
 
+        /* Top Nav */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .logo-home { 
+            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+        
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px 20px 60px;
+            padding: 0 20px 60px;
         }
 
         /* Motto Section */
@@ -215,6 +244,7 @@
         .quiz-title {
             font-size: 1.5rem;
             color: var(--text-brown);
+            font-weight: 700;
         }
 
         .quiz-progress {
@@ -275,6 +305,8 @@
             display: flex;
             justify-content: space-between;
             margin-top: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .btn {
@@ -285,12 +317,19 @@
             transition: all 0.3s;
             cursor: pointer;
             border: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .btn-outline {
             border: 2px solid var(--text-maroon);
             color: var(--text-maroon);
             background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(128, 0, 0, 0.05);
         }
 
         .btn-primary {
@@ -308,32 +347,65 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-kn">
+
+<nav class="top-nav">
+    <a href="index.html" class="logo-home">
+        <span>🏠</span>
+        <span class="kn-text">ಮುಖಪುಟ</span>
+        <span class="en-text">Home</span>
+    </a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
 
 <div class="motto-box">
     <span class="motto-sk">अहं छात्रः, त्वं गुरुः । मम श्रद्धा, तव ज्ञानम् ॥</span>
-    <span class="motto-kn">"ನಾನು ವಿದ್ಯಾರ್ಥಿ, ನೀನು ಗುರು. ನನ್ನ ಶ್ರದ್ಧೆ, ನಿನ್ನ ಜ್ಞಾನ."</span>
+    <span class="motto-kn">
+        <span class="kn-text">"ನಾನು ವಿದ್ಯಾರ್ಥಿ, ನೀನು ಗುರು. ನನ್ನ ಶ್ರದ್ಧೆ, ನಿನ್ನ ಜ್ಞಾನ."</span>
+        <span class="en-text">"I am the student, you are the guru. My dedication, your knowledge."</span>
+    </span>
 </div>
 
 <div class="container">
     
     <header>
         <div class="level-badge">Level 1</div>
-        <h1>ಸ್ವಯಂ ಪರಿಚಯಃ (Identity)</h1>
-        <p class="subtitle">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ (First & Second Person)</p>
+        <h1>
+            <span class="kn-text">ಸ್ವಯಂ ಪರಿಚಯಃ (Identity)</span>
+            <span class="en-text">Swayam Parichayah (Identity)</span>
+        </h1>
+        <p class="subtitle">
+            <span class="kn-text">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ (First & Second Person)</span>
+            <span class="en-text">First & Second Person (Uttama & Madhyama Purusha)</span>
+        </p>
     </header>
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೧. ತನ್ನ ಬಗ್ಗೆ ಹೇಳಿಕೊಳ್ಳುವುದು</h2>
-            <p>ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</p>
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">
+                <span class="kn-text">೧. ತನ್ನ ಬಗ್ಗೆ ಹೇಳಿಕೊಳ್ಳುವುದು</span>
+                <span class="en-text">1. Introducing Oneself</span>
+            </h2>
+            <p>
+                <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</span>
+                <span class="en-text">The method of introducing your name and city in Sanskrit.</span>
+            </p>
             <div class="phrase-box">
                 <div class="sk-text">अहं रविः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನಾನು ರವಿ (I am Ravi).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನಾನು ರವಿ (I am Ravi).</span>
+                    <span class="en-text">I am Ravi.</span>
+                </div>
             </div>
             <div class="phrase-box">
                 <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</span>
+                    <span class="en-text">My city is Bengaluru.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
@@ -343,15 +415,27 @@
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--text-brown); margin-bottom: 10px;">೨. ಎದುರಿಗಿರುವವರನ್ನು ಪರಿಚಯಿಸುವುದು</h2>
-            <p>ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</p>
+            <h2 style="color: var(--text-brown); margin-bottom: 10px;">
+                <span class="kn-text">೨. ಎದುರಿಗಿರುವವರನ್ನು ಪರಿಚಯಿಸುವುದು</span>
+                <span class="en-text">2. Introducing the Person in Front of You</span>
+            </h2>
+            <p>
+                <span class="kn-text">ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</span>
+                <span class="en-text">The method of directly addressing the person in front of you.</span>
+            </p>
             <div class="phrase-box">
                 <div class="sk-text">त्वं गणेशः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನೀನು ಗಣೇಶ (You are Ganesh).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನೀನು ಗಣೇಶ (You are Ganesh).</span>
+                    <span class="en-text">You are Ganesh.</span>
+                </div>
             </div>
             <div class="phrase-box">
                 <div class="sk-text">तव ग्रामः मैसूरु ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</span>
+                    <span class="en-text">Your city is Mysuru.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
@@ -360,32 +444,57 @@
     </div>
 
     <div class="subhashita-card">
-        <h3>सुभाषितम् - १</h3>
+        <h3>
+            <span class="kn-text">सुभाषितम् - १</span>
+            <span class="en-text">Subhashitam - 1</span>
+        </h3>
         <p class="shloka">
             अहं पृच्छामि भो मित्र, त्वं च उत्तरं वद ।<br>
             मम प्रश्नः तव ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥
         </p>
         <p class="shloka-meaning">
-            <strong>ಅರ್ಥ:</strong> ಎಲೈ ಮಿತ್ರನೇ, <b>ನಾನು (अहं)</b> ಕೇಳುತ್ತೇನೆ, <b>ನೀನು (त्वं)</b> ಉತ್ತರಿಸು. <b>ನನ್ನ (मम)</b> ಪ್ರಶ್ನೆ ಹಾಗೂ <b>ನಿನ್ನ (तव)</b> ಜ್ಞಾನದಿಂದ ನಮ್ಮಿಬ್ಬರ ಜ್ಞಾನವೃದ್ಧಿಯಾಗುತ್ತದೆ.
+            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಎಲೈ ಮಿತ್ರನೇ, <b>ನಾನು (अहं)</b> ಕೇಳುತ್ತೇನೆ, <b>ನೀನು (त्वं)</b> ಉತ್ತರಿಸು. <b>ನನ್ನ (मम)</b> ಪ್ರಶ್ನೆ ಹಾಗೂ <b>ನಿನ್ನ (तव)</b> ಜ್ಞಾನದಿಂದ ನಮ್ಮಿಬ್ಬರ ಜ್ಞಾನವೃದ್ಧಿಯಾಗುತ್ತದೆ.</span>
+            <span class="en-text"><strong>Meaning:</strong> O friend, <b>I (अहं)</b> ask, and <b>you (त्वं)</b> answer. From <b>my (मम)</b> question and <b>your (तव)</b> knowledge, the knowledge of both of us increases.</span>
         </p>
     </div>
 
     <div class="grammar-note">
-        <h3>📚 ವ್ಯಾಕರಣದ ಸಾರಾಂಶ (Grammar Insight)</h3>
-        <p style="color: #555;">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possessive) ಸೂಚಿಸುತ್ತವೆ.</p>
+        <h3>
+            <span class="kn-text">📚 ವ್ಯಾಕರಣದ ಸಾರಾಂಶ</span>
+            <span class="en-text">📚 Grammar Insight</span>
+        </h3>
+        <p style="color: #555; margin-top: 5px;">
+            <span class="kn-text">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possessive) ಸೂಚಿಸುತ್ತವೆ.</span>
+            <span class="en-text">Note: 'Aham' (I) and 'Tvam' (You) indicate the subject. However, 'Mama' (My) and 'Tava' (Your) indicate possession or relationship.</span>
+        </p>
         <table class="grammar-table">
             <tr>
-                <th style="color:var(--text-maroon);">ಸ್ಥಾನ (Role)</th>
-                <th style="color:var(--text-maroon);">ನಾನು (1st Person)</th>
-                <th style="color:var(--text-maroon);">ನೀನು (2nd Person)</th>
+                <th style="color:var(--text-maroon);">
+                    <span class="kn-text">ಸ್ಥಾನ (Role)</span>
+                    <span class="en-text">Role</span>
+                </th>
+                <th style="color:var(--text-maroon);">
+                    <span class="kn-text">ನಾನು (1st Person)</span>
+                    <span class="en-text">1st Person (I / My)</span>
+                </th>
+                <th style="color:var(--text-maroon);">
+                    <span class="kn-text">ನೀನು (2nd Person)</span>
+                    <span class="en-text">2nd Person (You / Your)</span>
+                </th>
             </tr>
             <tr>
-                <td>ಕರ್ತೃ (Subject)</td>
+                <td>
+                    <span class="kn-text">ಕರ್ತೃ (Subject)</span>
+                    <span class="en-text">Subject</span>
+                </td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">अहम्</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">त्वम्</span></td>
             </tr>
             <tr>
-                <td>ಸಂಬಂಧ (Possessive)</td>
+                <td>
+                    <span class="kn-text">ಸಂಬಂಧ (Possessive)</span>
+                    <span class="en-text">Possessive</span>
+                </td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">मम</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">तव</span></td>
             </tr>
@@ -394,54 +503,87 @@
 
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
-            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
-            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 5</div>
+            <div class="quiz-title">
+                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span>
+                <span class="en-text">Knowledge Test (Quiz)</span>
+            </div>
+            <div class="quiz-progress" id="quiz-progress"></div>
         </div>
         
         <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
         
-        <div class="options-grid" id="quiz-options">
-            </div>
+        <div class="options-grid" id="quiz-options"></div>
 
         <div class="quiz-controls">
             <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
-            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()"></button>
         </div>
     </div>
 
     <div class="nav-buttons">
-        <a href="index.html" class="btn btn-outline">← ಮ್ಯಾಪ್‌ಗೆ ಹಿಂತಿರುಗಿ</a>
-        <a href="level2.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 2) →</a>
+        <a href="index.html" class="btn btn-outline">
+            ← <span class="kn-text">ಮ್ಯಾಪ್‌ಗೆ ಹಿಂತಿರುಗಿ</span><span class="en-text">Back to Map</span>
+        </a>
+        
+        <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
+            🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
+        </a>
+
+        <a href="level2.html" id="finish-btn" class="btn btn-primary" style="display: none;">
+            <span class="kn-text">ಮುಂದಿನ ಹಂತ (Level 2)</span><span class="en-text">Next Level (Level 2)</span> →
+        </a>
     </div>
 
 </div>
 
 <script>
-    // Quiz Data
+    // --- LANGUAGE MANAGEMENT SCRIPT ---
+    function setLanguage(lang) {
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('trayeeLang', lang);
+    }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+        const newLang = currentLang === 'kn' ? 'en' : 'kn';
+        setLanguage(newLang);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+        setLanguage(savedLang);
+    });
+
+    // --- QUIZ DATA ---
     const questions = [
         {
-            q: "ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನನ್ನ ಹೆಸರು' ಎಂದು ಹೇಳಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?",
+            q: "<span class='kn-text'>ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನನ್ನ ಹೆಸರು' ಎಂದು ಹೇಳಲು ಯಾವ ಪದ ಬಳಸುವಿರಿ?</span><span class='en-text'>Which phrase is used to say 'My name' in Sanskrit?</span>",
             options: ["अहं नाम", "मम नाम", "तव नाम"],
             ans: 1
         },
         {
-            q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ रविः ।' (ನಾನು ರವಿ)",
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ रविः ।' (ನಾನು ರವಿ)</span><span class='en-text'>Fill in the blank: '___ रविः ।' (I am Ravi)</span>",
             options: ["त्वम्", "मम", "अहम्"],
             ans: 2
         },
         {
-            q: "'ನಿನ್ನ ಊರು ಮೈಸೂರು' - ಸರಿಯಾದ ಸಂಸ್ಕೃತ ವಾಕ್ಯ ಯಾವುದು?",
+            q: "<span class='kn-text'>'ನಿನ್ನ ಊರು ಮೈಸೂರು' - ಸರಿಯಾದ ಸಂಸ್ಕೃತ ವಾಕ್ಯ ಯಾವುದು?</span><span class='en-text'>'Your city is Mysuru' - Which is the correct Sanskrit sentence?</span>",
             options: ["तव ग्रामः मैसूरु ।", "त्वं ग्रामः मैसूरु ।", "मम ग्रामः मैसूरु ।"],
             ans: 0
         },
         {
-            q: "ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನೀನು (You)' ಎಂಬುದನ್ನು ಸೂಚಿಸುವ ಪದ ಯಾವುದು?",
+            q: "<span class='kn-text'>ಸಂಸ್ಕೃತದಲ್ಲಿ 'ನೀನು (You)' ಎಂಬುದನ್ನು ಸೂಚಿಸುವ ಪದ ಯಾವುದು?</span><span class='en-text'>Which word indicates 'You' in Sanskrit?</span>",
             options: ["मम", "अहम्", "त्वम्"],
             ans: 2
         },
         {
-            q: "ಸರಿಯಾದ ಜೋಡಣೆಯನ್ನು ಗುರುತಿಸಿ:",
-            options: ["अहम् = ನಿನ್ನ", "मम = ನನ್ನ", "तव = ನಾನು"],
+            q: "<span class='kn-text'>ಸರಿಯಾದ ಜೋಡಣೆಯನ್ನು ಗುರುತಿಸಿ:</span><span class='en-text'>Identify the correct matching:</span>",
+            options: [
+                "अहम् = <span class='kn-text'>ನಿನ್ನ</span><span class='en-text'>Your</span>", 
+                "मम = <span class='kn-text'>ನನ್ನ</span><span class='en-text'>My</span>", 
+                "तव = <span class='kn-text'>ನಾನು</span><span class='en-text'>I</span>"
+            ],
             ans: 1
         }
     ];
@@ -461,8 +603,8 @@
         nextQBtn.style.display = 'none';
         
         const currentQ = questions[currentQIndex];
-        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 5`;
-        questionEl.textContent = currentQ.q;
+        progressEl.innerHTML = `<span class="kn-text">ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 5</span><span class="en-text">Question ${currentQIndex + 1} / 5</span>`;
+        questionEl.innerHTML = currentQ.q;
         
         optionsEl.innerHTML = '';
         currentQ.options.forEach((opt, index) => {
@@ -481,18 +623,19 @@
 
         if (selectedIndex === correctIndex) {
             btnClicked.classList.add('correct');
-            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)</span><span class="en-text">✅ Uttamam! (Correct Answer)</span>';
             feedbackEl.style.color = 'var(--success-green)';
             score++;
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct'); // Show correct answer
-            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! The one in green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
         if (currentQIndex < questions.length - 1) {
             nextQBtn.style.display = 'inline-block';
+            nextQBtn.innerHTML = '<span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span><span class="en-text">Next Question →</span>';
         } else {
             showFinalResult();
         }
@@ -505,21 +648,21 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
-            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 5</strong>
+            <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / 5</strong>
         </div>`;
         
         if(score >= 4) {
-            feedbackEl.textContent = '🎉 ಅದ್ಭುತ! ನೀವು ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಲು ಸಿದ್ಧರಿದ್ದೀರಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಲು ಸಿದ್ಧರಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You are ready for the next level.</span>';
             feedbackEl.style.color = 'var(--success-green)';
-            finishBtn.style.display = 'inline-block'; // Show link to level2
+            finishBtn.style.display = 'inline-block';
         } else {
-            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please read the lesson above once more and try again.</span>';
             feedbackEl.style.color = 'var(--text-brown)';
             const retryBtn = document.createElement('button');
             retryBtn.className = 'btn btn-outline';
-            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.innerHTML = '<span class="kn-text">↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</span><span class="en-text">↺ Try Again</span>';
             retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
             optionsEl.appendChild(retryBtn);
         }
