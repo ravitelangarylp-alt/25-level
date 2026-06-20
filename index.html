@@ -21,6 +21,10 @@
     padding: 0;
   }
 
+  /* --- LANGUAGE TOGGLE CSS MAGIC --- */
+  body.lang-en .kn-text { display: none !important; }
+  body.lang-kn .en-text { display: none !important; }
+
   body {
     font-family: 'Laila', sans-serif;
     background-color: var(--bg-parchment);
@@ -30,10 +34,28 @@
     overflow-x: hidden;
   }
 
-  /* --- HEADER --- */
+  /* --- NAV & HEADER --- */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  }
+
+  .logo { font-family: 'Inknut Antiqua', serif; font-size: 1.2rem; color: var(--text-maroon); font-weight: 800; }
+  
+  .lang-switch-btn {
+    background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+    padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+  }
+  .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
+
   .header {
     text-align: center;
-    padding: 40px 20px 20px;
+    padding: 30px 20px 20px;
     background: linear-gradient(180deg, rgba(222,184,135,0.4) 0%, transparent 100%);
     border-bottom: 2px solid var(--path-color);
   }
@@ -94,20 +116,13 @@
   /* SVG Path connecting nodes */
   .map-path {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
   }
 
   .level-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 60px;
-    position: relative;
-    z-index: 1;
+    display: flex; justify-content: center; margin-bottom: 60px;
+    position: relative; z-index: 1;
   }
 
   /* Staggering nodes left and right */
@@ -116,22 +131,11 @@
   .level-row:first-child { justify-content: center; padding: 0; }
 
   .level-node {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-family: 'Inknut Antiqua', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    background: var(--bg-parchment);
-    border: 4px solid var(--text-maroon);
-    color: var(--text-maroon);
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-decoration: none; font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s; position: relative;
+    background: var(--bg-parchment); border: 4px solid var(--text-maroon); color: var(--text-maroon);
     box-shadow: 0 8px 15px rgba(0,0,0,0.15), inset 0 0 10px rgba(212, 175, 55, 0.3);
   }
 
@@ -146,41 +150,21 @@
   }
 
   .level-node.locked {
-    border-color: var(--locked-grey);
-    color: var(--locked-grey);
-    background: #e8ded1;
-    box-shadow: none;
-    cursor: not-allowed;
+    border-color: var(--locked-grey); color: var(--locked-grey); background: #e8ded1;
+    box-shadow: none; cursor: not-allowed;
   }
 
   .level-node .stars {
-    font-size: 0.6rem;
-    position: absolute;
-    bottom: -20px;
-    letter-spacing: 2px;
-    color: var(--accent-gold);
-    display: none;
+    font-size: 0.6rem; position: absolute; bottom: -20px;
+    letter-spacing: 2px; color: var(--accent-gold); display: none;
   }
-
-  .level-node.completed .stars {
-    display: block;
-  }
+  .level-node.completed .stars { display: block; }
 
   .level-label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 140px;
-    font-family: 'Laila', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-brown);
-    background: rgba(253, 245, 230, 0.9);
-    padding: 5px 10px;
-    border-radius: 8px;
-    border: 1px solid var(--path-color);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    pointer-events: none;
+    position: absolute; top: 50%; transform: translateY(-50%); width: 150px;
+    font-family: 'Laila', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text-brown);
+    background: rgba(253, 245, 230, 0.95); padding: 8px 12px; border-radius: 8px;
+    border: 1px solid var(--path-color); box-shadow: 0 4px 6px rgba(0,0,0,0.05); pointer-events: none;
   }
 
   .level-row:nth-child(even) .level-label { left: 95px; }
@@ -189,25 +173,12 @@
 
   /* Mascot Placeholder */
   .mascot-container {
-    width: 120px;
-    height: 120px;
-    margin: -60px auto 30px;
-    border-radius: 50%;
-    background: var(--bg-parchment);
-    border: 3px solid var(--text-maroon);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
+    width: 120px; height: 120px; margin: -60px auto 30px; border-radius: 50%;
+    background: var(--bg-parchment); border: 3px solid var(--text-maroon);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); overflow: hidden; position: relative; z-index: 10;
   }
-
-  .mascot-container img {
-    width: 100%;
-    height: auto;
-  }
+  .mascot-container img { width: 100%; height: auto; }
 
   @media (max-width: 600px) {
     .main-title { font-size: 1.8rem; }
@@ -216,55 +187,95 @@
   }
 </style>
 </head>
-<body>
+<body class="lang-kn">
+
+  <nav class="top-nav">
+      <div class="logo">
+          <span class="kn-text">🕉️ ಟೀಮ್ ತ್ರಯೀ</span>
+          <span class="en-text">🕉️ Team Trayee</span>
+      </div>
+      <button class="lang-switch-btn" onclick="toggleLanguage()">
+          <span class="kn-text">🌐 English</span>
+          <span class="en-text">🌐 ಕನ್ನಡ</span>
+      </button>
+  </nav>
 
   <header class="header">
-    <div class="team-name">Team Trayee Presents</div>
+    <div class="team-name">
+        <span class="kn-text">ಟೀಮ್ ತ್ರಯೀ ಅರ್ಪಿಸುವ</span>
+        <span class="en-text">Team Trayee Presents</span>
+    </div>
     <h1 class="main-title">संस्कृत-स्वयं-शिक्षकः</h1>
-    <p class="sub-title">ದಿನಕ್ಕೆ ಕೇವಲ ೧೦ ನಿಮಿಷ! ೩೬೦ ಹಂತಗಳಲ್ಲಿ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿರರ್ಗಳವಾಗಿ ಮಾತನಾಡುವ ಪ್ರಾವಿಣ್ಯತೆ ಪಡೆಯಿರಿ.</p>
+    <p class="sub-title">
+        <span class="kn-text">ದಿನಕ್ಕೆ ಕೇವಲ ೧೦ ನಿಮಿಷ! ೩೬೦ ಹಂತಗಳಲ್ಲಿ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿರರ್ಗಳವಾಗಿ ಮಾತನಾಡುವ ಪ್ರಾವಿಣ್ಯತೆ ಪಡೆಯಿರಿ.</span>
+        <span class="en-text">Just 10 minutes a day! Master spoken Sanskrit fluently across 360 levels.</span>
+    </p>
     
     <div class="progress-bar-container">
       <div class="progress-fill" id="overall-progress"></div>
     </div>
-    <p style="font-size: 0.8rem; margin-top: 5px; font-weight: 600;">ಪುನರಾವರ್ತನೆ: ೦/೩೬೦ ಹಂತಗಳು</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; font-weight: 600;">
+        <span class="kn-text">ಪುನರಾವರ್ತನೆ: ೭/೩೬೦ ಹಂತಗಳು</span>
+        <span class="en-text">Progress: 7/360 Levels</span>
+    </p>
   </header>
 
   <div class="mascot-container">
-    <img src="https://via.placeholder.com/120x120/fdf5e6/800000?text=Baby+Krishna" alt="Balakrishna Mascot">
+    <span style="font-size: 4.5rem; line-height: 1;">🦚</span>
   </div>
 
   <div class="map-container" id="map-container">
     <svg class="map-path" id="map-svg"></svg>
-    </div>
+  </div>
 
 <script>
+  // Language Toggle Logic
+  function setLanguage(lang) {
+      document.body.classList.remove('lang-kn', 'lang-en');
+      document.body.classList.add(`lang-${lang}`);
+      localStorage.setItem('trayeeLang', lang);
+      // Redraw lines because element sizes might change with language
+      setTimeout(drawLines, 50); 
+  }
+
+  function toggleLanguage() {
+      const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+      const newLang = currentLang === 'kn' ? 'en' : 'kn';
+      setLanguage(newLang);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+      setLanguage(savedLang);
+  });
+
   // Level Data: First 25 Levels (Foundation Stage)
   const levelsData = [
-    { id: 1, title: "अहं रविः | त्वं गणेशः", desc: "ಉತ್ತಮ & ಮಧ್ಯಮ ಪುರುಷ", status: "unlocked", stars: 0 },
-    { id: 2, title: "सः रामः | सा सीता", desc: "ಪ್ರಥಮ ಪುರುಷ (ತ್ರಿಲಿಂಗ)", status: "unlocked", stars: 0 },
-    { id: 3, title: "रामः पठति | अहं पठामि", desc: "ಏಕವಚನ ಕ್ರಿಯಾಪದಗಳು", status: "unlocked", stars: 0 },
-    { id: 4, title: "वयम् | यूयम् | ते", desc: "ಬಹುವಚನ ಸರ್ವನಾಮಗಳು", status: "locked", stars: 0 },
-    { id: 5, title: "पठामः | पठथ | पठन्ति", desc: "ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳು", status: "locked", stars: 0 },
-    { id: 6, title: "किम् | कुत्र | कः", desc: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೧", status: "locked", stars: 0 },
-    { id: 7, title: "अस्ति | नास्ति", desc: "ಇದೆ / ಇಲ್ಲ ಪರಿಚಯ", status: "locked", stars: 0 },
-    { id: 8, title: "पुस्तकं पठति", desc: "ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)", status: "locked", stars: 0 },
-    { id: 9, title: "हस्तेन खादामि", desc: "ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಸಾಧನ)", status: "locked", stars: 0 },
-    { id: 10, title: "मित्राय ददाति", desc: "ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಉದ್ದೇಶ)", status: "locked", stars: 0 },
-    { id: 11, title: "वृक्षात् पतति", desc: "ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಬೇರ್ಪಡುವುದು)", status: "locked", stars: 0 },
-    { id: 12, title: "वृक्षे पक्षिणः", desc: "ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಸ್ಥಳ)", status: "locked", stars: 0 },
-    { id: 13, title: "कति | कदा | कुतः", desc: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೨", status: "locked", stars: 0 },
-    { id: 14, title: "गमिष्यति", desc: "ಭವಿಷ್ಯತ್ ಕಾಲದ ಪರಿಚಯ", status: "locked", stars: 0 },
-    { id: 15, title: "वादनम् | सपाद", desc: "ಸಮಯ ತಿಳಿಯುವುದು", status: "locked", stars: 0 },
-    { id: 16, title: "अद्य | श्वः | ह्यः", desc: "ವಾರಗಳು ಮತ್ತು ದಿನಗಳು", status: "locked", stars: 0 },
-    { id: 17, title: "एकं फलम्", desc: "ಸಂಖ್ಯೆಗಳು ೧-೨೦", status: "locked", stars: 0 },
-    { id: 18, title: "अत्र | तत्र | सर्वत्र", desc: "ಪ್ರಮುಖ ಅವ್ಯಯಗಳು", status: "locked", stars: 0 },
-    { id: 19, title: "इच्छामि", desc: "ಇಷ್ಟಾರ್ಥ (Tumun)", status: "locked", stars: 0 },
-    { id: 20, title: "गच्छतु | वदतु", desc: "ಆದೇಶ/ವಿನಂತಿ (ಆಜ್ಞಾರ್ಥ)", status: "locked", stars: 0 },
-    { id: 21, title: "गतवान् | गतवती", desc: "ಭೂತಕಾಲದ ಪರಿಚಯ", status: "locked", stars: 0 },
-    { id: 22, title: "पठित्वा गच्छति", desc: "ವಾಕ್ಯಗಳ ಜೋಡಣೆ (ಕ್ತ್ವಾ)", status: "locked", stars: 0 },
-    { id: 23, title: "यत्र - तत्र", desc: "ಸಂಬಂಧಾರ್ಥಕ ವಾಕ್ಯಗಳು", status: "locked", stars: 0 },
-    { id: 24, title: "कथा वाचनम्", desc: "ಸಣ್ಣ ಕಥೆ ಓದುವುದು", status: "locked", stars: 0 },
-    { id: 25, title: "ಮೈಲ್‌ಸ್ಟೋನ್ ಪರೀಕ್ಷೆ", desc: "ಮೊದಲ ಹಂತದ ಸಮಗ್ರ ರಸಪ್ರಶ್ನೆ", status: "locked", stars: 0 }
+    { id: 1, title_sk: "अहं रविः | त्वं गणेशः", title_kn: "ಉತ್ತಮ & ಮಧ್ಯಮ ಪುರುಷ", title_en: "1st & 2nd Person", status: "unlocked", stars: 3 },
+    { id: 2, title_sk: "सः रामः | सा सीता", title_kn: "ಪ್ರಥಮ ಪುರುಷ (ತ್ರಿಲಿಂಗ)", title_en: "3rd Person (3 Genders)", status: "unlocked", stars: 3 },
+    { id: 3, title_sk: "रामः पठति | अहं पठामि", title_kn: "ಏಕವಚನ ಕ್ರಿಯಾಪದಗಳು", title_en: "Singular Verbs", status: "unlocked", stars: 3 },
+    { id: 4, title_sk: "वयम् | यूयम् | ते", title_kn: "ಬಹುವಚನ ಸರ್ವನಾಮಗಳು", title_en: "Plural Pronouns", status: "unlocked", stars: 3 },
+    { id: 5, title_sk: "पठामः | पठथ | पठन्ति", title_kn: "ಸಮಗ್ರ ಸರ್ವನಾಮಗಳು", title_en: "Pronoun Masterclass", status: "unlocked", stars: 3 },
+    { id: 6, title_sk: "कर्ता (Subject)", title_kn: "ಕರ್ತೃ ಪದ & ವಿಸರ್ಗ", title_en: "Subject & Visarga Rule", status: "unlocked", stars: 3 },
+    { id: 7, title_sk: "कर्म (Object)", title_kn: "ಕರ್ಮಪದ ಪರಿಚಯ", title_en: "Intro to Karma Karaka", status: "unlocked", stars: 0 },
+    { id: 8, title_sk: "पुस्तकं पठति", title_kn: "ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)", title_en: "2nd Case (Object)", status: "locked", stars: 0 },
+    { id: 9, title_sk: "हस्तेन खादामि", title_kn: "ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಸಾಧನ)", title_en: "3rd Case (Instrument)", status: "locked", stars: 0 },
+    { id: 10, title_sk: "मित्राय ददाति", title_kn: "ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಉದ್ದೇಶ)", title_en: "4th Case (Purpose)", status: "locked", stars: 0 },
+    { id: 11, title_sk: "वृक्षात् पतति", title_kn: "ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಬೇರ್ಪಡುವುದು)", title_en: "5th Case (Separation)", status: "locked", stars: 0 },
+    { id: 12, title_sk: "वृक्षे पक्षिणः", title_kn: "ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಸ್ಥಳ)", title_en: "7th Case (Location)", status: "locked", stars: 0 },
+    { id: 13, title_sk: "कति | कदा | कुतः", title_kn: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೨", title_en: "Asking Questions - 2", status: "locked", stars: 0 },
+    { id: 14, title_sk: "गमिष्यति", title_kn: "ಭವಿಷ್ಯತ್ ಕಾಲದ ಪರಿಚಯ", title_en: "Intro to Future Tense", status: "locked", stars: 0 },
+    { id: 15, title_sk: "वादनम् | सपाद", title_kn: "ಸಮಯ ತಿಳಿಯುವುದು", title_en: "Telling Time", status: "locked", stars: 0 },
+    { id: 16, title_sk: "अद्य | श्वः | ह्यः", title_kn: "ವಾರಗಳು ಮತ್ತು ದಿನಗಳು", title_en: "Days & Weeks", status: "locked", stars: 0 },
+    { id: 17, title_sk: "एकं फलम्", title_kn: "ಸಂಖ್ಯೆಗಳು ೧-೨೦", title_en: "Numbers 1-20", status: "locked", stars: 0 },
+    { id: 18, title_sk: "अत्र | तत्र | सर्वत्र", title_kn: "ಪ್ರಮುಖ ಅವ್ಯಯಗಳು", title_en: "Important Indeclinables", status: "locked", stars: 0 },
+    { id: 19, title_sk: "इच्छामि", title_kn: "ಇಷ್ಟಾರ್ಥ (Tumun)", title_en: "Expressing Desire", status: "locked", stars: 0 },
+    { id: 20, title_sk: "गच्छतु | वदतु", title_kn: "ಆದೇಶ/ವಿನಂತಿ (ಆಜ್ಞಾರ್ಥ)", title_en: "Orders & Requests", status: "locked", stars: 0 },
+    { id: 21, title_sk: "गतवान् | गतवती", title_kn: "ಭೂತಕಾಲದ ಪರಿಚಯ", title_en: "Intro to Past Tense", status: "locked", stars: 0 },
+    { id: 22, title_sk: "पठित्वा गच्छति", title_kn: "ವಾಕ್ಯಗಳ ಜೋಡಣೆ (ಕ್ತ್ವಾ)", title_en: "Joining Sentences", status: "locked", stars: 0 },
+    { id: 23, title_sk: "यत्र - तत्र", title_kn: "ಸಂಬಂಧಾರ್ಥಕ ವಾಕ್ಯಗಳು", title_en: "Relative Clauses", status: "locked", stars: 0 },
+    { id: 24, title_sk: "कथा वाचनम्", title_kn: "ಸಣ್ಣ ಕಥೆ ಓದುವುದು", title_en: "Reading Short Stories", status: "locked", stars: 0 },
+    { id: 25, title_sk: "ಮೈಲ್‌ಸ್ಟೋನ್ ಪರೀಕ್ಷೆ", title_kn: "ಮೊದಲ ಹಂತದ ಸಮಗ್ರ ರಸಪ್ರಶ್ನೆ", title_en: "Stage 1 Mega Quiz", status: "locked", stars: 0 }
   ];
 
   const mapContainer = document.getElementById('map-container');
@@ -276,23 +287,29 @@
     
     // Level Node Button
     const node = document.createElement('a');
-    node.className = `level-node ${level.status}`;
-    // Link to individual level files if unlocked
+    node.className = `level-node ${level.status} ${level.stars > 0 ? 'completed' : ''}`;
     node.href = level.status === 'unlocked' ? `level${level.id}.html` : 'javascript:void(0)';
     node.innerHTML = `
       ${level.id}
       <div class="stars">★★★</div>
     `;
 
-    // Tooltip / Label
+    // Tooltip / Label with Bilingual Support
     const label = document.createElement('div');
     label.className = 'level-label';
-    label.innerHTML = `<span style="color:var(--text-maroon);font-weight:700;">${level.title}</span><br>${level.desc}`;
+    label.innerHTML = `
+        <span style="color:var(--text-maroon);font-weight:800;font-family:'Tiro Devanagari Sanskrit', serif;">${level.title_sk}</span><br>
+        <span class="kn-text">${level.title_kn}</span>
+        <span class="en-text">${level.title_en}</span>
+    `;
 
     row.appendChild(node);
     row.appendChild(label);
     mapContainer.appendChild(row);
   });
+
+  // Calculate Progress (7 unlocked levels out of 360)
+  document.getElementById('overall-progress').style.width = '(7/360)*100%';
 
   // Draw connecting winding lines using SVG
   window.addEventListener('load', drawLines);
