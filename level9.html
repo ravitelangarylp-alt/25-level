@@ -18,7 +18,7 @@
             --success-green: #22c55e;
             --error-red: #ef4444;
             --masc-blue: #1e3a8a;
-            --saptami-orange: #d97706;
+            --saptami-orange: #d97706; /* Adhikarana Highlight Color */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -183,7 +183,6 @@
         td.locked-col, tr.locked-row td { filter: blur(5px); opacity: 0.3; user-select: none; pointer-events: none; }
         tr.locked-row td.vib-name { filter: none; opacity: 1; color: #888; }
         
-        /* The fixed Lock Overlay at the bottom */
         .lock-overlay { 
             margin: 20px auto 0; width: fit-content;
             background: rgba(253, 245, 230, 0.95); padding: 15px 30px; border-radius: 50px; 
@@ -258,8 +257,8 @@
                 <tbody id="shabda-tbody"></tbody>
             </table>
             <div class="lock-overlay" id="lock-overlay">
-                🔒 <span class="kn-text">ಈಗ ಷಷ್ಠೀ ಮತ್ತು ಸಪ್ತಮೀ ವಿಭಕ್ತಿಗಳು ಓಪನ್ ಆಗಿವೆ!<br>ಉಳಿದವುಗಳು ಮುಂದಿನ ಹಂತಗಳಲ್ಲಿ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ.</span>
-                <span class="en-text">Now 6th and 7th cases are open!<br>Others will unlock in next levels.</span>
+                🔒 <span class="kn-text">ಈಗ ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಸ್ಥಳ) ಓಪನ್ ಆಗಿದೆ!<br>ಉಳಿದವುಗಳು ಮುಂದಿನ ಹಂತಗಳಲ್ಲಿ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ.</span>
+                <span class="en-text">Now 7th case (Location) is open!<br>Others will unlock in next levels.</span>
             </div>
         </div>
     </div>
@@ -541,8 +540,8 @@
             data.declensions.forEach((row, rowIndex) => {
                 const tr = document.createElement('tr');
                 
-                // UNLOCK Prathama(0), Dvitiya(1), Shashthi(5), Saptami(6)
-                if(rowIndex === 0 || rowIndex === 1 || rowIndex === 5 || rowIndex === 6) {
+                // UNLOCK Prathama(0), Dvitiya(1), Saptami(6) ONLY. (Shashthi is locked again).
+                if(rowIndex === 0 || rowIndex === 1 || rowIndex === 6) {
                     tr.className = 'active-row';
                 } else {
                     tr.className = 'locked-row';
