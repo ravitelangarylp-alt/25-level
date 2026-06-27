@@ -1,349 +1,367 @@
 <!DOCTYPE html>
 <html lang="kn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ಸಂಸ್ಕೃತ-ಸ್ವಯಂ-ಶಿಕ್ಷಕಃ | 360 Levels</title>
-<link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-parchment: #fdf5e6;
-    --text-brown: #4a2511;
-    --text-maroon: #800000;
-    --accent-gold: #d4af37;
-    --locked-grey: #b5a695;
-    --path-color: rgba(74, 37, 17, 0.2);
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samskrita Swayam Shikshaka - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-parchment: #fdf5e6;
+            --text-brown: #4a2511;
+            --text-maroon: #800000;
+            --accent-gold: #d4af37;
+            --card-bg: #ffffff;
+            --success-green: #22c55e;
+            --masc-blue: #1e3a8a;
+        }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* --- LANGUAGE TOGGLE CSS MAGIC --- */
-  body.lang-en .kn-text { display: none !important; }
-  body.lang-kn .en-text { display: none !important; }
+        body.lang-en .kn-text { display: none !important; }
+        body.lang-kn .en-text { display: none !important; }
 
-  body {
-    font-family: 'Laila', sans-serif;
-    background-color: var(--bg-parchment);
-    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-    color: var(--text-brown);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+        body {
+            font-family: 'Laila', sans-serif;
+            background-color: var(--bg-parchment);
+            color: var(--text-brown);
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+        }
 
-  /* --- NAV & HEADER --- */
-  .top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.4);
-    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-  }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px 20px 80px; }
 
-  .logo { font-family: 'Inknut Antiqua', serif; font-size: 1.2rem; color: var(--text-maroon); font-weight: 800; }
-  
-  .lang-switch-btn {
-    background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
-    padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
-    cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
-  }
-  .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
+        /* Top Nav */
+        .top-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3); margin-bottom: 40px;
+        }
 
-  .header {
-    text-align: center;
-    padding: 30px 20px 20px;
-    background: linear-gradient(180deg, rgba(222,184,135,0.4) 0%, transparent 100%);
-    border-bottom: 2px solid var(--path-color);
-  }
+        .logo-home { 
+            font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; color: var(--text-maroon); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 10px;
+        }
+        
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 8px 20px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700; font-size: 1.1rem;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
-  .team-name {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-brown);
-    margin-bottom: 10px;
-  }
+        /* Hero Section */
+        header { text-align: center; margin-bottom: 50px; }
+        .hero-icon { font-size: 4rem; margin-bottom: 10px; display: inline-block; animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        
+        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 15px; line-height: 1.2; }
+        .subtitle { font-size: 1.3rem; color: #555; font-weight: 600; max-width: 700px; margin: 0 auto; }
 
-  .main-title {
-    font-family: 'Inknut Antiqua', serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--text-maroon);
-    line-height: 1.3;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-  }
+        .motto-box {
+            text-align: center; background: rgba(128, 0, 0, 0.05);
+            border: 2px solid var(--accent-gold); padding: 20px; border-radius: 15px;
+            max-width: 600px; margin: 0 auto 40px; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+        }
+        .motto-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-maroon); font-weight: bold; display: block; margin-bottom: 5px; }
 
-  .sub-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-brown);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+        /* Level Grid */
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
 
-  .progress-bar-container {
-    max-width: 400px;
-    margin: 20px auto 0;
-    background: rgba(74, 37, 17, 0.1);
-    border-radius: 20px;
-    height: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(74, 37, 17, 0.2);
-  }
+        .level-card {
+            background: var(--card-bg); border-radius: 15px; padding: 25px;
+            box-shadow: 0 8px 20px rgba(128, 0, 0, 0.06); border: 2px solid transparent;
+            text-decoration: none; color: var(--text-brown); display: flex; flex-direction: column;
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-5px); border-color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+        }
 
-  .progress-fill {
-    height: 100%;
-    background: var(--text-maroon);
-    width: 0%; /* Will be set by JS */
-    transition: width 0.5s ease;
-  }
+        .level-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
+            background: var(--text-maroon); transition: width 0.3s ease;
+        }
+        .level-card:hover::before { width: 10px; background: var(--accent-gold); }
 
-  /* --- LEVEL MAP (Candy Crush Style) --- */
-  .map-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    position: relative;
-  }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-left: 15px; }
+        .l-num { font-size: 1.1rem; font-weight: 800; color: #888; background: #f3f4f6; padding: 4px 12px; border-radius: 20px;}
+        .l-icon { font-size: 2rem; }
 
-  /* SVG Path connecting nodes */
-  .map-path {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 0; pointer-events: none;
-  }
+        .l-title { font-family: 'Inknut Antiqua', serif; font-size: 1.3rem; color: var(--text-maroon); margin-bottom: 10px; padding-left: 15px; line-height: 1.4;}
+        .l-desc { font-size: 0.95rem; color: #666; padding-left: 15px; line-height: 1.5;}
+        
+        /* Different colored cards for grouping */
+        .group-basics::before { background: var(--masc-blue); }
+        .group-story::before { background: var(--success-green); }
+        .group-exam::before { background: var(--error-red); }
 
-  .level-row {
-    display: flex; justify-content: center; margin-bottom: 60px;
-    position: relative; z-index: 1;
-  }
-
-  /* Staggering nodes left and right */
-  .level-row:nth-child(even) { justify-content: flex-start; padding-left: 20%; }
-  .level-row:nth-child(odd) { justify-content: flex-end; padding-right: 20%; }
-  .level-row:first-child { justify-content: center; padding: 0; }
-
-  .level-node {
-    width: 80px; height: 80px; border-radius: 50%;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-decoration: none; font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s; position: relative;
-    background: var(--bg-parchment); border: 4px solid var(--text-maroon); color: var(--text-maroon);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15), inset 0 0 10px rgba(212, 175, 55, 0.3);
-  }
-
-  .level-node.unlocked {
-    background: radial-gradient(circle, #fffdf8 0%, var(--bg-parchment) 100%);
-    cursor: pointer;
-  }
-
-  .level-node.unlocked:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 20px rgba(128, 0, 0, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.5);
-  }
-
-  .level-node.locked {
-    border-color: var(--locked-grey); color: var(--locked-grey); background: #e8ded1;
-    box-shadow: none; cursor: not-allowed;
-  }
-
-  .level-node .stars {
-    font-size: 0.6rem; position: absolute; bottom: -20px;
-    letter-spacing: 2px; color: var(--accent-gold); display: none;
-  }
-  .level-node.completed .stars { display: block; }
-
-  .level-label {
-    position: absolute; top: 50%; transform: translateY(-50%); width: 150px;
-    font-family: 'Laila', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text-brown);
-    background: rgba(253, 245, 230, 0.95); padding: 8px 12px; border-radius: 8px;
-    border: 1px solid var(--path-color); box-shadow: 0 4px 6px rgba(0,0,0,0.05); pointer-events: none;
-  }
-
-  .level-row:nth-child(even) .level-label { left: 95px; }
-  .level-row:nth-child(odd) .level-label { right: 95px; text-align: right; }
-  .level-row:first-child .level-label { top: 95px; right: auto; transform: none; text-align: center; }
-
-  /* Mascot Placeholder */
-  .mascot-container {
-    width: 120px; height: 120px; margin: -60px auto 30px; border-radius: 50%;
-    background: var(--bg-parchment); border: 3px solid var(--text-maroon);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); overflow: hidden; position: relative; z-index: 10;
-  }
-  .mascot-container img { width: 100%; height: auto; }
-
-  @media (max-width: 600px) {
-    .main-title { font-size: 1.8rem; }
-    .level-node { width: 70px; height: 70px; font-size: 1.2rem; }
-    .level-label { width: 120px; font-size: 0.75rem; }
-  }
-</style>
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .level-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body class="lang-kn">
 
-  <nav class="top-nav">
-      <div class="logo">
-          <span class="kn-text">🕉️ ಟೀಮ್ ತ್ರಯೀ</span>
-          <span class="en-text">🕉️ Team Trayee</span>
-      </div>
-      <button class="lang-switch-btn" onclick="toggleLanguage()">
-          <span class="kn-text">🌐 English</span>
-          <span class="en-text">🌐 ಕನ್ನಡ</span>
-      </button>
-  </nav>
-
-  <header class="header">
-    <div class="team-name">
-        <span class="kn-text">ಟೀಮ್ ತ್ರಯೀ ಅರ್ಪಿಸುವ</span>
-        <span class="en-text">Team Trayee Presents</span>
+<nav class="top-nav">
+    <div class="logo-home">
+        <span>🕉️</span>
+        <span class="kn-text">ಟೀಮ್ ತ್ರಯೀ</span>
+        <span class="en-text">Team Trayee</span>
     </div>
-    <h1 class="main-title">संस्कृत-स्वयं-शिक्षकः</h1>
-    <p class="sub-title">
-        <span class="kn-text">ದಿನಕ್ಕೆ ಕೇವಲ ೧೦ ನಿಮಿಷ! ೩೬೦ ಹಂತಗಳಲ್ಲಿ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿರರ್ಗಳವಾಗಿ ಮಾತನಾಡುವ ಪ್ರಾವಿಣ್ಯತೆ ಪಡೆಯಿರಿ.</span>
-        <span class="en-text">Just 10 minutes a day! Master spoken Sanskrit fluently across 360 levels.</span>
-    </p>
-    
-    <div class="progress-bar-container">
-      <div class="progress-fill" id="overall-progress"></div>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
+
+<div class="container">
+    <header>
+        <div class="hero-icon">📚</div>
+        <h1>
+            <span class="kn-text">ಸಂಸ್ಕೃತ ಸ್ವಯಂ-ಶಿಕ್ಷಕಃ</span>
+            <span class="en-text">Samskrita Swayam Shikshaka</span>
+        </h1>
+        <p class="subtitle">
+            <span class="kn-text">ಸಂಸ್ಕೃತ ವ್ಯಾಕರಣ ಮತ್ತು ಸಂಭಾಷಣೆಯನ್ನು ಸುಲಭವಾಗಿ ಕಲಿಯುವ ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಮಾರ್ಗದರ್ಶಿ. ಯಾವ ಹಂತದಿಂದ ಬೇಕಾದರೂ ಕಲಿಯಲು ಪ್ರಾರಂಭಿಸಿ!</span>
+            <span class="en-text">Your digital guide to easily learn Sanskrit grammar and conversation. Start learning from any level directly!</span>
+        </p>
+    </header>
+
+    <div class="motto-box">
+        <span class="motto-sk">समानशीलव्यसनेषु सख्यम् ।</span>
+        <span class="kn-text" style="color:#555; font-weight: 600;">"ಸಮಾನ ಆಸಕ್ತಿ ಮತ್ತು ಗುಣವುಳ್ಳವರಲ್ಲಿ ಸ್ನೇಹ ಬೆಳೆಯುತ್ತದೆ."</span>
+        <span class="en-text" style="color:#555; font-weight: 600;">"Friendship blossoms among those with similar virtues and interests."</span>
     </div>
-    <p style="font-size: 0.8rem; margin-top: 5px; font-weight: 600;">
-        <span class="kn-text">ಪುನರಾವರ್ತನೆ: ೭/೩೬೦ ಹಂತಗಳು</span>
-        <span class="en-text">Progress: 7/360 Levels</span>
-    </p>
-  </header>
 
-  <div class="mascot-container">
-    <span style="font-size: 4.5rem; line-height: 1;">🦚</span>
-  </div>
+    <div class="level-grid">
+        
+        <a href="level1.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 1</span>
+                <span class="l-icon">👋</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಪರಿಚಯ & ಪ್ರಥಮಾ ವಿಭಕ್ತಿ</span>
+                <span class="en-text">Intro & 1st Case</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಅಹಂ, ತ್ವಂ, ಸಃ - ದಿನನಿತ್ಯದ ಮಾತುಕತೆ ಮತ್ತು ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ ಪರಿಚಯ.</span>
+                <span class="en-text">Aham, Tvam, Sah - Daily conversation and Intro to Nominative Case.</span>
+            </div>
+        </a>
 
-  <div class="map-container" id="map-container">
-    <svg class="map-path" id="map-svg"></svg>
-  </div>
+        <a href="level2.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 2</span>
+                <span class="l-icon">🏃</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಕ್ರಿಯಾಪದಗಳ ಪರಿಚಯ</span>
+                <span class="en-text">Intro to Verbs</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ಕೆಲಸವನ್ನು ಸೂಚಿಸುವ ಪದಗಳ (Verbs) ಬಳಕೆ.</span>
+                <span class="en-text">Usage of action words (Verbs) in Sanskrit.</span>
+            </div>
+        </a>
+
+        <a href="level3.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 3</span>
+                <span class="l-icon">👥</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಪುರುಷ ಪರಿಚಯ</span>
+                <span class="en-text">The Three Persons</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಪ್ರಥಮ, ಮಧ್ಯಮ ಮತ್ತು ಉತ್ತಮ ಪುರುಷಗಳ ಸ್ಪಷ್ಟ ವಿವರಣೆ.</span>
+                <span class="en-text">Clear explanation of First, Second and Third Person.</span>
+            </div>
+        </a>
+
+        <a href="level4.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 4</span>
+                <span class="l-icon">1️⃣ ♾️</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ವಚನಗಳು</span>
+                <span class="en-text">Sanskrit Numbers</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಏಕವಚನ, ದ್ವಿವಚನ ಮತ್ತು ಬಹುವಚನಗಳ ನಿಯಮಗಳು.</span>
+                <span class="en-text">Rules of Singular, Dual and Plural forms.</span>
+            </div>
+        </a>
+
+        <a href="level5.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 5</span>
+                <span class="l-icon">🧩</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಸರಳ ವಾಕ್ಯ ರಚನೆ</span>
+                <span class="en-text">Sentence Formation</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದವನ್ನು ಬಳಸಿ ಪುಟ್ಟ ವಾಕ್ಯಗಳನ್ನು ಕಟ್ಟುವುದು.</span>
+                <span class="en-text">Building small sentences using Subject and Verb.</span>
+            </div>
+        </a>
+
+        <a href="level6.html" class="level-card group-basics">
+            <div class="card-header">
+                <span class="l-num">Level 6</span>
+                <span class="l-icon">🔗</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಅವ್ಯಯಗಳು</span>
+                <span class="en-text">Indeclinables</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಚ, ಅಪಿ, ಏವ, ಅತ್ರ, ತತ್ರ - ಎಂದಿಗೂ ಬದಲಾಗದ ಪದಗಳು.</span>
+                <span class="en-text">Cha, Api, Eva, Atra, Tatra - Words that never change.</span>
+            </div>
+        </a>
+
+        <a href="level7.html" class="level-card">
+            <div class="card-header">
+                <span class="l-num">Level 7</span>
+                <span class="l-icon">🎯</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)</span>
+                <span class="en-text">2nd Case (Object)</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">'ಅನ್ನು' ಪ್ರತ್ಯಯ. ಕೆಲಸದ ಗುರಿಯನ್ನು ಸೂಚಿಸುವ 'ಮ್ಯಾಜಿಕ್ ಬಿಂದು'.</span>
+                <span class="en-text">The Object case. The 'Magic Dot' that indicates the target of an action.</span>
+            </div>
+        </a>
+
+        <a href="level8.html" class="level-card group-story">
+            <div class="card-header">
+                <span class="l-num">Level 8</span>
+                <span class="l-icon">🦅</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಕಥಾ ಸಮಯ: ಗೃಧ್ರಸ್ಯ ಕರುಣಾ</span>
+                <span class="en-text">Story: Grudhrasya Karuna</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿಯ ಪ್ರಯೋಗಗಳನ್ನು ಕಥೆಯ ಮೂಲಕ ಓದಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.</span>
+                <span class="en-text">Read and comprehend the usage of 2nd case through a moral story.</span>
+            </div>
+        </a>
+
+        <a href="level9.html" class="level-card">
+            <div class="card-header">
+                <span class="l-num">Level 9</span>
+                <span class="l-icon">📍</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಅಧಿಕರಣ)</span>
+                <span class="en-text">7th Case (Location)</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">'ಎಲ್ಲಿ?' ಮತ್ತು 'ಯಾವಾಗ?' - ಸ್ಥಳ ಹಾಗೂ ಸಮಯವನ್ನು ಸೂಚಿಸುವ ವಿಭಕ್ತಿ.</span>
+                <span class="en-text">'Where?' and 'When?' - The case that indicates location and time.</span>
+            </div>
+        </a>
+
+        <a href="level10.html" class="level-card">
+            <div class="card-header">
+                <span class="l-num">Level 10</span>
+                <span class="l-icon">✨</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಸಪ್ತಮೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span>
+                <span class="en-text">Saptami Magic Sutras</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಎಲ್ಲಾ ಸ್ವರಗಳ ಏಕವಚನಕ್ಕೆ (ಅ-ಕಾರಾಂತದಿಂದ ವ್ಯಂಜನಾಂತದವರೆಗೆ) ಕೇವಲ ೮ ಅಕ್ಷರಗಳ ಸೂತ್ರ.</span>
+                <span class="en-text">The 8-letter magic sutra for all singular endings.</span>
+            </div>
+        </a>
+
+        <a href="level11.html" class="level-card group-exam">
+            <div class="card-header">
+                <span class="l-num">Level 11</span>
+                <span class="l-icon">📝</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಸಪ್ತಮೀ ಮಹಾ ಪರೀಕ್ಷೆ</span>
+                <span class="en-text">Saptami Mega Exam</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಪಜಲ್, ಹೊಂದಿಸಿ ಬರೆಯಿರಿ, ವಿಜಾತೀಯ ಪದ ಗುರುತಿಸಿ - ನಿಮ್ಮ ಜ್ಞಾನದ ಒರೆಗಲ್ಲು.</span>
+                <span class="en-text">Puzzles, Match the following, Odd one out - Test your knowledge.</span>
+            </div>
+        </a>
+
+        <a href="level12.html" class="level-card">
+            <div class="card-header">
+                <span class="l-num">Level 12</span>
+                <span class="l-icon">⚙️</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಕ್ರಿಯಾಪದ - ಬಹುವಚನ</span>
+                <span class="en-text">Verb Plurals</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ವರ್ತಮಾನ ಕಾಲದ ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳನ್ನು ರಚಿಸುವ ಸುಲಭ ಸೂತ್ರ.</span>
+                <span class="en-text">Easy formula to construct present tense plural verbs.</span>
+            </div>
+        </a>
+
+        <a href="level13.html" class="level-card group-exam">
+            <div class="card-header">
+                <span class="l-num">Level 13</span>
+                <span class="l-icon">🎓</span>
+            </div>
+            <div class="l-title">
+                <span class="kn-text">ಆರುಣಿಯ ಕಥೆ & ಪರೀಕ್ಷೆ</span>
+                <span class="en-text">Aruni's Story & Exam</span>
+            </div>
+            <div class="l-desc">
+                <span class="kn-text">ಕರ್ಮ, ಅಧಿಕರಣ ಮತ್ತು ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳೆಲ್ಲವೂ ಒಂದೇ ಕಥೆಯಲ್ಲಿ. ಸಮಗ್ರ ರಿವಿಷನ್!</span>
+                <span class="en-text">Karma, Adhikarana and Plural verbs applied in one classic story. Complete revision!</span>
+            </div>
+        </a>
+
+    </div>
+</div>
 
 <script>
-  // Language Toggle Logic
-  function setLanguage(lang) {
-      document.body.classList.remove('lang-kn', 'lang-en');
-      document.body.classList.add(`lang-${lang}`);
-      localStorage.setItem('trayeeLang', lang);
-      // Redraw lines because element sizes might change with language
-      setTimeout(drawLines, 50); 
-  }
-
-  function toggleLanguage() {
-      const currentLang = localStorage.getItem('trayeeLang') || 'kn';
-      const newLang = currentLang === 'kn' ? 'en' : 'kn';
-      setLanguage(newLang);
-  }
-
-  window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('trayeeLang') || 'kn';
-      setLanguage(savedLang);
-  });
-
-  // Level Data: First 25 Levels (Foundation Stage)
-  const levelsData = [
-    { id: 1, title_sk: "अहं रविः | त्वं गणेशः", title_kn: "ಉತ್ತಮ & ಮಧ್ಯಮ ಪುರುಷ", title_en: "1st & 2nd Person", status: "unlocked", stars: 3 },
-    { id: 2, title_sk: "सः रामः | सा सीता", title_kn: "ಪ್ರಥಮ ಪುರುಷ (ತ್ರಿಲಿಂಗ)", title_en: "3rd Person (3 Genders)", status: "unlocked", stars: 3 },
-    { id: 3, title_sk: "रामः पठति | अहं पठामि", title_kn: "ಏಕವಚನ ಕ್ರಿಯಾಪದಗಳು", title_en: "Singular Verbs", status: "unlocked", stars: 3 },
-    { id: 4, title_sk: "वयम् | यूयम् | ते", title_kn: "ಬಹುವಚನ ಸರ್ವನಾಮಗಳು", title_en: "Plural Pronouns", status: "unlocked", stars: 3 },
-    { id: 5, title_sk: "पठामः | पठथ | पठन्ति", title_kn: "ಸಮಗ್ರ ಸರ್ವನಾಮಗಳು", title_en: "Pronoun Masterclass", status: "unlocked", stars: 3 },
-    { id: 6, title_sk: "कर्ता (Subject)", title_kn: "ಕರ್ತೃ ಪದ & ವಿಸರ್ಗ", title_en: "Subject & Visarga Rule", status: "unlocked", stars: 3 },
-    { id: 7, title_sk: "कर्म (Object)", title_kn: "ಕರ್ಮಪದ ಪರಿಚಯ", title_en: "Intro to Karma Karaka", status: "unlocked", stars: 0 },
-    { id: 8, title_sk: "पुस्तकं पठति", title_kn: "ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)", title_en: "2nd Case (Object)", status: "locked", stars: 0 },
-    { id: 9, title_sk: "हस्तेन खादामि", title_kn: "ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಸಾಧನ)", title_en: "3rd Case (Instrument)", status: "locked", stars: 0 },
-    { id: 10, title_sk: "मित्राय ददाति", title_kn: "ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಉದ್ದೇಶ)", title_en: "4th Case (Purpose)", status: "locked", stars: 0 },
-    { id: 11, title_sk: "वृक्षात् पतति", title_kn: "ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಬೇರ್ಪಡುವುದು)", title_en: "5th Case (Separation)", status: "locked", stars: 0 },
-    { id: 12, title_sk: "वृक्षे पक्षिणः", title_kn: "ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಸ್ಥಳ)", title_en: "7th Case (Location)", status: "locked", stars: 0 },
-    { id: 13, title_sk: "कति | कदा | कुतः", title_kn: "ಪ್ರಶ್ನೆ ಕೇಳುವುದು - ೨", title_en: "Asking Questions - 2", status: "locked", stars: 0 },
-    { id: 14, title_sk: "गमिष्यति", title_kn: "ಭವಿಷ್ಯತ್ ಕಾಲದ ಪರಿಚಯ", title_en: "Intro to Future Tense", status: "locked", stars: 0 },
-    { id: 15, title_sk: "वादनम् | सपाद", title_kn: "ಸಮಯ ತಿಳಿಯುವುದು", title_en: "Telling Time", status: "locked", stars: 0 },
-    { id: 16, title_sk: "अद्य | श्वः | ह्यः", title_kn: "ವಾರಗಳು ಮತ್ತು ದಿನಗಳು", title_en: "Days & Weeks", status: "locked", stars: 0 },
-    { id: 17, title_sk: "एकं फलम्", title_kn: "ಸಂಖ್ಯೆಗಳು ೧-೨೦", title_en: "Numbers 1-20", status: "locked", stars: 0 },
-    { id: 18, title_sk: "अत्र | तत्र | सर्वत्र", title_kn: "ಪ್ರಮುಖ ಅವ್ಯಯಗಳು", title_en: "Important Indeclinables", status: "locked", stars: 0 },
-    { id: 19, title_sk: "इच्छामि", title_kn: "ಇಷ್ಟಾರ್ಥ (Tumun)", title_en: "Expressing Desire", status: "locked", stars: 0 },
-    { id: 20, title_sk: "गच्छतु | वदतु", title_kn: "ಆದೇಶ/ವಿನಂತಿ (ಆಜ್ಞಾರ್ಥ)", title_en: "Orders & Requests", status: "locked", stars: 0 },
-    { id: 21, title_sk: "गतवान् | गतवती", title_kn: "ಭೂತಕಾಲದ ಪರಿಚಯ", title_en: "Intro to Past Tense", status: "locked", stars: 0 },
-    { id: 22, title_sk: "पठित्वा गच्छति", title_kn: "ವಾಕ್ಯಗಳ ಜೋಡಣೆ (ಕ್ತ್ವಾ)", title_en: "Joining Sentences", status: "locked", stars: 0 },
-    { id: 23, title_sk: "यत्र - तत्र", title_kn: "ಸಂಬಂಧಾರ್ಥಕ ವಾಕ್ಯಗಳು", title_en: "Relative Clauses", status: "locked", stars: 0 },
-    { id: 24, title_sk: "कथा वाचनम्", title_kn: "ಸಣ್ಣ ಕಥೆ ಓದುವುದು", title_en: "Reading Short Stories", status: "locked", stars: 0 },
-    { id: 25, title_sk: "ಮೈಲ್‌ಸ್ಟೋನ್ ಪರೀಕ್ಷೆ", title_kn: "ಮೊದಲ ಹಂತದ ಸಮಗ್ರ ರಸಪ್ರಶ್ನೆ", title_en: "Stage 1 Mega Quiz", status: "locked", stars: 0 }
-  ];
-
-  const mapContainer = document.getElementById('map-container');
-
-  // Render Levels
-  levelsData.forEach((level, index) => {
-    const row = document.createElement('div');
-    row.className = 'level-row';
-    
-    // Level Node Button
-    const node = document.createElement('a');
-    node.className = `level-node ${level.status} ${level.stars > 0 ? 'completed' : ''}`;
-    node.href = level.status === 'unlocked' ? `level${level.id}.html` : 'javascript:void(0)';
-    node.innerHTML = `
-      ${level.id}
-      <div class="stars">★★★</div>
-    `;
-
-    // Tooltip / Label with Bilingual Support
-    const label = document.createElement('div');
-    label.className = 'level-label';
-    label.innerHTML = `
-        <span style="color:var(--text-maroon);font-weight:800;font-family:'Tiro Devanagari Sanskrit', serif;">${level.title_sk}</span><br>
-        <span class="kn-text">${level.title_kn}</span>
-        <span class="en-text">${level.title_en}</span>
-    `;
-
-    row.appendChild(node);
-    row.appendChild(label);
-    mapContainer.appendChild(row);
-  });
-
-  // Calculate Progress (7 unlocked levels out of 360)
-  document.getElementById('overall-progress').style.width = '(7/360)*100%';
-
-  // Draw connecting winding lines using SVG
-  window.addEventListener('load', drawLines);
-  window.addEventListener('resize', drawLines);
-
-  function drawLines() {
-    const svg = document.getElementById('map-svg');
-    const nodes = document.querySelectorAll('.level-node');
-    const containerRect = mapContainer.getBoundingClientRect();
-    
-    let pathString = '';
-    
-    for (let i = 0; i < nodes.length - 1; i++) {
-      const rect1 = nodes[i].getBoundingClientRect();
-      const rect2 = nodes[i+1].getBoundingClientRect();
-      
-      const x1 = rect1.left + rect1.width / 2 - containerRect.left;
-      const y1 = rect1.top + rect1.height / 2 - containerRect.top;
-      const x2 = rect2.left + rect2.width / 2 - containerRect.left;
-      const y2 = rect2.top + rect2.height / 2 - containerRect.top;
-      
-      if (i === 0) {
-        pathString += `M ${x1} ${y1} `;
-      }
-      
-      // Create a smooth bezier curve between nodes
-      const cpX = (x1 + x2) / 2;
-      pathString += `S ${x1} ${y2}, ${x2} ${y2} `;
+    function setLanguage(lang) {
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('trayeeLang', lang);
     }
-    
-    svg.innerHTML = `
-      <path d="${pathString}" fill="none" stroke="var(--path-color)" stroke-width="8" stroke-dasharray="10,10" stroke-linecap="round"/>
-    `;
-  }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+        setLanguage(currentLang === 'kn' ? 'en' : 'kn');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        setLanguage(localStorage.getItem('trayeeLang') || 'kn');
+    });
 </script>
+
 </body>
 </html>
