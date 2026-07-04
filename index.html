@@ -17,6 +17,7 @@
             --card-bg: #ffffff;
             --success-green: #22c55e;
             --masc-blue: #1e3a8a;
+            --error-red: #ef4444;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -105,6 +106,7 @@
         .group-basics::before { background: var(--masc-blue); }
         .group-story::before { background: var(--success-green); }
         .group-exam::before { background: var(--error-red); }
+        .group-new::before { background: #8b5cf6; } /* Purple for advanced/new */
 
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
@@ -146,201 +148,157 @@
         <span class="en-text" style="color:#555; font-weight: 600;">"Friendship blossoms among those with similar virtues and interests."</span>
     </div>
 
+    <!-- LEVEL GRID (Levels 1 to 25) -->
     <div class="level-grid">
         
         <a href="level1.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 1</span>
-                <span class="l-icon">👋</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಪರಿಚಯ & ಪ್ರಥಮಾ ವಿಭಕ್ತಿ</span>
-                <span class="en-text">Intro & 1st Case</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಅಹಂ, ತ್ವಂ, ಸಃ - ದಿನನಿತ್ಯದ ಮಾತುಕತೆ ಮತ್ತು ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ ಪರಿಚಯ.</span>
-                <span class="en-text">Aham, Tvam, Sah - Daily conversation and Intro to Nominative Case.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 1</span><span class="l-icon">👋</span></div>
+            <div class="l-title"><span class="kn-text">ಪರಿಚಯ & ಪ್ರಥಮಾ ವಿಭಕ್ತಿ</span><span class="en-text">Intro & 1st Case</span></div>
+            <div class="l-desc"><span class="kn-text">ಅಹಂ, ತ್ವಂ, ಸಃ - ದಿನನಿತ್ಯದ ಮಾತುಕತೆ ಮತ್ತು ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ ಪರಿಚಯ.</span><span class="en-text">Aham, Tvam, Sah - Daily conversation and Intro to Nominative Case.</span></div>
         </a>
 
         <a href="level2.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 2</span>
-                <span class="l-icon">🏃</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಕ್ರಿಯಾಪದಗಳ ಪರಿಚಯ</span>
-                <span class="en-text">Intro to Verbs</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ಕೆಲಸವನ್ನು ಸೂಚಿಸುವ ಪದಗಳ (Verbs) ಬಳಕೆ.</span>
-                <span class="en-text">Usage of action words (Verbs) in Sanskrit.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 2</span><span class="l-icon">🏃</span></div>
+            <div class="l-title"><span class="kn-text">ಕ್ರಿಯಾಪದಗಳ ಪರಿಚಯ</span><span class="en-text">Intro to Verbs</span></div>
+            <div class="l-desc"><span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ಕೆಲಸವನ್ನು ಸೂಚಿಸುವ ಪದಗಳ (Verbs) ಬಳಕೆ.</span><span class="en-text">Usage of action words (Verbs) in Sanskrit.</span></div>
         </a>
 
         <a href="level3.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 3</span>
-                <span class="l-icon">👥</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಪುರುಷ ಪರಿಚಯ</span>
-                <span class="en-text">The Three Persons</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಪ್ರಥಮ, ಮಧ್ಯಮ ಮತ್ತು ಉತ್ತಮ ಪುರುಷಗಳ ಸ್ಪಷ್ಟ ವಿವರಣೆ.</span>
-                <span class="en-text">Clear explanation of First, Second and Third Person.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 3</span><span class="l-icon">👥</span></div>
+            <div class="l-title"><span class="kn-text">ಪುರುಷ ಪರಿಚಯ</span><span class="en-text">The Three Persons</span></div>
+            <div class="l-desc"><span class="kn-text">ಪ್ರಥಮ, ಮಧ್ಯಮ ಮತ್ತು ಉತ್ತಮ ಪುರುಷಗಳ ಸ್ಪಷ್ಟ ವಿವರಣೆ.</span><span class="en-text">Clear explanation of First, Second and Third Person.</span></div>
         </a>
 
         <a href="level4.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 4</span>
-                <span class="l-icon">1️⃣ ♾️</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ವಚನಗಳು</span>
-                <span class="en-text">Sanskrit Numbers</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಏಕವಚನ, ದ್ವಿವಚನ ಮತ್ತು ಬಹುವಚನಗಳ ನಿಯಮಗಳು.</span>
-                <span class="en-text">Rules of Singular, Dual and Plural forms.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 4</span><span class="l-icon">1️⃣ ♾️</span></div>
+            <div class="l-title"><span class="kn-text">ವಚನಗಳು</span><span class="en-text">Sanskrit Numbers</span></div>
+            <div class="l-desc"><span class="kn-text">ಏಕವಚನ, ದ್ವಿವಚನ ಮತ್ತು ಬಹುವಚನಗಳ ನಿಯಮಗಳು.</span><span class="en-text">Rules of Singular, Dual and Plural forms.</span></div>
         </a>
 
         <a href="level5.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 5</span>
-                <span class="l-icon">🧩</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಸರಳ ವಾಕ್ಯ ರಚನೆ</span>
-                <span class="en-text">Sentence Formation</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದವನ್ನು ಬಳಸಿ ಪುಟ್ಟ ವಾಕ್ಯಗಳನ್ನು ಕಟ್ಟುವುದು.</span>
-                <span class="en-text">Building small sentences using Subject and Verb.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 5</span><span class="l-icon">🧩</span></div>
+            <div class="l-title"><span class="kn-text">ಸರಳ ವಾಕ್ಯ ರಚನೆ</span><span class="en-text">Sentence Formation</span></div>
+            <div class="l-desc"><span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದವನ್ನು ಬಳಸಿ ಪುಟ್ಟ ವಾಕ್ಯಗಳನ್ನು ಕಟ್ಟುವುದು.</span><span class="en-text">Building small sentences using Subject and Verb.</span></div>
         </a>
 
         <a href="level6.html" class="level-card group-basics">
-            <div class="card-header">
-                <span class="l-num">Level 6</span>
-                <span class="l-icon">🔗</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಅವ್ಯಯಗಳು</span>
-                <span class="en-text">Indeclinables</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಚ, ಅಪಿ, ಏವ, ಅತ್ರ, ತತ್ರ - ಎಂದಿಗೂ ಬದಲಾಗದ ಪದಗಳು.</span>
-                <span class="en-text">Cha, Api, Eva, Atra, Tatra - Words that never change.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 6</span><span class="l-icon">🔗</span></div>
+            <div class="l-title"><span class="kn-text">ಅವ್ಯಯಗಳು</span><span class="en-text">Indeclinables</span></div>
+            <div class="l-desc"><span class="kn-text">ಚ, ಅಪಿ, ಏವ, ಅತ್ರ, ತತ್ರ - ಎಂದಿಗೂ ಬದಲಾಗದ ಪದಗಳು.</span><span class="en-text">Cha, Api, Eva, Atra, Tatra - Words that never change.</span></div>
         </a>
 
         <a href="level7.html" class="level-card">
-            <div class="card-header">
-                <span class="l-num">Level 7</span>
-                <span class="l-icon">🎯</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)</span>
-                <span class="en-text">2nd Case (Object)</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">'ಅನ್ನು' ಪ್ರತ್ಯಯ. ಕೆಲಸದ ಗುರಿಯನ್ನು ಸೂಚಿಸುವ 'ಮ್ಯಾಜಿಕ್ ಬಿಂದು'.</span>
-                <span class="en-text">The Object case. The 'Magic Dot' that indicates the target of an action.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 7</span><span class="l-icon">🎯</span></div>
+            <div class="l-title"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)</span><span class="en-text">2nd Case (Object)</span></div>
+            <div class="l-desc"><span class="kn-text">'ಅನ್ನು' ಪ್ರತ್ಯಯ. ಕೆಲಸದ ಗುರಿಯನ್ನು ಸೂಚಿಸುವ 'ಮ್ಯಾಜಿಕ್ ಬಿಂದು'.</span><span class="en-text">The Object case. The 'Magic Dot' that indicates the target of an action.</span></div>
         </a>
 
         <a href="level8.html" class="level-card group-story">
-            <div class="card-header">
-                <span class="l-num">Level 8</span>
-                <span class="l-icon">🦅</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಕಥಾ ಸಮಯ: ಗೃಧ್ರಸ್ಯ ಕರುಣಾ</span>
-                <span class="en-text">Story: Grudhrasya Karuna</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿಯ ಪ್ರಯೋಗಗಳನ್ನು ಕಥೆಯ ಮೂಲಕ ಓದಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.</span>
-                <span class="en-text">Read and comprehend the usage of 2nd case through a moral story.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 8</span><span class="l-icon">🦅</span></div>
+            <div class="l-title"><span class="kn-text">ಕಥಾ ಸಮಯ: ಗೃಧ್ರಸ್ಯ ಕರುಣಾ</span><span class="en-text">Story: Grudhrasya Karuna</span></div>
+            <div class="l-desc"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿಯ ಪ್ರಯೋಗಗಳನ್ನು ಕಥೆಯ ಮೂಲಕ ಓದಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.</span><span class="en-text">Read and comprehend the usage of 2nd case through a moral story.</span></div>
         </a>
 
         <a href="level9.html" class="level-card">
-            <div class="card-header">
-                <span class="l-num">Level 9</span>
-                <span class="l-icon">📍</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಅಧಿಕರಣ)</span>
-                <span class="en-text">7th Case (Location)</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">'ಎಲ್ಲಿ?' ಮತ್ತು 'ಯಾವಾಗ?' - ಸ್ಥಳ ಹಾಗೂ ಸಮಯವನ್ನು ಸೂಚಿಸುವ ವಿಭಕ್ತಿ.</span>
-                <span class="en-text">'Where?' and 'When?' - The case that indicates location and time.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 9</span><span class="l-icon">📍</span></div>
+            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಅಧಿಕರಣ)</span><span class="en-text">7th Case (Location)</span></div>
+            <div class="l-desc"><span class="kn-text">'ಎಲ್ಲಿ?' ಮತ್ತು 'ಯಾವಾಗ?' - ಸ್ಥಳ ಹಾಗೂ ಸಮಯವನ್ನು ಸೂಚಿಸುವ ವಿಭಕ್ತಿ.</span><span class="en-text">'Where?' and 'When?' - The case that indicates location and time.</span></div>
         </a>
 
         <a href="level10.html" class="level-card">
-            <div class="card-header">
-                <span class="l-num">Level 10</span>
-                <span class="l-icon">✨</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಸಪ್ತಮೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span>
-                <span class="en-text">Saptami Magic Sutras</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಎಲ್ಲಾ ಸ್ವರಗಳ ಏಕವಚನಕ್ಕೆ (ಅ-ಕಾರಾಂತದಿಂದ ವ್ಯಂಜನಾಂತದವರೆಗೆ) ಕೇವಲ ೮ ಅಕ್ಷರಗಳ ಸೂತ್ರ.</span>
-                <span class="en-text">The 8-letter magic sutra for all singular endings.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 10</span><span class="l-icon">✨</span></div>
+            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span><span class="en-text">Saptami Magic Sutras</span></div>
+            <div class="l-desc"><span class="kn-text">ಎಲ್ಲಾ ಸ್ವರಗಳ ಏಕವಚನಕ್ಕೆ (ಅ-ಕಾರಾಂತದಿಂದ ವ್ಯಂಜನಾಂತದವರೆಗೆ) ಕೇವಲ ೮ ಅಕ್ಷರಗಳ ಸೂತ್ರ.</span><span class="en-text">The 8-letter magic sutra for all singular endings.</span></div>
         </a>
 
         <a href="level11.html" class="level-card group-exam">
-            <div class="card-header">
-                <span class="l-num">Level 11</span>
-                <span class="l-icon">📝</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಸಪ್ತಮೀ ಮಹಾ ಪರೀಕ್ಷೆ</span>
-                <span class="en-text">Saptami Mega Exam</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಪಜಲ್, ಹೊಂದಿಸಿ ಬರೆಯಿರಿ, ವಿಜಾತೀಯ ಪದ ಗುರುತಿಸಿ - ನಿಮ್ಮ ಜ್ಞಾನದ ಒರೆಗಲ್ಲು.</span>
-                <span class="en-text">Puzzles, Match the following, Odd one out - Test your knowledge.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 11</span><span class="l-icon">📝</span></div>
+            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ಮಹಾ ಪರೀಕ್ಷೆ</span><span class="en-text">Saptami Mega Exam</span></div>
+            <div class="l-desc"><span class="kn-text">ಪಜಲ್, ಹೊಂದಿಸಿ ಬರೆಯಿರಿ, ವಿಜಾತೀಯ ಪದ ಗುರುತಿಸಿ - ನಿಮ್ಮ ಜ್ಞಾನದ ಒರೆಗಲ್ಲು.</span><span class="en-text">Puzzles, Match the following, Odd one out - Test your knowledge.</span></div>
         </a>
 
         <a href="level12.html" class="level-card">
-            <div class="card-header">
-                <span class="l-num">Level 12</span>
-                <span class="l-icon">⚙️</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಕ್ರಿಯಾಪದ - ಬಹುವಚನ</span>
-                <span class="en-text">Verb Plurals</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ವರ್ತಮಾನ ಕಾಲದ ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳನ್ನು ರಚಿಸುವ ಸುಲಭ ಸೂತ್ರ.</span>
-                <span class="en-text">Easy formula to construct present tense plural verbs.</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 12</span><span class="l-icon">⚙️</span></div>
+            <div class="l-title"><span class="kn-text">ಕ್ರಿಯಾಪದ - ಬಹುವಚನ</span><span class="en-text">Verb Plurals</span></div>
+            <div class="l-desc"><span class="kn-text">ವರ್ತಮಾನ ಕಾಲದ ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳನ್ನು ರಚಿಸುವ ಸುಲಭ ಸೂತ್ರ.</span><span class="en-text">Easy formula to construct present tense plural verbs.</span></div>
         </a>
 
         <a href="level13.html" class="level-card group-exam">
-            <div class="card-header">
-                <span class="l-num">Level 13</span>
-                <span class="l-icon">🎓</span>
-            </div>
-            <div class="l-title">
-                <span class="kn-text">ಆರುಣಿಯ ಕಥೆ & ಪರೀಕ್ಷೆ</span>
-                <span class="en-text">Aruni's Story & Exam</span>
-            </div>
-            <div class="l-desc">
-                <span class="kn-text">ಕರ್ಮ, ಅಧಿಕರಣ ಮತ್ತು ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳೆಲ್ಲವೂ ಒಂದೇ ಕಥೆಯಲ್ಲಿ. ಸಮಗ್ರ ರಿವಿಷನ್!</span>
-                <span class="en-text">Karma, Adhikarana and Plural verbs applied in one classic story. Complete revision!</span>
-            </div>
+            <div class="card-header"><span class="l-num">Level 13</span><span class="l-icon">🎓</span></div>
+            <div class="l-title"><span class="kn-text">ಆರುಣಿಯ ಕಥೆ & ಪರೀಕ್ಷೆ</span><span class="en-text">Aruni's Story & Exam</span></div>
+            <div class="l-desc"><span class="kn-text">ಕರ್ಮ, ಅಧಿಕರಣ ಮತ್ತು ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳೆಲ್ಲವೂ ಒಂದೇ ಕಥೆಯಲ್ಲಿ. ಸಮಗ್ರ ರಿವಿಷನ್!</span><span class="en-text">Karma, Adhikarana and Plural verbs applied in one classic story. Complete revision!</span></div>
+        </a>
+
+        <a href="level14.html" class="level-card group-new">
+            <div class="card-header"><span class="l-num">Level 14</span><span class="l-icon">👑</span></div>
+            <div class="l-title"><span class="kn-text">ಷಷ್ಠೀ ವಿಭಕ್ತಿ (ಸಂಬಂಧ)</span><span class="en-text">6th Case (Possession)</span></div>
+            <div class="l-desc"><span class="kn-text">'ಯಾರದ್ದು?' (ಮಾಲೀಕತ್ವ) ಸೂಚಿಸುವ ಷಷ್ಠೀ ವಿಭಕ್ತಿಯ ಪರಿಚಯ (ಏಕವಚನ).</span><span class="en-text">Intro to the 6th case which answers 'Whose?' (Singular).</span></div>
+        </a>
+
+        <a href="level15.html" class="level-card group-new">
+            <div class="card-header"><span class="l-num">Level 15</span><span class="l-icon">🪄</span></div>
+            <div class="l-title"><span class="kn-text">ಷಷ್ಠೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span><span class="en-text">6th Case Magic Sutra</span></div>
+            <div class="l-desc"><span class="kn-text">ಯಾವುದೇ ಸ್ವರದಿಂದ ಅಂತ್ಯವಾಗುವ ಪದಗಳಿಗೆ ಷಷ್ಠೀ ವಿಭಕ್ತಿಯ ೬ ಸುಲಭ ಸೂತ್ರಗಳು.</span><span class="en-text">6 easy formulas for 6th case for words ending with any vowel.</span></div>
+        </a>
+
+        <a href="level16.html" class="level-card group-story">
+            <div class="card-header"><span class="l-num">Level 16</span><span class="l-icon">🐰</span></div>
+            <div class="l-title"><span class="kn-text">ಕಥಾ ಸಮಯ: ಚತುರಃ ಶಶಕಃ</span><span class="en-text">Story: The Clever Hare</span></div>
+            <div class="l-desc"><span class="kn-text">ಬಣ್ಣಗಳ ಮೂಲಕ ಈವರೆಗೆ ಕಲಿತ ಎಲ್ಲಾ ವಿಭಕ್ತಿಗಳ ಮತ್ತು ವ್ಯಾಕರಣದ ರಿವಿಷನ್ ಕಥೆ.</span><span class="en-text">A revision story to learn all cases and grammar through colors.</span></div>
+        </a>
+
+        <a href="level17.html" class="level-card group-new">
+            <div class="card-header"><span class="l-num">Level 17</span><span class="l-icon">👨‍👩‍👧‍👦</span></div>
+            <div class="l-title"><span class="kn-text">ಪ್ರಥಮಾ & ಕ್ರಿಯಾಪದ (ಬಹುವಚನ)</span><span class="en-text">Nominative & Verb Plural</span></div>
+            <div class="l-desc"><span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದಗಳೆರಡನ್ನೂ ಒಟ್ಟಿಗೆ ಬಹುವಚನದಲ್ಲಿ ಪ್ರಯೋಗಿಸುವುದು.</span><span class="en-text">Applying plural for both Subject and Verb together.</span></div>
+        </a>
+
+        <a href="level18.html" class="level-card group-new">
+            <div class="card-header"><span class="l-num">Level 18</span><span class="l-icon">🤝</span></div>
+            <div class="l-title"><span class="kn-text">ಮಧ್ಯಮ & ಉತ್ತಮ ಪುರುಷ (ಬಹುವಚನ)</span><span class="en-text">2nd & 1st Person Plural</span></div>
+            <div class="l-desc"><span class="kn-text">'ಯೂಯಮ್' (ನೀವೆಲ್ಲರೂ) ಮತ್ತು 'ವಯಮ್' (ನಾವೆಲ್ಲರೂ) ಪದಗಳ ಬಳಕೆ.</span><span class="en-text">Usage of 'Yuyam' (You all) and 'Vayam' (We all) in plural.</span></div>
+        </a>
+
+        <a href="level19.html" class="level-card group-exam">
+            <div class="card-header"><span class="l-num">Level 19</span><span class="l-icon">📝</span></div>
+            <div class="l-title"><span class="kn-text">ಬಹುವಚನ ಮಹಾ ಪರೀಕ್ಷೆ</span><span class="en-text">Plural Mega Exam</span></div>
+            <div class="l-desc"><span class="kn-text">ಎಲ್ಲಾ ಪುರುಷಗಳ ಬಹುವಚನಗಳ ಸಂಪೂರ್ಣ ಅಭ್ಯಾಸ ಮತ್ತು ಮೆಗಾ ರಸಪ್ರಶ್ನೆ.</span><span class="en-text">Complete practice and mega quiz on plurals of all persons.</span></div>
+        </a>
+
+        <a href="level20.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 20</span><span class="l-icon">🎯</span></div>
+            <div class="l-title"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಬಹುವಚನ)</span><span class="en-text">2nd Case Plural</span></div>
+            <div class="l-desc"><span class="kn-text">ಕರ್ಮ (Object) ಪದಗಳ ಬಹುವಚನ ರೂಪಗಳ (ಉದಾ: ರಾಮಾನ್, ಸೀತಾಃ) ಪರಿಚಯ.</span><span class="en-text">Introduction to plural forms of object words (e.g., Ramaan, Sitah).</span></div>
+        </a>
+
+        <a href="level21.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 21</span><span class="l-icon">🛠️</span></div>
+            <div class="l-title"><span class="kn-text">ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಕರಣ)</span><span class="en-text">3rd Case (Instrument)</span></div>
+            <div class="l-desc"><span class="kn-text">'ಇಂದ' ಅಥವಾ 'ಮೂಲಕ' - ಕೆಲಸ ಮಾಡಲು ಸಹಾಯ ಮಾಡುವ ಸಾಧನದ ವಿಭಕ್ತಿ.</span><span class="en-text">The case indicating 'by' or 'with' (instrument of action).</span></div>
+        </a>
+
+        <a href="level22.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 22</span><span class="l-icon">🎁</span></div>
+            <div class="l-title"><span class="kn-text">ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಸಂಪ್ರದಾನ)</span><span class="en-text">4th Case (Purpose/For)</span></div>
+            <div class="l-desc"><span class="kn-text">'ಗೋಸ್ಕರ' ಅಥವಾ 'ಗಾಗಿ' - ಯಾರಿಗಾಗಿ ಕೆಲಸ ನಡೆಯುತ್ತಿದೆ ಎಂದು ಸೂಚಿಸುವುದು.</span><span class="en-text">The case indicating purpose or 'for whom' the action is done.</span></div>
+        </a>
+
+        <a href="level23.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 23</span><span class="l-icon">🍃</span></div>
+            <div class="l-title"><span class="kn-text">ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಅಪಾದಾನ)</span><span class="en-text">5th Case (Separation)</span></div>
+            <div class="l-desc"><span class="kn-text">'ದೆಸೆಯಿಂದ' ಅಥವಾ 'ಇಂದ' - ಒಂದು ಕಡೆಯಿಂದ ದೂರವಾಗುವುದನ್ನು ಸೂಚಿಸುವುದು.</span><span class="en-text">The case indicating separation 'from' a point of origin.</span></div>
+        </a>
+
+        <a href="level24.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 24</span><span class="l-icon">🗣️</span></div>
+            <div class="l-title"><span class="kn-text">ಸಂಬೋಧನಾ ವಿಭಕ್ತಿ</span><span class="en-text">Vocative Case</span></div>
+            <div class="l-desc"><span class="kn-text">ಹೇ ರಾಮ! ಹೇ ಸೀತೇ! - ಕರೆಯಲು ಅಥವಾ ಸಂಬೋಧಿಸಲು ಬಳಸುವ ವಿಭಕ್ತಿ.</span><span class="en-text">He Rama! He Site! - The case used for calling or addressing someone.</span></div>
+        </a>
+
+        <a href="level25.html" class="level-card group-story">
+            <div class="card-header"><span class="l-num">Level 25</span><span class="l-icon">🏆</span></div>
+            <div class="l-title"><span class="kn-text">ಮಹಾ ರಿವಿಷನ್ & ಕಥೆ</span><span class="en-text">Grand Revision & Story</span></div>
+            <div class="l-desc"><span class="kn-text">ನಾವು ಕಲಿತ ಎಲ್ಲಾ ೮ ವಿಭಕ್ತಿಗಳು ಮತ್ತು ಕಾಲಗಳ ಸಮಗ್ರ ಅಭ್ಯಾಸದ ಕಥೆ!</span><span class="en-text">A grand story to revise all 8 cases and tenses we have learned!</span></div>
         </a>
 
     </div>
