@@ -24,6 +24,9 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        body.lang-en .kn-text { display: none !important; }
+        body.lang-kn .en-text { display: none !important; }
+
         body {
             font-family: 'Laila', sans-serif;
             background-color: var(--bg-parchment);
@@ -33,6 +36,27 @@
         }
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px 20px 60px; }
+
+        /* Top Nav */
+        .top-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3); margin-bottom: 0px;
+        }
+
+        .logo-home { 
+            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+        
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
         /* Motto Section */
         .motto-box {
@@ -53,7 +77,7 @@
             margin-bottom: 5px;
         }
 
-        .motto-kn {
+        .motto-kn, .motto-en {
             font-size: 0.95rem;
             color: #555;
             font-style: italic;
@@ -131,7 +155,7 @@
             border: 3px solid #eee;
         }
 
-        .card-image img {
+        .card-image img, .card-image svg {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -257,111 +281,236 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-kn">
+
+<nav class="top-nav">
+    <a href="index.html" class="logo-home">
+        <span>🏠</span>
+        <span class="kn-text">ಮುಖಪುಟ</span>
+        <span class="en-text">Home</span>
+    </a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
 
 <div class="motto-box">
     <span class="motto-sk">सा विद्या या विमुक्तये । तत् कर्म यन्न बन्धाय ॥</span>
-    <span class="motto-kn">"ಯಾವುದು ಮುಕ್ತಿಗೆ ದಾರಿ ತೋರುವುದೋ, <strong>ಅವಳೇ (ಆ)</strong> ನೈಜ ವಿದ್ಯೆ. ಯಾವುದು ನಮ್ಮನ್ನು ಬಂಧಿಸುವುದಿಲ್ಲವೋ, <strong>ಅದೇ (ಆ)</strong> ನೈಜ ಕರ್ಮ."</span>
-    <span class="motto-source">— ಶ್ರೀವಿಷ್ಣುಪುರಾಣಮ್ (ಈ ಪಾಠದಲ್ಲಿ ಬರುವ 'ಸಾ' ಮತ್ತು 'ತತ್' ಶಬ್ದಗಳ ಸುಂದರ ಬಳಕೆ)</span>
+    <span class="motto-kn kn-text">"ಯಾವುದು ಮುಕ್ತಿಗೆ ದಾರಿ ತೋರುವುದೋ, <strong>ಅವಳೇ (ಆ)</strong> ನೈಜ ವಿದ್ಯೆ. ಯಾವುದು ನಮ್ಮನ್ನು ಬಂಧಿಸುವುದಿಲ್ಲವೋ, <strong>ಅದೇ (ಆ)</strong> ನೈಜ ಕರ್ಮ."</span>
+    <span class="motto-en en-text">"That which leads to liberation is true knowledge <strong>(She/It)</strong>. That which does not bind us is true action <strong>(That)</strong>."</span>
+    <span class="motto-source kn-text">— ಶ್ರೀವಿಷ್ಣುಪುರಾಣಮ್ (ಈ ಪಾಠದಲ್ಲಿ ಬರುವ 'ಸಾ' ಮತ್ತು 'ತತ್' ಶಬ್ದಗಳ ಸುಂದರ ಬಳಕೆ)</span>
+    <span class="motto-source en-text">— Sri Vishnu Puranam (Beautiful usage of 'Sa' and 'Tat' in this lesson)</span>
 </div>
 
 <div class="container">
 
     <header>
         <div class="level-badge">Level 2</div>
-        <h1>ಅನ್ಯರ ಪರಿಚಯ (The Other)</h1>
-        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">ಪ್ರಥಮ ಪುರುಷ - ತ್ರಿಲಿಂಗ (Third Person in Three Genders)</p>
+        <h1>
+            <span class="kn-text">ಅನ್ಯರ ಪರಿಚಯ</span>
+            <span class="en-text">Introducing Others</span>
+        </h1>
+        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">
+            <span class="kn-text">ಪ್ರಥಮ ಪುರುಷ - ತ್ರಿಲಿಂಗ</span>
+            <span class="en-text">Third Person - Three Genders</span>
+        </p>
     </header>
 
     <div class="grammar-note">
-        <h3 style="color: var(--text-maroon); font-size: 1.3rem; margin-bottom: 10px;">✨ ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗ ವ್ಯವಸ್ಥೆ (Gender in Sanskrit)</h3>
+        <h3 style="color: var(--text-maroon); font-size: 1.3rem; margin-bottom: 10px;">
+            <span class="kn-text">✨ ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗ ವ್ಯವಸ್ಥೆ</span>
+            <span class="en-text">✨ Gender System in Sanskrit</span>
+        </h3>
         <p style="margin-bottom: 15px;">
-            ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗವು (Gender) ಕೇವಲ ಗಂಡು-ಹೆಣ್ಣಿನ <strong>ಜೀವಶಾಸ್ತ್ರಕ್ಕೆ (Biology)</strong> ಸೀಮಿತವಾಗಿಲ್ಲ; ಇದು <strong>ಶಬ್ದಗಳ ರಚನೆಗೆ (Grammatical word)</strong> ಸಂಬಂಧಿಸಿದೆ. 
-            ಉದಾಹರಣೆಗೆ: 'ಸ್ನೇಹಿತ' ಮನುಷ್ಯನಾದರೂ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದ (मित्रम्). 'ಮರ' ಜೀವವಿಲ್ಲದಿದ್ದರೂ ಪುಂಲಿಂಗ ಶಬ್ದ (वृक्षः). 
-            ಆದ್ದರಿಂದ, ನಾವು ವ್ಯಕ್ತಿ ಅಥವಾ ವಸ್ತುವನ್ನು ಸೂಚಿಸಲು ಬಳಸುವ ಸರ್ವನಾಮಗಳು (Pronouns) ಆ <strong>ಪದದ ಲಿಂಗವನ್ನು</strong> ಆಧರಿಸಿ ಮೂರು ವಿಧವಾಗಿರುತ್ತವೆ.
+            <span class="kn-text">
+                ಸಂಸ್ಕೃತದಲ್ಲಿ ಲಿಂಗವು (Gender) ಕೇವಲ ಗಂಡು-ಹೆಣ್ಣಿನ <strong>ಜೀವಶಾಸ್ತ್ರಕ್ಕೆ (Biology)</strong> ಸೀಮಿತವಾಗಿಲ್ಲ; ಇದು <strong>ಶಬ್ದಗಳ ರಚನೆಗೆ (Grammatical word)</strong> ಸಂಬಂಧಿಸಿದೆ. 
+                ಉದಾಹರಣೆಗೆ: 'ಸ್ನೇಹಿತ' ಮನುಷ್ಯನಾದರೂ ಸಂಸ್ಕೃತದಲ್ಲಿ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದ (मित्रम्). 'ಮರ' ಜೀವವಿಲ್ಲದಿದ್ದರೂ ಪುಂಲಿಂಗ ಶಬ್ದ (वृक्षः). 
+                ಆದ್ದರಿಂದ, ನಾವು ವ್ಯಕ್ತಿ ಅಥವಾ ವಸ್ತುವನ್ನು ಸೂಚಿಸಲು ಬಳಸುವ ಸರ್ವನಾಮಗಳು (Pronouns) ಆ <strong>ಪದದ ಲಿಂಗವನ್ನು</strong> ಆಧರಿಸಿ ಮೂರು ವಿಧವಾಗಿರುತ್ತವೆ.
+            </span>
+            <span class="en-text">
+                In Sanskrit, Gender is not limited to <strong>biological sex</strong>; it is related to the <strong>grammatical structure of the word</strong>. 
+                For example: A 'friend' is a human, but in Sanskrit, it's a neuter word (मित्रम्). A 'tree' is non-living, but it's a masculine word (वृक्षः). 
+                Therefore, the pronouns we use to refer to a person or object fall into three types based on the <strong>gender of that word</strong>.
+            </span>
         </p>
     </div>
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--masc-blue); margin-bottom: 10px;">೧. ಪುಂಲಿಂಗ (Masculine)</h2>
-            <p>ಪುರುಷರನ್ನು ಅಥವಾ ಪುಂಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सः' (ಅವನು)</strong> ಮತ್ತು <strong>'तस्य' (ಅವನ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <h2 style="color: var(--masc-blue); margin-bottom: 10px;">
+                <span class="kn-text">೧. ಪುಂಲಿಂಗ</span>
+                <span class="en-text">1. Masculine</span>
+            </h2>
+            <p>
+                <span class="kn-text">ಪುರುಷರನ್ನು ಅಥವಾ ಪುಂಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सः' (ಅವನು)</strong> ಮತ್ತು <strong>'तस्य' (ಅವನ)</strong> ಬಳಸುತ್ತೇವೆ.</span>
+                <span class="en-text">When referring to males or masculine words, we use <strong>'सः' (He/That)</strong> and <strong>'तस्य' (His/Of that)</strong>.</span>
+            </p>
             <div class="phrase-box masc-box">
                 <div class="sk-text">सः रामः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅವನು ರಾಮ (He is Rama).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅವನು ರಾಮ (He is Rama).</span>
+                    <span class="en-text">He is Rama.</span>
+                </div>
             </div>
             <div class="phrase-box masc-box">
                 <div class="sk-text">तस्य जनकः दशरथः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅವನ ತಂದೆ ದಶರಥ (His father is Dasharatha).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅವನ ತಂದೆ ದಶರಥ (His father is Dasharatha).</span>
+                    <span class="en-text">His father is Dasharatha.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1598387181032-a3103a2db733?auto=format&fit=crop&q=80&w=400" alt="Traditional Indian Prince / Rama">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#eff6ff"/>
+                <!-- Bow -->
+                <path d="M 50 20 Q 150 100 50 180" fill="none" stroke="#1e3a8a" stroke-width="8" stroke-linecap="round"/>
+                <line x1="50" y1="20" x2="50" y2="180" stroke="#94a3b8" stroke-width="2"/>
+                <!-- Arrow -->
+                <line x1="10" y1="100" x2="140" y2="100" stroke="#1e3a8a" stroke-width="4"/>
+                <polygon points="140,90 160,100 140,110" fill="#1e3a8a"/>
+                <!-- Feather -->
+                <line x1="10" y1="100" x2="30" y2="90" stroke="#1e3a8a" stroke-width="3"/>
+                <line x1="10" y1="100" x2="30" y2="110" stroke="#1e3a8a" stroke-width="3"/>
+            </svg>
         </div>
     </div>
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--fem-pink); margin-bottom: 10px;">೨. ಸ್ತ್ರೀಲಿಂಗ (Feminine)</h2>
-            <p>ಸ್ತ್ರೀಯರನ್ನು ಅಥವಾ ಸ್ತ್ರೀಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सा' (ಅವಳು)</strong> ಮತ್ತು <strong>'तस्याः' (ಅವಳ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <h2 style="color: var(--fem-pink); margin-bottom: 10px;">
+                <span class="kn-text">೨. ಸ್ತ್ರೀಲಿಂಗ</span>
+                <span class="en-text">2. Feminine</span>
+            </h2>
+            <p>
+                <span class="kn-text">ಸ್ತ್ರೀಯರನ್ನು ಅಥವಾ ಸ್ತ್ರೀಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'सा' (ಅವಳು)</strong> ಮತ್ತು <strong>'तस्याः' (ಅವಳ)</strong> ಬಳಸುತ್ತೇವೆ.</span>
+                <span class="en-text">When referring to females or feminine words, we use <strong>'सा' (She/That)</strong> and <strong>'तस्याः' (Her/Of that)</strong>.</span>
+            </p>
             <div class="phrase-box fem-box">
                 <div class="sk-text">सा सीता ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅವಳು ಸೀತೆ (She is Sita).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅವಳು ಸೀತೆ (She is Sita).</span>
+                    <span class="en-text">She is Sita.</span>
+                </div>
             </div>
             <div class="phrase-box fem-box">
                 <div class="sk-text">तस्याः पतिः रामः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅವಳ ಪತಿ ರಾಮ (Her husband is Rama).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅವಳ ಪತಿ ರಾಮ (Her husband is Rama).</span>
+                    <span class="en-text">Her husband is Rama.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1610173827002-861c8a14b0ea?auto=format&fit=crop&q=80&w=400" alt="Traditional Indian Princess / Sita">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#fdf2f8"/>
+                <!-- Lotus Base -->
+                <path d="M 100 160 C 60 160 30 120 40 80 C 70 90 90 120 100 160" fill="#f472b6"/>
+                <path d="M 100 160 C 140 160 170 120 160 80 C 130 90 110 120 100 160" fill="#f472b6"/>
+                <!-- Lotus Center -->
+                <path d="M 100 160 C 80 120 80 60 100 40 C 120 60 120 120 100 160" fill="#db2777"/>
+                <!-- Lotus Outer Petals -->
+                <path d="M 85 150 C 40 130 20 80 15 50 C 50 60 70 100 85 150" fill="#fbcfe8"/>
+                <path d="M 115 150 C 160 130 180 80 185 50 C 150 60 130 100 115 150" fill="#fbcfe8"/>
+                <path d="M 100 180 Q 100 200 100 200" stroke="#16a34a" stroke-width="6"/>
+                <path d="M 100 180 Q 70 180 50 170" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 100 180 Q 130 180 150 170" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+            </svg>
         </div>
     </div>
 
     <div class="lesson-card">
         <div class="card-content">
-            <h2 style="color: var(--neut-green); margin-bottom: 10px;">೩. ನಪುಂಸಕಲಿಂಗ (Neuter)</h2>
-            <p>ವಸ್ತುಗಳನ್ನು ಅಥವಾ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'तत्' (ಅದು)</strong> ಮತ್ತು <strong>'तस्य' (ಅದರ)</strong> ಬಳಸುತ್ತೇವೆ.</p>
+            <h2 style="color: var(--neut-green); margin-bottom: 10px;">
+                <span class="kn-text">೩. ನಪುಂಸಕಲಿಂಗ</span>
+                <span class="en-text">3. Neuter</span>
+            </h2>
+            <p>
+                <span class="kn-text">ವಸ್ತುಗಳನ್ನು ಅಥವಾ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಸೂಚಿಸುವಾಗ <strong>'तत्' (ಅದು)</strong> ಮತ್ತು <strong>'तस्य' (ಅದರ)</strong> ಬಳಸುತ್ತೇವೆ.</span>
+                <span class="en-text">When referring to objects or neuter words, we use <strong>'तत्' (It/That)</strong> and <strong>'तस्य' (Its/Of that)</strong>.</span>
+            </p>
             <div class="phrase-box neut-box">
                 <div class="sk-text">तत् यानम् ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅದು ವಾಹನ / ರಥ (That is a vehicle).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅದು ವಾಹನ / ರಥ (That is a vehicle).</span>
+                    <span class="en-text">That is a vehicle.</span>
+                </div>
             </div>
             <div class="phrase-box neut-box">
                 <div class="sk-text">तस्य वर्णः श्वेतः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">ಅದರ ಬಣ್ಣ ಬಿಳಿ (Its color is white).</div>
+                <div style="font-weight: 600; margin-top: 5px;">
+                    <span class="kn-text">ಅದರ ಬಣ್ಣ ಬಿಳಿ (Its color is white).</span>
+                    <span class="en-text">Its color is white.</span>
+                </div>
             </div>
         </div>
         <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1533036665042-45a85012e361?auto=format&fit=crop&q=80&w=400" alt="Wooden Chariot Wheel / Yana">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#f0fdf4"/>
+                <!-- Outer Rim -->
+                <circle cx="100" cy="100" r="70" fill="none" stroke="#14532d" stroke-width="12"/>
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#4ade80" stroke-width="4"/>
+                <!-- Hub -->
+                <circle cx="100" cy="100" r="15" fill="#14532d"/>
+                <circle cx="100" cy="100" r="8" fill="#f0fdf4"/>
+                <!-- Spokes -->
+                <line x1="100" y1="30" x2="100" y2="170" stroke="#14532d" stroke-width="6"/>
+                <line x1="30" y1="100" x2="170" y2="100" stroke="#14532d" stroke-width="6"/>
+                <line x1="50" y1="50" x2="150" y2="150" stroke="#14532d" stroke-width="6"/>
+                <line x1="50" y1="150" x2="150" y2="50" stroke="#14532d" stroke-width="6"/>
+            </svg>
         </div>
     </div>
 
     <div class="subhashita-card">
-        <h3>सुभाषितम् - २</h3>
+        <h3>
+            <span class="kn-text">सुभाषितम् - २</span>
+            <span class="en-text">Subhashitam - 2</span>
+        </h3>
         <p class="shloka">
             हस्तस्य भूषणं दानं सत्यं कण्ठस्य भूषणम् ।<br>
             श्रोत्रस्य भूषणं शास्त्रं भूषणैः किं प्रयोजनम् ॥
         </p>
         <div class="shloka-meaning">
-            <strong>ಅರ್ಥ:</strong> ಕೈಗೆ ದಾನವೇ ಆಭರಣ, ಕಂಠಕ್ಕೆ ಸತ್ಯವೇ ಆಭರಣ, ಕಿವಿಗೆ ಜ್ಞಾನದ (ಶಾಸ್ತ್ರ) ಶ್ರವಣವೇ ಆಭರಣ. ಈ ನೈಜ ಆಭರಣಗಳಿರುವಾಗ ಇತರ ಚಿನ್ನ-ಬೆಳ್ಳಿಯ ಆಭರಣಗಳ (भूषणैः) ಪ್ರಯೋಜನವೇನು?
+            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಕೈಗೆ ದಾನವೇ ಆಭರಣ, ಕಂಠಕ್ಕೆ ಸತ್ಯವೇ ಆಭರಣ, ಕಿವಿಗೆ ಜ್ಞಾನದ (ಶಾಸ್ತ್ರ) ಶ್ರವಣವೇ ಆಭರಣ. ಈ ನೈಜ ಆಭರಣಗಳಿರುವಾಗ ಇತರ ಚಿನ್ನ-ಬೆಳ್ಳಿಯ ಆಭರಣಗಳ (भूषणैः) ಪ್ರಯೋಜನವೇನು?</span>
+            <span class="en-text"><strong>Meaning:</strong> Charity is the ornament of the hand, truth is the ornament of the throat, and listening to scriptures (knowledge) is the ornament of the ears. When one has these true ornaments, what is the use of other gold/silver ornaments?</span>
         </div>
         
         <div class="highlight-box">
-            <h4 style="color: var(--text-brown); margin-bottom: 5px;">🔍 ಪಾಠದ ಪ್ರಮುಖಾಂಶ (Grammar Check):</h4>
+            <h4 style="color: var(--text-brown); margin-bottom: 5px;">
+                <span class="kn-text">🔍 ಪಾಠದ ಪ್ರಮುಖಾಂಶ (Grammar Check):</span>
+                <span class="en-text">🔍 Grammar Check:</span>
+            </h4>
             <p style="font-size: 0.95rem;">
-                ನಾವು ಮೇಲಿನ ಪಾಠದಲ್ಲಿ <strong>तस्य (ತಸ್ಯ)</strong> ಎಂದರೆ "ಅವನ / ಅದರ" (ಷಷ್ಠೀ ವಿಭಕ್ತಿ - Possessive case) ಎಂದು ಕಲಿತೆವು. ಅದೇ ರೀತಿ ಈ ಸುಭಾಷಿತದಲ್ಲಿರುವ ಶಬ್ದಗಳನ್ನು ಗಮನಿಸಿ:<br>
-                • हस्त + <strong>स्य</strong> = हस्तस्य (ಕೈಯ / ಕೈಯ-<strong>ದ</strong>)<br>
-                • कण्ठ + <strong>स्य</strong> = कण्ठस्य (ಕಂಠದ)<br>
-                • श्रोत्र + <strong>स्य</strong> = श्रोत्रस्य (ಕಿವಿಯ)<br>
-                ಸಂಸ್ಕೃತದಲ್ಲಿ ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳಿಗೆ <strong>"-स्य" (-sya)</strong> ಸೇರಿಸಿದರೆ ಅದು "ಅವನ / ಅದರ" ಎಂಬ ಸಂಬಂಧವನ್ನು ಸೂಚಿಸುತ್ತದೆ!
+                <span class="kn-text">
+                    ನಾವು ಮೇಲಿನ ಪಾಠದಲ್ಲಿ <strong>तस्य (ತಸ್ಯ)</strong> ಎಂದರೆ "ಅವನ / ಅದರ" (ಷಷ್ಠೀ ವಿಭಕ್ತಿ - Possessive case) ಎಂದು ಕಲಿತೆವು. ಅದೇ ರೀತಿ ಈ ಸುಭಾಷಿತದಲ್ಲಿರುವ ಶಬ್ದಗಳನ್ನು ಗಮನಿಸಿ:<br>
+                    • हस्त + <strong>स्य</strong> = हस्तस्य (ಕೈಯ / ಕೈಯ-<strong>ದ</strong>)<br>
+                    • कण्ठ + <strong>स्य</strong> = कण्ठस्य (ಕಂಠದ)<br>
+                    • श्रोत्र + <strong>स्य</strong> = श्रोत्रस्य (ಕಿವಿಯ)<br>
+                    ಸಂಸ್ಕೃತದಲ್ಲಿ ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳಿಗೆ <strong>"-स्य" (-sya)</strong> ಸೇರಿಸಿದರೆ ಅದು "ಅವನ / ಅದರ" ಎಂಬ ಸಂಬಂಧವನ್ನು ಸೂಚಿಸುತ್ತದೆ!
+                </span>
+                <span class="en-text">
+                    In the lesson above, we learned that <strong>तस्य (tasya)</strong> means "his / its" (Possessive case). Similarly, notice the words in this subhashita:<br>
+                    • hasta + <strong>sya</strong> = hastasya (of the hand)<br>
+                    • kaṇṭha + <strong>sya</strong> = kaṇṭhasya (of the throat)<br>
+                    • śrotra + <strong>sya</strong> = śrotrasya (of the ear)<br>
+                    In Sanskrit, adding <strong>"-स्य" (-sya)</strong> to masculine and neuter words indicates the possessive relationship "his / its / of"!
+                </span>
             </p>
         </div>
     </div>
 
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
-            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
-            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 10</div>
+            <div class="quiz-title">
+                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span>
+                <span class="en-text">Knowledge Test (Quiz)</span>
+            </div>
+            <div class="quiz-progress" id="quiz-progress">
+                <span class="kn-text">ಪ್ರಶ್ನೆ 1 / 10</span>
+                <span class="en-text">Question 1 / 10</span>
+            </div>
         </div>
         
         <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
@@ -369,30 +518,94 @@
 
         <div class="quiz-controls">
             <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
-            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" onclick="nextQuestion()">
+                <span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span>
+                <span class="en-text">Next Question →</span>
+            </button>
         </div>
     </div>
 
     <div class="nav-buttons">
-        <a href="level1.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 1)</a>
-        <a href="level3.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 3) →</a>
+        <a href="level1.html" class="btn btn-outline">
+            <span class="kn-text">← ಹಿಂದಿನ ಹಂತ</span>
+            <span class="en-text">← Prev Level</span>
+        </a>
+        <a href="level3.html" id="finish-btn" class="btn btn-primary" style="display: none;">
+            <span class="kn-text">ಮುಂದಿನ ಹಂತ →</span>
+            <span class="en-text">Next Level →</span>
+        </a>
     </div>
 
 </div>
 
 <script>
-    // Quiz Data - 10 Questions
+    function setLanguage(lang) {
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('trayeeLang', lang);
+    }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+        setLanguage(currentLang === 'kn' ? 'en' : 'kn');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        setLanguage(localStorage.getItem('trayeeLang') || 'kn');
+    });
+
+    // Quiz Data - 10 Questions Bilingual
     const questions = [
-        { q: "'ಅವನು (He)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["सा", "सः", "तत्", "अहम्"], ans: 1 },
-        { q: "'ಅವಳ (Her)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?", options: ["तस्य", "मम", "तस्याः", "तव"], ans: 2 },
-        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ सीता ।' (ಅವಳು ಸೀತೆ)", options: ["सः", "सा", "तत्", "तस्य"], ans: 1 },
-        { q: "ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ जनकः दशरथः ।' (ಅವನ ತಂದೆ ದಶರಥ)", options: ["तस्य", "तस्याः", "सः", "मम"], ans: 0 },
-        { q: "'तत्' (ಅದು) ಎಂಬುದು ಯಾವ ಲಿಂಗದ ಪದ?", options: ["ಪುಂಲಿಂಗ", "ಸ್ತ್ರೀಲಿಂಗ", "ನಪುಂಸಕಲಿಂಗ", "ಯಾವುದೂ ಅಲ್ಲ"], ans: 2 },
-        { q: "ಸರಿಯಾದ ವಾಕ್ಯವನ್ನು ಗುರುತಿಸಿ (ಅದು ವಾಹನ):", options: ["सः यानम्", "सा यानम्", "तत् यानम्", "तस्य यानम्"], ans: 2 },
-        { q: "'तस्य वर्णः श्वेतः' - ಇದರ ಅರ್ಥವೇನು?", options: ["ಅವಳ ಬಣ್ಣ ಬಿಳಿ", "ಅದರ/ಅವನ ಬಣ್ಣ ಬಿಳಿ", "ನನ್ನ ಬಣ್ಣ ಬಿಳಿ", "ನಿನ್ನ ಬಣ್ಣ ಬಿಳಿ"], ans: 1 },
-        { q: "ಇವುಗಳಲ್ಲಿ ಸ್ತ್ರೀಲಿಂಗದ ಪದವನ್ನು ಗುರುತಿಸಿ:", options: ["सः", "तत्", "तस्य", "सा"], ans: 3 },
-        { q: "ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'हस्तस्य' ಪದದ ಅರ್ಥವೇನು?", options: ["ಕೈಗೆ", "ಕೈಯಿಂದ", "ಕೈಯ (ಕೈಯ-ದ)", "ಕೈಯಲ್ಲಿ"], ans: 2 },
-        { q: "ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಎರಡಕ್ಕೂ 'ಅವನ / ಅದರ' ಎಂದು ಸೂಚಿಸಲು ಯಾವ ಒಂದೇ ಪದ ಬಳಸಲಾಗುತ್ತದೆ?", options: ["तस्याः", "तस्य", "सः", "तत्"], ans: 1 }
+        { 
+            q: "<span class='kn-text'>'ಅವನು (He)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?</span><span class='en-text'>What is the Sanskrit word for 'He'?</span>", 
+            options: ["सा", "सः", "तत्", "अहम्"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>'ಅವಳ (Her)' ಎಂಬುದಕ್ಕೆ ಸಂಸ್ಕೃತ ಪದ ಯಾವುದು?</span><span class='en-text'>What is the Sanskrit word for 'Her'?</span>", 
+            options: ["तस्य", "मम", "तस्याः", "तव"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ सीता ।' (ಅವಳು ಸೀತೆ)</span><span class='en-text'>Fill in the blank: '___ सीता ।' (She is Sita)</span>", 
+            options: ["सः", "सा", "तत्", "तस्य"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ जनकः दशरथः ।' (ಅವನ ತಂದೆ ದಶರಥ)</span><span class='en-text'>Fill in the blank: '___ जनकः दशरथः ।' (His father is Dasharatha)</span>", 
+            options: ["तस्य", "तस्याः", "सः", "मम"], 
+            ans: 0 
+        },
+        { 
+            q: "<span class='kn-text'>'तत्' (ಅದು) ಎಂಬುದು ಯಾವ ಲಿಂಗದ ಪದ?</span><span class='en-text'>What gender is the word 'तत्' (That)?</span>", 
+            options: ["<span class='kn-text'>ಪುಂಲಿಂಗ</span><span class='en-text'>Masculine</span>", "<span class='kn-text'>ಸ್ತ್ರೀಲಿಂಗ</span><span class='en-text'>Feminine</span>", "<span class='kn-text'>ನಪುಂಸಕಲಿಂಗ</span><span class='en-text'>Neuter</span>", "<span class='kn-text'>ಯಾವುದೂ ಅಲ್ಲ</span><span class='en-text'>None of the above</span>"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಸರಿಯಾದ ವಾಕ್ಯವನ್ನು ಗುರುತಿಸಿ (ಅದು ವಾಹನ):</span><span class='en-text'>Identify the correct sentence (That is a vehicle):</span>", 
+            options: ["सः यानम्", "सा यानम्", "तत् यानम्", "तस्य यानम्"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>'तस्य वर्णः श्वेतः' - ಇದರ ಅರ್ಥವೇನು?</span><span class='en-text'>What is the meaning of 'तस्य वर्णः श्वेतः'?</span>", 
+            options: ["<span class='kn-text'>ಅವಳ ಬಣ್ಣ ಬಿಳಿ</span><span class='en-text'>Her color is white</span>", "<span class='kn-text'>ಅದರ/ಅವನ ಬಣ್ಣ ಬಿಳಿ</span><span class='en-text'>Its/His color is white</span>", "<span class='kn-text'>ನನ್ನ ಬಣ್ಣ ಬಿಳಿ</span><span class='en-text'>My color is white</span>", "<span class='kn-text'>ನಿನ್ನ ಬಣ್ಣ ಬಿಳಿ</span><span class='en-text'>Your color is white</span>"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>ಇವುಗಳಲ್ಲಿ ಸ್ತ್ರೀಲಿಂಗದ ಪದವನ್ನು ಗುರುತಿಸಿ:</span><span class='en-text'>Identify the feminine word among these:</span>", 
+            options: ["सः", "तत्", "तस्य", "सा"], 
+            ans: 3 
+        },
+        { 
+            q: "<span class='kn-text'>ಸುಭಾಷಿತದಲ್ಲಿ ಬಂದಿರುವ 'हस्तस्य' ಪದದ ಅರ್ಥವೇನು?</span><span class='en-text'>What is the meaning of the word 'हस्तस्य' in the subhashita?</span>", 
+            options: ["<span class='kn-text'>ಕೈಗೆ</span><span class='en-text'>To the hand</span>", "<span class='kn-text'>ಕೈಯಿಂದ</span><span class='en-text'>By the hand</span>", "<span class='kn-text'>ಕೈಯ (ಕೈಯ-ದ)</span><span class='en-text'>Of the hand</span>", "<span class='kn-text'>ಕೈಯಲ್ಲಿ</span><span class='en-text'>In the hand</span>"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ಪುಂಲಿಂಗ ಮತ್ತು ನಪುಂಸಕಲಿಂಗ ಎರಡಕ್ಕೂ 'ಅವನ / ಅದರ' ಎಂದು ಸೂಚಿಸಲು ಯಾವ ಒಂದೇ ಪದ ಬಳಸಲಾಗುತ್ತದೆ?</span><span class='en-text'>Which single word is used for both masculine and neuter to indicate 'his / its'?</span>", 
+            options: ["तस्याः", "तस्य", "सः", "तत्"], 
+            ans: 1 
+        }
     ];
 
     let currentQIndex = 0;
@@ -410,15 +623,16 @@
         nextQBtn.style.display = 'none';
         
         const currentQ = questions[currentQIndex];
-        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10`;
-        questionEl.textContent = currentQ.q;
+        progressEl.innerHTML = `<span class="kn-text">ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10</span><span class="en-text">Question ${currentQIndex + 1} / 10</span>`;
+        questionEl.innerHTML = currentQ.q;
         
         optionsEl.innerHTML = '';
         currentQ.options.forEach((opt, index) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             
-            const isSanskrit = /[\u0900-\u097F]/.test(opt);
+            const isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.indexOf('<span') === -1;
+            
             if (isSanskrit) {
                 btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span style="font-family:'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem;">${opt}</span>`;
             } else {
@@ -436,13 +650,13 @@
 
         if (selectedIndex === correctIndex) {
             btnClicked.classList.add('correct');
-            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)</span><span class="en-text">✅ Correct!</span>';
             feedbackEl.style.color = 'var(--success-green)';
             score++;
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct'); 
-            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! Green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
@@ -460,21 +674,21 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
-            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 10</strong>
+            <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / 10</strong>
         </div>`;
         
         if(score >= 8) {
-            feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಲಿಂಗವ್ಯವಸ್ಥೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ಲಿಂಗವ್ಯವಸ್ಥೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have fully understood the gender system.</span>';
             feedbackEl.style.color = 'var(--success-green)';
             finishBtn.style.display = 'inline-block';
         } else {
-            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮೇಲಿನ ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please read the lesson above once more and try again.</span>';
             feedbackEl.style.color = 'var(--text-brown)';
             const retryBtn = document.createElement('button');
             retryBtn.className = 'btn btn-outline';
-            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.innerHTML = '<span class="kn-text">↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</span><span class="en-text">↺ Try Again</span>';
             retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
             optionsEl.appendChild(retryBtn);
         }
