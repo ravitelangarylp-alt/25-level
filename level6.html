@@ -23,6 +23,9 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        body.lang-en .kn-text { display: none !important; }
+        body.lang-kn .en-text { display: none !important; }
+
         body {
             font-family: 'Laila', sans-serif;
             background-color: var(--bg-parchment);
@@ -32,6 +35,27 @@
         }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
+
+        /* Top Nav */
+        .top-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3); margin-bottom: 0px;
+        }
+
+        .logo-home { 
+            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+        
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
         /* Motto Section */
         .motto-box {
@@ -52,7 +76,7 @@
             margin-bottom: 5px;
         }
 
-        .motto-kn { font-size: 1.05rem; color: #555; font-style: italic; }
+        .motto-kn, .motto-en { font-size: 1.05rem; color: #555; font-style: italic; }
         .motto-source { font-size: 0.9rem; font-weight: bold; color: var(--accent-gold); display: block; margin-top: 10px; }
 
         header { text-align: center; margin-bottom: 40px; }
@@ -261,24 +285,47 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-kn">
+
+<nav class="top-nav">
+    <a href="index.html" class="logo-home">
+        <span>🏠</span>
+        <span class="kn-text">ಮುಖಪುಟ</span>
+        <span class="en-text">Home</span>
+    </a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">
+        <span class="kn-text">🌐 English</span>
+        <span class="en-text">🌐 ಕನ್ನಡ</span>
+    </button>
+</nav>
 
 <div class="motto-box">
     <span class="motto-sk">स्वतन्त्रः कर्ता ।</span>
-    <span class="motto-kn">"ಕ್ರಿಯೆಯನ್ನು (ಕೆಲಸವನ್ನು) ಸ್ವತಂತ್ರವಾಗಿ ಮಾಡುವವನೇ ಕರ್ತೃ."</span>
-    <span class="motto-source">— अष्टाध्यायी (ಪಾಠದ ಕೇಂದ್ರಬಿಂದು: ಕರ್ತೃ ಪದ)</span>
+    <span class="motto-kn kn-text">"ಕ್ರಿಯೆಯನ್ನು (ಕೆಲಸವನ್ನು) ಸ್ವತಂತ್ರವಾಗಿ ಮಾಡುವವನೇ ಕರ್ತೃ."</span>
+    <span class="motto-en en-text">"The one who performs an action independently is the Subject (Kartru)."</span>
+    <span class="motto-source kn-text">— अष्टाध्यायी (ಪಾಠದ ಕೇಂದ್ರಬಿಂದು: ಕರ್ತೃ ಪದ)</span>
+    <span class="motto-source en-text">— Ashtadhyayi (Lesson focus: The Subject Word)</span>
 </div>
 
 <div class="container">
 
     <header>
         <div class="level-badge">Level 6</div>
-        <h1>ಕರ್ತೃ ಪದದ ರಹಸ್ಯ (The Subject)</h1>
-        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ಮತ್ತು ವಿಸರ್ಗದ (ಃ) ನಿಯಮ</p>
+        <h1>
+            <span class="kn-text">ಕರ್ತೃ ಪದದ ರಹಸ್ಯ</span>
+            <span class="en-text">The Secret of the Subject</span>
+        </h1>
+        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">
+            <span class="kn-text">ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ಮತ್ತು ವಿಸರ್ಗದ (ಃ) ನಿಯಮ</span>
+            <span class="en-text">Nominative Case and the Rule of Visarga (ः)</span>
+        </p>
     </header>
 
     <div class="hack-card">
-        <h2 class="hack-title">✨ ಗ್ರಾಮರ್ ಹ್ಯಾಕ್: "ವಿಸರ್ಗ (ః) ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ"</h2>
+        <h2 class="hack-title">
+            <span class="kn-text">✨ ಗ್ರಾಮರ್ ಹ್ಯಾಕ್: "ವಿಸರ್ಗ (ಃ) ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ"</span>
+            <span class="en-text">✨ Grammar Hack: The Visarga (ः) Magic Formula</span>
+        </h2>
         
         <div class="formula-showcase">
             <div class="f-yesno">
@@ -288,9 +335,13 @@
         </div>
 
         <div class="kanthapatha-alert">
-            "ಇದನ್ನು ಕಂಠಪಾಠ ಮಾಡಿಕೊಳ್ಳಿ! ಇದು ನಿಮ್ಮ ಸಂಸ್ಕೃತ ಪಯಣದಲ್ಲಿ ಸಾವಿರಾರು ತಪ್ಪುಗಳನ್ನು ತಡೆಯುವ ದಿವ್ಯಾಸ್ತ್ರ."
+            <span class="kn-text">"ಇದನ್ನು ಕಂಠಪಾಠ ಮಾಡಿಕೊಳ್ಳಿ! ಇದು ನಿಮ್ಮ ಸಂಸ್ಕೃತ ಪಯಣದಲ್ಲಿ ಸಾವಿರಾರು ತಪ್ಪುಗಳನ್ನು ತಡೆಯುವ ದಿವ್ಯಾಸ್ತ್ರ."</span>
+            <span class="en-text">"Memorize this! It's a divine weapon that will prevent thousands of mistakes in your Sanskrit journey."</span>
         </div>
-        <p style="text-align: center; color: #555; font-size: 1.1rem;">ಪುಂಲಿಂಗ ಮತ್ತು ಸ್ತ್ರೀಲಿಂಗದ ಶಬ್ದಗಳ ಕೊನೆಯಲ್ಲಿ ವಿಸರ್ಗ (ಃ) ಯಾವಾಗ ಬರುತ್ತದೆ ಎಂಬುದನ್ನು ನೆನಪಿಡಲು ಈ <strong>"Yes-No"</strong> ಸೂತ್ರ ಬಳಸಿ:</p>
+        <p style="text-align: center; color: #555; font-size: 1.1rem;">
+            <span class="kn-text">ಪುಂಲಿಂಗ ಮತ್ತು ಸ್ತ್ರೀಲಿಂಗದ ಶಬ್ದಗಳ ಕೊನೆಯಲ್ಲಿ ವಿಸರ್ಗ (ಃ) ಯಾವಾಗ ಬರುತ್ತದೆ ಎಂಬುದನ್ನು ನೆನಪಿಡಲು ಈ <strong>"Yes-No"</strong> ಸೂತ್ರ ಬಳಸಿ:</span>
+            <span class="en-text">Use this <strong>"Yes-No"</strong> formula to remember when the visarga (ः) appears at the end of masculine and feminine words:</span>
+        </p>
         
         <div class="visarga-grid">
             <div class="v-card">
@@ -324,17 +375,32 @@
                 <span class="v-example">वधूः, चमूः</span>
             </div>
             <div class="v-card" style="grid-column: 1 / -1; background: #fffcf5;">
-                <span class="v-sound" style="font-size:1.1rem;">ಉಳಿದವು (Rest / ಉದಾ: ಋ)</span>
+                <span class="v-sound" style="font-size:1.1rem;">
+                    <span class="kn-text">ಉಳಿದವು (Rest / ಉದಾ: ಋ)</span>
+                    <span class="en-text">Rest (e.g., ṛ)</span>
+                </span>
                 <div class="v-status v-no">❌ NO</div>
-                <span class="v-example" style="font-size:1.1rem;">पितृ ➔ पिता (ಪಿತಾಃ ಅಲ್ಲ)</span>
+                <span class="v-example" style="font-size:1.1rem;">
+                    <span class="kn-text">पितृ ➔ पिता (ಪಿತಾಃ ಅಲ್ಲ)</span>
+                    <span class="en-text">पितृ ➔ पिता (Not पिताः)</span>
+                </span>
             </div>
         </div>
-        <p style="text-align:center; margin-top:15px; font-size:0.9rem; color:#888;">* ಗಮನಿಸಿ: <strong>'ಅ' ಕಾರಾಂತ</strong> ನಪುಂಸಕಲಿಂಗದ ಶಬ್ದಗಳು ಮಾತ್ರ ಸಾಮಾನ್ಯವಾಗಿ 'ಮ್' (ಉದಾ: वनम्, जलम्) ಎಂದು ಕೊನೆಗೊಳ್ಳುತ್ತವೆ.</p>
+        <p style="text-align:center; margin-top:15px; font-size:0.9rem; color:#888;">
+            <span class="kn-text">* ಗಮನಿಸಿ: <strong>'ಅ' ಕಾರಾಂತ</strong> ನಪುಂಸಕಲಿಂಗದ ಶಬ್ದಗಳು ಮಾತ್ರ ಸಾಮಾನ್ಯವಾಗಿ 'ಮ್' (ಉದಾ: वनम्, जलम्) ಎಂದು ಕೊನೆಗೊಳ್ಳುತ್ತವೆ.</span>
+            <span class="en-text">* Note: Neuter words ending in <strong>'a'</strong> usually end with 'm' (e.g. वनम्, जलम्).</span>
+        </p>
     </div>
 
     <div class="builder-section">
-        <h2 style="color: var(--success-green); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif; text-align:center;">ವಿಸರ್ಗ ವಿಂಗಡಣೆ ಆಟ (Sorting Game)</h2>
-        <p style="text-align:center; margin-bottom: 25px; color: #555;">ಮೂಲ ಪದಗಳನ್ನು ನೋಡಿ! ನಮ್ಮ ಸೂತ್ರದ ಪ್ರಕಾರ ಆ ಪದಗಳಿಗೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೋ ಇಲ್ಲವೋ? ಸರಿಯಾದ ಬುಟ್ಟಿಗೆ ಎಳೆದು ಹಾಕಿ.</p>
+        <h2 style="color: var(--success-green); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif; text-align:center;">
+            <span class="kn-text">ವಿಸರ್ಗ ವಿಂಗಡಣೆ ಆಟ (Sorting Game)</span>
+            <span class="en-text">Visarga Sorting Game</span>
+        </h2>
+        <p style="text-align:center; margin-bottom: 25px; color: #555;">
+            <span class="kn-text">ಮೂಲ ಪದಗಳನ್ನು ನೋಡಿ! ನಮ್ಮ ಸೂತ್ರದ ಪ್ರಕಾರ ಆ ಪದಗಳಿಗೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೋ ಇಲ್ಲವೋ? ಸರಿಯಾದ ಬುಟ್ಟಿಗೆ ಎಳೆದು ಹಾಕಿ.</span>
+            <span class="en-text">Look at the root words! According to our formula, will they take a visarga (ः) or not? Drag and drop them into the correct bucket.</span>
+        </p>
 
         <div class="word-bank" id="word-bank">
             <div class="word-chip" draggable="true" data-word="शिव (अ)" data-target="yes">शिव (अ)</div>
@@ -347,28 +413,42 @@
 
         <div class="bucket-container">
             <div class="bucket bucket-yes" id="bucket-yes" data-bucket="yes">
-                <div class="bucket-title">✅ ವಿಸರ್ಗ ಬರುತ್ತದೆ (+ ः)</div>
+                <div class="bucket-title">
+                    <span class="kn-text">✅ ವಿಸರ್ಗ ಬರುತ್ತದೆ (+ ः)</span>
+                    <span class="en-text">✅ Takes Visarga (+ ः)</span>
+                </div>
                 <div class="bucket-items" id="items-yes"></div>
             </div>
             <div class="bucket bucket-no" id="bucket-no" data-bucket="no">
-                <div class="bucket-title">❌ ವಿಸರ್ಗ ಬರುವುದಿಲ್ಲ</div>
+                <div class="bucket-title">
+                    <span class="kn-text">❌ ವಿಸರ್ಗ ಬರುವುದಿಲ್ಲ</span>
+                    <span class="en-text">❌ No Visarga</span>
+                </div>
                 <div class="bucket-items" id="items-no"></div>
             </div>
         </div>
-        <div id="game-status" style="text-align:center; margin-top:20px; font-weight:bold; color:var(--text-maroon);">0 / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</div>
+        <div id="game-status" style="text-align:center; margin-top:20px; font-weight:bold; color:var(--text-maroon);">
+            <span class="kn-text">0 / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</span>
+            <span class="en-text">0 / 6 Sorted</span>
+        </div>
     </div>
 
     <div class="subhashita-card">
-        <h3>सुभाषितम् - ६</h3>
+        <h3>
+            <span class="kn-text">सुभाषितम् - ६</span>
+            <span class="en-text">Subhashitam - 6</span>
+        </h3>
         <p class="shloka">
             गच्छन् <strong>पिपीलिको</strong> याति योजनानां शतान्यपि ।<br>
             अगच्छन् <strong>वैनतेयोऽपि</strong> पदमेकं न गच्छति ॥
         </p>
         <div class="shloka-meaning">
-            <strong>ಅರ್ಥ:</strong> ಚಲಿಸುತ್ತಿರುವ (ಪ್ರಯತ್ನಿಸುವ) ಪುಟ್ಟ ಇರುವೆ ನೂರಾರು ಯೋಜನಗಳಷ್ಟು ದೂರ ಕ್ರಮಿಸುತ್ತದೆ. ಆದರೆ ಚಲಿಸದ (ಪ್ರಯತ್ನಿಸದ) ಗರುಡನು ಒಂದು ಹೆಜ್ಜೆಯನ್ನೂ ಮುಂದಿಡುವುದಿಲ್ಲ.<br>
+            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಚಲಿಸುತ್ತಿರುವ (ಪ್ರಯತ್ನಿಸುವ) ಪುಟ್ಟ ಇರುವೆ ನೂರಾರು ಯೋಜನಗಳಷ್ಟು ದೂರ ಕ್ರಮಿಸುತ್ತದೆ. ಆದರೆ ಚಲಿಸದ (ಪ್ರಯತ್ನಿಸದ) ಗರುಡನು ಒಂದು ಹೆಜ್ಜೆಯನ್ನೂ ಮುಂದಿಡುವುದಿಲ್ಲ.<br></span>
+            <span class="en-text"><strong>Meaning:</strong> A moving (trying) tiny ant covers hundreds of yojanas. But a non-moving (non-trying) Garuda does not move even a single step.<br></span>
             <div style="background: rgba(212, 175, 55, 0.2); padding: 10px; border-radius: 8px; margin-top: 15px;">
                 <em style="color:var(--text-maroon); font-size:0.95rem;">
-                    <strong>ಪಾಠದ ಲಿಂಕ್:</strong> ಇಲ್ಲಿ 'पिपीलिकः' (ಇರುವೆ) ಮತ್ತು 'वैनतेयः' (ಗರುಡ) ಎರಡೂ 'ಅ' ಕಾರಾಂತ ಪುಂಲಿಂಗ ಶಬ್ದಗಳು. ಹಾಗಾಗಿ ನಮ್ಮ ಸೂತ್ರದಂತೆ (अ -> Yes) ಇವೆರಡಕ್ಕೂ ವಿಸರ್ಗ (ः) ಬಂದಿದೆ! (ಸಂಧಿಯಿಂದಾಗಿ ಅದು 'को' ಮತ್ತು 'यो' ಎಂದು ಬದಲಾಗಿದೆ).
+                    <span class="kn-text"><strong>ಪಾಠದ ಲಿಂಕ್:</strong> ಇಲ್ಲಿ 'पिपीलिकः' (ಇರುವೆ) ಮತ್ತು 'वैनतेयः' (ಗರುಡ) ಎರಡೂ 'ಅ' ಕಾರಾಂತ ಪುಂಲಿಂಗ ಶಬ್ದಗಳು. ಹಾಗಾಗಿ ನಮ್ಮ ಸೂತ್ರದಂತೆ (अ -> Yes) ಇವೆರಡಕ್ಕೂ ವಿಸರ್ಗ (ः) ಬಂದಿದೆ! (ಸಂಧಿಯಿಂದಾಗಿ ಅದು 'को' ಮತ್ತು 'यो' ಎಂದು ಬದಲಾಗಿದೆ).</span>
+                    <span class="en-text"><strong>Lesson Link:</strong> Here, 'पिपीलिकः' (ant) and 'वैनतेयः' (Garuda) are both 'a'-ending masculine words. Thus, per our formula (अ -> Yes), both take a visarga (ः)! (Due to sandhi rules, they changed to 'को' and 'यो').</span>
                 </em>
             </div>
         </div>
@@ -376,8 +456,14 @@
 
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
-            <div class="quiz-title">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</div>
-            <div class="quiz-progress" id="quiz-progress">ಪ್ರಶ್ನೆ 1 / 10</div>
+            <div class="quiz-title">
+                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span>
+                <span class="en-text">Knowledge Test (Quiz)</span>
+            </div>
+            <div class="quiz-progress" id="quiz-progress">
+                <span class="kn-text">ಪ್ರಶ್ನೆ 1 / 10</span>
+                <span class="en-text">Question 1 / 10</span>
+            </div>
         </div>
         
         <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
@@ -385,18 +471,42 @@
 
         <div class="quiz-controls">
             <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
-            <button id="next-q-btn" class="btn btn-primary" style="display: none;" type="button">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</button>
+            <button id="next-q-btn" class="btn btn-primary" style="display: none;" type="button">
+                <span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span>
+                <span class="en-text">Next Question →</span>
+            </button>
         </div>
     </div>
 
     <div class="nav-buttons">
-        <a href="level5.html" class="btn btn-outline">← ಹಿಂದಿನ ಹಂತ (Level 5)</a>
-        <a href="level7.html" id="finish-btn" class="btn btn-primary" style="display: none;">ಮುಂದಿನ ಹಂತ (Level 7) →</a>
+        <a href="level5.html" class="btn btn-outline">
+            <span class="kn-text">← ಹಿಂದಿನ ಹಂತ (Level 5)</span>
+            <span class="en-text">← Prev Level (Level 5)</span>
+        </a>
+        <a href="level7.html" id="finish-btn" class="btn btn-primary" style="display: none;">
+            <span class="kn-text">ಮುಂದಿನ ಹಂತ (Level 7) →</span>
+            <span class="en-text">Next Level (Level 7) →</span>
+        </a>
     </div>
 
 </div>
 
 <script>
+    function setLanguage(lang) {
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${lang}`);
+        localStorage.setItem('trayeeLang', lang);
+    }
+
+    function toggleLanguage() {
+        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
+        setLanguage(currentLang === 'kn' ? 'en' : 'kn');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        setLanguage(localStorage.getItem('trayeeLang') || 'kn');
+    });
+
     // --- DRAG AND DROP LOGIC (Sorting Game) ---
     const chips = document.querySelectorAll('.word-chip');
     const buckets = document.querySelectorAll('.bucket');
@@ -477,25 +587,65 @@
     function checkGameCompletion() {
         const correctCount = document.querySelectorAll('.dropped-item').length;
         const status = document.getElementById('game-status');
-        status.textContent = `${correctCount} / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ`;
+        status.innerHTML = `<span class="kn-text">${correctCount} / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</span><span class="en-text">${correctCount} / 6 Sorted</span>`;
         if (correctCount === 6) {
-            status.textContent += ' 🎉 ಅದ್ಭುತ! ನೀವು ಸೂತ್ರವನ್ನು ಕಲಿತಿದ್ದೀರಿ.';
+            status.innerHTML += ' <span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಸೂತ್ರವನ್ನು ಕಲಿತಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have learned the formula.</span>';
             status.style.color = 'var(--success-green)';
         }
     }
 
     // --- QUIZ LOGIC ---
     const questions = [
-        { q: "ನಮ್ಮ 'Yes-No' ಸೂತ್ರದಂತೆ 'ಅ' (a) ಕಾರಾಂತ ಶಬ್ದಗಳಿಗೆ (ಉದಾ: गरुड) ವಿಸರ್ಗ ಬರುತ್ತದೆಯೇ?", options: ["ಇಲ್ಲ (गरुड)", "ಹೌದು (गरुडः)"], ans: 1 },
-        { q: "'ಆ' (ā) ಕಾರಾಂತ ಸ್ತ್ರೀಲಿಂಗ 'विद्या' ಪದದ ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ (ಕರ್ತೃ) ರೂಪವೇನು?", options: ["विद्याः", "विद्या", "विद्यम्", "विद्यः"], ans: 1 },
-        { q: "'ಇ' (i) ಕಾರಾಂತ ಪದವಾದ 'कवि' (ಕವಿ) ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["कवि", "कविः", "कवी", "कवः"], ans: 1 },
-        { q: "'ಈ' (ī) ಕಾರಾಂತ ಪದವಾದ 'नदी' ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["नदीः", "नदिः", "नदी", "नद्यः"], ans: 2 },
-        { q: "ನಮ್ಮ ಸೂತ್ರದಂತೆ 'ಉ' (u) ಕಾರಾಂತ 'गुरु' ಪದಕ್ಕೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೇ?", options: ["ಹೌದು (गुरुः)", "ಇಲ್ಲ (गुरु)"], ans: 0 },
-        { q: "'ಊ' (ū) ಕಾರಾಂತ ಪದ 'वधू' (ವಧು) ಯ ಸರಿಯಾದ ರೂಪವೇನು?", options: ["वधू", "वधुः", "वधूः", "वधु"], ans: 2 },
-        { q: "'ಋ' ಕಾರಾಂತ 'पितृ' (ತಂದೆ) ಪದದ ಸರಿಯಾದ ರೂಪ ಯಾವುದು? (Rest ➔ No)", options: ["पितृः", "पिताः", "पिता", "पितर्"], ans: 2 },
-        { q: "सुभाषितದಲ್ಲಿರುವ 'पिपीलिको' (पिपीलिकः) ಎಂಬುದು ಯಾವ ಕಾರಾಂತ ಪದ?", options: ["ಇ-ಕಾರಾಂತ", "ಅ-ಕಾರಾಂತ (पुं)", "ಆ-ಕಾರಾಂತ", "ಉ-ಕಾರಾಂತ"], ans: 1 },
-        { q: "ನಮ್ಮ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರದ (Yes-No-Yes-No-Yes-Yes-No) ಪ್ರಕಾರ ವಿಸರ್ಗ ಬರುವ ಸ್ವರಗಳು ಯಾವುವು?", options: ["ಅ, ಇ, ಉ, ಊ", "ಆ, ಈ", "ಎಲ್ಲಾ ಸ್ವರಗಳಿಗೂ", "ಯಾವುದಕ್ಕೂ ಬರುವುದಿಲ್ಲ"], ans: 0 },
-        { q: "ಈ ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಸರಿಯಾದ ಪದ ಯಾವುದು?", options: ["लताः", "सीताः", "शिवः", "नदीः"], ans: 2 }
+        { 
+            q: "<span class='kn-text'>ನಮ್ಮ 'Yes-No' ಸೂತ್ರದಂತೆ 'ಅ' (a) ಕಾರಾಂತ ಶಬ್ದಗಳಿಗೆ (ಉದಾ: गरुड) ವಿಸರ್ಗ ಬರುತ್ತದೆಯೇ?</span><span class='en-text'>According to our 'Yes-No' formula, do 'a' ending words (e.g., गरुड) get a visarga?</span>", 
+            options: ["<span class='kn-text'>ಇಲ್ಲ (गरुड)</span><span class='en-text'>No (गरुड)</span>", "<span class='kn-text'>ಹೌದು (गरुडः)</span><span class='en-text'>Yes (गरुडः)</span>"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>'ಆ' (ā) ಕಾರಾಂತ ಸ್ತ್ರೀಲಿಂಗ 'विद्या' ಪದದ ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ (ಕರ್ತೃ) ರೂಪವೇನು?</span><span class='en-text'>What is the Prathama (Nominative) form of the 'ā' ending feminine word 'विद्या'?</span>", 
+            options: ["विद्याः", "विद्या", "विद्यम्", "विद्यः"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>'ಇ' (i) ಕಾರಾಂತ ಪದವಾದ 'कवि' (ಕವಿ) ಯ ಸರಿಯಾದ ರೂಪವೇನು?</span><span class='en-text'>What is the correct form of the 'i' ending word 'कवि' (poet)?</span>", 
+            options: ["कवि", "कविः", "कवी", "कवः"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>'ಈ' (ī) ಕಾರಾಂತ ಪದವಾದ 'नदी' ಯ ಸರಿಯಾದ ರೂಪವೇನು?</span><span class='en-text'>What is the correct form of the 'ī' ending word 'नदी'?</span>", 
+            options: ["नदीः", "नदिः", "नदी", "नद्यः"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>ನಮ್ಮ ಸೂತ್ರದಂತೆ 'ಉ' (u) ಕಾರಾಂತ 'गुरु' ಪದಕ್ಕೆ ವಿಸರ್ಗ (ಃ) ಬರುತ್ತದೆಯೇ?</span><span class='en-text'>According to our formula, does the 'u' ending word 'गुरु' get a visarga (ः)?</span>", 
+            options: ["<span class='kn-text'>ಹೌದು (गुरुः)</span><span class='en-text'>Yes (गुरुः)</span>", "<span class='kn-text'>ಇಲ್ಲ (गुरु)</span><span class='en-text'>No (गुरु)</span>"], 
+            ans: 0 
+        },
+        { 
+            q: "<span class='kn-text'>'ಊ' (ū) ಕಾರಾಂತ ಪದ 'वधू' (ವಧು) ಯ ಸರಿಯಾದ ರೂಪವೇನು?</span><span class='en-text'>What is the correct form of the 'ū' ending word 'वधू' (bride)?</span>", 
+            options: ["वधू", "वधुः", "वधूः", "वधु"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>'ಋ' ಕಾರಾಂತ 'पितृ' (ತಂದೆ) ಪದದ ಸರಿಯಾದ ರೂಪ ಯಾವುದು? (Rest ➔ No)</span><span class='en-text'>What is the correct form of the 'ṛ' ending word 'पितृ' (father)? (Rest ➔ No)</span>", 
+            options: ["पितृः", "पिताः", "पिता", "पितर्"], 
+            ans: 2 
+        },
+        { 
+            q: "<span class='kn-text'>सुभाषितದಲ್ಲಿರುವ 'पिपीलिको' (पिपीलिकः) ಎಂಬುದು ಯಾವ ಕಾರಾಂತ ಪದ?</span><span class='en-text'>What is the ending sound of the word 'पिपीलिको' (पिपीलिकः) in the Subhashita?</span>", 
+            options: ["<span class='kn-text'>ಇ-ಕಾರಾಂತ</span><span class='en-text'>i-ending</span>", "<span class='kn-text'>ಅ-ಕಾರಾಂತ (पुं)</span><span class='en-text'>a-ending (Masc)</span>", "<span class='kn-text'>ಆ-ಕಾರಾಂತ</span><span class='en-text'>ā-ending</span>", "<span class='kn-text'>ಉ-ಕಾರಾಂತ</span><span class='en-text'>u-ending</span>"], 
+            ans: 1 
+        },
+        { 
+            q: "<span class='kn-text'>ನಮ್ಮ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರದ (Yes-No-Yes-No-Yes-Yes-No) ಪ್ರಕಾರ ವಿಸರ್ಗ ಬರುವ ಸ್ವರಗಳು ಯಾವುವು?</span><span class='en-text'>According to our magic formula (Yes-No-Yes-No-Yes-Yes-No), which vowels get a visarga?</span>", 
+            options: ["<span class='kn-text'>ಅ, ಇ, ಉ, ಊ</span><span class='en-text'>a, i, u, ū</span>", "<span class='kn-text'>ಆ, ಈ</span><span class='en-text'>ā, ī</span>", "<span class='kn-text'>ಎಲ್ಲಾ ಸ್ವರಗಳಿಗೂ</span><span class='en-text'>All vowels</span>", "<span class='kn-text'>ಯಾವುದಕ್ಕೂ ಬರುವುದಿಲ್ಲ</span><span class='en-text'>None</span>"], 
+            ans: 0 
+        },
+        { 
+            q: "<span class='kn-text'>ಈ ಕೆಳಗಿನವುಗಳಲ್ಲಿ ಸರಿಯಾದ ಪದ ಯಾವುದು?</span><span class='en-text'>Which of the following is the correct word?</span>", 
+            options: ["लताः", "सीताः", "शिवः", "नदीः"], 
+            ans: 2 
+        }
     ];
 
     let currentQIndex = 0;
@@ -513,15 +663,15 @@
         nextQBtn.style.display = 'none';
         
         const currentQ = questions[currentQIndex];
-        progressEl.textContent = `ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10`;
-        questionEl.textContent = currentQ.q;
+        progressEl.innerHTML = `<span class="kn-text">ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10</span><span class="en-text">Question ${currentQIndex + 1} / 10</span>`;
+        questionEl.innerHTML = currentQ.q;
         
         optionsEl.innerHTML = '';
         currentQ.options.forEach((opt, index) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             
-            const isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.length < 25;
+            const isSanskrit = /[\u0900-\u097F]/.test(opt) && opt.indexOf('<span') === -1;
             if (isSanskrit) { 
                 btn.innerHTML = `<span style="font-family:'Laila', sans-serif; color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span style="font-family:'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem;">${opt}</span>`;
             } else {
@@ -539,13 +689,13 @@
 
         if (selectedIndex === correctIndex) {
             btnClicked.classList.add('correct');
-            feedbackEl.textContent = '✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)';
+            feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್! (ಸರಿಯಾದ ಉತ್ತರ)</span><span class="en-text">✅ Correct!</span>';
             feedbackEl.style.color = 'var(--success-green)';
             score++;
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct'); 
-            feedbackEl.textContent = '❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! Green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
@@ -563,21 +713,21 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.textContent = `ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
-            ನಿಮ್ಮ ಅಂಕಗಳು: <strong style="color:var(--text-maroon);">${score} / 10</strong>
+            <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / 10</strong>
         </div>`;
         
         if(score >= 8) {
-            feedbackEl.textContent = '🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ವಿಸರ್ಗದ ಸೂತ್ರವನ್ನು ಕಂಠಪಾಠ ಮಾಡಿದ್ದೀರಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅತ್ಯದ್ಭುತ! ನೀವು ವಿಸರ್ಗದ ಸೂತ್ರವನ್ನು ಕಂಠಪಾಠ ಮಾಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have memorized the visarga formula.</span>';
             feedbackEl.style.color = 'var(--success-green)';
             finishBtn.style.display = 'inline-block';
         } else {
-            feedbackEl.textContent = 'ದಯವಿಟ್ಟು ಮ್ಯಾಜಿಕ್ ಸೂತ್ರವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+            feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮ್ಯಾಜಿಕ್ ಸೂತ್ರವನ್ನು ಮತ್ತೊಮ್ಮೆ ಓದಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please read the magic formula again and try again.</span>';
             feedbackEl.style.color = 'var(--text-brown)';
             const retryBtn = document.createElement('button');
             retryBtn.className = 'btn btn-outline';
-            retryBtn.textContent = '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ';
+            retryBtn.innerHTML = '<span class="kn-text">↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</span><span class="en-text">↺ Try Again</span>';
             retryBtn.onclick = () => { currentQIndex = 0; score = 0; loadQuestion(); };
             optionsEl.appendChild(retryBtn);
         }
