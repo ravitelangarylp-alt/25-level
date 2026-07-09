@@ -215,8 +215,10 @@
         .s-chip.active { background: var(--text-maroon); border-color: var(--text-maroon); transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1)) scale(1.15); z-index: 20;}
         .s-chip.active .c-text { color: white; }
         .s-chip:hover:not(.active) { transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1)) scale(1.1); background: rgba(212, 175, 55, 0.1); z-index: 15;}
+        
         .table-container { padding: 0 20px 30px; display: none; position: relative;}
         .table-container.show { display: block; animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: center; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.2rem; color: var(--text-brown); }
         th { background: rgba(212, 175, 55, 0.2); font-family: 'Laila', sans-serif; font-size: 1rem; color: var(--text-brown); }
@@ -242,6 +244,7 @@
             .s-chip .c-text { font-size: 0.85rem; }
             .word-title { font-size: 1.8rem; }
             th, td { padding: 8px; font-size: 1rem; }
+            .lock-overlay { font-size: 0.85rem; padding: 10px 20px; width: 90%;}
         }
     </style>
 </head>
@@ -297,8 +300,8 @@
                     <tbody id="shabda-tbody"></tbody>
                 </table>
                 <div class="lock-overlay" id="lock-overlay">
-                    🔒 <span class="kn-text">ಕೇವಲ ಏಕವಚನ ಮಾತ್ರ ಓಪನ್ ಆಗಿದೆ.<br>ಮುಂದಿನ ವಿಭಕ್ತಿಗಳು ಮುಂದಿನ ಹಂತಗಳಲ್ಲಿ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ!</span>
-                    <span class="en-text">Only singular is open.<br>Other cases will unlock in next levels!</span>
+                    🔒 <span class="kn-text">ಈಗ ಪ್ರಥಮಾ ಮತ್ತು ದ್ವಿತೀಯಾ (ಕರ್ಮ) ಏಕವಚನ ಓಪನ್ ಆಗಿದೆ!</span>
+                    <span class="en-text">Now 1st & 2nd Case Singular are open!</span>
                 </div>
             </div>
         </div>
@@ -526,6 +529,80 @@
     }
     window.addEventListener('DOMContentLoaded', () => {
         setLanguage(localStorage.getItem('trayeeLang') || 'kn');
+    });
+
+    // --- SHABDA SHEVADHI LOGIC ---
+    const shabdaModal = document.getElementById('shabda-modal');
+    document.getElementById('open-shabda-btn').addEventListener('click', () => shabdaModal.classList.add('show'));
+    document.getElementById('close-shabda-btn').addEventListener('click', () => shabdaModal.classList.remove('show'));
+    shabdaModal.addEventListener('click', (e) => { if(e.target === shabdaModal) shabdaModal.classList.remove('show'); });
+
+    const shabdaData = [
+        { id: "राम", icon: "🏹", name: "राम", desc_kn: "ಅ-ಕಾರಾಂತಃ ಪುಂಲಿಂಗಃ", desc_en: "a-ending Masculine", declensions: [ ["रामः", "रामौ", "रामाः"], ["रामम्", "रामौ", "रामान्"], ["रामेण", "रामाभ्याम्", "रामैः"], ["रामाय", "रामाभ्याम्", "रामेभ्यः"], ["रामात्", "रामाभ्याम्", "रामेभ्यः"], ["रामस्य", "रामयोः", "रामाणाम्"], ["रामे", "रामयोः", "रामेषु"], ["हे राम", "हे रामौ", "हे रामाः"] ] },
+        { id: "सीता", icon: "🌸", name: "सीता", desc_kn: "ಆ-ಕಾರಾಂತಃ ಸ್ತ್ರೀಲಿಂಗಃ", desc_en: "ā-ending Feminine", declensions: [ ["सीता", "सीते", "सीताः"], ["सीताम्", "सीते", "सीताः"], ["सीतया", "सीताभ्याम्", "सीताभिः"], ["सीतायै", "सीताभ्याम्", "सीताभ्यः"], ["सीतायाः", "सीताभ्याम्", "सीताभ्यः"], ["सीतायाः", "सीतयोः", "सीतानाम्"], ["सीतायाम्", "सीतयोः", "सीतासु"], ["हे सीते", "हे सीते", "हे सीताः"] ] },
+        { id: "वन", icon: "🌳", name: "वन", desc_kn: "ಅ-ಕಾರಾಂತಃ ನಪುಂಸಕಲಿಂಗಃ", desc_en: "a-ending Neuter", declensions: [ ["वनम्", "वने", "वनानि"], ["वनम्", "वने", "वनानि"], ["वनेन", "वनाभ्याम्", "वनैः"], ["वनाय", "वनाभ्याम्", "वनेभ्यः"], ["वनात्", "वनाभ्याम्", "वनेभ्यः"], ["वनस्य", "वनयोः", "वनानाम्"], ["वने", "वनयोः", "वनेषु"], ["हे वन", "हे वने", "हे वनानि"] ] },
+        { id: "हरि", icon: "🌞", name: "हरि", desc_kn: "ಇ-ಕಾರಾಂತಃ ಪುಂಲಿಂಗಃ", desc_en: "i-ending Masculine", declensions: [ ["हरिः", "हरी", "हरयः"], ["हरिम्", "हरी", "हरीन्"], ["हरिणा", "हरिभ्याम्", "हरिभिः"], ["हरये", "हरिभ्याम्", "हरिभ्यः"], ["हरेः", "हरिभ्याम्", "हरिभ्यः"], ["हरेः", "हर्योः", "हरीणाम्"], ["हरौ", "हर्योः", "हरिषु"], ["हे हरे", "हे हरी", "हे हरयः"] ] },
+        { id: "नदी", icon: "🌊", name: "नदी", desc_kn: "ಈ-ಕಾರಾಂತಃ ಸ್ತ್ರೀಲಿಂಗಃ", desc_en: "ī-ending Feminine", declensions: [ ["नदी", "नद्यौ", "नद्यः"], ["नदीम्", "नद्यौ", "नदीः"], ["नद्या", "नदीभ्याम्", "नदीभिः"], ["नद्यै", "नदीभ्याम्", "नदीभ्यः"], ["नद्याः", "नदीभ्याम्", "नदीभ्यः"], ["नद्याः", "नद्योः", "नदीनाम्"], ["नद्याम्", "नद्योः", "नदीषु"], ["हे नदि", "हे नद्यौ", "हे नद्यः"] ] },
+        { id: "वारि", icon: "💧", name: "वारि", desc_kn: "ಇ-ಕಾರಾಂತಃ ನಪುಂಸಕಲಿಂಗಃ", desc_en: "i-ending Neuter", declensions: [ ["वारि", "वारिणी", "वारीणि"], ["वारि", "वारिणी", "वारीणि"], ["वारिणा", "वारिभ्याम्", "वारिभिः"], ["वारिणे", "वारिभ्याम्", "वारिभ्यः"], ["वारिणः", "वारिभ्याम्", "वारिभ्यः"], ["वारिणः", "वारिणोः", "वारीणाम्"], ["वारिणि", "वारिणोः", "वारिषु"], ["हे वारि", "हे वारिणी", "हे वारीणि"] ] },
+        { id: "गुरु", icon: "🧘‍♂️", name: "गुरु", desc_kn: "ಉ-ಕಾರಾಂತಃ ಪುಂಲಿಂಗಃ", desc_en: "u-ending Masculine", declensions: [ ["गुरुः", "गुरू", "गुरवः"], ["गुरुम्", "गुरू", "गुरून्"], ["गुरुणा", "गुरुभ्याम्", "गुरुभिः"], ["गुरवे", "गुरुभ्याम्", "गुरुभ्यः"], ["गुरोः", "गुरुभ्याम्", "गुरुभ्यः"], ["गुरोः", "गुर्वोः", "गुरूणाम्"], ["गुरूौ", "गुर्वोः", "गुरुषु"], ["हे गुरो", "हे गुरू", "हे गुरवः"] ] },
+        { id: "वधू", icon: "👰", name: "वधू", desc_kn: "ಊ-ಕಾರಾಂತಃ ಸ್ತ್ರೀಲಿಂಗಃ", desc_en: "ū-ending Feminine", declensions: [ ["वधूः", "वध्वौ", "वध्वः"], ["वधूम्", "वध्वौ", "वधूः"], ["वध्वा", "वधूभ्याम्", "वधूभिः"], ["वध्वै", "वधूभ्याम्", "वधूभ्यः"], ["वध्वाः", "वधूभ्याम्", "वधूभ्यः"], ["वध्वाः", "वध्वोः", "वधूनाम्"], ["वध्वाम्", "वध्वोः", "वधूषु"], ["हे वधु", "हे वध्वौ", "हे वध्वः"] ] },
+        { id: "मधु", icon: "🍯", name: "मधु", desc_kn: "ಉ-ಕಾರಾಂತಃ ನಪುಂಸಕಲಿಂಗಃ", desc_en: "u-ending Neuter", declensions: [ ["मधु", "मधुनी", "मधूनि"], ["मधु", "मधुनी", "मधूनि"], ["मधुना", "मधुभ्याम्", "मधुभिः"], ["मधुने", "मधुभ्याम्", "मधुभ्यः"], ["मधुनः", "मधुभ्याम्", "मधुभ्यः"], ["मधुनः", "मधुनोः", "मधूनाम्"], ["मधुनि", "मधुनोः", "मधुषु"], ["हे मधु", "हे मधुनी", "हे मधूनि"] ] },
+        { id: "पितृ", icon: "👨‍👧", name: "पितृ", desc_kn: "ಋ-ಕಾರಾಂತಃ ಪುಂಲಿಂಗಃ", desc_en: "ṛ-ending Masculine", declensions: [ ["पिता", "पितरौ", "पितरः"], ["पितरम्", "पितरौ", "पितॄन्"], ["पित्रा", "पितृभ्याम्", "पितृभिः"], ["पित्रे", "पितृभ्याम्", "पितृभ्यः"], ["पितुः", "पितृभ्याम्", "पितृभ्यः"], ["पितुः", "पित्रोः", "पितॄणाम्"], ["पितरि", "पित्रोः", "पितृषु"], ["हे पितः", "हे पितरौ", "हे पितरः"] ] },
+        { id: "मातृ", icon: "👩‍👧", name: "मातृ", desc_kn: "ಋ-ಕಾರಾಂತಃ ಸ್ತ್ರೀಲಿಂಗಃ", desc_en: "ṛ-ending Feminine", declensions: [ ["माता", "मातरौ", "मातरः"], ["मातरम्", "मातरौ", "मातॄः"], ["मात्रा", "मातृभ्याम्", "मातृभिः"], ["मात्रे", "मातृभ्याम्", "मातृभ्यः"], ["मातुः", "मातृभ्याम्", "मातृभ्यः"], ["मातुः", "मात्रोः", "मातॄणाम्"], ["मातरि", "मात्रोः", "मातृषु"], ["हे मातः", "हे मातरौ", "हे मातरः"] ] },
+        { id: "गो", icon: "🐄", name: "गो", desc_kn: "ಓ-ಕಾರಾಂತಃ ಪುಂ/ಸ್ತ್ರೀಲಿಂಗಃ", desc_en: "o-ending Masc/Fem", declensions: [ ["गौः", "गावौ", "गावः"], ["गाम्", "गावौ", "गाः"], ["गवा", "गोभ्याम्", "गोभिः"], ["गवे", "गोभ्याम्", "गोभ्यः"], ["गोः", "गोभ्याम्", "गोभ्यः"], ["गोः", "गवोः", "गवाम्"], ["गवि", "गवोः", "गोषु"], ["हे गौः", "हे गावौ", "हे गावः"] ] }
+    ];
+
+    const vibhaktiNames = [ 
+        {kn: "೧. ಪ್ರಥಮಾ", en: "1. Prathama"}, {kn: "೨. ದ್ವಿತೀಯಾ", en: "2. Dvitiya"}, 
+        {kn: "೩. ತೃತೀಯಾ", en: "3. Tritiya"}, {kn: "೪. ಚತುರ್ಥೀ", en: "4. Chaturthi"}, 
+        {kn: "೫. ಪಂಚಮೀ", en: "5. Panchami"}, {kn: "६. ಷಷ್ಠೀ", en: "6. Shashthi"}, 
+        {kn: "೭. ಸಪ್ತಮೀ", en: "7. Saptami"}, {kn: "೮. ಸಂಬೋಧನಾ", en: "8. Sambodhana"} 
+    ];
+
+    shabdaData.forEach((data, index) => {
+        const chip = document.createElement('button');
+        chip.className = 's-chip';
+        chip.style.setProperty('--i', index);
+        chip.innerHTML = `<span class="c-icon">${data.icon}</span><span class="c-text">${data.id}</span>`;
+        chip.onclick = () => {
+            document.querySelectorAll('.s-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            document.getElementById('placeholder-text').style.display = 'none';
+            document.getElementById('word-title').style.display = 'block';
+            document.getElementById('word-desc').style.display = 'block';
+            document.getElementById('table-container').classList.add('show');
+            document.getElementById('word-title').textContent = data.name;
+            
+            document.getElementById('word-desc').innerHTML = `<span class="kn-text">${data.desc_kn}</span><span class="en-text">${data.desc_en}</span>`;
+            
+            const tbody = document.getElementById('shabda-tbody');
+            tbody.innerHTML = '';
+            data.declensions.forEach((row, rowIndex) => {
+                const tr = document.createElement('tr');
+                
+                // Open ONLY Prathama and Dvitiya (Rows 0 and 1)
+                if(rowIndex === 0 || rowIndex === 1) { 
+                    tr.className = 'active-row'; 
+                } else { 
+                    tr.className = 'locked-row'; 
+                }
+                
+                const th = document.createElement('td');
+                th.className = 'vib-name';
+                th.innerHTML = `<span class="kn-text">${vibhaktiNames[rowIndex].kn}</span><span class="en-text">${vibhaktiNames[rowIndex].en}</span>`;
+                tr.appendChild(th);
+                
+                row.forEach((word, colIndex) => {
+                    const td = document.createElement('td');
+                    td.textContent = word;
+                    // Lock Dual and Plural for all rows
+                    if (colIndex > 0) td.classList.add('locked-col'); 
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+        };
+        document.getElementById('circle-nav').appendChild(chip);
     });
 
     // --- REVEAL TRANSLATION AND INTERACTIVE SECTIONS ---
