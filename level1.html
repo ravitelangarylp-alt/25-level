@@ -17,6 +17,8 @@
             --card-bg: #ffffff;
             --success-green: #22c55e;
             --error-red: #ef4444;
+            --masc-blue: #1e3a8a;
+            --fem-pink: #9d174d;
         }
 
         * {
@@ -86,16 +88,13 @@
             display: block;
         }
 
-        .motto-kn {
+        .motto-kn, .motto-en {
             font-size: 0.9rem;
             color: #666;
             font-style: italic;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        header { text-align: center; margin-bottom: 40px; }
 
         .level-badge {
             display: inline-block;
@@ -123,13 +122,6 @@
             font-weight: 600;
         }
 
-        .sk-text {
-            font-family: 'Tiro Devanagari Sanskrit', serif;
-            color: var(--text-maroon);
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-
         /* Lesson Cards */
         .lesson-card {
             background: var(--card-bg);
@@ -143,23 +135,31 @@
             align-items: center;
         }
 
-        .lesson-card:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+        .lesson-card:nth-child(even) { flex-direction: row-reverse; }
 
-        .card-content { flex: 1; }
-        .card-image {
+        .card-content { flex: 1.5; }
+        .card-images-wrapper {
             flex: 1;
-            height: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .card-image {
+            height: 180px;
             border-radius: 10px;
             overflow: hidden;
             border: 3px solid #eee;
+            background-color: #fdf5e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .card-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; /* Ensures the image fills the box beautifully */
         }
 
         .phrase-box {
@@ -168,7 +168,30 @@
             padding: 15px;
             margin: 15px 0;
             border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
         }
+        
+        .phrase-box.masc-theme { border-left-color: var(--masc-blue); background: rgba(30, 58, 138, 0.05);}
+        .phrase-box.fem-theme { border-left-color: var(--fem-pink); background: rgba(157, 23, 77, 0.05);}
+
+        .sk-text {
+            font-family: 'Tiro Devanagari Sanskrit', serif;
+            color: var(--text-maroon);
+            font-size: 1.6rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* Speaker Button */
+        .speak-btn {
+            background: none; border: none; cursor: pointer;
+            font-size: 1.5rem; color: var(--accent-gold);
+            padding: 5px; transition: transform 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .speak-btn:hover { transform: scale(1.1); color: var(--text-maroon); }
 
         /* Subhashita Card */
         .subhashita-card {
@@ -181,169 +204,84 @@
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
         }
 
-        .subhashita-card h3 {
-            color: var(--text-brown);
-            margin-bottom: 15px;
-            font-family: 'Inknut Antiqua', serif;
-        }
+        .subhashita-card h3 { color: var(--text-brown); margin-bottom: 15px; font-family: 'Inknut Antiqua', serif; }
 
         .shloka {
             font-family: 'Tiro Devanagari Sanskrit', serif;
-            font-size: 1.6rem;
-            color: var(--text-maroon);
-            line-height: 1.8;
-            margin-bottom: 15px;
+            font-size: 1.6rem; color: #555;
+            line-height: 1.8; margin-bottom: 15px;
         }
+        
+        .hl-aham { color: var(--masc-blue); font-weight: bold; }
+        .hl-tvam { color: var(--fem-pink); font-weight: bold; }
+        .hl-mama { color: #059669; font-weight: bold; }
+        .hl-tava { color: #d97706; font-weight: bold; }
 
-        .shloka-meaning {
-            font-size: 1rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .shloka-meaning { font-size: 1rem; color: #555; max-width: 700px; margin: 0 auto; line-height: 1.6;}
 
         /* Grammar Note */
         .grammar-note {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 40px;
+            background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 10px;
+            padding: 20px; margin-bottom: 40px;
         }
 
-        .grammar-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        .grammar-table th, .grammar-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+        .grammar-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .grammar-table th, .grammar-table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
 
         /* Quiz Section */
         .quiz-section {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08);
-            border-top: 5px solid var(--text-maroon);
+            background: #fff; border-radius: 15px; padding: 40px;
+            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08); border-top: 5px solid var(--text-maroon); margin-bottom: 40px;
         }
 
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .quiz-title { font-size: 1.5rem; color: var(--text-brown); font-weight: 700; }
+        .quiz-progress { font-weight: 600; color: var(--accent-gold); }
+        .quiz-question { font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
 
-        .quiz-title {
-            font-size: 1.5rem;
-            color: var(--text-brown);
-            font-weight: 700;
-        }
+        .options-grid { display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; }
+        .option-btn { background: var(--bg-parchment); border: 2px solid #ddd; padding: 15px 20px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; text-align: left; }
+        .option-btn:hover { border-color: var(--accent-gold); background: #fff; }
+        .option-btn.correct { background: rgba(34, 197, 94, 0.1); border-color: var(--success-green); color: #065f46; }
+        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--error-red); color: #991b1b; }
+        .quiz-controls { text-align: center; margin-top: 25px; }
 
-        .quiz-progress {
-            font-weight: 600;
-            color: var(--accent-gold);
+        /* Treasure Modal */
+        .treasure-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white;
+            border: 2px solid #bfdbfe; border-radius: 30px; padding: 15px 30px;
+            font-size: 1.2rem; font-weight: bold; font-family: 'Laila', sans-serif;
+            margin: 0 auto 40px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 15px rgba(30, 58, 138, 0.2);
         }
+        .treasure-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 20px rgba(30, 58, 138, 0.3); }
 
-        .quiz-question {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .option-btn {
-            background: var(--bg-parchment);
-            border: 2px solid #ddd;
-            padding: 15px 20px;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
-
-        .option-btn:hover {
-            border-color: var(--accent-gold);
-            background: #fff;
-        }
-
-        .option-btn.correct {
-            background: rgba(34, 197, 94, 0.1);
-            border-color: var(--success-green);
-            color: #065f46;
-        }
-
-        .option-btn.wrong {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: var(--error-red);
-            color: #991b1b;
-        }
-
-        .quiz-controls {
-            text-align: center;
-            margin-top: 25px;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); z-index: 1000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; padding: 20px; }
+        .modal-overlay.show { display: flex; opacity: 1; }
+        .modal-content { background: var(--bg-parchment); width: 100%; max-width: 600px; max-height: 80vh; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow-y: auto; border: 3px solid #1e3a8a;}
+        .modal-header { background: #eff6ff; padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #bfdbfe; position: sticky; top: 0;}
+        .modal-header h2 { font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; margin: 0; color: #1e3a8a;}
+        .close-btn { background: transparent; border: none; font-size: 2.5rem; cursor: pointer; color: #1e3a8a;}
+        
+        .vocab-list { padding: 20px; }
+        .vocab-item { background: #fff; border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;}
+        .v-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem; color: var(--text-maroon); font-weight: bold;}
+        .v-mean { color: #555; font-weight: 600; font-size: 1.1rem;}
 
         /* Nav Buttons */
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-outline {
-            border: 2px solid var(--text-maroon);
-            color: var(--text-maroon);
-            background: transparent;
-        }
-
-        .btn-outline:hover {
-            background: rgba(128, 0, 0, 0.05);
-        }
-
-        .btn-primary {
-            background: var(--text-maroon);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #600000;
-        }
+        .nav-buttons { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; display: flex; align-items: center; gap: 5px; }
+        .btn-outline { border: 2px solid var(--text-maroon); color: var(--text-maroon); background: transparent; }
+        .btn-outline:hover { background: rgba(128, 0, 0, 0.05); }
+        .btn-primary { background: var(--text-maroon); color: white; }
+        .btn-primary:hover { background: #600000; }
 
         @media (max-width: 768px) {
             .lesson-card, .lesson-card:nth-child(even) { flex-direction: column; }
-            .card-image { height: 200px; width: 100%; }
+            .card-images-wrapper { flex-direction: row; width: 100%;}
+            .card-image { height: 120px; flex: 1;}
+            .sk-text { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -374,8 +312,8 @@
     <header>
         <div class="level-badge">Level 1</div>
         <h1>
-            <span class="kn-text">ಸ್ವಯಂ ಪರಿಚಯಃ (Identity)</span>
-            <span class="en-text">Swayam Parichayah (Identity)</span>
+            <span class="kn-text">ಸ್ವಯಂ ಪರಿಚಯಃ</span>
+            <span class="en-text">Swayam Parichayah</span>
         </h1>
         <p class="subtitle">
             <span class="kn-text">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ (First & Second Person)</span>
@@ -393,23 +331,48 @@
                 <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</span>
                 <span class="en-text">The method of introducing your name and city in Sanskrit.</span>
             </p>
-            <div class="phrase-box">
-                <div class="sk-text">अहं रविः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">
-                    <span class="kn-text">ನಾನು ರವಿ (I am Ravi).</span>
-                    <span class="en-text">I am Ravi.</span>
+            
+            <div class="phrase-box masc-theme">
+                <div>
+                    <div class="sk-text">अहं रामः ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನಾನು ರಾಮ (I am Rama).</span>
+                        <span class="en-text">I am Rama.</span>
+                    </div>
                 </div>
+                <button class="speak-btn" onclick="speakText('अहं रामः')">🔊</button>
             </div>
-            <div class="phrase-box">
-                <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">
-                    <span class="kn-text">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</span>
-                    <span class="en-text">My city is Bengaluru.</span>
+
+            <div class="phrase-box fem-theme">
+                <div>
+                    <div class="sk-text">अहं सीता ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನಾನು ಸೀತೆ (I am Sita).</span>
+                        <span class="en-text">I am Sita.</span>
+                    </div>
                 </div>
+                <button class="speak-btn" onclick="speakText('अहं सीता')">🔊</button>
+            </div>
+
+            <div class="phrase-box">
+                <div>
+                    <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</span>
+                        <span class="en-text">My city is Bengaluru.</span>
+                    </div>
+                </div>
+                <button class="speak-btn" onclick="speakText('मम ग्रामः बेङ्गलुरु')">🔊</button>
             </div>
         </div>
-        <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400" alt="Professional Man">
+        
+        <div class="card-images-wrapper">
+            <div class="card-image" style="border-color: var(--masc-blue);">
+                <img src="Images/rama.png" alt="A boy introducing himself as Rama">
+            </div>
+            <div class="card-image" style="border-color: var(--fem-pink);">
+                <img src="Images/seeta.png" alt="A girl introducing herself as Sita">
+            </div>
         </div>
     </div>
 
@@ -423,23 +386,48 @@
                 <span class="kn-text">ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</span>
                 <span class="en-text">The method of directly addressing the person in front of you.</span>
             </p>
-            <div class="phrase-box">
-                <div class="sk-text">त्वं गणेशः ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">
-                    <span class="kn-text">ನೀನು ಗಣೇಶ (You are Ganesh).</span>
-                    <span class="en-text">You are Ganesh.</span>
+            
+            <div class="phrase-box masc-theme">
+                <div>
+                    <div class="sk-text">त्वं गणेशः ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನೀನು ಗಣೇಶ (You are Ganesh).</span>
+                        <span class="en-text">You are Ganesh.</span>
+                    </div>
                 </div>
+                <button class="speak-btn" onclick="speakText('त्वं गणेशः')">🔊</button>
             </div>
-            <div class="phrase-box">
-                <div class="sk-text">तव ग्रामः मैसूरु ।</div>
-                <div style="font-weight: 600; margin-top: 5px;">
-                    <span class="kn-text">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</span>
-                    <span class="en-text">Your city is Mysuru.</span>
+
+            <div class="phrase-box fem-theme">
+                <div>
+                    <div class="sk-text">त्वं गङ्गा ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನೀನು ಗಂಗಾ (You are Ganga).</span>
+                        <span class="en-text">You are Ganga.</span>
+                    </div>
                 </div>
+                <button class="speak-btn" onclick="speakText('त्वं गङ्गा')">🔊</button>
+            </div>
+
+            <div class="phrase-box">
+                <div>
+                    <div class="sk-text">तव ग्रामः मैसूरु ।</div>
+                    <div style="font-weight: 600; margin-top: 5px;">
+                        <span class="kn-text">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</span>
+                        <span class="en-text">Your city is Mysuru.</span>
+                    </div>
+                </div>
+                <button class="speak-btn" onclick="speakText('तव ग्रामः मैसूरु')">🔊</button>
             </div>
         </div>
-        <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Another Professional Man">
+        
+        <div class="card-images-wrapper">
+            <div class="card-image" style="border-color: var(--masc-blue);">
+                <img src="Images/ganesh.png" alt="A boy pointing to Ganesh">
+            </div>
+            <div class="card-image" style="border-color: var(--fem-pink);">
+                <img src="Images/ganga.png" alt="A girl pointing to Ganga">
+            </div>
         </div>
     </div>
 
@@ -449,21 +437,49 @@
             <span class="en-text">Subhashitam - 1</span>
         </h3>
         <p class="shloka">
-            अहं पृच्छामि भो मित्र, त्वं च उत्तरं वद ।<br>
-            मम प्रश्नः तव ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥
+            <span class="hl-aham">अहं</span> पृच्छामि भो मित्र, <span class="hl-tvam">त्वं</span> च उत्तरं वद ।<br>
+            <span class="hl-mama">मम</span> प्रश्नः <span class="hl-tava">तव</span> ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥
         </p>
         <p class="shloka-meaning">
-            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಎಲೈ ಮಿತ್ರನೇ, <b>ನಾನು (अहं)</b> ಕೇಳುತ್ತೇನೆ, <b>ನೀನು (त्वं)</b> ಉತ್ತರಿಸು. <b>ನನ್ನ (मम)</b> ಪ್ರಶ್ನೆ ಹಾಗೂ <b>ನಿನ್ನ (तव)</b> ಜ್ಞಾನದಿಂದ ನಮ್ಮಿಬ್ಬರ ಜ್ಞಾನವೃದ್ಧಿಯಾಗುತ್ತದೆ.</span>
-            <span class="en-text"><strong>Meaning:</strong> O friend, <b>I (अहं)</b> ask, and <b>you (त्वं)</b> answer. From <b>my (मम)</b> question and <b>your (तव)</b> knowledge, the knowledge of both of us increases.</span>
+            <span class="kn-text"><strong>ಅರ್ಥ:</strong> ಎಲೈ ಮಿತ್ರನೇ, <b class="hl-aham">ನಾನು (अहं)</b> ಕೇಳುತ್ತೇನೆ, <b class="hl-tvam">ನೀನು (त्वं)</b> ಉತ್ತರಿಸು. <b class="hl-mama">ನನ್ನ (मम)</b> ಪ್ರಶ್ನೆ ಹಾಗೂ <b class="hl-tava">ನಿನ್ನ (तव)</b> ಜ್ಞಾನದಿಂದ ನಮ್ಮಿಬ್ಬರ ಜ್ಞಾನವೃದ್ಧಿಯಾಗುತ್ತದೆ.</span>
+            <span class="en-text"><strong>Meaning:</strong> O friend, <b class="hl-aham">I (अहं)</b> ask, and <b class="hl-tvam">you (त्वं)</b> answer. From <b class="hl-mama">my (मम)</b> question and <b class="hl-tava">your (तव)</b> knowledge, the knowledge of both of us increases.</span>
         </p>
     </div>
 
+    <p style="text-align:center; color:#555; font-size:1.1rem; margin-bottom:10px; font-weight:bold;">
+        <span class="kn-text">ಈ ಲೆವೆಲ್‌ನಲ್ಲಿ ಬಂದ ಹೊಸ ಶಬ್ದಗಳನ್ನು ಕಲಿಯಲು ಕೆಳಗಿನ ರತ್ನದ ಪೆಟ್ಟಿಗೆಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ!</span>
+        <span class="en-text">Click the treasure box below to learn the new words introduced in this level!</span>
+    </p>
+    <button class="treasure-btn" id="open-treasure-btn">
+        💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">Shabda-Ratnakosha</span>
+    </button>
+
+    <div class="modal-overlay" id="treasure-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">Word Treasure</span></h2>
+                <button class="close-btn" id="close-treasure-btn">&times;</button>
+            </div>
+            <div class="vocab-list">
+                <div class="vocab-item"><span class="v-sk">अहम्</span><span class="v-mean"><span class="kn-text">ನಾನು</span><span class="en-text">I</span></span></div>
+                <div class="vocab-item"><span class="v-sk">त्वम्</span><span class="v-mean"><span class="kn-text">ನೀನು</span><span class="en-text">You</span></span></div>
+                <div class="vocab-item"><span class="v-sk">मम</span><span class="v-mean"><span class="kn-text">ನನ್ನ</span><span class="en-text">My</span></span></div>
+                <div class="vocab-item"><span class="v-sk">तव</span><span class="v-mean"><span class="kn-text">ನಿನ್ನ</span><span class="en-text">Your</span></span></div>
+                <div class="vocab-item"><span class="v-sk">ग्रामः</span><span class="v-mean"><span class="kn-text">ಊರು / ಹಳ್ಳಿ</span><span class="en-text">Village / City</span></span></div>
+                <div class="vocab-item"><span class="v-sk">पृच्छामि</span><span class="v-mean"><span class="kn-text">ಕೇಳುತ್ತೇನೆ</span><span class="en-text">I ask</span></span></div>
+                <div class="vocab-item"><span class="v-sk">वद</span><span class="v-mean"><span class="kn-text">ಹೇಳು</span><span class="en-text">Tell / Speak</span></span></div>
+                <div class="vocab-item"><span class="v-sk">भो मित्र</span><span class="v-mean"><span class="kn-text">ಎಲೈ ಮಿತ್ರನೇ</span><span class="en-text">O Friend</span></span></div>
+                <div class="vocab-item"><span class="v-sk">प्रजायते</span><span class="v-mean"><span class="kn-text">ಉತ್ಪತ್ತಿಯಾಗುತ್ತದೆ</span><span class="en-text">Is produced / Grows</span></span></div>
+            </div>
+        </div>
+    </div>
+
     <div class="grammar-note">
-        <h3>
+        <h3 style="color: var(--text-maroon); margin-bottom: 10px;">
             <span class="kn-text">📚 ವ್ಯಾಕರಣದ ಸಾರಾಂಶ</span>
             <span class="en-text">📚 Grammar Insight</span>
         </h3>
-        <p style="color: #555; margin-top: 5px;">
+        <p style="color: #555;">
             <span class="kn-text">ಗಮನಿಸಿ: 'ಅಹಂ' (ನಾನು) ಮತ್ತು 'ತ್ವಂ' (ನೀನು) ಶಬ್ದಗಳು ಕರ್ತೃವನ್ನು (Subject) ಸೂಚಿಸುತ್ತವೆ. ಆದರೆ, 'ಮಮ' (ನನ್ನ) ಮತ್ತು 'ತವ' (ನಿನ್ನ) ಶಬ್ದಗಳು ಸಂಬಂಧವನ್ನು (Possessive) ಸೂಚಿಸುತ್ತವೆ.</span>
             <span class="en-text">Note: 'Aham' (I) and 'Tvam' (You) indicate the subject. However, 'Mama' (My) and 'Tava' (Your) indicate possession or relationship.</span>
         </p>
@@ -483,18 +499,12 @@
                 </th>
             </tr>
             <tr>
-                <td>
-                    <span class="kn-text">ಕರ್ತೃ (Subject)</span>
-                    <span class="en-text">Subject</span>
-                </td>
+                <td><span class="kn-text">ಕರ್ತೃ (Subject)</span><span class="en-text">Subject</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">अहम्</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">त्वम्</span></td>
             </tr>
             <tr>
-                <td>
-                    <span class="kn-text">ಸಂಬಂಧ (Possessive)</span>
-                    <span class="en-text">Possessive</span>
-                </td>
+                <td><span class="kn-text">ಸಂಬಂಧ (Possessive)</span><span class="en-text">Possessive</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">मम</span></td>
                 <td><span class="sk-text" style="font-size: 1.3rem;">तव</span></td>
             </tr>
@@ -504,14 +514,13 @@
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
             <div class="quiz-title">
-                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span>
-                <span class="en-text">Knowledge Test (Quiz)</span>
+                <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷಾ (Quiz)</span>
+                <span class="en-text">Jnana Pariksha (Quiz)</span>
             </div>
             <div class="quiz-progress" id="quiz-progress"></div>
         </div>
         
         <div class="quiz-question" id="quiz-question">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</div>
-        
         <div class="options-grid" id="quiz-options"></div>
 
         <div class="quiz-controls">
@@ -524,11 +533,9 @@
         <a href="index.html" class="btn btn-outline">
             ← <span class="kn-text">ಮ್ಯಾಪ್‌ಗೆ ಹಿಂತಿರುಗಿ</span><span class="en-text">Back to Map</span>
         </a>
-        
         <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
             🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
         </a>
-
         <a href="level2.html" id="finish-btn" class="btn btn-primary" style="display: none;">
             <span class="kn-text">ಮುಂದಿನ ಹಂತ (Level 2)</span><span class="en-text">Next Level (Level 2)</span> →
         </a>
@@ -537,7 +544,19 @@
 </div>
 
 <script>
-    // --- LANGUAGE MANAGEMENT SCRIPT ---
+    // --- TEXT TO SPEECH (Audio Pronunciation) ---
+    function speakText(text) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'hi-IN'; // Sanskrit/Hindi voice
+            utterance.rate = 0.85; // Slightly slower for clarity
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text to speech!");
+        }
+    }
+
+    // --- LANGUAGE MANAGEMENT ---
     function setLanguage(lang) {
         document.body.classList.remove('lang-kn', 'lang-en');
         document.body.classList.add(`lang-${lang}`);
@@ -555,6 +574,13 @@
         setLanguage(savedLang);
     });
 
+    // --- TREASURE MODAL LOGIC ---
+    const treasureModal = document.getElementById('treasure-modal');
+    document.getElementById('open-treasure-btn').addEventListener('click', () => treasureModal.classList.add('show'));
+    document.getElementById('close-treasure-btn').addEventListener('click', () => treasureModal.classList.remove('show'));
+    treasureModal.addEventListener('click', (e) => { if(e.target === treasureModal) treasureModal.classList.remove('show'); });
+
+
     // --- QUIZ DATA ---
     const questions = [
         {
@@ -563,7 +589,7 @@
             ans: 1
         },
         {
-            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ रविः ।' (ನಾನು ರವಿ)</span><span class='en-text'>Fill in the blank: '___ रविः ।' (I am Ravi)</span>",
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ सीता ।' (ನಾನು ಸೀತೆ)</span><span class='en-text'>Fill in the blank: '___ सीता ।' (I am Sita)</span>",
             options: ["त्वम्", "मम", "अहम्"],
             ans: 2
         },
