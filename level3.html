@@ -95,7 +95,15 @@
         .phrase-card.fem { border-left: 5px solid var(--fem-pink); }
         .phrase-card.quest { border-left: 5px solid var(--accent-gold); }
 
-        .sk-text { font-family: 'Tiro Devanagari Sanskrit', serif; color: var(--text-maroon); font-size: 1.8rem; font-weight: 800; display: block; margin-bottom: 5px; }
+        .sk-text { 
+            font-family: 'Tiro Devanagari Sanskrit', serif; 
+            color: var(--text-maroon); 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            display: block; 
+            margin-bottom: 5px;
+            white-space: nowrap;
+        }
         .sk-inline { font-family: 'Tiro Devanagari Sanskrit', serif; font-weight: 800; font-size: 1.3rem; color: var(--masc-blue); display: inline-block; }
         .sk-inline-fem { font-family: 'Tiro Devanagari Sanskrit', serif; font-weight: 800; font-size: 1.3rem; color: var(--fem-pink); display: inline-block; }
         .mean-text { font-size: 1.05rem; color: #4a2511; font-weight: 600; display: block; }
@@ -129,7 +137,7 @@
         }
         .modal-overlay.show { display: flex; }
         .modal-content {
-            background: var(--bg-parchment); width: 100%; max-width: 600px;
+            background: var(--bg-parchment); width: 100%; max-width: 700px;
             border-radius: 20px; border: 4px solid var(--accent-gold);
             padding: 30px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             max-height: 85vh; overflow-y: auto;
@@ -138,6 +146,23 @@
 
         .shloka-box { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; line-height: 2.2; text-align: center; color: var(--text-brown); margin: 20px 0;}
         .dim-text { opacity: 0.35; filter: grayscale(1); }
+
+        .detailed-explanation {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444;
+        }
+        .detailed-explanation h4 {
+            color: var(--text-maroon);
+            margin-bottom: 10px;
+            font-family: 'Inknut Antiqua', serif;
+        }
+        .ex-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-weight: bold; color: var(--masc-blue); font-size: 1.2rem; }
 
         /* Treasure Button */
         .treasure-btn {
@@ -218,7 +243,7 @@
     </header>
 
     <h2 style="text-align:center; color:var(--text-maroon); margin-bottom:20px;">
-        <span class="kn-text">೧. सम्बन्धवाचक ಜೋಡಿಗಳು</span>
+        <span class="kn-text">೧. ಸಂಬಂಧವಾಚಕ ಜೋಡಿಗಳು</span>
         <span class="en-text">1. Correlative Pairs</span>
     </h2>
     <p style="text-align:center; font-weight:600; color:#555; margin-bottom:25px;">
@@ -271,8 +296,8 @@
         <span class="en-text">2. Referring to Someone Near</span>
     </h2>
     <p style="text-align:center; font-weight:600; color:#555; margin-bottom:25px;">
-        <span class="kn-text">ಎದುರೇ ಇರುವವರನ್ನು ಸೂಚಿಸಲು <strong>ಏಷಃ / ಏಷಾ</strong> ಬದಲು <span class="sk-inline">अयम्</span> (ಪುಂ) ಮತ್ತು <span class="sk-inline-fem">इयम्</span> (ಸ್ತ್ರೀ) ಶಬ್ದಗಳನ್ನೂ ಬಳಸಬಹುದು.</span>
-        <span class="en-text">To refer to someone right in front of us, we can also use <span class="sk-inline">अयम्</span> (Masc) and <span class="sk-inline-fem">इयम्</span> (Fem) instead of Eshah/Esha.</span>
+        <span class="kn-text">ಎದುರೇ ಇರುವವರನ್ನು ಸೂಚಿಸಲು <strong>एषः / एषा</strong> ಬದಲು <span class="sk-inline">अयम्</span> (ಪುಂ) ಮತ್ತು <span class="sk-inline-fem">इयम्</span> (ಸ್ತ್ರೀ) ಶಬ್ದಗಳನ್ನೂ, ಹಾಗೆಯೇ 'ಇವನ/ಇವಳ' ಎಂದು ಹೇಳಲು <span class="sk-inline">अस्य / अस्याः</span> ಶಬ್ದಗಳನ್ನೂ ಬಳಸಬಹುದು.</span>
+        <span class="en-text">To refer to someone right in front of us, we can use <span class="sk-inline">अयम्</span> (Masc) and <span class="sk-inline-fem">इयम्</span> (Fem) instead of <strong>एषः / एषा</strong>, and <span class="sk-inline">अस्य / अस्याः</span> for 'his/her'.</span>
     </p>
 
     <div class="interactive-grid">
@@ -282,6 +307,13 @@
                 <div>
                     <span class="sk-text">अयं बालकः ।</span>
                     <span class="mean-text"><span class="kn-text">ಇವನು ಬಾಲಕ.</span><span class="en-text">This is a boy.</span></span>
+                </div>
+            </div>
+            <div class="phrase-card masc">
+                <button class="speak-btn" onclick="speak('अस्य पुस्तकम्')">🔊</button>
+                <div>
+                    <span class="sk-text">अस्य पुस्तकम् ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವನ ಪುಸ್ತಕ.</span><span class="en-text">His book.</span></span>
                 </div>
             </div>
         </div>
@@ -295,6 +327,13 @@
                     <span class="mean-text"><span class="kn-text">ಇವಳು ಬಾಲಿಕೆ.</span><span class="en-text">This is a girl.</span></span>
                 </div>
                 <button class="speak-btn" onclick="speak('इयं बालिका')">🔊</button>
+            </div>
+            <div class="phrase-card fem">
+                <div>
+                    <span class="sk-text">अस्याः लेखनी ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವಳ ಲೇಖನಿ.</span><span class="en-text">Her pen.</span></span>
+                </div>
+                <button class="speak-btn" onclick="speak('अस्याः लेखनी')">🔊</button>
             </div>
         </div>
     </div>
@@ -359,12 +398,12 @@
         <p style="font-weight:600; line-height:2; font-size: 1.15rem; color: #444;">
             <span class="kn-text">
                 ೧. <span class="sk-inline">यः / या</span> ಬಂದಾಗ ಅದರ ಜೊತೆ <span class="sk-inline">सः / सा</span> ಸಂಬಂಧವಿರುತ್ತದೆ.<br>
-                ೨. ಎದುರೇ ಇರುವವರನ್ನು ಸೂಚಿಸಲು <span class="sk-inline">अयं / इयम्</span> ಶಬ್ದಗಳು ಹೆಚ್ಚು ಸೂಕ್ತ.<br>
+                ೨. ಎದುರೇ ಇರುವವರನ್ನು ಸೂಚಿಸಲು <span class="sk-inline">अयम् / इयम्</span> ಹಾಗೂ ಅವರದ್ದನ್ನು ಸೂಚಿಸಲು <span class="sk-inline">अस्य / अस्याः</span> ಶಬ್ದಗಳು ಹೆಚ್ಚು ಸೂಕ್ತ.<br>
                 ೩. ಪ್ರಶ್ನೆ ಮಾಡುವಾಗ ಪುಲ್ಲಿಂಗದಲ್ಲಿ <span class="sk-inline">कः / कस्य</span> ಹಾಗೂ ಸ್ತ್ರೀಲಿಂಗದಲ್ಲಿ <span class="sk-inline-fem">का / कस्याः</span> ಬಳಸುತ್ತೇವೆ.
             </span>
             <span class="en-text">
                 1. The word <span class="sk-inline">यः / या</span> pairs logically with <span class="sk-inline">सः / सा</span>.<br>
-                2. <span class="sk-inline">अयं / इयम्</span> are perfectly suited for someone present right in front.<br>
+                2. <span class="sk-inline">अयम् / इयम्</span> and <span class="sk-inline">अस्य / अस्याः</span> are perfectly suited for someone present right in front.<br>
                 3. For questions, we use <span class="sk-inline">कः / कस्य</span> for masculine and <span class="sk-inline-fem">का / कस्याः</span> for feminine.
             </span>
         </p>
@@ -408,25 +447,61 @@
         <h3 style="font-family:'Inknut Antiqua'; text-align:center; color:var(--text-maroon); margin-bottom:20px;">
             📜 <span class="kn-text">ಸರ್ವನಾಮಗಳ ಸೂಕ್ಷ್ಮ ನಿಯಮ</span><span class="en-text">Subtle Rules of Pronouns</span>
         </h3>
+        
+        <div style="display: flex; justify-content: center; margin-bottom: 15px;">
+            <button class="speak-btn" onclick="speak('इदमः प्रत्यक्षगतौ समीपतरवर्ति चैतदो रूपम् । अदसस्तु विप्रकृष्टे परोक्षे तदिति विजानीयात् ।')">🔊</button>
+        </div>
+
         <div class="shloka-box">
             इदमः प्रत्यक्षगतौ<br> 
             समीपतरवर्ति चैतदो रूपम् ।<br>
             <span class="dim-text">अदसस्तु विप्रकृष्टे</span><br>
             परोक्षे तदिति विजानीयात् ।
         </div>
-        <div style="font-weight:700; margin-top:20px; line-height:2.2; font-size:1.1rem; color:#444;">
-            <span class="kn-text">
-                • <span class="sk-inline">अयम्</span> : ಪ್ರತ್ಯಕ್ಷವಾಗಿ ಕಣ್ಣೆದುರಿರುವಾಗ.<br>
-                • <span class="sk-inline">एषः</span> : ಬಹಳ ಹತ್ತಿರವಿರುವಾಗ.<br>
-                <span class="dim-text">• <span class="sk-inline">अदस्</span> : ಸ್ವಲ್ಪ ದೂರದಲ್ಲಿ ಕಾಣಿಸುತ್ತಿರುವಾಗ.</span><br>
-                • <span class="sk-inline">सः</span> : ಪರೋಕ್ಷವಾಗಿರುವಾಗ ಅಥವಾ ನೆನಪಿನಲ್ಲಿರುವಾಗ.
-            </span>
-            <span class="en-text">
-                • <span class="sk-inline">अयम्</span> : When objects are directly visible.<br>
-                • <span class="sk-inline">एषः</span> : When objects are very close.<br>
-                <span class="dim-text">• <span class="sk-inline">अदस्</span> : When visible at a distance.</span><br>
-                • <span class="sk-inline">सः</span> : When objects are remote or in memory.
-            </span>
+        
+        <hr style="margin:20px 0; border-color:var(--accent-gold);">
+
+        <div class="detailed-explanation">
+            <h4 class="kn-text">ಸೆಲ್ಫ್ ಲರ್ನಿಂಗ್ (ಸ್ವತಃ ಕಲಿಯುವಿಕೆ) ಗಾಗಿ ಈ ವ್ಯತ್ಯಾಸವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಬಹಳ ಮುಖ್ಯ:</h4>
+            <h4 class="en-text">Understanding this distinction is very important for self-learning:</h4>
+            
+            <p style="margin-bottom: 15px;">
+                <span class="kn-text">
+                    • <b><span class="ex-sk">अयम् (Idam)</span>:</b> ಇದು ಕೇವಲ ಹತ್ತಿರವಲ್ಲ, ನಿಮ್ಮ ಕಣ್ಣೆದುರೇ ಪ್ರತ್ಯಕ್ಷವಾಗಿ ಇರುವಾಗ ಇದನ್ನು ಬಳಸುತ್ತೇವೆ. "ಅರೆ, ಇವನು ಇಲ್ಲೇ ಇದ್ದಾನೆ!" ಎನ್ನುವ ಭಾವನೆ.<br>
+                    <span style="font-size:0.95em; color:#666;"><i>ಉದಾಹರಣೆ:</i> ನಿಮ್ಮ ರೂಮಿನಲ್ಲಿ ನಿಮ್ಮ ಪಕ್ಕದಲ್ಲೇ ಕುಳಿತಿರುವ ಗೆಳೆಯನನ್ನು ತೋರಿಸಿ: <b>अयं सखा</b> - ಇವನು ಗೆಳೆಯ.</span>
+                </span>
+                <span class="en-text">
+                    • <b><span class="ex-sk">अयम् (Idam)</span>:</b> Used when someone is not just near, but right in front of your eyes (visible/present). Feeling of "Oh, he is right here!"<br>
+                    <span style="font-size:0.95em; color:#666;"><i>Example:</i> Pointing to a friend sitting right next to you: <b>अयं सखा</b> - This is a friend.</span>
+                </span>
+            </p>
+            
+            <p style="margin-bottom: 15px;">
+                <span class="kn-text">
+                    • <b><span class="ex-sk">एषः (Etad)</span>:</b> ಕಣ್ಣೆದುರೇ ಇರಬೇಕಿಲ್ಲ, ಆದರೆ "ನಮ್ಮ ಹತ್ತಿರ" ಎನ್ನುವಷ್ಟು ಸಮೀಪದಲ್ಲಿರುವವರನ್ನು ಸೂಚಿಸಲು ಬಳಸುತ್ತೇವೆ.<br>
+                    <span style="font-size:0.95em; color:#666;"><i>ಉದಾಹರಣೆ:</i> ನೀವು ನಿಂತಿರುವ ಜಾಗದಿಂದ ಕೇವಲ ನಾಲ್ಕು ಹೆಜ್ಜೆ ದೂರದಲ್ಲಿ ನಿಂತಿರುವ ಬಾಲಕನನ್ನು ತೋರಿಸಿ: <b>एषः बालकः</b> - ಇವನು ಬಾಲಕ.</span>
+                </span>
+                <span class="en-text">
+                    • <b><span class="ex-sk">एषः (Etad)</span>:</b> Doesn't have to be right in front, but used to indicate someone near enough to be considered "close to us".<br>
+                    <span style="font-size:0.95em; color:#666;"><i>Example:</i> Pointing to a boy standing just four steps away from you: <b>एषः बालकः</b> - This is a boy.</span>
+                </span>
+            </p>
+            
+            <p class="dim-text" style="margin-bottom: 15px;">
+                <span class="kn-text">• <b><span class="ex-sk">अदस् (Adas)</span>:</b> ಸ್ವಲ್ಪ ದೂರದಲ್ಲಿ ಕಾಣುತ್ತಿರುವಾಗ.</span>
+                <span class="en-text">• <b><span class="ex-sk">अदस् (Adas)</span>:</b> When visible at a slight distance.</span>
+            </p>
+            
+            <p>
+                <span class="kn-text">
+                    • <b><span class="ex-sk">सः (Tat)</span>:</b> ಕಣ್ಣಿಗೆ ಕಾಣದ, ಬಹಳ ದೂರದಲ್ಲಿರುವ ಅಥವಾ ನೀವು ಕೇವಲ ನೆನಸಿಕೊಳ್ಳುತ್ತಿರುವ (ಪರೋಕ್ಷ) ವ್ಯಕ್ತಿ ಅಥವಾ ವಸ್ತುವನ್ನು ಸೂಚಿಸಲು.<br>
+                    <span style="font-size:0.95em; color:#666;"><i>ಉದಾಹರಣೆ:</i> ನಿನ್ನೆಯ ಪಾಠದಲ್ಲಿ ನೀವು ಕಲಿತ ಗಣೇಶ ದೇವರ ಬಗ್ಗೆ ಈಗ ಮಾತನಾಡುತ್ತಿದ್ದರೆ: <b>सः विनायकः</b> - ಆತ ವಿನಾಯಕ. ಅಥವಾ, ಕಣ್ಣಿಗೆ ಕಾಣದಂತೆ ಬೆಟ್ಟದ ಹಿಂದೆ ಇರುವ ನದಿಯನ್ನು ತೋರಿಸಿ: <b>सा नदी</b> - ಆಕೆ ನದಿ.</span>
+                </span>
+                <span class="en-text">
+                    • <b><span class="ex-sk">सः (Tat)</span>:</b> Used to indicate a person or object that is out of sight, very far away, or someone you are just remembering (remote).<br>
+                    <span style="font-size:0.95em; color:#666;"><i>Example:</i> If you are talking about Lord Ganesha whom you learned about yesterday: <b>सः विनायकः</b> - He is Vinayaka. Or, pointing to a river behind a hill, out of sight: <b>सा नदी</b> - That is a river.</span>
+                </span>
+            </p>
         </div>
     </div>
 </div>
@@ -438,12 +513,38 @@
             💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">Word Treasure</span>
         </h2>
         <div class="vocab-list">
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">यः / या</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರು (ಸಂಬಂಧವಾಚಕ)</span><span class="en-text">The one who</span></span></div>
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">सः / सा</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಅವನು / ಅವಳು</span><span class="en-text">He / She</span></span></div>
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">बिन्द (अयम्)</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವನು</span><span class="en-text">This man</span></span></div>
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">इयम्</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವಳು</span><span class="en-text">This woman</span></span></div>
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">कः? / का?</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರು? (ಪುಂ / ಸ್ತ್ರೀ)</span><span class="en-text">Who? (M / F)</span></span></div>
-            <div class="vocab-item"><span class="sk-text" style="font-size:1.6rem; margin:0;">कस्य? / कस्याः?</span><span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರದ್ದು? (ಪುಂ / ಸ್ತ್ರೀ)</span><span class="en-text">Whose? (M / F)</span></span></div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">यः / या</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರು (ಸಂಬಂಧವಾಚಕ)</span><span class="en-text">The one who</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">सः / सा</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಅವನು / ಅವಳು</span><span class="en-text">He / She</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">अयम्</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವನು (ಪುಂ)</span><span class="en-text">This man</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">इयम्</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವಳು (ಸ್ತ್ರೀ)</span><span class="en-text">This woman</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">अस्य</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವನ (ಪುಂ)</span><span class="en-text">His</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">अस्याः</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಇವಳ (ಸ್ತ್ರೀ)</span><span class="en-text">Her</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">कः? / का?</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರು? (ಪುಂ / ಸ್ತ್ರೀ)</span><span class="en-text">Who? (M / F)</span></span>
+            </div>
+            <div class="vocab-item">
+                <span class="sk-text" style="font-size:1.6rem; margin:0;">कस्य? / कस्याः?</span>
+                <span class="mean-text" style="margin:0; font-size:1.2rem;"><span class="kn-text">ಯಾರದ್ದು? (ಪುಂ / ಸ್ತ್ರೀ)</span><span class="en-text">Whose? (M / F)</span></span>
+            </div>
         </div>
     </div>
 </div>
@@ -463,24 +564,27 @@
         } else {
             document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn');
         }
-        loadQuestion();
+        loadQuestion(); 
     }
 
     const questions = [
         { 
             q_kn: "'<span class=\"sk-inline\">यः</span>' ಎನ್ನುವ ಶಬ್ದ ಬಂದಾಗ ಸಾಮಾನ್ಯವಾಗಿ ಅದರ ಜೊತೆ ಯಾವ ಶಬ್ದ ಬರುತ್ತದೆ?", 
             q_en: "Which word generally pairs with '<span class=\"sk-inline\">यः</span>'?",
-            options: ["एषः", "सः", "अयम्"], ans: 1 
+            options: ["एषः", "सः", "अयम्"], 
+            ans: 1 
         },
         { 
             q_kn: "ಪ್ರತ್ಯಕ್ಷವಾಗಿ ಕಣ್ಣೆದುರಿರುವ ಬಾಲಕನನ್ನು ಸೂಚಿಸಲು ಯಾವ ಶಬ್ದ ಸೂಕ್ತ?", 
             q_en: "Which word is most suitable for a boy present right in front?",
-            options: ["सः", "यः", "बिन्द ( can use अयम्)"], ans: 2 
+            options: ["सः", "यः", "अयम्"], 
+            ans: 2 
         },
         { 
             q_kn: "ಸ್ತ್ರೀಲಿಂಗದಲ್ಲಿ 'ಯಾರದ್ದು?' ಎಂದು ಪ್ರಶ್ನಿಸಲು ಯಾವ ಸಂಸ್ಕೃತ ಪದ ಬಳಸುತ್ತೇವೆ?", 
             q_en: "Which word is used to ask 'Whose?' for feminine gender?",
-            options: ["कस्य", "कस्याः", "का"], ans: 1 
+            options: ["कस्य", "कस्याः", "का"], 
+            ans: 1 
         }
     ];
 
@@ -495,21 +599,33 @@
         fbEl.innerHTML = ''; nextBtn.style.display = 'none';
         const data = questions[currentQ];
         const isKn = document.body.classList.contains('lang-kn');
+        
         document.getElementById('quiz-progress').innerHTML = isKn ? `ಪ್ರಶ್ನೆ ${currentQ + 1} / ${questions.length}` : `Question ${currentQ + 1} / ${questions.length}`;
         qEl.innerHTML = isKn ? data.q_kn : data.q_en;
         optEl.innerHTML = '';
+        
         data.options.forEach((opt, i) => {
-            const btn = document.createElement('button'); btn.className = 'option-btn';
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
             const prefix = String.fromCharCode(65+i);
+            
+            btn.style.display = 'flex';
+            btn.style.alignItems = 'center';
             btn.innerHTML = `<span style="font-family:'Inknut Antiqua'; width:40px; color:#888; font-weight:800; font-size:1.2rem; flex-shrink: 0;">${prefix}.</span> <span class="sk-text" style="font-size:1.6rem; color:var(--text-brown); margin:0;">${opt}</span>`;
+            
             btn.onclick = () => {
                 const all = optEl.querySelectorAll('.option-btn');
                 all.forEach(b => b.disabled = true);
                 if (i === data.ans) {
-                    btn.classList.add('correct'); fbEl.innerHTML = isKn ? '✅ ಉತ್ತಮಮ್!' : '✅ Excellent!'; fbEl.style.color = 'var(--success-green)'; score++;
+                    btn.classList.add('correct'); 
+                    fbEl.innerHTML = isKn ? '✅ ಉತ್ತಮಮ್!' : '✅ Excellent!'; 
+                    fbEl.style.color = 'var(--success-green)'; 
+                    score++;
                 } else {
-                    btn.classList.add('wrong'); all[data.ans].classList.add('correct');
-                    fbEl.innerHTML = isKn ? '❌ ತಪ್ಪು!' : '❌ Incorrect!'; fbEl.style.color = 'var(--error-red)';
+                    btn.classList.add('wrong'); 
+                    all[data.ans].classList.add('correct');
+                    fbEl.innerHTML = isKn ? '❌ ತಪ್ಪು!' : '❌ Incorrect!'; 
+                    fbEl.style.color = 'var(--error-red)';
                 }
                 if (currentQ < questions.length - 1) nextBtn.style.display = 'block';
                 else showResult();
@@ -524,8 +640,12 @@
         const isKn = document.body.classList.contains('lang-kn');
         qEl.innerHTML = isKn ? "ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!" : "Quiz Completed!";
         optEl.innerHTML = `<div style="text-align:center; font-size:1.8rem; margin:20px 0;">${isKn ? 'ನಿಮ್ಮ ಅಂಕಗಳು' : 'Your Score'}: <b style="color:var(--text-maroon);">${score} / ${questions.length}</b></div>`;
-        if(score >= 2) { fbEl.innerHTML = isKn ? "🎉 ಅದ್ಭುತ! ನೀವು ಸಿದ್ಧರಿದ್ದೀರಿ." : "🎉 Wonderful! You are ready."; finBtn.style.display = 'inline-flex'; }
-        else { fbEl.innerHTML = isKn ? "ದಯವಿಟ್ಟು ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಗಮನಿಸಿ!" : "Please review the lesson again!"; }
+        if(score >= 2) { 
+            fbEl.innerHTML = isKn ? "🎉 ಅದ್ಭುತ! ನೀವು ಸಿದ್ಧರಿದ್ದೀರಿ." : "🎉 Wonderful! You are ready."; 
+            finBtn.style.display = 'inline-flex'; 
+        } else { 
+            fbEl.innerHTML = isKn ? "ದಯವಿಟ್ಟು ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಗಮನಿಸಿ!" : "Please review the lesson again!"; 
+        }
     }
 
     window.onload = loadQuestion;
