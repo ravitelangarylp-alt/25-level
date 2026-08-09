@@ -230,7 +230,7 @@
 </div>
 
 <script>
-    /* --- DATA ARRAYS (Using pure Devanagari for Sanskrit) --- */
+    /* --- DATA ARRAYS (Using correct image paths and British English standards) --- */
     
     const visualData = [
         { img: "Images/L4_V1_Mountain.png", q_kn: "ಚಿತ್ರದಲ್ಲಿರುವ ಬೆಟ್ಟ ದೂರದಲ್ಲಿದೆ", q_en: "The mountain is far away", opts: ["सः पर्वतः", "अयं पर्वतः", "एषः पर्वतः"], a: 0 },
@@ -241,27 +241,27 @@
     ];
 
     const tfData = [
-        { img: "Images/L4_TF1.png", s: "अस्य लेखनी ।", isTrue: false, fb_kn: "ಹುಡುಗಿಯ ಒಡೆತನಕ್ಕೆ 'अस्याः' ಬಳಸಬೇಕು.", fb_en: "Use 'अस्याः' for feminine possession." },
-        { img: "Images/L4_TF2.png", s: "अस्य पुस्तकम् ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹುಡುಗನಿಗೆ 'अस्य' ಬಳಸುತ್ತೇವೆ.", fb_en: "Correct! 'अस्य' is for masculine." },
-        { img: "Images/L4_TF3.png", s: "सः पर्वतः ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ದೂರವಿರುವ ಬೆಟ್ಟಕ್ಕೆ 'सः' ಸೂಕ್ತ.", fb_en: "Correct! 'सः' is used for remote objects." },
-        { img: "Images/L4_TF4.png", s: "एतस्य छाया ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹತ್ತಿರವಿರುವ ವಸ್ತುವಿನ ನೆರಳು.", fb_en: "Correct! Shadow of a near object." },
-        { img: "Images/L4_TF5.png", s: "यः पठति, सा जानाति ।", isTrue: false, fb_kn: "ಪುಲ್ಲಿಂಗ 'यः' ಜೊತೆಗೆ 'सः' ಇರಬೇಕು.", fb_en: "Masculine 'यः' must pair with 'सः'." }
+        { img: "Images/L4_TF1_GirlPen.png", s: "अस्य लेखनी ।", isTrue: false, fb_kn: "ಹುಡುಗಿಯ ಒಡೆತನಕ್ಕೆ 'अस्याः' ಬಳಸಬೇಕು.", fb_en: "Use 'अस्याः' for feminine possession." },
+        { img: "Images/L4_TF2_BoyBook.png", s: "अस्य पुस्तकम् ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹುಡುಗನಿಗೆ 'अस्य' ಬಳಸುತ್ತೇವೆ.", fb_en: "Correct! 'अस्य' is for masculine." },
+        { img: "Images/L4_TF3_FarTemple.png", s: "सः पर्वतः ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ದೂರವಿರುವ ಬೆಟ್ಟಕ್ಕೆ 'सः' ಸೂಕ್ತ.", fb_en: "Correct! 'सः' is used for remote objects." },
+        { img: "Images/L4_TF4_PillarShadow.png", s: "एतस्य छाया ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹತ್ತಿರವಿರುವ ವಸ್ತುವಿನ ನೆರಳು.", fb_en: "Correct! Shadow of a near object." },
+        { img: "Images/L4_TF5_StudyLogic.png", s: "यः पठति, सा जानाति ।", isTrue: false, fb_kn: "ಪುಲ್ಲಿಂಗ 'यः' ಜೊತೆಗೆ 'सः' ಇರಬೇಕು.", fb_en: "Masculine 'यः' must pair with 'सः'." }
     ];
 
     const fitbData = [
         { s: "___ पठति, सः जानाति ।", opts: ["यः", "या", "कः"], a: 0, word: "यः" },
         { s: "___ पठति, सा जानाति ।", opts: ["यः", "या", "सा"], a: 1, word: "या" },
-        { s: "एतत् ___ पुस्तकम्?", opts: ["कः", "का", "कस्य"], a: 2, word: "कस्य" },
-        { s: "एतत् ___ लेखनी?", opts: ["कस्याः", "कस्य", "का"], a: 0, word: "कस्याः" },
+        { s: "एतत् ___ पुस्तकम्? (Whose-M)", opts: ["कः", "का", "कस्य"], a: 2, word: "कस्य" },
+        { s: "एतत् ___ लेखनी? (Whose-F)", opts: ["कस्याः", "कस्य", "का"], a: 0, word: "कस्याः" },
         { s: "सा ___? (Who is she?)", opts: ["कः", "का", "या"], a: 1, word: "का" }
     ];
 
     const listenData = [
-        { sk: "कस्याः लेखनी?", opts_kn: ["ಯಾರ ಪೆನ್ನು? (ಸ್ತ್ರೀ)", "ಯಾರ ಪೆನ್ನು? (ಪುಂ)", "ಅವಳು ಯಾರು?"], opts_en: ["Whose pen? (F)", "Whose pen? (M)", "Who is she?"], a: 0 },
+        { sk: "कस्याः लेखनी?", opts_kn: ["ಯಾರ ಪೆನ್ನು? (ಸ್ತ್ರೀ)", "ಯಾರ ಪೆನ್ನು? (ಪುಂ)", "ಅವಳು ಯಾರು?"], opts_en: ["Whose pen is it? (F)", "Whose pen is it? (M)", "Who is she?"], a: 0 },
         { sk: "सः कः?", opts_kn: ["ಅವನು ಯಾರು?", "ಇವನು ಯಾರು?", "ಯಾರದ್ದು?"], opts_en: ["Who is he?", "Who is this?", "Whose?"], a: 0 },
         { sk: "इदं कस्य?", opts_kn: ["ಇದು ಇವಳದ್ದು", "ಇದು ಯಾರದ್ದು? (ಪುಂ)", "ಅವನು ಓದುತ್ತಾನೆ"], opts_en: ["This is hers", "Whose is this? (M)", "He reads"], a: 1 },
         { sk: "सा का?", opts_kn: ["ಅವನು ಯಾರು?", "ಅವಳು ಯಾರು?", "ಯಾರು ಓದುತ್ತಾರೋ"], opts_en: ["Who is he?", "Who is she?", "The one who reads"], a: 1 },
-        { sk: "यः पठति", opts_kn: ["ಯಾರು ಓದುತ್ತಾನೋ", "ಅವನು ಓದುತ್ತಾನೆ", "ಯಾರ ಪೆನ್ನು?"], opts_en: ["He who reads", "He reads", "Whose pen?"], a: 0 }
+        { sk: "यः पठति", opts_kn: ["ಯಾರು ಓದುತ್ತಾನೋ", "ಅವನು ಓದುತ್ತಾನೆ", "ಯಾರ ಪೆನ್ನು?"], opts_en: ["He who reads", "He reads", "Whose pen is it?"], a: 0 }
     ];
 
     const taData = [
@@ -292,7 +292,6 @@
         if (isKn) { document.body.classList.remove('lang-kn'); document.body.classList.add('lang-en'); } 
         else { document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn'); }
         
-        // Refresh visible UI text if needed
         loadVisual(); loadTF(); loadFITB(); loadListen(); if(document.getElementById('ta-area').style.display === 'block') loadTA();
     }
     const isKn = () => document.body.classList.contains('lang-kn');
@@ -332,7 +331,7 @@
             b.onclick = () => {
                 const all = optArea.querySelectorAll('.opt-btn'); all.forEach(x => x.disabled = true);
                 if(i === d.a) { b.classList.add('correct'); document.getElementById('visual-fb').innerHTML = '✅ ಉತ್ತಮಮ್!'; vIdx++; setTimeout(loadVisual, 1200); }
-                else { b.classList.add('wrong'); document.getElementById('visual-fb').innerHTML = '❌ ಪ್ರಯತ್ನಿಸಿ!'; setTimeout(loadVisual, 1200); } // Move forward even if wrong to keep flow
+                else { b.classList.add('wrong'); document.getElementById('visual-fb').innerHTML = '❌ ಪ್ರಯತ್ನಿಸಿ!'; setTimeout(loadVisual, 1200); }
             };
             optArea.appendChild(b);
         });
@@ -358,7 +357,7 @@
         } else {
             document.getElementById('error-modal-msg').innerText = isKn() ? d.fb_kn : d.fb_en;
             document.getElementById('error-modal').classList.add('show');
-            tfIdx++; setTimeout(loadTF, 1500); // Wait for them to read modal, load next behind it
+            tfIdx++; setTimeout(loadTF, 1500);
         }
     }
 
