@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita Level 2 - सः, ಸಾ, ಏಷಃ, ಏಷಾ</title>
+    <title>saṃskṛta sopāna 2 - सः, सा, एषः, एषा</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
             --card-bg: #ffffff;
             --success-green: #22c55e;
             --error-red: #ef4444;
-            --masc-blue: #1e3a8a;
-            --fem-pink: #9d174d;
+            --masc-blue: #1e3a8a; /* Deep blue for masculine */
+            --fem-pink: #9d174d;  /* Deep pink/maroon for feminine */
         }
 
         * {
@@ -84,7 +84,7 @@
             font-size: 2rem;
             color: var(--text-maroon);
             font-weight: 800;
-            display: block;
+            display: inline-block; /* Changed to inline-block for side-by-side icon */
             margin-bottom: 8px;
         }
 
@@ -240,10 +240,15 @@
         .speak-btn {
             background: #fdf5e6; border: 2px solid var(--accent-gold); cursor: pointer;
             font-size: 1.4rem; width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
             transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            vertical-align: middle;
         }
         .speak-btn:hover { transform: scale(1.1); background: var(--accent-gold); }
+
+        /* Colors for gendered text */
+        .text-masc { color: var(--masc-blue) !important; }
+        .text-fem { color: var(--fem-pink) !important; }
 
         /* The 'Other' Box */
         .other-box {
@@ -313,8 +318,9 @@
             border-radius: 10px; display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-        .v-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-maroon); font-weight: 800;}
+        .v-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; font-weight: 800;}
         .v-mean { color: #4a2511; font-weight: 700; font-size: 1.2rem;}
+        .v-emoji { font-size: 1.6rem; margin-right: 10px; }
 
         /* Quiz Section */
         .quiz-section {
@@ -371,6 +377,7 @@
 
 <div class="motto-box">
     <span class="motto-sk">तत्त्वमसि</span>
+    <button class="speak-btn" style="width: 35px; height: 35px; font-size: 1rem; margin-left: 10px;" onclick="speakText('तत्त्वमसि')">🔊</button>
     <div class="motto-desc">
         <span class="kn-text">"ಅದು ನೀನೇ ಆಗಿದ್ದೀಯೆ" - ಇದು ಛಾಂದೋಗ್ಯ ಉಪನಿಷತ್ತಿನ ಮಹಾವಾಕ್ಯ. ಜೀವವು ಪರಮಾತ್ಮನ ಅಂಶವೇ ಆಗಿದೆ ಎನ್ನುವ ಅದ್ವೈತ ತತ್ವದ ಸಾರವಿದು.</span>
         <span class="en-text">"That thou art" - A profound sentence from the Chandogya Upanishad, signifying the unity of the individual soul with the universal truth.</span>
@@ -380,7 +387,10 @@
 <div class="container">
     
     <header>
-        <div class="level-badge">Level 2</div>
+        <div class="level-badge">
+            <span class="kn-text">ಸೋಪಾನ ೨</span>
+            <span class="en-text">sopāna 2</span>
+        </div>
         <h1>
             <span class="kn-text">ಅನ್ಯರ ಪರಿಚಯ</span>
             <span class="en-text">Introducing Others</span>
@@ -393,14 +403,14 @@
 
     <div class="vocab-note">
         <span class="kn-text">
-            <b>ಗಮನಿಸಿ:</b> ಈ ಹಂತದಲ್ಲಿ ಹೊಸ ಪದಗಳ ಲಿಂಗಗಳನ್ನು ತಿಳಿದುಕೊಳ್ಳೋಣ:<br>
-            • ಪುಂಲಿಂಗ: <span class="sk-text" style="font-size:1.3rem; display:inline;">वृक्षः</span> (ಮರ), <span class="sk-text" style="font-size:1.3rem; display:inline;">स्तम्भः</span> (ಕಂಬ)<br>
-            • ಸ್ತ್ರೀಲಿಂಗ: <span class="sk-text" style="font-size:1.3rem; display:inline;">नदी</span> (ನದಿ), <span class="sk-text" style="font-size:1.3rem; display:inline;">लेखनी</span> (ಪೆನ್ನು)
+            <b>ಗಮನಿಸಿ:</b> ಈ ಹಂತದಲ್ಲಿ, ಗೊಂದಲವನ್ನು ತಪ್ಪಿಸಲು ನಾವು ಗಂಡುಮಕ್ಕಳು/ದೇವರ ಹೆಸರುಗಳನ್ನು <strong>ಪುಂಲಿಂಗದಲ್ಲಿ (Masculine)</strong> ಮತ್ತು ಹೆಣ್ಣುಮಕ್ಕಳು/ದೇವಿಯರ ಹೆಸರುಗಳನ್ನು <strong>ಸ್ತ್ರೀಲಿಂಗದಲ್ಲಿ (Feminine)</strong> ಬಳಸಲಿದ್ದೇವೆ.<br>
+            • <span class="sk-text text-masc" style="font-size:1.3rem; display:inline;">अरुणः, गणेशः</span><br>
+            • <span class="sk-text text-fem" style="font-size:1.3rem; display:inline;">दुर्गा, सरस्वती</span>
         </span>
         <span class="en-text">
-            <b>Note:</b> Let's unlock new words and their genders in this level:<br>
-            • Masculine: <span class="sk-text" style="font-size:1.3rem; display:inline;">वृक्षः</span> (Tree), <span class="sk-text" style="font-size:1.3rem; display:inline;">स्तम्भः</span> (Pillar)<br>
-            • Feminine: <span class="sk-text" style="font-size:1.3rem; display:inline;">नदी</span> (River), <span class="sk-text" style="font-size:1.3rem; display:inline;">लेखनी</span> (Pen)
+            <b>Note:</b> In this stage, to avoid confusion, we will use the names of males/gods for the <strong>Masculine gender</strong> and females/goddesses for the <strong>Feminine gender</strong>.<br>
+            • <span class="sk-text text-masc" style="font-size:1.3rem; display:inline;">aruṇaḥ, gaṇeśaḥ</span><br>
+            • <span class="sk-text text-fem" style="font-size:1.3rem; display:inline;">durgā, sarasvatī</span>
         </span>
     </div>
 
@@ -411,7 +421,7 @@
         </h3>
         <p style="margin-bottom: 20px; font-size:1.1rem;">
             <span class="kn-text">ನಾವು ಇತರರನ್ನು ಪರಿಚಯಿಸುವಾಗ, ಅವರು ನಮ್ಮಿಂದ <strong>ದೂರದಲ್ಲಿದ್ದಾರೆಯೇ</strong>, <strong>ಹತ್ತಿರದಲ್ಲಿದ್ದಾರೆಯೇ</strong>, ಅಥವಾ <strong>ಯಾರೋ ಬೇರೊಬ್ಬರ ಬಗ್ಗೆ</strong> ಮಾತನಾಡುತ್ತಿದ್ದೇವೆಯೇ ಎಂಬುದರ ಆಧಾರದ ಮೇಲೆ ಪದಗಳು ಬದಲಾಗುತ್ತವೆ.</span>
-            <span class="en-text">When introducing others, pronouns change based on whether they are <strong>far away</strong>, <strong>nearby</strong>, or if we are talking about <strong>someone else</strong>.</span>
+            <span class="en-text">When introducing others, pronouns change based on whether they are <strong>far away</strong>, <strong>nearby</strong>, or if we are referring to <strong>someone else</strong>.</span>
         </p>
         <table class="grammar-table">
             <tr>
@@ -421,16 +431,16 @@
                 <th><span class="kn-text">ಬೇರೊಬ್ಬ</span><span class="en-text">Other</span></th>
             </tr>
             <tr>
-                <td style="color:var(--text-maroon); font-family:'Laila'; font-size:1.1rem; font-weight:bold;"><span class="kn-text">ಪುಂಲಿಂಗ</span><span class="en-text">Masculine</span></td>
-                <td>सः / तस्य</td>
-                <td>एषः / एतस्य</td>
-                <td>अन्यः / अन्यस्य</td>
+                <td style="color:var(--text-maroon); font-family:'Laila'; font-size:1.1rem; font-weight:bold;"><span class="kn-text text-masc">ಪುಂಲಿಂಗ</span><span class="en-text text-masc">Masculine</span></td>
+                <td class="text-masc">सः / तस्य</td>
+                <td class="text-masc">एषः / एतस्य</td>
+                <td class="text-masc">अन्यः / अन्यस्य</td>
             </tr>
             <tr>
-                <td style="color:var(--text-maroon); font-family:'Laila'; font-size:1.1rem; font-weight:bold;"><span class="kn-text">ಸ್ತ್ರೀಲಿಂಗ</span><span class="en-text">Feminine</span></td>
-                <td>सा / तस्याः</td>
-                <td>एषा / एतस्याः</td>
-                <td>अन्या / अन्यस्याः</td>
+                <td style="color:var(--text-maroon); font-family:'Laila'; font-size:1.1rem; font-weight:bold;"><span class="kn-text text-fem">ಸ್ತ್ರೀಲಿಂಗ</span><span class="en-text text-fem">Feminine</span></td>
+                <td class="text-fem">सा / तस्याः</td>
+                <td class="text-fem">एषा / एतस्याः</td>
+                <td class="text-fem">अन्या / अन्यस्याः</td>
             </tr>
         </table>
     </div>
@@ -440,51 +450,51 @@
     </h2>
     <div class="possession-grid">
         <div class="possession-column">
-            <h3 class="column-header"><span class="kn-text">ಸಃ / ಏಷಃ (ಯಾರು?)</span><span class="en-text">सः / एषः (Who is he?)</span></h3>
+            <h3 class="column-header"><span class="kn-text text-masc">ಸಃ / ಏಷಃ (ಯಾರು?)</span><span class="en-text text-masc">saḥ / eṣaḥ (Who is he?)</span></h3>
             
             <div class="phrase-card masc-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">सः</span> वृक्षः ।</span>
-                    <span class="mean-text"><span class="kn-text">ಅದು ಮರ (ದೂರ)</span><span class="en-text">That is a tree</span></span>
+                    <span class="sk-text text-masc"><span class="sk-highlight">सः</span> अरुणः ।</span>
+                    <span class="mean-text"><span class="kn-text">ಅವನು ಅರುಣ (ದೂರ)</span><span class="en-text">He is Aruna</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('सः वृक्षः')">🔊</button>
+                <button class="speak-btn" onclick="speakText('सः अरुणः')">🔊</button>
             </div>
             
             <div class="phrase-card masc-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">एषः</span> स्तम्भः ।</span>
-                    <span class="mean-text"><span class="kn-text">ಇದು ಕಂಬ (ಹತ್ತಿರ)</span><span class="en-text">This is a pillar</span></span>
+                    <span class="sk-text text-masc"><span class="sk-highlight">एषः</span> गणेशः ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವನು ಗಣೇಶ (ಹತ್ತಿರ)</span><span class="en-text">This is Ganesha</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('एषः स्तम्भः')">🔊</button>
+                <button class="speak-btn" onclick="speakText('एषः गणेशः')">🔊</button>
             </div>
         </div>
         
         <div class="possession-image-column masc-border">
             <div class="possession-image-box">
-                <img src="Images/masc_far.png" alt="Distant tree with fruits">
+                <img src="Images/aruna.png" alt="Distant Sun (Aruna)">
             </div>
             <div class="possession-image-box">
-                <img src="Images/masc_near.png" alt="Nearby pillar with shadow">
+                <img src="Images/ganesha.png" alt="Nearby Ganesha with someone bowing to his feet">
             </div>
         </div>
         
         <div class="possession-column">
-            <h3 class="column-header"><span class="kn-text">ತಸ್ಯ / ಏತಸ್ಯ (ಯಾರದ್ದು?)</span><span class="en-text">तस्य / एतस्य (Whose is it?)</span></h3>
+            <h3 class="column-header"><span class="kn-text text-masc">ತಸ್ಯ / ಏತಸ್ಯ (ಯಾರದ್ದು?)</span><span class="en-text text-masc">tasya / etasya (Whose is it?)</span></h3>
             
             <div class="phrase-card masc-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">तस्य</span> फलम् ।</span>
-                    <span class="mean-text"><span class="kn-text">ಅದರ ಹಣ್ಣು</span><span class="en-text">Its fruit</span></span>
+                    <span class="sk-text text-masc"><span class="sk-highlight">तस्य</span> किरणः ।</span>
+                    <span class="mean-text"><span class="kn-text">ಅವನ ಕಿರಣ</span><span class="en-text">His ray</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('तस्य फलम्')">🔊</button>
+                <button class="speak-btn" onclick="speakText('तस्य किरणः')">🔊</button>
             </div>
             
             <div class="phrase-card masc-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">एतस्य</span> छाया ।</span>
-                    <span class="mean-text"><span class="kn-text">ಇದರ ನೆರಳು</span><span class="en-text">Its shadow</span></span>
+                    <span class="sk-text text-masc"><span class="sk-highlight">एतस्य</span> पादः ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವನ ಪಾದ</span><span class="en-text">His foot</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('एतस्य छाया')">🔊</button>
+                <button class="speak-btn" onclick="speakText('एतस्य पादः')">🔊</button>
             </div>
         </div>
     </div>
@@ -495,51 +505,51 @@
     </h2>
     <div class="possession-grid">
         <div class="possession-column">
-            <h3 class="column-header"><span class="kn-text">ಸಾ / ಏಷಾ (ಯಾರು?)</span><span class="en-text">सा / एषा (Who is she?)</span></h3>
+            <h3 class="column-header"><span class="kn-text text-fem">ಸಾ / ಏಷಾ (ಯಾರು?)</span><span class="en-text text-fem">sā / eṣā (Who is she?)</span></h3>
             
             <div class="phrase-card fem-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">सा</span> नदी ।</span>
-                    <span class="mean-text"><span class="kn-text">ಅದು ನದಿ (ದೂರ)</span><span class="en-text">That is a river</span></span>
+                    <span class="sk-text text-fem"><span class="sk-highlight">सा</span> दुर्गा ।</span>
+                    <span class="mean-text"><span class="kn-text">ಅವಳು ದುರ್ಗಾ (ದೂರ)</span><span class="en-text">She is Durga</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('सा नदी')">🔊</button>
+                <button class="speak-btn" onclick="speakText('सा दुर्गा')">🔊</button>
             </div>
             
             <div class="phrase-card fem-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">एषा</span> लेखनी ।</span>
-                    <span class="mean-text"><span class="kn-text">ಇದು ಲೇಖನಿ (ಹತ್ತಿರ)</span><span class="en-text">This is a pen</span></span>
+                    <span class="sk-text text-fem"><span class="sk-highlight">एषा</span> सरस्वती ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವಳು ಸರಸ್ವತಿ (ಹತ್ತಿರ)</span><span class="en-text">She is Sarasvati</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('एषा लेखनी')">🔊</button>
+                <button class="speak-btn" onclick="speakText('एषा सरस्वती')">🔊</button>
             </div>
         </div>
         
         <div class="possession-image-column fem-border">
             <div class="possession-image-box">
-                <img src="Images/fem_far.png" alt="Distant river water">
+                <img src="Images/durga.png" alt="Distant Durga holding a weapon">
             </div>
             <div class="possession-image-box">
-                <img src="Images/fem_near.png" alt="Nearby pen with color">
+                <img src="Images/sarasvati.png" alt="Nearby Sarasvati with a Veena">
             </div>
         </div>
         
         <div class="possession-column">
-            <h3 class="column-header"><span class="kn-text">ತಸ್ಯಾಃ / ಏತಸ್ಯಾಃ (ಯಾರದ್ದು?)</span><span class="en-text">तस्याः / एतस्याः (Whose is it?)</span></h3>
+            <h3 class="column-header"><span class="kn-text text-fem">ತಸ್ಯಾಃ / ಏತಸ್ಯಾಃ (ಯಾರದ್ದು?)</span><span class="en-text text-fem">tasyāḥ / etasyāḥ (Whose is it?)</span></h3>
             
             <div class="phrase-card fem-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">तस्याः</span> जलम् ।</span>
-                    <span class="mean-text"><span class="kn-text">ಅದರ ನೀರು</span><span class="en-text">Its water</span></span>
+                    <span class="sk-text text-fem"><span class="sk-highlight">तस्याः</span> आयुधम् ।</span>
+                    <span class="mean-text"><span class="kn-text">ಅವಳ ಆಯುಧ</span><span class="en-text">Her weapon</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('तस्याः जलम्')">🔊</button>
+                <button class="speak-btn" onclick="speakText('तस्याः आयुधम्')">🔊</button>
             </div>
             
             <div class="phrase-card fem-theme">
                 <div>
-                    <span class="sk-text"><span class="sk-highlight">एतस्याः</span> वर्णः ।</span>
-                    <span class="mean-text"><span class="kn-text">ಇದರ ಬಣ್ಣ</span><span class="en-text">Its color</span></span>
+                    <span class="sk-text text-fem"><span class="sk-highlight">एतस्याः</span> वीणा ।</span>
+                    <span class="mean-text"><span class="kn-text">ಇವಳ ವೀಣೆ</span><span class="en-text">Her veena</span></span>
                 </div>
-                <button class="speak-btn" onclick="speakText('एतस्याः वर्णः')">🔊</button>
+                <button class="speak-btn" onclick="speakText('एतस्याः वीणा')">🔊</button>
             </div>
         </div>
     </div>
@@ -557,14 +567,16 @@
         <div class="other-box-grid">
             <div class="phrase-card masc-theme" style="justify-content: center; gap: 30px;">
                 <div>
-                    <span class="sk-text" style="font-size:2rem;"><span class="sk-highlight">अन्यः / अन्यस्य</span></span>
+                    <!-- Removed .sk-highlight so that text inherits .text-masc completely -->
+                    <span class="sk-text text-masc" style="font-size:2rem;">अन्यः / अन्यस्य</span>
                     <span class="mean-text"><span class="kn-text">ಬೇರೊಬ್ಬ / ಬೇರೊಬ್ಬನ</span><span class="en-text">Another / Another's (M)</span></span>
                 </div>
                 <button class="speak-btn" onclick="speakText('अन्यः अन्यस्य')">🔊</button>
             </div>
             <div class="phrase-card fem-theme" style="justify-content: center; gap: 30px;">
                 <div>
-                    <span class="sk-text" style="font-size:2rem;"><span class="sk-highlight">अन्या / अन्यस्याः</span></span>
+                    <!-- Removed .sk-highlight so that text inherits .text-fem completely -->
+                    <span class="sk-text text-fem" style="font-size:2rem;">अन्या / अन्यस्याः</span>
                     <span class="mean-text"><span class="kn-text">ಬೇರೊಬ್ಬಳು / ಬೇರೊಬ್ಬಳ</span><span class="en-text">Another / Another's (F)</span></span>
                 </div>
                 <button class="speak-btn" onclick="speakText('अन्या अन्यस्याः')">🔊</button>
@@ -578,22 +590,22 @@
         </h3>
         <p style="font-size: 1.2rem; color: #444; line-height: 1.8;">
             <span class="kn-text">
-                ನಾವು ಈ ಹಂತದಲ್ಲಿ ಪ್ರತ್ಯೇಕ ಲಿಂಗಗಳನ್ನು ಕಲಿಯುತ್ತಿದ್ದೇವೆ.<br>
-                ಪುಂಲಿಂಗದಲ್ಲಿ <strong>ಸಾಮಾನ್ಯವಾಗಿ</strong> <span class="sk-text" style="display:inline; font-size:1.4rem;">'-स्य'</span> ಸೇರಿಸಿ 'ಅವನ/ಅದರ' ಎಂದೂ,<br> 
-                ಸ್ತ್ರೀಲಿಂಗದಲ್ಲಿ <strong>ಸಾಮಾನ್ಯವಾಗಿ</strong> <span class="sk-text" style="display:inline; font-size:1.4rem;">'-स्याः'</span> ಸೇರಿಸಿ 'ಅವಳ/ಅದರ' ಎಂದೂ ಕಲಿಯುತ್ತೇವೆ.<br>
-                <em style="font-size:1rem; color:#888;">(ಗಮನಿಸಿ: ಈ ನಿಯಮ ಎಲ್ಲಾ ಕಡೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ).</em>
+                ನಾವು ಈ ಹಂತದಲ್ಲಿ ಲಿಂಗಗಳ ಪ್ರತ್ಯೇಕತೆಯನ್ನು ಕಲಿಯುತ್ತಿದ್ದೇವೆ.<br>
+                ಇದು ಒಂದು ಸಾಮಾನ್ಯ ನಿಯಮ: ಪುಂಲಿಂಗದಲ್ಲಿ <span class="sk-text text-masc" style="display:inline; font-size:1.4rem;">'-स्य'</span> ಸೇರಿಸಿ 'ಅವನ/ಅದರ' ಎಂದೂ,<br> 
+                ಸ್ತ್ರೀಲಿಂಗದಲ್ಲಿ <span class="sk-text text-fem" style="display:inline; font-size:1.4rem;">'-स्याः'</span> ಸೇರಿಸಿ 'ಅವಳ/ಅದರ' ಎಂದೂ ಬಳಸುತ್ತೇವೆ.<br>
+                <em style="font-size:1.1rem; color:var(--success-green); font-weight: bold;">(ಹೆಚ್ಚಿನ ಕಡೆಗಳಲ್ಲಿ ಈ ನಿಯಮವು ಹೀಗೆಯೇ ಇರುತ್ತದೆ. ಕೆಲವು ಅಪರೂಪದ ಸಂದರ್ಭಗಳಲ್ಲಿ ಇದು ಬದಲಾಗಬಹುದು).</em>
             </span>
             <span class="en-text">
-                We are learning separate genders in this level.<br>
-                Generally, we add <span class="sk-text" style="display:inline; font-size:1.4rem;">'-sya'</span> in masculine for 'his/its',<br>
-                and <span class="sk-text" style="display:inline; font-size:1.4rem;">'-syaah'</span> in feminine for 'her/its'.<br>
-                <em style="font-size:1rem; color:#888;">(Note: This rule doesn't apply everywhere).</em>
+                We are learning the distinction of genders in this stage.<br>
+                This is a general rule: we add <span class="sk-text text-masc" style="display:inline; font-size:1.4rem;">'-sya'</span> in the masculine for 'his/its',<br>
+                and <span class="sk-text text-fem" style="display:inline; font-size:1.4rem;">'-syāḥ'</span> in the feminine for 'her/its'.<br>
+                <em style="font-size:1.1rem; color:var(--success-green); font-weight: bold;">(In most cases, this rule remains the same, though there may be rare exceptions).</em>
             </span>
         </p>
     </div>
 
     <button class="treasure-btn" id="open-treasure-btn">
-        💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">Shabda-Ratnakosha</span>
+        💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">śabda-ratnakośa</span>
     </button>
 
     <div class="modal-overlay" id="treasure-modal">
@@ -603,15 +615,16 @@
                 <button class="close-btn" id="close-treasure-btn">&times;</button>
             </div>
             <div class="vocab-list">
-                <div class="vocab-item"><span class="v-sk">वृक्षः</span><span class="v-mean"><span class="kn-text">ಮರ</span><span class="en-text">Tree</span></span></div>
-                <div class="vocab-item"><span class="v-sk">फलम्</span><span class="v-mean"><span class="kn-text">ಹಣ್ಣು</span><span class="en-text">Fruit</span></span></div>
-                <div class="vocab-item"><span class="v-sk">स्तम्भः</span><span class="v-mean"><span class="kn-text">ಕಂಬ</span><span class="en-text">Pillar</span></span></div>
-                <div class="vocab-item"><span class="v-sk">छाया</span><span class="v-mean"><span class="kn-text">ನೆರಳು</span><span class="en-text">Shadow</span></span></div>
-                <div class="vocab-item"><span class="v-sk">नदी</span><span class="v-mean"><span class="kn-text">ನದಿ</span><span class="en-text">River</span></span></div>
-                <div class="vocab-item"><span class="v-sk">जलम्</span><span class="v-mean"><span class="kn-text">ನೀರು</span><span class="en-text">Water</span></span></div>
-                <div class="vocab-item"><span class="v-sk">लेखनी</span><span class="v-mean"><span class="kn-text">ಪೆನ್ನು</span><span class="en-text">Pen</span></span></div>
-                <div class="vocab-item"><span class="v-sk">वर्णः</span><span class="v-mean"><span class="kn-text">ಬಣ್ಣ</span><span class="en-text">Color</span></span></div>
-                <div class="vocab-item"><span class="v-sk">हरितः</span><span class="v-mean"><span class="kn-text">ಹಸಿರು</span><span class="en-text">Green</span></span></div>
+                <!-- Using Emojis wherever possible -->
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">☀️</span><span class="v-sk text-masc">अरुणः</span></div><span class="v-mean"><span class="kn-text">ಸೂರ್ಯ</span><span class="en-text">Sun</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">✨</span><span class="v-sk text-masc">किरणः</span></div><span class="v-mean"><span class="kn-text">ಕಿರಣ</span><span class="en-text">Ray</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">🐘</span><span class="v-sk text-masc">गणेशः</span></div><span class="v-mean"><span class="kn-text">ಗಣೇಶ</span><span class="en-text">Lord Ganesha</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">👣</span><span class="v-sk text-masc">पादः</span></div><span class="v-mean"><span class="kn-text">ಪಾದ</span><span class="en-text">Foot</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">🔱</span><span class="v-sk text-fem">दुर्गा</span></div><span class="v-mean"><span class="kn-text">ದುರ್ಗಾ</span><span class="en-text">Goddess Durga</span></span></div>
+                <!-- aayudham has no specific emoji, keeping it textual -->
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-sk" style="margin-left: 36px; color:var(--text-brown);">आयुधम्</span></div><span class="v-mean"><span class="kn-text">ಆಯುಧ</span><span class="en-text">Weapon</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">🪷</span><span class="v-sk text-fem">सरस्वती</span></div><span class="v-mean"><span class="kn-text">ಸರಸ್ವತಿ</span><span class="en-text">Goddess Sarasvati</span></span></div>
+                <div class="vocab-item"><div style="display:flex; align-items:center;"><span class="v-emoji">🪕</span><span class="v-sk text-fem">वीणा</span></div><span class="v-mean"><span class="kn-text">ವೀಣೆ</span><span class="en-text">Veena</span></span></div>
             </div>
         </div>
     </div>
@@ -620,7 +633,7 @@
         <div class="quiz-header">
             <div class="quiz-title">
                 <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷಾ</span>
-                <span class="en-text">Knowledge Test</span>
+                <span class="en-text">jñāna parīkṣā (Quiz)</span>
             </div>
             <div class="quiz-progress" id="quiz-progress"></div>
         </div>
@@ -639,13 +652,13 @@
 
     <div class="nav-buttons">
         <a href="level1.html" class="btn btn-outline">
-            ← <span class="kn-text">ಲೆವೆಲ್ ೧</span><span class="en-text">Level 1</span>
+            ← <span class="kn-text">ಸೋಪಾನ ೧</span><span class="en-text">sopāna 1</span>
         </a>
         <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
             🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
         </a>
         <a href="level3.html" id="finish-btn" class="btn btn-primary" style="display: none;">
-            <span class="kn-text">ಮುಂದಿನ ಹಂತ →</span><span class="en-text">Next Level →</span>
+            <span class="kn-text">ಮುಂದಿನ ಸೋಪಾನ →</span><span class="en-text">Next Stage →</span>
         </a>
     </div>
 
@@ -702,12 +715,12 @@
             ans: 1
         },
         {
-            q: "<span class='kn-text'>'ನದೀ' ಪದದ ಷಷ್ಠೀ ವಿಭಕ್ತಿ (ಅದರ/ಅವಳ) ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the possessive form of 'नदी' (River)?</span>",
-            options: ["तस्य", "तस्याः", "एतस्य", "मम"],
-            ans: 1
+            q: "<span class='kn-text'>'ಸರಸ್ವತೀ' ಪದದ ಷಷ್ಠೀ ವಿಭಕ್ತಿ (ಅವಳ) ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the possessive form of 'Sarasvatī'?</span>",
+            options: ["तस्य", "तस्याः", "एतस्याः", "मम"],
+            ans: 2
         },
         {
-            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ फलम् ।' (ಅದರ ಹಣ್ಣು - ದೂರ)</span><span class='en-text'>Fill in the blank: '___ फलम् ।' (Its fruit - far)</span>",
+            q: "<span class='kn-text'>ಖಾಲಿ ಜಾಗ ತುಂಬಿ: '___ किरणः ।' (ಅವನ ಕಿರಣ - ದೂರ)</span><span class='en-text'>Fill in the blank: '___ kiraṇaḥ ।' (His ray - far)</span>",
             options: ["मम", "तस्याः", "तस्य", "तव"],
             ans: 2
         }
@@ -761,7 +774,7 @@
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct');
-            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! Green is the correct answer.</span>';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Incorrect! Green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
@@ -779,13 +792,13 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.8rem; margin-bottom: 20px;">
             <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / ${questions.length}</strong>
         </div>`;
         
         if(score >= Math.ceil(questions.length * 0.8)) { 
-            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಲಿಂಗವ್ಯವಸ್ಥೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You have fully understood the gender system.</span>';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಈ ಸೋಪಾನದ ವಿಷಯವನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೀರಿ.</span><span class="en-text">🎉 Brilliant! You have fully understood the subject of this stage.</span>';
             feedbackEl.style.color = 'var(--success-green)';
             finishBtn.style.display = 'inline-flex';
         } else {
