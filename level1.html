@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita Level 1 - अहं & मम</title>
+    <title>saṃskṛta sopāna 1 - अहं & मम</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
@@ -79,13 +79,20 @@
             margin-bottom: 40px;
             border-radius: 0 0 20px 20px;
         }
+        
+        .motto-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
 
         .motto-sk {
             font-family: 'Tiro Devanagari Sanskrit', serif;
             font-size: 1.4rem;
             color: var(--text-maroon);
             font-weight: 600;
-            display: block;
         }
 
         .motto-kn, .motto-en {
@@ -159,7 +166,7 @@
         .card-image img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Ensures the image fills the box beautifully */
+            object-fit: cover;
         }
 
         .phrase-box {
@@ -203,8 +210,16 @@
             margin-bottom: 40px;
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
         }
+        
+        .subhashita-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
 
-        .subhashita-card h3 { color: var(--text-brown); margin-bottom: 15px; font-family: 'Inknut Antiqua', serif; }
+        .subhashita-card h3 { color: var(--text-brown); font-family: 'Inknut Antiqua', serif; margin: 0; }
 
         .shloka {
             font-family: 'Tiro Devanagari Sanskrit', serif;
@@ -300,7 +315,10 @@
 </nav>
 
 <div class="motto-box">
-    <span class="motto-sk">अहं छात्रः, त्वं गुरुः । मम श्रद्धा, तव ज्ञानम् ॥</span>
+    <div class="motto-flex">
+        <span class="motto-sk">अहं छात्रः, त्वं गुरुः । मम श्रद्धा, तव ज्ञानम् ॥</span>
+        <button class="speak-btn" onclick="speakText('अहं छात्रः, त्वं गुरुः । मम श्रद्धा, तव ज्ञानम् ॥')">🔊</button>
+    </div>
     <span class="motto-kn">
         <span class="kn-text">"ನಾನು ವಿದ್ಯಾರ್ಥಿ, ನೀನು ಗುರು. ನನ್ನ ಶ್ರದ್ಧೆ, ನಿನ್ನ ಜ್ಞಾನ."</span>
         <span class="en-text">"I am the student, you are the guru. My dedication, your knowledge."</span>
@@ -310,14 +328,17 @@
 <div class="container">
     
     <header>
-        <div class="level-badge">Level 1</div>
+        <div class="level-badge">
+            <span class="kn-text">ಸೋಪಾನ ೧</span>
+            <span class="en-text">sopāna 1</span>
+        </div>
         <h1>
             <span class="kn-text">ಸ್ವಯಂ ಪರಿಚಯಃ</span>
-            <span class="en-text">Swayam Parichayah</span>
+            <span class="en-text">svayam paricayaḥ</span>
         </h1>
         <p class="subtitle">
-            <span class="kn-text">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ (First & Second Person)</span>
-            <span class="en-text">First & Second Person (Uttama & Madhyama Purusha)</span>
+            <span class="kn-text">ಉತ್ತಮ ಮತ್ತು ಮಧ್ಯಮ ಪುರುಷ</span>
+            <span class="en-text">First & Second Person (uttama & madhyama puruṣa)</span>
         </p>
     </header>
 
@@ -328,7 +349,7 @@
                 <span class="en-text">1. Introducing Oneself</span>
             </h2>
             <p>
-                <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಊರನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</span>
+                <span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ನಗರವನ್ನು ಪರಿಚಯಿಸುವ ಕ್ರಮ.</span>
                 <span class="en-text">The method of introducing your name and city in Sanskrit.</span>
             </p>
             
@@ -356,13 +377,13 @@
 
             <div class="phrase-box">
                 <div>
-                    <div class="sk-text">मम ग्रामः बेङ्गलुरु ।</div>
+                    <div class="sk-text">मम नगरं बेङ्गलुरु ।</div>
                     <div style="font-weight: 600; margin-top: 5px;">
-                        <span class="kn-text">ನನ್ನ ಊರು ಬೆಂಗಳೂರು (My city is Bengaluru).</span>
+                        <span class="kn-text">ನನ್ನ ನಗರ ಬೆಂಗಳೂರು (My city is Bengaluru).</span>
                         <span class="en-text">My city is Bengaluru.</span>
                     </div>
                 </div>
-                <button class="speak-btn" onclick="speakText('मम ग्रामः बेङ्गलुरु')">🔊</button>
+                <button class="speak-btn" onclick="speakText('मम नगरं बेङ्गलुरु')">🔊</button>
             </div>
         </div>
         
@@ -380,7 +401,7 @@
         <div class="card-content">
             <h2 style="color: var(--text-brown); margin-bottom: 10px;">
                 <span class="kn-text">೨. ಎದುರಿಗಿರುವವರನ್ನು ಪರಿಚಯಿಸುವುದು</span>
-                <span class="en-text">2. Introducing the Person in Front of You</span>
+                <span class="en-text">2. Introducing the Person Before You</span>
             </h2>
             <p>
                 <span class="kn-text">ನಿಮ್ಮ ಮುಂದೆ ಇರುವ ವ್ಯಕ್ತಿಯನ್ನು ನೇರವಾಗಿ ಸಂಬೋಧಿಸುವ ಕ್ರಮ.</span>
@@ -411,13 +432,13 @@
 
             <div class="phrase-box">
                 <div>
-                    <div class="sk-text">तव ग्रामः मैसूरु ।</div>
+                    <div class="sk-text">तव नगरं मैसूरु ।</div>
                     <div style="font-weight: 600; margin-top: 5px;">
-                        <span class="kn-text">ನಿನ್ನ ಊರು ಮೈಸೂರು (Your city is Mysuru).</span>
+                        <span class="kn-text">ನಿನ್ನ ನಗರ ಮೈಸೂರು (Your city is Mysuru).</span>
                         <span class="en-text">Your city is Mysuru.</span>
                     </div>
                 </div>
-                <button class="speak-btn" onclick="speakText('तव ग्रामः मैसूरु')">🔊</button>
+                <button class="speak-btn" onclick="speakText('तव नगरं मैसूरु')">🔊</button>
             </div>
         </div>
         
@@ -432,10 +453,14 @@
     </div>
 
     <div class="subhashita-card">
-        <h3>
-            <span class="kn-text">सुभाषितम् - १</span>
-            <span class="en-text">Subhashitam - 1</span>
-        </h3>
+        <div class="subhashita-header">
+            <h3>
+                <span class="kn-text">सुभाषितम् - १</span>
+                <span class="en-text">subhāṣitam - 1</span>
+            </h3>
+            <button class="speak-btn" onclick="speakText('अहं पृच्छामि भो मित्र, त्वं च उत्तरं वद । मम प्रश्नः तव ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥')">🔊</button>
+        </div>
+        
         <p class="shloka">
             <span class="hl-aham">अहं</span> पृच्छामि भो मित्र, <span class="hl-tvam">त्वं</span> च उत्तरं वद ।<br>
             <span class="hl-mama">मम</span> प्रश्नः <span class="hl-tava">तव</span> ज्ञानं, ज्ञानवृद्धिः प्रजायते ॥
@@ -447,11 +472,11 @@
     </div>
 
     <p style="text-align:center; color:#555; font-size:1.1rem; margin-bottom:10px; font-weight:bold;">
-        <span class="kn-text">ಈ ಲೆವೆಲ್‌ನಲ್ಲಿ ಬಂದ ಹೊಸ ಶಬ್ದಗಳನ್ನು ಕಲಿಯಲು ಕೆಳಗಿನ ರತ್ನದ ಪೆಟ್ಟಿಗೆಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ!</span>
-        <span class="en-text">Click the treasure box below to learn the new words introduced in this level!</span>
+        <span class="kn-text">ಈ ಸೋಪಾನದಲ್ಲಿ ಬಂದ ಹೊಸ ಶಬ್ದಗಳನ್ನು ಕಲಿಯಲು ಕೆಳಗಿನ ರತ್ನದ ಪೆಟ್ಟಿಗೆಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ!</span>
+        <span class="en-text">Click the treasure chest below to learn the new words introduced in this stage!</span>
     </p>
     <button class="treasure-btn" id="open-treasure-btn">
-        💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">Shabda-Ratnakosha</span>
+        💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">śabda-ratnakośa</span>
     </button>
 
     <div class="modal-overlay" id="treasure-modal">
@@ -465,7 +490,7 @@
                 <div class="vocab-item"><span class="v-sk">त्वम्</span><span class="v-mean"><span class="kn-text">ನೀನು</span><span class="en-text">You</span></span></div>
                 <div class="vocab-item"><span class="v-sk">मम</span><span class="v-mean"><span class="kn-text">ನನ್ನ</span><span class="en-text">My</span></span></div>
                 <div class="vocab-item"><span class="v-sk">तव</span><span class="v-mean"><span class="kn-text">ನಿನ್ನ</span><span class="en-text">Your</span></span></div>
-                <div class="vocab-item"><span class="v-sk">ग्रामः</span><span class="v-mean"><span class="kn-text">ಊರು / ಹಳ್ಳಿ</span><span class="en-text">Village / City</span></span></div>
+                <div class="vocab-item"><span class="v-sk">नगरम्</span><span class="v-mean"><span class="kn-text">ನಗರ / ಊರು</span><span class="en-text">City</span></span></div>
                 <div class="vocab-item"><span class="v-sk">पृच्छामि</span><span class="v-mean"><span class="kn-text">ಕೇಳುತ್ತೇನೆ</span><span class="en-text">I ask</span></span></div>
                 <div class="vocab-item"><span class="v-sk">वद</span><span class="v-mean"><span class="kn-text">ಹೇಳು</span><span class="en-text">Tell / Speak</span></span></div>
                 <div class="vocab-item"><span class="v-sk">भो मित्र</span><span class="v-mean"><span class="kn-text">ಎಲೈ ಮಿತ್ರನೇ</span><span class="en-text">O Friend</span></span></div>
@@ -515,7 +540,7 @@
         <div class="quiz-header">
             <div class="quiz-title">
                 <span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷಾ (Quiz)</span>
-                <span class="en-text">Jnana Pariksha (Quiz)</span>
+                <span class="en-text">jñāna parīkṣā (Quiz)</span>
             </div>
             <div class="quiz-progress" id="quiz-progress"></div>
         </div>
@@ -537,7 +562,7 @@
             🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
         </a>
         <a href="level2.html" id="finish-btn" class="btn btn-primary" style="display: none;">
-            <span class="kn-text">ಮುಂದಿನ ಹಂತ (Level 2)</span><span class="en-text">Next Level (Level 2)</span> →
+            <span class="kn-text">ಮುಂದಿನ ಸೋಪಾನ (sopāna 2)</span><span class="en-text">Next Stage (sopāna 2)</span> →
         </a>
     </div>
 
@@ -594,8 +619,8 @@
             ans: 2
         },
         {
-            q: "<span class='kn-text'>'ನಿನ್ನ ಊರು ಮೈಸೂರು' - ಸರಿಯಾದ ಸಂಸ್ಕೃತ ವಾಕ್ಯ ಯಾವುದು?</span><span class='en-text'>'Your city is Mysuru' - Which is the correct Sanskrit sentence?</span>",
-            options: ["तव ग्रामः मैसूरु ।", "त्वं ग्रामः मैसूरु ।", "मम ग्रामः मैसूरु ।"],
+            q: "<span class='kn-text'>'ನಿನ್ನ ನಗರ ಮೈಸೂರು' - ಸರಿಯಾದ ಸಂಸ್ಕೃತ ವಾಕ್ಯ ಯಾವುದು?</span><span class='en-text'>'Your city is Mysuru' - Which is the correct Sanskrit sentence?</span>",
+            options: ["तव नगरं मैसूरु ।", "त्वं नगरं मैसूरु ।", "मम नगरं मैसूरु ।"],
             ans: 0
         },
         {
@@ -655,7 +680,7 @@
         } else {
             btnClicked.classList.add('wrong');
             allBtns[correctIndex].classList.add('correct'); // Show correct answer
-            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Wrong! The one in green is the correct answer.</span>';
+            feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Incorrect! The one in green is the correct answer.</span>';
             feedbackEl.style.color = 'var(--error-red)';
         }
 
@@ -674,13 +699,13 @@
 
     function showFinalResult() {
         nextQBtn.style.display = 'none';
-        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`;
+        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz completed!</span>`;
         optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem; margin-bottom: 20px;">
             <span class="kn-text">ನಿಮ್ಮ ಅಂಕಗಳು:</span><span class="en-text">Your Score:</span> <strong style="color:var(--text-maroon);">${score} / 5</strong>
         </div>`;
         
         if(score >= 4) {
-            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಲು ಸಿದ್ಧರಿದ್ದೀರಿ.</span><span class="en-text">🎉 Awesome! You are ready for the next level.</span>';
+            feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅದ್ಭುತ! ನೀವು ಮುಂದಿನ ಸೋಪಾನಕ್ಕೆ ಹೋಗಲು ಸಿದ್ಧರಿದ್ದೀರಿ.</span><span class="en-text">🎉 Brilliant! You are ready for the next stage.</span>';
             feedbackEl.style.color = 'var(--success-green)';
             finishBtn.style.display = 'inline-block';
         } else {
