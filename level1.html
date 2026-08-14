@@ -61,9 +61,9 @@
         }
         .lang-switch-btn:hover { background: var(--accent-gold); color: white; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px 60px; }
 
-        header { text-align: center; margin-bottom: 50px; margin-top: 40px; }
+        header { text-align: center; margin-bottom: 30px; margin-top: 40px; }
         .level-badge { display: inline-block; background-color: var(--text-maroon); color: white; padding: 8px 25px; border-radius: 30px; font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(128,0,0,0.2); }
         h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 10px; }
         .subtitle { font-size: 1.3rem; color: #666; font-weight: 600; }
@@ -72,10 +72,24 @@
         .text-fem { color: var(--fem-pink) !important; font-weight: bold;}
         .text-neut { color: var(--neut-green) !important; font-weight: bold;}
 
+        /* Gender Legend Box */
+        .gender-legend-box {
+            display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .legend-item {
+            background: #fff; border: 2px solid; padding: 10px 20px; border-radius: 30px;
+            font-family: 'Inknut Antiqua', serif; font-size: 1.2rem; font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .leg-masc { border-color: var(--masc-blue); color: var(--masc-blue); background: var(--masc-light); }
+        .leg-fem { border-color: var(--fem-pink); color: var(--fem-pink); background: var(--fem-light); }
+        .leg-neut { border-color: var(--neut-green); color: var(--neut-green); background: var(--neut-light); }
+        .leg-label { font-family: 'Laila', sans-serif; font-size: 0.95rem; color: #555; }
+
         /* Anatomy Diagram Section */
         .anatomy-wrapper {
             position: relative; width: 100%; margin-bottom: 60px;
-            display: flex; justify-content: space-between; align-items: stretch; gap: 20px;
+            display: flex; justify-content: space-between; align-items: center; gap: 30px;
         }
 
         #line-svg {
@@ -84,34 +98,45 @@
         }
 
         .side-col {
-            flex: 1; display: flex; flex-direction: column; gap: 15px; z-index: 2; min-width: 250px;
+            flex: 1; display: flex; flex-direction: column; gap: 15px; z-index: 2; min-width: 280px;
         }
         
         .center-col {
-            flex: 1.2; position: relative; z-index: 2; text-align: center;
+            flex: 1.2; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center;
         }
 
-        .center-col img {
-            width: 100%; max-width: 450px; border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            background: #fff;
+        .image-wrapper {
+            position: relative; display: inline-block; width: 100%; max-width: 350px; /* Adjusted for 9:16 portrait */
         }
 
-        .gender-header {
-            font-family: 'Inknut Antiqua', serif; font-size: 1.8rem; text-align: center;
-            border-bottom: 2px dashed #ccc; padding-bottom: 10px; margin-bottom: 10px;
+        .image-wrapper img {
+            width: 100%; height: auto; display: block; border-radius: 20px; 
+            filter: drop-shadow(0px 10px 25px rgba(0,0,0,0.15));
         }
 
         .bp-card {
-            background: #fff; border: 2px solid; border-radius: 12px; padding: 12px 15px;
+            background: #fff; border: 2px solid; border-radius: 12px; padding: 10px 15px;
             display: flex; align-items: center; justify-content: space-between; cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.2s; position: relative;
         }
-        .bp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .bp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); z-index: 5;}
         
         .masc-card { border-color: var(--masc-blue); background: var(--masc-light); }
         .fem-card { border-color: var(--fem-pink); background: var(--fem-light); }
         .neut-card { border-color: var(--neut-green); background: var(--neut-light); }
+
+        /* DOTS ON THE CARDS ONLY */
+        .card-dot {
+            position: absolute; width: 14px; height: 14px; border-radius: 50%;
+            top: 50%; transform: translateY(-50%); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 2px solid #fff;
+        }
+        .left-col .card-dot { right: -7px; }
+        .right-col .card-dot { left: -7px; }
+
+        .masc-card .card-dot { background-color: var(--masc-blue); }
+        .fem-card .card-dot { background-color: var(--fem-pink); }
+        .neut-card .card-dot { background-color: var(--neut-green); }
 
         .bp-info { display: flex; align-items: center; gap: 12px; }
         .bp-emoji { font-size: 1.8rem; }
@@ -119,16 +144,6 @@
         .bp-mean { font-size: 0.95rem; color: #555; font-family: 'Laila', sans-serif; font-weight: 600; display: block;}
         
         .speaker-icon { font-size: 1.2rem; color: var(--accent-gold); background: #fff; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; }
-
-        /* Points on Image */
-        .bp-dot {
-            position: absolute; width: 12px; height: 12px; border-radius: 50%;
-            border: 2px solid #fff; transform: translate(-50%, -50%); z-index: 3;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        .dot-masc { background-color: var(--masc-blue); }
-        .dot-fem { background-color: var(--fem-pink); }
-        .dot-neut { background-color: var(--neut-green); }
 
         /* Shabda Ratnakosha Button */
         .treasure-btn-main {
@@ -139,7 +154,7 @@
         }
         .treasure-btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3); }
 
-        /* Shabda Ratnakosha Modal (Matching Screenshot Exactly) */
+        /* Shabda Ratnakosha Modal */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
         .modal-overlay.show { display: flex; }
         
@@ -203,7 +218,7 @@
             .quiz-options { grid-template-columns: 1fr; }
             .nav-buttons { flex-direction: column; gap: 12px; }
             .btn { width: 100%; }
-            .center-col { order: -1; } /* Bring image to top on mobile */
+            .center-col { order: -1; margin-bottom: 20px; } /* Bring image to top on mobile */
         }
     </style>
 </head>
@@ -229,127 +244,123 @@
         <span class="en-text">In Sanskrit, every object has a gender. Let's learn to say <b>"This is my..."</b> using our body parts. Pay close attention to the colours!</span>
     </p>
 
+    <!-- Gender Color Legend -->
+    <div class="gender-legend-box">
+        <div class="legend-item leg-masc">अयम् <span class="leg-label"><span class="kn-text">(ಪುಂಲಿಂಗ)</span><span class="en-text">(Masculine)</span></span></div>
+        <div class="legend-item leg-fem">इयम् <span class="leg-label"><span class="kn-text">(ಸ್ತ್ರೀಲಿಂಗ)</span><span class="en-text">(Feminine)</span></span></div>
+        <div class="legend-item leg-neut">इदम् <span class="leg-label"><span class="kn-text">(ನಪುಂಸಕ ಲಿಂಗ)</span><span class="en-text">(Neuter)</span></span></div>
+    </div>
+
     <!-- Anatomy Diagram Section -->
     <div class="anatomy-wrapper" id="diagram-wrapper">
         <svg id="line-svg"></svg>
 
-        <!-- Left Column (Masculine) -->
-        <div class="side-col">
-            <div class="gender-header text-masc">अयम् <br><span style="font-size:1rem; color:#666;"><span class="kn-text">(ಪುಂಲಿಂಗ)</span><span class="en-text">(Masculine)</span></span></div>
-            
-            <div class="bp-card masc-card" id="lbl-kanthah" onclick="speak('अयं मम कण्ठः')">
-                <div class="bp-info"><span class="bp-emoji">🧣</span><div><span class="bp-sk text-masc">अयं मम कण्ठः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಗಂಟಲು</span><span class="en-text">This is my throat</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-            
-            <div class="bp-card masc-card" id="lbl-oshthah" onclick="speak('अयं मम ओष्ठः')">
-                <div class="bp-info"><span class="bp-emoji">👄</span><div><span class="bp-sk text-masc">अयं मम ओष्ठः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ತುಟಿ</span><span class="en-text">This is my lip</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-            
-            <div class="bp-card masc-card" id="lbl-dantah" onclick="speak('अयं मम दन्तः')">
-                <div class="bp-info"><span class="bp-emoji">🦷</span><div><span class="bp-sk text-masc">अयं मम दन्तः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಹಲ್ಲು</span><span class="en-text">This is my tooth</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-            
-            <div class="bp-card masc-card" id="lbl-skandhah" onclick="speak('अयं मम स्कन्धः')">
-                <div class="bp-info"><span class="bp-emoji">💪</span><div><span class="bp-sk text-masc">अयं मम स्कन्धः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಭುಜ</span><span class="en-text">This is my shoulder</span></span></div></div>
+        <!-- Left Column (Anatomically pointing to Left side of body) -->
+        <div class="side-col left-col">
+            <div class="bp-card neut-card" id="lbl-netram" data-target-x="43" data-target-y="15" onclick="speak('इदं मम नेत्रम्')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">👁️</span><div><span class="bp-sk text-neut">इदं मम नेत्रम्।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಕಣ್ಣು</span><span class="en-text">This is my eye</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
 
-            <div class="bp-card masc-card" id="lbl-manibandhah" onclick="speak('अयं मम मणिबन्धः')">
-                <div class="bp-info"><span class="bp-emoji">⌚</span><div><span class="bp-sk text-masc">अयं मम मणिबन्धः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಮಣಿಕಟ್ಟು</span><span class="en-text">This is my wrist</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-
-            <div class="bp-card masc-card" id="lbl-hastah" onclick="speak('अयं मम हस्तः')">
-                <div class="bp-info"><span class="bp-emoji">🤚</span><div><span class="bp-sk text-masc">अयं मम हस्तः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಕೈ</span><span class="en-text">This is my hand</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-            
-            <div class="bp-card masc-card" id="lbl-gulphah" onclick="speak('अयं मम गुल्फः')">
-                <div class="bp-info"><span class="bp-emoji">🧦</span><div><span class="bp-sk text-masc">अयं मम गुल्फः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಹಿಮ್ಮಡಿ</span><span class="en-text">This is my ankle</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-
-            <div class="bp-card masc-card" id="lbl-padah" onclick="speak('अयं मम पादः')">
-                <div class="bp-info"><span class="bp-emoji">🦶</span><div><span class="bp-sk text-masc">अयं मम पादः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಪಾದ</span><span class="en-text">This is my foot</span></span></div></div>
-                <div class="speaker-icon">🔊</div>
-            </div>
-        </div>
-
-        <!-- Center Column (Image and Dots) -->
-        <div class="center-col">
-            <img src="boy_image.png" alt="Boy Body Parts" id="anatomy-img" onload="setTimeout(drawLines, 200)">
-            
-            <!-- Masc Dots -->
-            <div class="bp-dot dot-masc" id="dot-kanthah" style="top: 24%; left: 50%;"></div>
-            <div class="bp-dot dot-masc" id="dot-oshthah" style="top: 20%; left: 50%;"></div>
-            <div class="bp-dot dot-masc" id="dot-dantah" style="top: 21%; left: 50%;"></div>
-            <div class="bp-dot dot-masc" id="dot-skandhah" style="top: 29%; left: 44%;"></div>
-            <div class="bp-dot dot-masc" id="dot-manibandhah" style="top: 55%; left: 41%;"></div>
-            <div class="bp-dot dot-masc" id="dot-hastah" style="top: 60%; left: 40%;"></div>
-            <div class="bp-dot dot-masc" id="dot-gulphah" style="top: 88%; left: 46%;"></div>
-            <div class="bp-dot dot-masc" id="dot-padah" style="top: 92%; left: 45%;"></div>
-
-            <!-- Fem Dots -->
-            <div class="bp-dot dot-fem" id="dot-nasa" style="top: 18%; left: 50%;"></div>
-            <div class="bp-dot dot-fem" id="dot-jihva" style="top: 20.5%; left: 51%;"></div>
-            <div class="bp-dot dot-fem" id="dot-griva" style="top: 25%; left: 52%;"></div>
-            <div class="bp-dot dot-fem" id="dot-jangha" style="top: 78%; left: 53%;"></div>
-
-            <!-- Neut Dots -->
-            <div class="bp-dot dot-neut" id="dot-netram" style="top: 16%; left: 48%;"></div>
-            <div class="bp-dot dot-neut" id="dot-chibukam" style="top: 22.5%; left: 50%;"></div>
-            <div class="bp-dot dot-neut" id="dot-hridayam" style="top: 35%; left: 52%;"></div>
-        </div>
-
-        <!-- Right Column (Feminine & Neuter) -->
-        <div class="side-col">
-            <!-- Feminine -->
-            <div class="gender-header text-fem">इयम् <br><span style="font-size:1rem; color:#666;"><span class="kn-text">(ಸ್ತ್ರೀಲಿಂಗ)</span><span class="en-text">(Feminine)</span></span></div>
-            
-            <div class="bp-card fem-card" id="lbl-nasa" onclick="speak('इयं मम नासा')">
+            <div class="bp-card fem-card" id="lbl-nasa" data-target-x="50" data-target-y="18" onclick="speak('इयं मम नासा')">
+                <div class="card-dot"></div>
                 <div class="bp-info"><span class="bp-emoji">👃</span><div><span class="bp-sk text-fem">इयं मम नासा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಮೂಗು</span><span class="en-text">This is my nose</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
             
-            <div class="bp-card fem-card" id="lbl-jihva" onclick="speak('इयं मम जिह्वा')">
-                <div class="bp-info"><span class="bp-emoji">👅</span><div><span class="bp-sk text-fem">इयं मम जिह्वा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ನಾಲಿಗೆ</span><span class="en-text">This is my tongue</span></span></div></div>
+            <div class="bp-card masc-card" id="lbl-oshthah" data-target-x="48" data-target-y="21" onclick="speak('अयं मम ओष्ठः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">👄</span><div><span class="bp-sk text-masc">अयं मम ओष्ठः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ತುಟಿ</span><span class="en-text">This is my lip</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
             
-            <div class="bp-card fem-card" id="lbl-griva" onclick="speak('इयं मम ग्रीवा')">
+            <div class="bp-card fem-card" id="lbl-griva" data-target-x="45" data-target-y="28" onclick="speak('इयं मम ग्रीवा')">
+                <div class="card-dot"></div>
                 <div class="bp-info"><span class="bp-emoji">💆‍♀️</span><div><span class="bp-sk text-fem">इयं मम ग्रीवा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಕುತ್ತಿಗೆ</span><span class="en-text">This is my neck</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
-            
-            <div class="bp-card fem-card" id="lbl-jangha" onclick="speak('इयं मम जङ्घा')">
-                <div class="bp-info"><span class="bp-emoji">🦵</span><div><span class="bp-sk text-fem">इयं मम जङ्घा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಮೊಣಕಾಲು</span><span class="en-text">This is my calf/thigh</span></span></div></div>
+
+            <div class="bp-card masc-card" id="lbl-skandhah" data-target-x="28" data-target-y="36" onclick="speak('अयं मम स्कन्धः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">💪</span><div><span class="bp-sk text-masc">अयं मम स्कन्धः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಭುಜ</span><span class="en-text">This is my shoulder</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
 
-            <!-- Neuter -->
-            <div class="gender-header text-neut" style="margin-top:20px;">इदम् <br><span style="font-size:1rem; color:#666;"><span class="kn-text">(ನಪುಂಸಕ ಲಿಂಗ)</span><span class="en-text">(Neuter)</span></span></div>
-            
-            <div class="bp-card neut-card" id="lbl-netram" onclick="speak('इदं मम नेत्रम्')">
-                <div class="bp-info"><span class="bp-emoji">👁️</span><div><span class="bp-sk text-neut">इदं मम नेत्रम्।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಕಣ್ಣು</span><span class="en-text">This is my eye</span></span></div></div>
+            <div class="bp-card masc-card" id="lbl-hastah" data-target-x="12" data-target-y="60" onclick="speak('अयं मम हस्तः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🤚</span><div><span class="bp-sk text-masc">अयं मम हस्तः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಕೈ</span><span class="en-text">This is my hand</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
             
-            <div class="bp-card neut-card" id="lbl-chibukam" onclick="speak('इदं मम चिबुकम्')">
+            <div class="bp-card masc-card" id="lbl-gulphah" data-target-x="41" data-target-y="92" onclick="speak('अयं मम गुल्फः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🧦</span><div><span class="bp-sk text-masc">अयं मम गुल्फः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಹಿಮ್ಮಡಿ</span><span class="en-text">This is my ankle</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+        </div>
+
+        <!-- Center Column (Portrait Image) -->
+        <div class="center-col">
+            <div class="image-wrapper">
+                <!-- IMPORTANT: Using the new image filename you requested -->
+                <img src="image-removebg-preview.png" alt="Boy Body Parts" id="anatomy-img" onload="setTimeout(drawLines, 500)">
+            </div>
+        </div>
+
+        <!-- Right Column (Anatomically pointing to Right side of body) -->
+        <div class="side-col right-col">
+            <div class="bp-card neut-card" id="lbl-chibukam" data-target-x="50" data-target-y="25" onclick="speak('इदं मम चिबुकम्')">
+                <div class="card-dot"></div>
                 <div class="bp-info"><span class="bp-emoji">🧔</span><div><span class="bp-sk text-neut">इदं मम चिबुकम्।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಗಲ್ಲ</span><span class="en-text">This is my chin</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
 
-            <div class="bp-card neut-card" id="lbl-hridayam" onclick="speak('इदं मम हृदयम्')">
+            <div class="bp-card masc-card" id="lbl-dantah" data-target-x="52" data-target-y="22" onclick="speak('अयं मम दन्तः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🦷</span><div><span class="bp-sk text-masc">अयं मम दन्तः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಹಲ್ಲು</span><span class="en-text">This is my tooth</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card fem-card" id="lbl-jihva" data-target-x="50" data-target-y="22.5" onclick="speak('इयं मम जिह्वा')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">👅</span><div><span class="bp-sk text-fem">इयं मम जिह्वा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ನಾಲಿಗೆ</span><span class="en-text">This is my tongue</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card masc-card" id="lbl-kanthah" data-target-x="55" data-target-y="30" onclick="speak('अयं मम कण्ठः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🧣</span><div><span class="bp-sk text-masc">अयं मम कण्ठः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಗಂಟಲು</span><span class="en-text">This is my throat</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card neut-card" id="lbl-hridayam" data-target-x="60" data-target-y="42" onclick="speak('इदं मम हृदयम्')">
+                <div class="card-dot"></div>
                 <div class="bp-info"><span class="bp-emoji">❤️</span><div><span class="bp-sk text-neut">इदं मम हृदयम्।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಹೃದಯ</span><span class="en-text">This is my heart</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card masc-card" id="lbl-manibandhah" data-target-x="82" data-target-y="53" onclick="speak('अयं मम मणिबन्धः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">⌚</span><div><span class="bp-sk text-masc">अयं मम मणिबन्धः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಮಣಿಕಟ್ಟು</span><span class="en-text">This is my wrist</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card fem-card" id="lbl-jangha" data-target-x="62" data-target-y="75" onclick="speak('इयं मम जङ्घा')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🦵</span><div><span class="bp-sk text-fem">इयं मम जङ्घा।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಮೊಣಕಾಲು</span><span class="en-text">This is my calf/thigh</span></span></div></div>
+                <div class="speaker-icon">🔊</div>
+            </div>
+
+            <div class="bp-card masc-card" id="lbl-padah" data-target-x="62" data-target-y="96" onclick="speak('अयं मम पादः')">
+                <div class="card-dot"></div>
+                <div class="bp-info"><span class="bp-emoji">🦶</span><div><span class="bp-sk text-masc">अयं मम पादः।</span><span class="bp-mean"><span class="kn-text">ಇದು ನನ್ನ ಪಾದ</span><span class="en-text">This is my foot</span></span></div></div>
                 <div class="speaker-icon">🔊</div>
             </div>
         </div>
     </div>
 
-    <!-- Vocabulary Treasure Box (Before Quiz) -->
+    <!-- Vocabulary Treasure Box -->
     <button class="treasure-btn-main" onclick="openRatnakoshaModal()">
         💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">śabda-ratnakośa</span>
     </button>
@@ -420,70 +431,76 @@
         setTimeout(drawLines, 100);
     }
 
-    // --- LINE DRAWING LOGIC ---
+    // --- LINE DRAWING LOGIC (Connecting Cards to Image dynamically) ---
     function drawLines() {
         const svg = document.getElementById('line-svg');
         svg.innerHTML = ''; 
         if (window.innerWidth <= 768) return; // Hide lines on mobile screens
 
         const svgRect = svg.getBoundingClientRect();
+        const img = document.getElementById('anatomy-img');
+        const imgRect = img.getBoundingClientRect();
 
-        const connections = [
-            // Masculine (Left)
-            { label: 'lbl-kanthah', dot: 'dot-kanthah', color: 'var(--masc-blue)' },
-            { label: 'lbl-oshthah', dot: 'dot-oshthah', color: 'var(--masc-blue)' },
-            { label: 'lbl-dantah', dot: 'dot-dantah', color: 'var(--masc-blue)' },
-            { label: 'lbl-skandhah', dot: 'dot-skandhah', color: 'var(--masc-blue)' },
-            { label: 'lbl-manibandhah', dot: 'dot-manibandhah', color: 'var(--masc-blue)' },
-            { label: 'lbl-hastah', dot: 'dot-hastah', color: 'var(--masc-blue)' },
-            { label: 'lbl-gulphah', dot: 'dot-gulphah', color: 'var(--masc-blue)' },
-            { label: 'lbl-padah', dot: 'dot-padah', color: 'var(--masc-blue)' },
-            // Feminine (Right Top)
-            { label: 'lbl-nasa', dot: 'dot-nasa', color: 'var(--fem-pink)' },
-            { label: 'lbl-jihva', dot: 'dot-jihva', color: 'var(--fem-pink)' },
-            { label: 'lbl-griva', dot: 'dot-griva', color: 'var(--fem-pink)' },
-            { label: 'lbl-jangha', dot: 'dot-jangha', color: 'var(--fem-pink)' },
-            // Neuter (Right Bottom)
-            { label: 'lbl-netram', dot: 'dot-netram', color: 'var(--neut-green)' },
-            { label: 'lbl-chibukam', dot: 'dot-chibukam', color: 'var(--neut-green)' },
-            { label: 'lbl-hridayam', dot: 'dot-hridayam', color: 'var(--neut-green)' }
-        ];
+        // Ensure image is loaded and has dimensions
+        if(imgRect.width === 0 || imgRect.height === 0) return;
 
-        connections.forEach(conn => {
-            const label = document.getElementById(conn.label);
-            const dot = document.getElementById(conn.dot);
-            if (!label || !dot) return;
+        document.querySelectorAll('.bp-card').forEach(card => {
+            const targetXPercent = parseFloat(card.getAttribute('data-target-x'));
+            const targetYPercent = parseFloat(card.getAttribute('data-target-y'));
+            
+            if(isNaN(targetXPercent) || isNaN(targetYPercent)) return;
 
-            const lRect = label.getBoundingClientRect();
-            const dRect = dot.getBoundingClientRect();
+            const dot = card.querySelector('.card-dot');
+            const dotRect = dot.getBoundingClientRect();
 
-            let x1 = 0;
-            let y1 = (lRect.top + lRect.bottom) / 2 - svgRect.top;
+            // Start point (at the center of the card dot)
+            const startX = (dotRect.left + dotRect.right) / 2 - svgRect.left;
+            const startY = (dotRect.top + dotRect.bottom) / 2 - svgRect.top;
 
-            // Determine if label is on left or right
-            if (label.classList.contains('masc-card')) {
-                x1 = lRect.right - svgRect.left;
-            } else {
-                x1 = lRect.left - svgRect.left;
-            }
+            // End point (calculated percentage on the image)
+            const endX = imgRect.left + (imgRect.width * targetXPercent / 100) - svgRect.left;
+            const endY = imgRect.top + (imgRect.height * targetYPercent / 100) - svgRect.top;
 
-            const x2 = (dRect.left + dRect.right) / 2 - svgRect.left;
-            const y2 = (dRect.top + dRect.bottom) / 2 - svgRect.top;
+            // Determine Color
+            let color = '#ccc';
+            if(card.classList.contains('masc-card')) color = 'var(--masc-blue)';
+            if(card.classList.contains('fem-card')) color = 'var(--fem-pink)';
+            if(card.classList.contains('neut-card')) color = 'var(--neut-green)';
 
+            // Draw the SVG Path (Curved line)
             const line = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            const d = `M ${x1} ${y1} C ${(x1+x2)/2} ${y1} ${(x1+x2)/2} ${y2} ${x2} ${y2}`;
+            
+            const controlPointOffset = Math.abs(endX - startX) * 0.4;
+            let cp1X = startX + (startX < endX ? controlPointOffset : -controlPointOffset);
+            let cp1Y = startY;
+            let cp2X = endX - (startX < endX ? controlPointOffset : -controlPointOffset);
+            let cp2Y = endY;
+
+            const d = `M ${startX} ${startY} C ${cp1X} ${cp1Y} ${cp2X} ${cp2Y} ${endX} ${endY}`;
             
             line.setAttribute('d', d);
-            line.setAttribute('stroke', conn.color);
-            line.setAttribute('stroke-width', '2');
+            line.setAttribute('stroke', color);
+            line.setAttribute('stroke-width', '2.5');
             line.setAttribute('fill', 'none');
-            line.setAttribute('stroke-dasharray', '4,4');
+            line.setAttribute('stroke-dasharray', '5,5');
 
+            // Draw a tiny circle at the destination (on the image)
+            const endCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            endCircle.setAttribute('cx', endX);
+            endCircle.setAttribute('cy', endY);
+            endCircle.setAttribute('r', '5');
+            endCircle.setAttribute('fill', color);
+            endCircle.setAttribute('stroke', '#fff');
+            endCircle.setAttribute('stroke-width', '2');
+            
             svg.appendChild(line);
+            svg.appendChild(endCircle);
         });
     }
 
+    // Redraw lines when window resizes or scrolls
     window.addEventListener('resize', drawLines);
+    window.addEventListener('scroll', drawLines);
 
     // --- SHABDA RATNAKOSHA LOGIC ---
     const levelVocab = [
@@ -641,7 +658,14 @@
         
         loadQuestion();
         renderRatnakoshaVocab();
-        setTimeout(drawLines, 500); // Draw lines after image loads
+        
+        // Use a longer timeout to ensure the image is fully rendered before drawing lines
+        const img = document.getElementById('anatomy-img');
+        if(img.complete) {
+            setTimeout(drawLines, 500);
+        } else {
+            img.onload = () => setTimeout(drawLines, 500);
+        }
     };
 </script>
 
