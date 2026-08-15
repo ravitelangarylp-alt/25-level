@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>saṃskṛta sopāna 1 - लघ्वारम्भः (laghvārambhaḥ)</title>
+    <title>saṃskṛta sopāna 1 - मम शरीरम् (mama śarīram)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
@@ -155,6 +155,12 @@
         
         .speaker-icon { font-size: 1.2rem; color: var(--accent-gold); background: #fff; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; }
 
+        /* Ayam Theory Box */
+        .ayam-theory {
+            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 40px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 8px solid var(--masc-blue);
+        }
+
         /* Shabda Ratnakosha Button */
         .treasure-btn-main {
             display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -245,7 +251,8 @@
             <span class="kn-text">ಸೋಪಾನ ೧</span>
             <span class="en-text">sopāna 1</span>
         </div>
-        <h1><span class="kn-text">ಲಘ್ವಾರಂಭಃ</span><span class="en-text">laghvārambhaḥ</span></h1>
+        <!-- Title changed as requested -->
+        <h1><span class="kn-text">ಮಮ ಶರೀರಮ್</span><span class="en-text">mama śarīram</span></h1>
         <p class="subtitle"><span class="kn-text">ಬಣ್ಣಗಳ ಮೂಲಕ ಭಾಷೆಯ ಮೊದಲ ಹೆಜ್ಜೆ</span><span class="en-text">The First Step Through Colours</span></p>
     </header>
 
@@ -385,15 +392,29 @@
         </div>
     </div>
 
+    <!-- NEW: Ayam Theory Section -->
+    <div class="ayam-theory">
+        <h2 style="font-family: 'Inknut Antiqua', serif; color: var(--masc-blue); text-align: center; font-size: 2.2rem; margin-bottom: 10px;">
+            अयम् <br><span style="font-size:1.2rem; color:#666;"><span class="kn-text">(ಪುಂಲಿಂಗ ಪರಿಚಯ)</span><span class="en-text">(Masculine Introduction)</span></span>
+        </h2>
+        <p style="text-align:center; font-weight:600; color:#555; margin-bottom:30px; font-size: 1.15rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <span class="kn-text">ಪುಂಲಿಂಗ (Masculine) ಶಬ್ದಗಳನ್ನು ತೋರಿಸುವಾಗ ನಾವು <b>"अयम्" (ಅಯಮ್ - ಇವನು/ಇದು)</b> ಎಂದು ಬಳಸುತ್ತೇವೆ. ಕೆಳಗಿನ ಚಿತ್ರವನ್ನು ಗಮನಿಸಿ. ಪ್ರತಿಯೊಂದೂ ಶಬ್ದವು ಪುಂಲಿಂಗವಾಗಿದೆ.</span>
+            <span class="en-text">We use <b>"अयम्" (ayam - he/this)</b> to indicate Masculine words. Observe the image below. Every word shown here is masculine.</span>
+        </p>
+        <div style="text-align: center;">
+            <img src="Screenshot 2026-08-14 at 5.24.40 PM.png" alt="Ayam Explanation" style="max-width: 100%; max-height: 600px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
+        </div>
+    </div>
+
     <!-- Vocabulary Treasure Box -->
     <button class="treasure-btn-main" onclick="openRatnakoshaModal()">
         💎 <span class="kn-text">ಶಬ್ದ-ರತ್ನಕೋಶಃ</span><span class="en-text">śabda-ratnakośa</span>
     </button>
 
-    <!-- Quiz Section (Animals) -->
+    <!-- Quiz Section (Animals - Testing 'Ayam') -->
     <div class="quiz-section" id="quiz-container">
         <div class="quiz-header">
-            <div class="quiz-title"><span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷಾ (ಪ್ರಾಣಿಗಳು)</span><span class="en-text">jñāna parīkṣā (Animals)</span></div>
+            <div class="quiz-title"><span class="kn-text">अयम् - ಜ್ಞಾನ ಪರೀಕ್ಷಾ</span><span class="en-text">अयम् - Knowledge Quiz</span></div>
             <div class="quiz-progress" id="quiz-progress"></div>
         </div>
         
