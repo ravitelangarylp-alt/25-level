@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita Level 5 - Noun Introduction & Visarga Magic</title>
+    <title>संस्कृत-सोपानम् ५ - इदम् = एतत्</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
@@ -14,11 +14,13 @@
             --text-brown: #4a2511;
             --text-maroon: #800000;
             --accent-gold: #d4af37;
-            --card-bg: #ffffff;
             --success-green: #22c55e;
             --error-red: #ef4444;
-            --masc-blue: #1e3a8a;
-            --fem-pink: #9d174d;
+            
+            /* Gender Colors */
+            --neut-bg: #fef08a; --neut-border: #eab308; --neut-text: #854d0e;
+            --fem-bg: #fbcfe8;  --fem-border: #ec4899; --fem-text: #be185d;
+            --masc-bg: #bae6fd; --masc-border: #3b82f6; --masc-text: #1d4ed8;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,9 +34,8 @@
             color: var(--text-brown);
             line-height: 1.6;
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            padding-bottom: 80px;
         }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
 
         .top-nav {
             display: flex; justify-content: space-between; align-items: center;
@@ -54,382 +55,413 @@
             padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
             cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
         }
-        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
-        .motto-box {
-            text-align: center; background: rgba(128, 0, 0, 0.05);
-            border-bottom: 2px solid var(--accent-gold); padding: 25px;
-            margin-bottom: 40px; border-radius: 0 0 20px 20px;
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+
+        header { text-align: center; margin-bottom: 30px; margin-top: 40px; }
+        .level-badge { display: inline-block; background-color: var(--text-maroon); color: white; padding: 8px 25px; border-radius: 30px; font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(128,0,0,0.2); }
+        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.3rem; color: #666; font-weight: 600; }
+
+        /* General Section Styles */
+        .section-board {
+            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 8px solid var(--accent-gold);
         }
+        .board-title { text-align: center; font-family: 'Inknut Antiqua', serif; font-size: 2.2rem; color: var(--text-maroon); margin-bottom: 20px; }
+        .board-desc { text-align: center; font-size: 1.2rem; font-weight: bold; color: #555; margin-bottom: 30px;}
 
-        .motto-sk {
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem;
-            color: var(--text-maroon); font-weight: 600; display: inline-flex; align-items: center; gap: 10px;
+        /* Rule Grid */
+        .rule-grid {
+            display: grid; grid-template-columns: 1fr 2.5fr 1fr; gap: 15px;
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-bottom: 20px;
         }
+        .rg-box { padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+        .bg-gray { background: #f3f4f6; color: #374151; font-family: 'Laila', sans-serif; font-size: 2rem;}
 
-        .motto-kn, .motto-en { font-size: 1.05rem; color: #555; font-style: italic; display: block; margin-top: 5px; }
-        .motto-source { font-size: 0.9rem; font-weight: bold; color: var(--accent-gold); display: block; margin-top: 10px; }
-
-        header { text-align: center; margin-bottom: 40px; }
-        .level-badge {
-            display: inline-block; background-color: var(--text-maroon); color: white;
-            padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;
-            letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;
+        /* Sutra Explanation Box */
+        .sutra-explanation {
+            margin-top: 30px; text-align: left; background: #fdfaf2; padding: 25px 30px; 
+            border-radius: 15px; border-left: 6px solid var(--accent-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
+        .sutra-explanation p { font-size: 1.25rem; color: var(--text-brown); margin-bottom: 12px; font-weight: 600;}
+        .sutra-explanation p:last-child { margin-bottom: 0; }
+        .sutra-sk { font-family: 'Tiro Devanagari Sanskrit', serif; color: var(--text-maroon); font-size: 1.4rem; }
 
-        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 2.3rem; margin-bottom: 10px; }
-
-        .audio-inline-btn {
-            background: none; border: none; cursor: pointer; font-size: 1.1rem; margin-left: 6px; display: inline-block; vertical-align: middle; transition: transform 0.1s;
-        }
-        .audio-inline-btn:hover { transform: scale(1.2); }
-
-        .hack-card {
-            background: #fff; border-radius: 15px; padding: 30px; margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08); border: 3px solid var(--masc-blue);
-            position: relative; overflow: hidden;
-        }
-
-        .hack-title {
-            color: var(--masc-blue); font-family: 'Inknut Antiqua', serif; font-size: 1.6rem; margin-bottom: 20px; text-align: center;
-        }
-
-        .formula-showcase {
-            background: rgba(30, 58, 138, 0.05); border: 2px dashed var(--masc-blue);
-            border-radius: 12px; padding: 20px; margin-bottom: 25px; text-align: center;
-        }
-
-        .f-yesno { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; letter-spacing: 1px; word-spacing: 10px; }
-        .f-vowels { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-brown); font-weight: bold; letter-spacing: 3px; word-spacing: 20px; }
+        /* Examples Grid */
+        .examples-wrapper { display: flex; flex-direction: column; gap: 30px; }
+        .gender-block { border-radius: 15px; padding: 25px; border: 3px solid; }
+        .block-masc { background: var(--masc-bg); border-color: var(--masc-border); }
+        .block-fem { background: var(--fem-bg); border-color: var(--fem-border); }
+        .block-neut { background: var(--neut-bg); border-color: var(--neut-border); }
         
-        .kanthapatha-alert {
-            background: linear-gradient(90deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.4) 50%, rgba(212,175,55,0.2) 100%);
-            color: var(--text-maroon); font-weight: 800; text-align: center; padding: 10px;
-            border-radius: 8px; margin-bottom: 25px; font-size: 1.1rem; animation: pulseText 2s infinite;
-        }
-
-        @keyframes pulseText { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
-
-        .visarga-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
-        .v-card {
-            background: var(--bg-parchment); border: 1px solid #e2e8f0; border-radius: 12px;
-            padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s;
-        }
-        .v-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); border-color: var(--accent-gold); }
-        .v-sound { font-size: 1.5rem; font-weight: bold; color: var(--text-brown); display: block; font-family: 'Tiro Devanagari Sanskrit', serif;}
-        .v-status { font-size: 1.2rem; margin: 5px 0; font-weight: bold; }
-        .v-yes { color: var(--success-green); }
-        .v-no { color: var(--error-red); }
-        .v-example { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.2rem; color: var(--text-maroon); display: flex; flex-direction: column; gap: 4px; align-items: center; justify-content: center; margin-top: 5px;}
-
-        .builder-section {
-            background: #fff; border-radius: 15px; padding: 30px; margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08); border-top: 5px solid var(--success-green);
-        }
-
-        .word-bank {
-            display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
-            background: rgba(255,255,255,.5); border: 2px dashed var(--accent-gold);
-            border-radius: 12px; padding: 25px; margin-bottom: 30px;
-        }
-
-        .word-chip {
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem; color: var(--text-maroon);
-            background: var(--bg-parchment); border: 2px solid #e3d4ae; border-radius: 10px;
-            padding: 10px 20px; cursor: grab; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s; user-select: none; display: flex; align-items: center; gap: 8px;
-        }
-        .word-chip.used { opacity: 0; pointer-events: none; transform: scale(0); transition: all 0.5s; }
-        .word-chip.selected { outline: 3px solid var(--text-maroon); transform: translateY(-5px) scale(1.05); }
-
-        .bucket-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .bucket {
-            flex: 1; min-width: 280px; min-height: 200px; border-radius: 15px; padding: 20px;
-            display: flex; flex-direction: column; align-items: center; gap: 10px; transition: all 0.3s;
-        }
-        .bucket-yes { background: rgba(34, 197, 94, 0.1); border: 3px dashed var(--success-green); }
-        .bucket-no { background: rgba(239, 68, 68, 0.1); border: 3px dashed var(--error-red); }
-        .bucket-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 10px; text-align: center; }
-        .bucket-yes .bucket-title { color: var(--success-green); }
-        .bucket-no .bucket-title { color: var(--error-red); }
-        .bucket-items { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; }
-
-        .dropped-item {
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.4rem;
-            background: #fff; padding: 6px 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            animation: popIn 0.3s ease-out; display: flex; align-items: center; gap: 6px;
-        }
-
-        .subhashita-card {
-            background: linear-gradient(135deg, #fffcf5 0%, #fff3e0 100%);
-            border: 2px solid var(--accent-gold); border-radius: 15px;
-            padding: 35px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(212,175,55,0.1);
-        }
-        .shloka { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-maroon); line-height: 1.8; margin-bottom: 25px; text-align: center; }
+        .block-header { text-align: center; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2.2rem; font-weight: bold; margin-bottom: 20px; color: #111;}
+        .block-header span { font-size: 1.2rem; font-family: 'Laila', sans-serif; color: #555; display: block; margin-top: 5px;}
         
-        .dimmed-text { opacity: 0.55; filter: grayscale(30%); font-size: 0.95em; }
+        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
+        .v-item { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .v-item:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 8px 12px rgba(0,0,0,0.1);}
+        .v-emoji { font-size: 3rem; display: block; margin-bottom: 5px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));}
+        .v-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.5rem; font-weight: bold; color: #111; line-height: 1.2;}
+        .v-mean { font-family: 'Laila', sans-serif; font-size: 0.95rem; font-weight: bold; color: #666; margin-top: 5px;}
 
-        .shloka-meaning { font-size: 1.05rem; color: #333; text-align: left; background: rgba(255,255,255,0.7); padding: 25px; border-radius: 12px; }
-        .meaning-title { font-weight: bold; color: var(--text-maroon); font-size: 1.2rem; margin-bottom: 10px; border-bottom: 1px solid rgba(128,0,0,0.2); padding-bottom: 5px; }
+        /* Drag and Drop Exam Section */
+        .emoji-pool { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 25px; background: #f9fafb; border: 3px dashed #ccc; border-radius: 15px; min-height: 120px; margin-bottom: 40px; transition: all 0.3s ease; }
+        .draggable-item { cursor: grab; background: #fff; border-radius: 12px; padding: 10px 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); user-select: none; border: 2px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; gap: 2px;}
+        .draggable-item:active { cursor: grabbing; transform: scale(1.05); }
+        .draggable-item.dragging { opacity: 0.5; }
+        .d-emoji { font-size: 2.2rem; }
+        .d-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem; font-weight: bold; color: #111;}
+        .d-mean { font-family: 'Laila', sans-serif; font-size: 0.85rem; font-weight: bold; color: #666;}
 
-        .quiz-section { background: #fff; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(128, 0, 0, 0.08); border-top: 5px solid var(--text-maroon); }
-        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .quiz-title { font-size: 1.5rem; color: var(--text-brown); font-weight: 700; }
-        .quiz-progress { font-weight: 600; color: var(--accent-gold); }
-        .quiz-question { font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; text-align: center; }
-        .options-grid { display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; }
-        .option-btn { background: var(--bg-parchment); border: 2px solid #ddd; padding: 15px 20px; border-radius: 10px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s ease; text-align: left; display: flex; align-items: center; gap: 15px; }
-        .option-btn:hover { border-color: var(--accent-gold); background: #fff; transform: translateY(-2px); }
-        .option-btn.correct { background: rgba(34, 197, 94, 0.1); border-color: var(--success-green); color: #065f46; }
-        .option-btn.wrong { background: rgba(239, 68, 68, 0.1); border-color: var(--error-red); color: #991b1b; }
-        .quiz-controls { text-align: center; margin-top: 25px; }
+        .drop-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .drop-zone { border: 4px dashed; border-radius: 20px; padding: 20px; min-height: 300px; display: flex; flex-direction: column; align-items: center; transition: 0.3s; position: relative;}
+        
+        .drop-hint-top { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: var(--text-maroon); background: rgba(255,255,255,0.8); padding: 5px 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);}
+        .drop-dash { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2.5rem; margin-bottom: 10px; color: rgba(0,0,0,0.3);}
+        .drop-hint-bottom { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-top: auto; color: var(--text-maroon); background: rgba(255,255,255,0.8); padding: 5px 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);}
+        
+        .zone-masc { border-color: var(--masc-border); background: var(--masc-bg); }
+        .zone-fem { border-color: var(--fem-border); background: var(--fem-bg); }
+        .zone-neut { border-color: var(--neut-border); background: var(--neut-bg); }
+        .drop-zone.drag-over { transform: scale(1.02); filter: brightness(0.95); }
+        
+        .drop-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; margin-bottom: 15px;}
+        .drop-grid .draggable-item { cursor: default; border-color: var(--success-green); box-shadow: none; padding: 5px 10px; background: rgba(255,255,255,0.95);}
 
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 40px; }
-        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s; cursor: pointer; border: none; }
-        .btn-outline { border: 2px solid var(--text-maroon); color: var(--text-maroon); background: transparent; }
-        .btn-outline:hover { background: rgba(128, 0, 0, 0.05); }
-        .btn-primary { background: var(--text-maroon); color: white; }
-        .btn-primary:hover { background: #600000; box-shadow: 0 5px 15px rgba(128,0,0,0.3); }
+        /* Knowledge Quiz Section */
+        .q-display-box { text-align: center; margin-bottom: 30px; }
+        .q-text-display { 
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 4rem; 
+            background: linear-gradient(135deg, #fffaf0, #fef08a); 
+            display: inline-block; padding: 20px 50px; border-radius: 20px; 
+            border: 5px solid var(--accent-gold); box-shadow: 0 15px 25px rgba(212,175,55,0.3); 
+            color: var(--text-maroon); font-weight: bold; animation: pop 0.4s ease-out;
+        }
+        @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
+        .option-btn { 
+            background: linear-gradient(145deg, #ffffff, #fefaf0); 
+            border: 3px solid #e5e7eb; padding: 20px 25px; border-radius: 15px; width: 100%; 
+            cursor: pointer; text-align: center; transition: all 0.2s ease; 
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2rem; font-weight: bold; 
+            color: var(--text-brown); box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+        .option-btn:hover:not(:disabled) { border-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.2); }
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.9; }
+        .option-btn.correct { background: #dcfce7; border-color: var(--success-green); color: var(--success-green); transform: none; box-shadow: none;}
+        .option-btn.wrong { background: #fee2e2; border-color: var(--error-red); color: var(--error-red); transform: none; box-shadow: none;}
+        .mq-feedback { font-weight: bold; font-size: 1.5rem; text-align: center; min-height: 35px; margin-top: 25px;}
+
+        /* Reward Section */
+        @keyframes magicFlash {
+            0% { box-shadow: 0 0 0px var(--accent-gold); transform: scale(0.95); opacity: 0;}
+            50% { box-shadow: 0 0 50px var(--accent-gold); transform: scale(1.02); opacity: 1;}
+            100% { box-shadow: 0 0 15px var(--accent-gold); transform: scale(1); opacity: 1;}
+        }
+        .reward-section {
+            background: linear-gradient(135deg, #fffaf0, #fef08a); border-radius: 20px; padding: 50px 40px; margin-bottom: 50px;
+            border: 4px solid var(--accent-gold); text-align: center; display: none; 
+        }
+        .reward-section.show { display: block; animation: magicFlash 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        .reward-title { font-family: 'Inknut Antiqua', serif; font-size: 3rem; color: #800000; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);}
+        .reward-desc { font-size: 1.4rem; color: var(--text-brown); font-weight: bold; margin-bottom: 30px;}
+
+        /* Nav Buttons */
+        .nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 20px; border-top: 2px solid #eee;}
+        .btn { font-family: 'Laila', sans-serif; font-weight: 700; font-size: 1.1rem; padding: 12px 28px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .btn-outline { background: #fff; border: 2px solid var(--text-brown); color: var(--text-brown); }
+        .btn-outline:hover { background: var(--text-brown); color: #fff; }
+        .btn-primary { background: var(--text-maroon); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(128, 0, 0, 0.2); }
+        .btn-disabled { opacity: 0.5; pointer-events: none; filter: grayscale(100%); }
+
+        @media (max-width: 768px) {
+            .rule-grid { grid-template-columns: 1fr; }
+            .drop-zones { grid-template-columns: 1fr; }
+            .quiz-options { grid-template-columns: 1fr; }
+            .q-text-display { font-size: 2.5rem; padding: 15px 30px;}
+        }
     </style>
 </head>
 <body class="lang-kn">
 
 <nav class="top-nav">
-    <a href="index.html" class="logo-home">
-        <span>🏠</span>
-        <span class="kn-text">ಮುಖಪುಟ</span>
-        <span class="en-text">Home</span>
-    </a>
-    <button class="lang-switch-btn" onclick="toggleLanguage()">
-        <span class="kn-text">🌐 English</span>
-        <span class="en-text">🌐 ಕನ್ನಡ</span>
-    </button>
+    <a href="index.html" class="logo-home">🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span></a>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">🌐 <span class="kn-text">English</span><span class="en-text">कನ್ನಡ</span></button>
 </nav>
 
-<div class="motto-box">
-    <span class="motto-sk">सत्यं वद धर्मं चर । <button class="audio-inline-btn" onclick="speak('सत्यं वद धर्मं चर')">🔊</button></span>
-    <span class="motto-kn kn-text">"ಸತ್ಯವನ್ನೇ ಮಾತನಾಡು, ಧರ್ಮವನ್ನೇ ಆಚರಿಸು."</span>
-    <span class="motto-en en-text">"Speak the truth, abide by righteousness."</span>
-    <span class="motto-source kn-text">— ತೈತ್ತಿರೀಯೋಪನಿಷತ್ (ಶಿಕ್ಷಾವಲ್ಲೀ)</span>
-    <span class="motto-source en-text">— Taittiriya Upanishad (Shikshavalli)</span>
-</div>
-
 <div class="container">
-
     <header>
-        <div class="level-badge">Level 5</div>
-        <h1>
-            <span class="kn-text">ನಾಮಪದ ಪರಿಚಯ ಹಾಗೂ ವಿಸರ್ಗದ ರಹಸ್ಯ</span>
-            <span class="en-text">Noun Introduction & Visarga Magic</span>
-        </h1>
-        <p style="font-size: 1.1rem; color: #666; font-weight: 600;">
-            <span class="kn-text">ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ಮತ್ತು ವಿಸರ್ಗದ (ಃ) ನಿಯಮ</span>
-            <span class="en-text">Nominative Case and the Rule of Visarga (ः)</span>
+        <div class="level-badge">
+            <span class="kn-text">सोपानम् ५</span>
+            <span class="en-text">sopāna 5</span>
+        </div>
+        <h1><span class="kn-text">इदम् = एतत्</span><span class="en-text">idam = etat</span></h1>
+        <p class="subtitle">
+            <span class="kn-text">"ಇದು" ಎಂದು ಹೇಳಲು ಎರಡು ಸಮಾನಾರ್ಥಕ ವಿಧಾನಗಳು!</span>
+            <span class="en-text">Two synonymous ways to say "This"!</span>
         </p>
     </header>
 
-    <div class="hack-card">
-        <h2 class="hack-title">
-            <span class="kn-text">✨ ಗ್ರಾಮರ್ ಹ್ಯಾಕ್: "ವಿಸರ್ಗ (ಃ) ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ"</span>
-            <span class="en-text">✨ Grammar Hack: The Visarga (ः) Magic Formula</span>
+    <!-- Rule Board -->
+    <div class="section-board">
+        <h2 class="board-title">
+            <span class="kn-text">समानार्थकाः (ಸಮಾನಾರ್ಥಕ ಪದಗಳು)</span>
+            <span class="en-text">Synonyms</span>
         </h2>
         
-        <div class="formula-showcase">
-            <div class="f-yesno">
-                <span class="v-yes">YES</span> - <span class="v-no">NO</span> - <span class="v-yes">YES</span> - <span class="v-no">NO</span> - <span class="v-yes">YES</span> - <span class="v-yes">YES</span> - <span class="v-no">NO</span>
+        <div class="rule-grid">
+            <div class="rg-box bg-gray" style="grid-row: span 3; font-size: 3rem;">
+                <span class="kn-text">ಇದು!</span><span class="en-text">This!</span>
             </div>
-            <div class="f-vowels">अ - आ - इ - ई - उ - ऊ - Rest</div>
+            <div class="rg-box" style="background:var(--neut-bg); color:var(--neut-text);">इदम् = एतत्</div>
+            <div class="rg-box" style="background:var(--neut-bg); color:#16a34a;">-अम्</div>
+            
+            <div class="rg-box" style="background:var(--fem-bg); color:var(--fem-text);">इयम् = एषा</div>
+            <div class="rg-box" style="background:var(--fem-bg); color:#16a34a;">-आ</div>
+            
+            <div class="rg-box" style="background:var(--masc-bg); color:var(--masc-text);">अयम् = एषः</div>
+            <div class="rg-box" style="background:var(--masc-bg); color:#16a34a;">-अः</div>
         </div>
 
-        <div class="kanthapatha-alert">
-            <span class="kn-text">"ಇದನ್ನು ಕಂಠಪಾಠ ಮಾಡಿಕೊಳ್ಳಿ! ಇದು ನಿಮ್ಮ ಸಂಸ್ಕೃತ ಪಯಣದಲ್ಲಿ ಸಾವಿರಾರು ತಪ್ಪುಗಳನ್ನು ತಡೆಯುವ ದಿವ್ಯಾಸ್ತ್ರ."</span>
-            <span class="en-text">"Memorize this! It's a divine weapon that will prevent thousands of mistakes in your Sanskrit journey."</span>
-        </div>
-        
-        <div class="visarga-grid">
-            <div class="v-card">
-                <span class="v-sound">अ (a)</span>
-                <div class="v-status v-yes">✅ YES</div>
-                <div class="v-example">
-                    <span>रामः <button class="audio-inline-btn" onclick="speak('रामः')">🔊</button></span>
-                    <span>शिवः <button class="audio-inline-btn" onclick="speak('शिवः')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card">
-                <span class="v-sound">आ (ā)</span>
-                <div class="v-status v-no">❌ NO</div>
-                <div class="v-example">
-                    <span>सीता <button class="audio-inline-btn" onclick="speak('सीता')">🔊</button></span>
-                    <span>लता <button class="audio-inline-btn" onclick="speak('लता')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card">
-                <span class="v-sound">इ (i)</span>
-                <div class="v-status v-yes">✅ YES</div>
-                <div class="v-example">
-                    <span>हरिः <button class="audio-inline-btn" onclick="speak('हरिः')">🔊</button></span>
-                    <span>कविः <button class="audio-inline-btn" onclick="speak('कविः')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card">
-                <span class="v-sound">ई (ī)</span>
-                <div class="v-status v-no">❌ NO</div>
-                <div class="v-example">
-                    <span>नदी <button class="audio-inline-btn" onclick="speak('नदी')">🔊</button></span>
-                    <span>जननी <button class="audio-inline-btn" onclick="speak('जननी')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card">
-                <span class="v-sound">उ (u)</span>
-                <div class="v-status v-yes">✅ YES</div>
-                <div class="v-example">
-                    <span>गुरुः <button class="audio-inline-btn" onclick="speak('गुरुः')">🔊</button></span>
-                    <span>भानुः <button class="audio-inline-btn" onclick="speak('भानुः')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card">
-                <span class="v-sound">ऊ (ū)</span>
-                <div class="v-status v-yes">✅ YES</div>
-                <div class="v-example">
-                    <span>वधूः <button class="audio-inline-btn" onclick="speak('वधूः')">🔊</button></span>
-                    <span>चमूः <button class="audio-inline-btn" onclick="speak('चमूः')">🔊</button></span>
-                </div>
-            </div>
-            <div class="v-card" style="grid-column: 1 / -1; background: #fffcf5;">
-                <span class="v-sound" style="font-size:1.1rem;">
-                    <span class="kn-text">ವ್ಯಂಜನಾಂತ / ಉಳಿದವು (Consonants / Rest)</span>
-                    <span class="en-text">Consonants / Rest</span>
-                </span>
-                <div class="v-status v-no">❌ NO</div>
-                <div class="v-example" style="font-size:1.2rem; flex-direction: row; gap: 20px;">
-                    <span>रणजित् <button class="audio-inline-btn" onclick="speak('रणजित्')">🔊</button></span>
-                    <span>साम्राट् <button class="audio-inline-btn" onclick="speak('साम्राट्')">🔊</button></span>
-                    <span>कलावित् <button class="audio-inline-btn" onclick="speak('कलावित्')">🔊</button></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="builder-section">
-        <h2 style="color: var(--success-green); margin-bottom: 10px; font-family: 'Inknut Antiqua', serif; text-align:center;">
-            <span class="kn-text">ವಿಸರ್ಗ ವಿಂಗಡಣೆ ಆಟ (Sorting Game)</span>
-            <span class="en-text">Visarga Sorting Game</span>
-        </h2>
-        <div class="word-bank" id="word-bank">
-            <div class="word-chip" draggable="true" data-word="शिव (ಅ)" data-target="yes"><span>Example 1: शिव</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('शिव')">🔊</button></div>
-            <div class="word-chip" draggable="true" data-word="पार्वती (ಈ)" data-target="no"><span>Example 2: पार्वती</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('पार्वती')">🔊</button></div>
-            <div class="word-chip" draggable="true" data-word="मुनि (ಇ)" data-target="yes"><span>Example 3: मुनि</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('मुनि')">🔊</button></div>
-            <div class="word-chip" draggable="true" data-word="गीता (ಆ)" data-target="no"><span>Example 4: गीता</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('गीता')">🔊</button></div>
-            <div class="word-chip" draggable="true" data-word="शिशु (ಉ)" data-target="yes"><span>Example 5: शिशु</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('शिशु')">🔊</button></div>
-            <div class="word-chip" draggable="true" data-word="रणजित् (ವ್ಯಂಜನಾಂತ)" data-target="no"><span>Example 6: रणजित्</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('रणजित्')">🔊</button></div>
-        </div>
-
-        <div class="bucket-container">
-            <div class="bucket bucket-yes" id="bucket-yes" data-bucket="yes">
-                <div class="bucket-title"><span class="kn-text">✅ ವಿಸರ್ಗ ಬರುತ್ತದೆ (+ ः)</span><span class="en-text">✅ Takes Visarga</span></div>
-                <div class="bucket-items" id="items-yes"></div>
-            </div>
-            <div class="bucket bucket-no" id="bucket-no" data-bucket="no">
-                <div class="bucket-title"><span class="kn-text">❌ ವಿಸರ್ಗ ಬರುವುದಿಲ್ಲ</span><span class="en-text">❌ No Visarga</span></div>
-                <div class="bucket-items" id="items-no"></div>
-            </div>
-        </div>
-        <div id="game-status" style="text-align:center; margin-top:20px; font-weight:bold; color:var(--text-maroon);">
-            <span class="kn-text">0 / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</span><span class="en-text">0 / 6 Sorted</span>
-        </div>
-    </div>
-
-    <div class="subhashita-card">
-        <h3>
-            <span class="kn-text">📜 ಸುಭಾಷಿತಮ್ - ೨</span>
-            <span class="en-text">📜 Subhashitam - 2</span>
-            <button class="audio-inline-btn" style="font-size:1.4rem;" onclick="speak('मनः मधुकरः मेघः मानिनी मदनः मरुत्। मा मदः मर्कटः मत्स्यः मकाराः दश चञ्चलाः॥')">🔊</button>
-        </h3>
-        <p class="shloka">
-            <span class="dimmed-text">मनः</span> मधुकरः मेघः । मानिनी मदनः मरुत् ।<br>
-            मा मदः मर्कटः मत्स्यः । मकाराः दश चञ्चलाः ॥
-        </p>
-        <div class="shloka-meaning">
-            <div class="meaning-title"><span class="kn-text">ವಿಸ್ತಾರವಾದ ಪಾಠ ವಿವರಣೆ (Comprehensive Commentary)</span><span class="en-text">Comprehensive Lesson Commentary</span></div>
-            <p style="margin-bottom:15px;">
-                <span class="kn-text">ಈ ಸುಭಾಷಿತವು ಜಗತ್ತಿನಲ್ಲಿ ಒಂದು ಕ್ಷಣವೂ ಒಂದು ಕಡೆ ಸ್ಥಿರವಾಗಿ ಇರಲಾರದ, ಅತ್ಯಂತ <b>ಚಂಚಲ ಸ್ವಭಾವದ ಹತ್ತು ವಸ್ತುಗಳನ್ನು</b> ಪರಿಚಯಿಸುತ್ತದೆ. ವಿಶೇಷವೆಂದರೆ, ಇವೆಲ್ಲವೂ ಸಂಸ್ಕೃತದಲ್ಲಿ <b>'ಮ' (म)</b> ಅಕ್ಷರದಿಂದಲೇ ಪ್ರಾರಂಭವಾಗುತ್ತವೆ. ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ ಏಕವಚನದಲ್ಲಿ ಇವುಗಳ ವ್ಯಾಕರಣಬದ್ಧ ರೂಪ ಮತ್ತು ವಿಸ್ತೃತ ಅರ್ಥ ಇಲ್ಲಿದೆ:</span>
-                <span class="en-text">This Subhashita introduces ten entities known for their highly unstable, flickering nature. Intriguingly, all ten begin with the sound <b>'Ma' (म)</b>. Here is their structural layout and meaning compliant with British English:</span>
+        <!-- Sutra Explanation -->
+        <div class="sutra-explanation">
+            <p>
+                <span class="kn-text"><b>೧.</b> <span class="sutra-sk">इदम्</span> ಅಥವಾ <span class="sutra-sk">एतत्</span> ಶಬ್ದ ಬಂದಾಗ <span class="sutra-sk">'-अम्'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ वनम्, वस्त्रम्, शस्त्रम् ಮುಂತಾದ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳು ಸೇರುತ್ತವೆ.</span>
+                <span class="en-text"><b>1.</b> With <span class="sutra-sk">idam</span> or <span class="sutra-sk">etat</span>, neuter words ending in <span class="sutra-sk">'-am'</span> like vanam, vastram are used.</span>
             </p>
-            <ol style="padding-left: 20px; margin-bottom:15px; line-height: 1.8;">
-                <li>
-                    <span class="kn-text"><b class="dimmed-text">मनः (Mind):</b> <span class="dimmed-text">ನಮ್ಮ ಮನಸ್ಸು ಕ್ಷಣಮಾತ್ರದಲ್ಲಿ ಇಡೀ ಬ್ರಹ್ಮಾಂಡವನ್ನೇ ಸುತ್ತಿಬರುತ್ತದೆ. *(ಗಮನಿಸಿ: ಇದು ಅಸಂತ ವಿಶೇಷ ಶಬ್ದವಾಗಿದ್ದು ಇದರ ಬಗ್ಗೆ ನಾವು ಮುಂದಿನ ಲೆವೆಲ್‌ಗಳಲ್ಲಿ ವಿಸ್ತಾರವಾಗಿ ಕಲಿಯಲಿದ್ದೇವೆ).*</span></span>
-                    <span class="en-text"><b class="dimmed-text">मनः (Mind):</b> <span class="dimmed-text">The mind can roam the entire universe in an instant. *(Note: This is a special 'asant' word, which we will learn in detail in upcoming levels).*</span></span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मधुकरः (Honeybee):</b> ದುಂಬಿಯು ಒಂದು ಹೂವಿನ ಮೇಲೆ ಒಂದು ಕ್ಷಣವೂ ಸ್ಥಿರವಾಗಿ ಕೂರದೆ ಹಾರುತ್ತಿರುತ್ತದೆ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मधुकरः (Honeybee):</b> A bee never sits still on one flower, constantly hovering. (a-ending → Yes).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मेघः (Cloud):</b> ಆಕಾಶದಲ್ಲಿ ಮೋಡಗಳು ಗಾಳಿಗೆ ತಕ್ಕಂತೆ ಸದಾ ಚಲಿಸುತ್ತಿರುತ್ತವೆ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मेघः (Cloud):</b> Clouds in the sky are constantly moving according to the wind. (a-ending → Yes).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मानिनी (Proud Woman / Lady):</b> ಸ್ವಾಭಿಮಾನಿ ಅಥವಾ ಪ್ರೇಮ ಕೋಪದಲ್ಲಿರುವ ಸ್ತ್ರೀಯ ಮನಸ್ಥಿತಿ ತಕ್ಷಣ ಬದಲಾಗುತ್ತದೆ. (ಈ-ಕಾರಾಂತ → No ವಿಸರ್ಗವಿಲ್ಲ).</span>
-                    <span class="en-text"><b>मानिनी (Proud Woman / Lady):</b> The mood of a proud or affectionately angry woman changes swiftly. (ī-ending → No visarga).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मदनः (Cupid / Desire):</b> ನಮ್ಮಲ್ಲಿ ಮೂಡುವ ಲೌಕಿಕ ಆಸೆಗಳು ನಮ್ಮನ್ನು ಸದಾ ಅಲೆದಾಡಿಸುತ್ತವೆ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मदनः (Cupid / Desire):</b> Worldly desires constantly make us wander. (a-ending → Yes).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मरुत् (Wind):</b> ಬಿರುಗಾಳಿ ಯಾವ ಕ್ಷಣದಲ್ಲಿ ಯಾವ ಕಡೆ ಬೀಸುತ್ತದೆ ಎಂದು ಊಹಿಸಲಾಗದು. (ವ್ಯಂಜನಾಂತ → No ವಿಸರ್ಗವಿಲ್ಲ).</span>
-                    <span class="en-text"><b>मरुत् (Wind):</b> One cannot predict which way the storm will blow next. (Consonant ending → No visarga).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मा (Goddess Lakshmi / Wealth):</b> ಸಂಪತ್ತು ಅಥವಾ ಐಶ್ವರ್ಯವು ಇಂದು ಒಬ್ಬರ ಬಳಿ ಇದ್ದರೆ ನಾಳೆ ಮತ್ತೊಬ್ಬರ ಬಳಿ ಹೋಗುತ್ತದೆ, ಅದು ಚಂಚಲ. (ಆ-ಕಾರಾಂತ → No ವಿಸರ್ಗವಿಲ್ಲ).</span>
-                    <span class="en-text"><b>मा (Goddess Lakshmi / Wealth):</b> Wealth is unsteady; if it is with someone today, it will go to someone else tomorrow. (ā-ending → No visarga).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मदः (Arrogance):</b> ಅಹಂಕಾರದ ಅಮಲು ಮನುಷ್ಯನ ಸ್ಥಿಮಿತವನ್ನು ಸದಾ ತೂರಾಡುವಂತೆ ಮಾಡುತ್ತದೆ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मदः (Arrogance):</b> The intoxication of arrogance makes a person lose their stability. (a-ending → Yes).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मर्कटः (Monkey):</b> ಮಂಗವು ಒಂದು ಕೊಂಬೆಯಿಂದ ಮತ್ತೊಂದು ಕೊಂಬೆಗೆ ಜಿಗಿಯುತ್ತಲೇ ಇರುತ್ತದೆ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मर्कटः (Monkey):</b> A monkey is always jumping from one branch to another. (a-ending → Yes).</span>
-                </li>
-                <li>
-                    <span class="kn-text"><b>मत्स्यः (Fish):</b> ನೀರಿನಲ್ಲಿ ಮೀನು ಸದಾ ಈಜುತ್ತಾ ಇರುತ್ತದೆ, ಒಂದೆಡೆ ನಿಲ್ಲುವುದಿಲ್ಲ. (ಅ-ಕಾರಾಂತ → Yes).</span>
-                    <span class="en-text"><b>मत्स्यः (Fish):</b> A fish is always swimming in the water, never standing still. (a-ending → Yes).</span>
-                </li>
-            </ol>
-            <div style="background: rgba(212, 175, 55, 0.15); padding: 12px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
-                <em style="color:var(--text-maroon); font-weight:600;">
-                    <span class="kn-text">📌 <b>ಪಾಠದ ಲಿಂಕ್:</b> ಈ ಶ್ಲೋಕವು ನಮ್ಮ <b>Yes-No-Yes-No-Yes-Yes-No</b> ಸೂತ್ರಕ್ಕೆ ಕನ್ನಡಿ ಹಿಡಿದಂತಿದೆ! ಅಕಾರಾಂತಗಳಾದ मघुकरः, मेघः, मदनः, मदः, मर्कटः, मत्स्यः ಶಬ್ದಗಳಿಗೆ ವಿಸರ್ಗ ಬಂದಿದೆ. ಆದರೆ ವ್ಯಂಜನಾಂತವಾದ 'मरुत्' ಮತ್ತು ಆ/ಈ ಕಾರಾಂತಗಳಾದ 'मा', 'मानिनी' ಶಬ್ದಗಳಿಗೆ ವಿಸರ್ಗ ಬಂದಿಲ್ಲ!</span>
-                    <span class="en-text">📌 <b>Lesson Link:</b> This shloka perfectly mirrors our <b>Yes-No-Yes-No-Yes-Yes-No</b> formula! Words like मघुकरः, मेघः, मदनः, मदः, मर्कटः, and मत्स्यः take a visarga, while consonant-ending words like मरुत् and ā/ī ending words like मा and मानिनी do not.</span>
-                </em>
+            <p>
+                <span class="kn-text"><b>೨.</b> <span class="sutra-sk">इयम्</span> ಅಥವಾ <span class="sutra-sk">एषा</span> ಬಂದಾಗ <span class="sutra-sk">'-आ'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ सीता, गङ्गा ಮುಂತಾದ ಸ್ತ್ರೀಲಿಂಗ ಶಬ್ದಗಳು ಸೇರುತ್ತವೆ.</span>
+                <span class="en-text"><b>2.</b> With <span class="sutra-sk">iyam</span> or <span class="sutra-sk">eshā</span>, feminine words ending in <span class="sutra-sk">'-ā'</span> like Sītā, Gangā are used.</span>
+            </p>
+            <p>
+                <span class="kn-text"><b>೩.</b> <span class="sutra-sk">अयम्</span> ಅಥವಾ <span class="sutra-sk">एषः</span> ಬಂದಾಗ <span class="sutra-sk">'-अः'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ रामः, कृष्णः ಮುಂತಾದ ಪುಲ್ಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಬಳಸಬೇಕು.</span>
+                <span class="en-text"><b>3.</b> With <span class="sutra-sk">ayam</span> or <span class="sutra-sk">eshah</span>, masculine words ending in <span class="sutra-sk">'-ah'</span> like Rāmah, Krishnah are used.</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Examples Board -->
+    <div class="section-board">
+        <h2 class="board-title">
+            <span class="kn-text">उदाहरणानि (ಉದಾಹರಣೆಗಳು)</span>
+            <span class="en-text">Examples</span>
+        </h2>
+        <p class="board-desc">
+            <span class="kn-text">ಇಲ್ಲಿ 'अयम् अस्ति' (ಇದು ಇದೆ) ಎಂದು ನೀಡಲಾಗಿದೆ. ನಾವು ಕಲಿತಂತೆ 'अयम्' ಎಂದರೆ 'एषः' ಕೂಡ ಹೌದು.</span>
+            <span class="en-text">Here 'ayam asti' is given. As we learned, 'ayam' also means 'eshah'.</span>
+        </p>
+
+        <div class="examples-wrapper">
+            <!-- Masculine Block -->
+            <div class="gender-block block-masc">
+                <div class="block-header">
+                    अयम् अस्ति ... 
+                    <span class="kn-text">(एषः अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
+                    <span class="en-text">(Can also use एषः अस्ति ...)</span>
+                </div>
+                <div class="vocab-grid">
+                    <div class="v-item" onclick="speak('अयं मत्स्यः अस्ति। एषः मत्स्यः अस्ति।')">
+                        <span class="v-emoji">🐟</span><div class="v-sk">मत्स्यः</div>
+                        <div class="v-mean"><span class="kn-text">(ಮೀನು)</span><span class="en-text">(Fish)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं हंसः अस्ति।')">
+                        <span class="v-emoji">🦢</span><div class="v-sk">हंसः</div>
+                        <div class="v-mean"><span class="kn-text">(ಹಂಸ)</span><span class="en-text">(Swan)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं दूतः अस्ति।')">
+                        <span class="v-emoji">🏃‍♂️</span><div class="v-sk">दूतः</div>
+                        <div class="v-mean"><span class="kn-text">(ದೂತ/ಸಂದೇಶವಾಹಕ)</span><span class="en-text">(Messenger)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं भूतः अस्ति।')">
+                        <span class="v-emoji">👻</span><div class="v-sk">भूतः</div>
+                        <div class="v-mean"><span class="kn-text">(ಭೂತ)</span><span class="en-text">(Ghost)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं पुत्रः अस्ति।')">
+                        <span class="v-emoji">👦</span><div class="v-sk">पुत्रः</div>
+                        <div class="v-mean"><span class="kn-text">(ಮಗ)</span><span class="en-text">(Son)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं पौत्रः अस्ति।')">
+                        <span class="v-emoji">👶</span><div class="v-sk">पौत्रः</div>
+                        <div class="v-mean"><span class="kn-text">(ಮೊಮ್ಮಗ)</span><span class="en-text">(Grandson)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं वीरः अस्ति।')">
+                        <span class="v-emoji">🦸‍♂️</span><div class="v-sk">वीरः</div>
+                        <div class="v-mean"><span class="kn-text">(ವೀರ/ಶೂರ)</span><span class="en-text">(Warrior)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('अयं कलाकारः अस्ति।')">
+                        <span class="v-emoji">👨‍🎨</span><div class="v-sk">कलाकारः</div>
+                        <div class="v-mean"><span class="kn-text">(ಕಲಾವಿದ)</span><span class="en-text">(Artist)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feminine Block -->
+            <div class="gender-block block-fem">
+                <div class="block-header">
+                    इयम् अस्ति ... 
+                    <span class="kn-text">(एषा अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
+                    <span class="en-text">(Can also use एषा अस्ति ...)</span>
+                </div>
+                <div class="vocab-grid">
+                    <div class="v-item" onclick="speak('इयं सेना अस्ति। एषा सेना अस्ति।')">
+                        <span class="v-emoji">🎖️</span><div class="v-sk">सेना</div>
+                        <div class="v-mean"><span class="kn-text">(ಸೈನ್ಯ)</span><span class="en-text">(Army)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं कन्या अस्ति।')">
+                        <span class="v-emoji">👧</span><div class="v-sk">कन्या</div>
+                        <div class="v-mean"><span class="kn-text">(ಹುಡುಗಿ)</span><span class="en-text">(Girl)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं वीणा अस्ति।')">
+                        <span class="v-emoji">🪕</span><div class="v-sk">वीणा</div>
+                        <div class="v-mean"><span class="kn-text">(ವೀಣೆ)</span><span class="en-text">(Veena)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं घण्टा अस्ति।')">
+                        <span class="v-emoji">🔔</span><div class="v-sk">घण्टा</div>
+                        <div class="v-mean"><span class="kn-text">(ಗಂಟೆ)</span><span class="en-text">(Bell)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं रेखा अस्ति।')">
+                        <span class="v-emoji">➖</span><div class="v-sk">रेखा</div>
+                        <div class="v-mean"><span class="kn-text">(ಗೆರೆ)</span><span class="en-text">(Line)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं शाखा अस्ति।')">
+                        <span class="v-emoji">🌿</span><div class="v-sk">शाखा</div>
+                        <div class="v-mean"><span class="kn-text">(ಕೊಂಬೆ)</span><span class="en-text">(Branch)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं शिक्षा अस्ति।')">
+                        <span class="v-emoji">🎓</span><div class="v-sk">शिक्षा</div>
+                        <div class="v-mean"><span class="kn-text">(ಶಿಕ್ಷಣ)</span><span class="en-text">(Education)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इयं दीक्षा अस्ति।')">
+                        <span class="v-emoji">📿</span><div class="v-sk">दीक्षा</div>
+                        <div class="v-mean"><span class="kn-text">(ದೀಕ್ಷೆ)</span><span class="en-text">(Initiation)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Neuter Block -->
+            <div class="gender-block block-neut">
+                <div class="block-header">
+                    इदम् अस्ति ... 
+                    <span class="kn-text">(एतत् अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
+                    <span class="en-text">(Can also use एतत् अस्ति ...)</span>
+                </div>
+                <div class="vocab-grid">
+                    <div class="v-item" onclick="speak('इदं अस्त्रम् अस्ति। एतत् अस्त्रम् अस्ति।')">
+                        <span class="v-emoji">🚀</span><div class="v-sk">अस्त्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಎಸೆಯುವ ಆಯುಧ)</span><span class="en-text">(Missile)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं वस्त्रम् अस्ति।')">
+                        <span class="v-emoji">👕</span><div class="v-sk">वस्त्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಬಟ್ಟೆ)</span><span class="en-text">(Cloth)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं शस्त्रम् अस्ति।')">
+                        <span class="v-emoji">🗡️</span><div class="v-sk">शस्त्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಹಿಡಿಯುವ ಆಯುಧ)</span><span class="en-text">(Weapon)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं शास्त्रम् अस्ति।')">
+                        <span class="v-emoji">📖</span><div class="v-sk">शास्त्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಶಾಸ್ತ್ರ/ಗ್ರಂಥ)</span><span class="en-text">(Scripture)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं चक्रम् अस्ति।')">
+                        <span class="v-emoji">☸️</span><div class="v-sk">चक्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಚಕ್ರ)</span><span class="en-text">(Wheel)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं तक्रम् अस्ति।')">
+                        <span class="v-emoji">🥛</span><div class="v-sk">तक्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಮಜ್ಜಿಗೆ)</span><span class="en-text">(Buttermilk)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं यन्त्रम् अस्ति।')">
+                        <span class="v-emoji">⚙️</span><div class="v-sk">यन्त्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ಯಂತ್ರ)</span><span class="en-text">(Machine)</span></div>
+                    </div>
+                    <div class="v-item" onclick="speak('इदं नक्षत्रम् अस्ति।')">
+                        <span class="v-emoji">⭐</span><div class="v-sk">नक्षत्रम्</div>
+                        <div class="v-mean"><span class="kn-text">(ನಕ್ಷತ್ರ)</span><span class="en-text">(Star)</span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="quiz-section" id="quiz-container">
-        <div class="quiz-header">
-            <div class="quiz-title"><span class="kn-text">ಜ್ಞಾನ ಪರೀಕ್ಷೆ (Quiz)</span><span class="en-text">Knowledge Test</span></div>
-            <div class="quiz-progress" id="quiz-progress">Question 1 / 10</div>
+    <!-- Drag and Drop Game Section -->
+    <div class="section-board" id="drag-section">
+        <h2 class="board-title">
+            <span class="kn-text">अभ्यासः - चित्र-विभाजनम्</span>
+            <span class="en-text">Practice - Drag & Drop</span>
+        </h2>
+        <p class="board-desc">
+            <span class="kn-text">ಪದಗಳನ್ನು ಎಳೆದು ಸರಿಯಾದ ಜಾಗದಲ್ಲಿ ಇಟ್ಟು, ಪೂರ್ಣ ವಾಕ್ಯವನ್ನು ರಚಿಸಿ.</span>
+            <span class="en-text">Drag words to the correct place to form a complete sentence.</span>
+        </p>
+
+        <div class="emoji-pool" id="emoji-pool">
+            <!-- Items injected via JS -->
         </div>
-        <div class="quiz-question" id="quiz-question">Loading...</div>
-        <div class="options-grid" id="quiz-options"></div>
-        <div class="quiz-controls">
-            <p id="quiz-feedback" style="font-weight: 700; min-height: 24px; margin-bottom: 15px;"></p>
-            <button id="next-q-btn" class="btn btn-primary" style="display: none;" type="button">
-                <span class="kn-text">ಮುಂದಿನ ಪ್ರಶ್ನೆ →</span>
-                <span class="en-text">Next Question →</span>
-            </button>
+
+        <div class="drop-zones">
+            <!-- Masculine Zone -->
+            <div class="drop-zone zone-masc" data-gender="masc">
+                <div class="drop-hint-top">अयम् / एषः</div>
+                <h3 class="drop-dash">___</h3>
+                <div class="drop-grid" id="zone-masc-grid"></div>
+                <div class="drop-hint-bottom">अस्ति</div>
+            </div>
+            
+            <!-- Feminine Zone -->
+            <div class="drop-zone zone-fem" data-gender="fem">
+                <div class="drop-hint-top">इयम् / एषा</div>
+                <h3 class="drop-dash">___</h3>
+                <div class="drop-grid" id="zone-fem-grid"></div>
+                <div class="drop-hint-bottom">अस्ति</div>
+            </div>
+            
+            <!-- Neuter Zone -->
+            <div class="drop-zone zone-neut" data-gender="neut">
+                <div class="drop-hint-top">इदम् / एतत्</div>
+                <h3 class="drop-dash">___</h3>
+                <div class="drop-grid" id="zone-neut-grid"></div>
+                <div class="drop-hint-bottom">अस्ति</div>
+            </div>
         </div>
     </div>
 
+    <!-- Knowledge Quiz Section (AUTO ADVANCE) -->
+    <div class="section-board" id="quiz-container" style="display: none;">
+        <div class="board-title">🧠 <span class="kn-text">ज्ञान-परीक्षा</span><span class="en-text">Knowledge Quiz</span></div>
+        <div class="quiz-progress" id="quiz-progress"></div>
+        
+        <div class="q-display-box">
+            <div class="q-text-display" id="quiz-text">अयम् = ?</div>
+        </div>
+        
+        <div class="quiz-options" id="quiz-options"></div>
+        
+        <div class="quiz-controls" style="text-align: center;">
+            <p id="quiz-feedback" class="mq-feedback"></p>
+            <!-- Auto advance logic handles progression -->
+        </div>
+    </div>
+
+    <!-- REWARD SECTION -->
+    <div id="reward-section" class="reward-section">
+        <h2 class="reward-title">✨ उत्तमम् ! ✨</h2>
+        <p class="reward-desc">
+            <span class="kn-text">ಅಭಿನಂದನೆಗಳು! ನೀವು ಈ ಹಂತವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ.</span>
+            <span class="en-text">Congratulations! You have successfully completed this level.</span>
+        </p>
+    </div>
+
+    <!-- Nav Buttons -->
     <div class="nav-buttons">
-        <a href="level4.html" class="btn btn-outline">
-            <span class="kn-text">← ಹಿಂದಿನ ಹಂತ (Level 4)</span>
-            <span class="en-text">← Prev Level (Level 4)</span>
+        <a href="index.html" class="btn btn-outline">
+            🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
         </a>
-        <a href="level6.html" id="finish-btn" class="btn btn-primary" style="display: none;">
-            <span class="kn-text">ಮುಂದಿನ ಹಂತ (Level 6) →</span>
-            <span class="en-text">Next Level (Level 6) →</span>
+        <a href="level6.html" id="finish-btn" class="btn btn-primary btn-disabled">
+            <span class="kn-text">ಮುಂದಿನ सोपान →</span><span class="en-text">Next Stage →</span>
         </a>
     </div>
 </div>
@@ -437,124 +469,251 @@
 <script>
     function speak(text) {
         if ('speechSynthesis' in window) {
-            const cleanText = text.replace(/<[^>]*>/g, '').replace(/[\(\)]/g, '').split(':')[0].trim();
-            const u = new SpeechSynthesisUtterance(cleanText); u.lang = 'hi-IN'; u.rate = 0.85;
+            const u = new SpeechSynthesisUtterance(text); u.lang = 'hi-IN'; u.rate = 0.8;
             window.speechSynthesis.speak(u);
         }
     }
 
-    function setLanguage(lang) {
-        document.body.classList.remove('lang-kn', 'lang-en');
-        document.body.classList.add(`lang-${lang}`);
-        localStorage.setItem('trayeeLang', lang);
-    }
-
     function toggleLanguage() {
-        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
-        setLanguage(currentLang === 'kn' ? 'en' : 'kn');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => { setLanguage(localStorage.getItem('trayeeLang') || 'kn'); });
-
-    // Drag & Drop
-    const chips = document.querySelectorAll('.word-chip');
-    const buckets = document.querySelectorAll('.bucket');
-    let selectedChip = null;
-
-    chips.forEach(chip => {
-        chip.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', chip.dataset.target);
-            e.dataTransfer.setData('word/plain', chip.dataset.word);
-            chip.style.opacity = '0.4';
-        });
-        chip.addEventListener('dragend', () => { chip.style.opacity = '1'; });
-        chip.addEventListener('click', () => {
-            if (chip.classList.contains('used')) return;
-            chips.forEach(c => c.classList.remove('selected'));
-            chip.classList.add('selected'); selectedChip = chip;
-        });
-    });
-
-    function handleDrop(bucket, targetValue, wordText) {
-        const bucketType = bucket.dataset.bucket;
-        if (targetValue === bucketType) {
-            const itemsContainer = bucket.querySelector('.bucket-items');
-            const newItem = document.createElement('div'); newItem.className = 'dropped-item';
-            let finalWord = wordText.split(' ')[0].replace('Example ', '').split(':')[0].trim();
-            if(bucketType === 'yes' && !finalWord.includes('ಃ') && !finalWord.includes('ः')) finalWord += 'ः';
-            newItem.innerHTML = `<span>${finalWord}</span><button class="audio-inline-btn" onclick="speak('${finalWord}')">🔊</button>`;
-            itemsContainer.appendChild(newItem);
-            speak(finalWord);
-
-            chips.forEach(c => { if (c.dataset.word === wordText) c.classList.add('used'); });
-            selectedChip = null; checkGameCompletion();
+        const isKn = document.body.classList.contains('lang-kn');
+        if (isKn) {
+            document.body.classList.remove('lang-kn'); document.body.classList.add('lang-en');
         } else {
-            bucket.classList.add('wrong-shake'); setTimeout(() => bucket.classList.remove('wrong-shake'), 500);
+            document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn');
+        }
+        
+        // Re-render drag pool to update language if needed
+        renderDragPool();
+
+        // Update quiz text if it's currently active
+        if(document.getElementById('quiz-container').style.display !== 'none') {
+            loadQuestion();
         }
     }
 
-    buckets.forEach(bucket => {
-        bucket.addEventListener('dragover', (e) => e.preventDefault());
-        bucket.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const targetValue = e.dataTransfer.getData('text/plain') || selectedChip.dataset.target;
-            const wordText = e.dataTransfer.getData('word/plain') || selectedChip.dataset.word;
-            handleDrop(bucket, targetValue, wordText);
-        });
-        bucket.addEventListener('click', () => { if (selectedChip) handleDrop(bucket, selectedChip.dataset.target, selectedChip.dataset.word); });
-    });
-
-    function checkGameCompletion() {
-        const correctCount = document.querySelectorAll('.dropped-item').length;
-        const status = document.getElementById('game-status');
-        status.innerHTML = `<span class="kn-text">${correctCount} / 6 ವಿಂಗಡಿಸಲಾಗಿದೆ</span><span class="en-text">${correctCount} / 6 Sorted</span>`;
-        if (correctCount === 6) { status.style.color = 'var(--success-green)'; }
-    }
-
-    // Quiz Data
-    const questions = [
-        { q: "<span class='kn-text'>ನಮ್ಮ ಸೂತ್ರದಂತೆ 'मरुत्' ಎನ್ನುವ ವ್ಯಂಜನಾಂತ ಶಬ್ದಕ್ಕೆ ವಿಸರ್ಗ ಬರುವುದೇ?</span><span class='en-text'>Does the consonant-ending word 'मरुत्' take a visarga?</span>", options: ["<span class='kn-text'>ಇಲ್ಲ (मरुत्)</span><span class='en-text'>No (मरुत्)</span>", "<span class='kn-text'>ಹೌದು (मरुत्ः)</span><span class='en-text'>Yes (मरुत्ः)</span>"], ans: 0 },
-        { q: "<span class='kn-text'>'ಆ' ಕಾರಾಂತ ಪದವಾದ 'मा' (ಲಕ್ಷ್ಮಿ) ಶಬ್ದದ ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the nominative form of the 'ā' ending word 'मा'?</span>", options: ["माः", "मा", "माम्"], ans: 1 },
-        { q: "<span class='kn-text'>'मधुकर' ಶಬ್ದವು 'ಅ' ಕಾರಾಂತ ಪುಂಲಿಂಗವಾಗಿದೆ. ಇದರ ಸರಿಯಾದ ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the correct form of the 'a' ending masculine word 'मधुकर'?</span>", options: ["मधुकर", "मधुकरः", "मधुकरम्"], ans: 1 },
-        { q: "<span class='kn-text'>'कलावित्' ಶಬ್ದವು ವ್ಯಂಜನಾಂತವಾಗಿದೆ. ಇದಕ್ಕೆ ವಿಸರ್ಗ ಬೇಕೇ?</span><span class='en-text'>Does the consonant-ending word 'कलावित्' require a visarga?</span>", options: ["<span class='kn-text'>ಹೌದು</span><span class='en-text'>Yes</span>", "<span class='kn-text'>ಇಲ್ಲ (कलावित्)</span><span class='en-text'>No (कलावित्)</span>"], ans: 1 },
-        { q: "<span class='kn-text'>'ಈ' ಕಾರಾಂತ ಪದವಾದ 'मानिनी' ಶಬ್ದದ ಸರಿಯಾದ ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the correct form of the 'ī' ending word 'मानिनी'?</span>", options: ["मानिनीः", "मानिनी", "मानिनिः"], ans: 1 },
-        { q: "<span class='kn-text'>'मर्कट' (ಕೋತಿ) ಶಬ್ದಕ್ಕೆ ನಮ್ಮ ಸೂತ್ರದ ೧ನೇ ನಿಯಮದಂತೆ ವಿಸರ್ಗ ಬರುತ್ತದೆಯೇ?</span><span class='en-text'>Does the 'a' ending word 'मर्कट' take a visarga according to rule 1?</span>", options: ["<span class='kn-text'>ಹೌದು (मर्कटः)</span><span class='en-text'>Yes (मर्कटः)</span>", "<span class='kn-text'>ಇಲ್ಲ</span><span class='en-text'>No</span>"], ans: 0 },
-        { q: "<span class='kn-text'>'मत्स्य' (ಮೀನು) ಪದದ ಸರಿಯಾದ ಪ್ರಥಮಾ ವಿಭಕ್ತಿ ರೂಪ ಯಾವುದು?</span><span class='en-text'>What is the correct nominative singular form of 'मत्स्य'?</span>", options: ["मत्स्य", "मत्स्यतः", "मत्स्यः"], ans: 2 },
-        { q: "<span class='kn-text'>ಸುಭಾಷಿತದ ೭ನೇ ವ್ಯಂಜನಾಂತ ನಿಯಮದಲ್ಲಿ ಕೊಟ್ಟಿರುವ ಉದಾಹರಣೆ ಯಾವುದು?</span><span class='en-text'>Which example represents the consonant-ending rule in the Subhashita?</span>", options: ["मेघः", "मरुत्", "मदः"], ans: 1 },
-        { q: "<span class='kn-text'>'Yes-No' ಸೂತ್ರದ ಕೊನೆಯ ನಿಯಮ (ವ್ಯಂಜನಾಂತ) ಯಾವುದು?</span><span class='en-text'>What is the final decision rule for consonants in our formula?</span>", options: ["YES", "NO"], ans: 1 },
-        { q: "<span class='kn-text'>ಈ ಕೆಳಗಿನವುಗಳಲ್ಲಿ ವಿಸರ್ಗವಿಲ್ಲದೆ ಬರುವ ಸರಿಯಾದ ವ್ಯಂಜನಾಂತ ಪದ ಯಾವುದು?</span><span class='en-text'>Which of the following is a correct consonant-ending word without a visarga?</span>", options: ["रणजित्ः", "रणजित्", "साम्राट्ः"], ans: 1 }
+    // --- DRAG AND DROP LOGIC ---
+    const dragItems = [
+        { word: "मत्स्यः", emoji: "🐟", gender: "masc", kn: "ಮೀನು", en: "Fish" },
+        { word: "सेना", emoji: "🎖️", gender: "fem", kn: "ಸೈನ್ಯ", en: "Army" },
+        { word: "अस्त्रम्", emoji: "🚀", gender: "neut", kn: "ಕ್ಷಿಪಣಿ", en: "Missile" },
+        { word: "हंसः", emoji: "🦢", gender: "masc", kn: "ಹಂಸ", en: "Swan" },
+        { word: "कन्या", emoji: "👧", gender: "fem", kn: "ಹುಡುಗಿ", en: "Girl" },
+        { word: "चक्रम्", emoji: "☸️", gender: "neut", kn: "ಚಕ್ರ", en: "Wheel" },
+        { word: "वीरः", emoji: "🦸‍♂️", gender: "masc", kn: "ವೀರ", en: "Warrior" },
+        { word: "वीणा", emoji: "🪕", gender: "fem", kn: "ವೀಣೆ", en: "Veena" },
+        { word: "वस्त्रम्", emoji: "👕", gender: "neut", kn: "ಬಟ್ಟೆ", en: "Cloth" }
     ];
 
-    let currentQIndex = 0, score = 0;
-    const questionEl = document.getElementById('quiz-question'), optionsEl = document.getElementById('quiz-options'), progressEl = document.getElementById('quiz-progress'), feedbackEl = document.getElementById('quiz-feedback'), nextQBtn = document.getElementById('next-q-btn'), finishBtn = document.getElementById('finish-btn');
+    let currentDragItems = [];
 
-    function loadQuestion() {
-        feedbackEl.innerHTML = ''; nextQBtn.style.display = 'none';
-        const currentQ = questions[currentQIndex];
-        progressEl.innerHTML = `<span class="kn-text">ಪ್ರಶ್ನೆ ${currentQIndex + 1} / 10</span><span class="en-text">Question ${currentQIndex + 1} / 10</span>`; questionEl.innerHTML = currentQ.q; optionsEl.innerHTML = '';
-        currentQ.options.forEach((opt, index) => {
-            const btn = document.createElement('button'); btn.className = 'option-btn';
-            btn.innerHTML = `<span style="color:#888; margin-right:10px;">${['A','B','C','D'][index]}</span><span>${opt}</span><button class="audio-inline-btn" onclick="event.stopPropagation(); speak('${opt}')">🔊</button>`;
-            btn.onclick = () => checkAnswer(index, currentQ.ans, btn); optionsEl.appendChild(btn);
+    function renderDragPool() {
+        const pool = document.getElementById('emoji-pool');
+        const isKn = document.body.classList.contains('lang-kn');
+        
+        // Only render if game isn't finished
+        if(currentDragItems.length === 0 && pool.children.length === 0) return;
+
+        pool.innerHTML = '';
+        currentDragItems.forEach(item => {
+            const el = document.createElement('div');
+            el.className = 'draggable-item';
+            el.innerHTML = `<span class="d-emoji">${item.emoji}</span><span class="d-sk">${item.word}</span><span class="d-mean">(${isKn ? item.kn : item.en})</span>`;
+            el.setAttribute('draggable', true);
+            el.dataset.gender = item.gender;
+            el.dataset.word = item.word;
+            el.dataset.id = item.word; // Unique identifier
+
+            el.addEventListener('dragstart', (e) => {
+                el.classList.add('dragging');
+                e.dataTransfer.setData('text/plain', item.gender + '|' + item.word + '|' + item.emoji + '|' + (isKn ? item.kn : item.en));
+            });
+            el.addEventListener('dragend', () => el.classList.remove('dragging'));
+
+            pool.appendChild(el);
         });
     }
 
-    function checkAnswer(selectedIndex, correctIndex, btnClicked) {
-        const allBtns = optionsEl.querySelectorAll('.option-btn'); allBtns.forEach(b => b.disabled = true);
-        if (selectedIndex === correctIndex) {
-            btnClicked.classList.add('correct'); feedbackEl.innerHTML = '<span class="kn-text">✅ ಉತ್ತಮಮ್!</span><span class="en-text">✅ Correct!</span>'; feedbackEl.style.color = 'var(--success-green)'; score++;
-        } else {
-            btnClicked.classList.add('wrong'); allBtns[correctIndex].classList.add('correct'); feedbackEl.innerHTML = '<span class="kn-text">❌ ತಪ್ಪು! ಹಸಿರು ಬಣ್ಣದಲ್ಲಿರುವುದು ಸರಿಯಾದ ಉತ್ತರ.</span><span class="en-text">❌ Incorrect!</span>'; feedbackEl.style.color = 'var(--error-red)';
-        }
-        if (currentQIndex < questions.length - 1) nextQBtn.style.display = 'inline-block'; else showFinalResult();
+    function initDragDropQuiz() {
+        // Create a shuffled copy for the game
+        currentDragItems = [...dragItems].sort(() => 0.5 - Math.random());
+        renderDragPool();
+
+        const zones = document.querySelectorAll('.drop-zone');
+        zones.forEach(zone => {
+            zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('drag-over'); });
+            zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('drag-over');
+                
+                const data = e.dataTransfer.getData('text/plain');
+                if(!data) return;
+                
+                const parts = data.split('|');
+                const itemGender = parts[0];
+                const itemWord = parts[1];
+                const itemEmoji = parts[2];
+                const itemMean = parts[3];
+                const targetGender = zone.dataset.gender;
+
+                if(itemGender === targetGender) {
+                    const droppedEl = document.createElement('div');
+                    droppedEl.className = 'draggable-item';
+                    droppedEl.innerHTML = `<span class="d-emoji" style="font-size:1.5rem;">${itemEmoji}</span><span style="font-size:1.1rem; font-weight:bold;">${itemWord}</span><span style="font-size:0.8rem; color:#666;">(${itemMean})</span>`;
+                    droppedEl.style.cursor = 'default';
+                    
+                    let prefix = (targetGender === 'masc') ? "अयं " : (targetGender === 'fem') ? "इयं " : "इदं ";
+                    speak(prefix + itemWord + " अस्ति");
+                    
+                    // Hide the dash since word is placed
+                    zone.querySelector('.drop-dash').style.display = 'none';
+                    zone.querySelector('.drop-grid').appendChild(droppedEl);
+                    
+                    // Remove from active array
+                    currentDragItems = currentDragItems.filter(item => item.word !== itemWord);
+                    renderDragPool();
+
+                    checkDragWinCondition();
+                } else {
+                    speak('पुनः प्रयत्नं करोतु');
+                    zone.style.borderColor = 'var(--error-red)';
+                    setTimeout(() => zone.style.borderColor = '', 500);
+                }
+            });
+        });
     }
 
-    nextQBtn.addEventListener('click', () => { currentQIndex++; loadQuestion(); });
-    function showFinalResult() {
-        questionEl.innerHTML = `<span class="kn-text">ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Quiz Completed!</span>`; optionsEl.innerHTML = `<div style="text-align: center; font-size: 1.5rem;"><span class="kn-text">ಅಂಕಗಳು:</span><span class="en-text">Score:</span> <strong>${score} / 10</strong></div>`;
-        if(score >= 8) { feedbackEl.innerHTML = '<span class="kn-text">🎉 ಅತ್ಯದ್ಭುತ!</span><span class="en-text">🎉 Mastered!</span>'; finishBtn.style.display = 'inline-block'; } else { feedbackEl.innerHTML = '<span class="kn-text">ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</span><span class="en-text">Please try again.</span>'; }
+    function checkDragWinCondition() {
+        const pool = document.getElementById('emoji-pool');
+        if(currentDragItems.length === 0) {
+            pool.style.border = 'none';
+            pool.style.background = 'transparent';
+            
+            const isKn = document.body.classList.contains('lang-kn');
+            pool.innerHTML = `<h2 style="color:var(--success-green); font-family:'Tiro Devanagari Sanskrit', serif; font-size:2rem;">उत्तमम्! इदानीं ज्ञान-परीक्षा 👇</h2>`;
+            
+            // Show the auto-advance knowledge quiz
+            setTimeout(() => {
+                const quizSec = document.getElementById('quiz-container');
+                quizSec.style.display = 'block';
+                quizSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                loadQuestion();
+            }, 1000);
+        }
     }
-    window.onload = loadQuestion;
+
+    // --- AUTO-ADVANCE QUIZ LOGIC ---
+    const mcqData = [
+        { q: "अयम् = ?", options: ["एषः", "एषा", "एतत्", "सः"], ans: 0, full: "अयम् = एषः" },
+        { q: "इयम् = ?", options: ["एतत्", "एषः", "एषा", "सा"], ans: 2, full: "इयम् = एषा" },
+        { q: "इदम् = ?", options: ["एषा", "एतत्", "एषः", "तत्"], ans: 1, full: "इदम् = एतत्" },
+        { q: "एषः कः?", options: ["एषः सूर्यः", "एषा माता", "एतत् स्योतम्", "एषः स्योतम्"], ans: 0, full: "एषः सूर्यः" },
+        { q: "एषा का?", options: ["एषा सूर्यः", "एषा माता", "एतत् माता", "एषः माता"], ans: 1, full: "एषा माता" }
+    ];
+
+    let currentQ = 0; let score = 0;
+    const qTextEl = document.getElementById('quiz-text');
+    const optEl = document.getElementById('quiz-options');
+    const fbEl = document.getElementById('quiz-feedback');
+
+    function loadQuestion() {
+        fbEl.innerHTML = '';
+        
+        if(currentQ >= mcqData.length) {
+            showMCQResult();
+            return;
+        }
+
+        const data = mcqData[currentQ];
+        const isKn = document.body.classList.contains('lang-kn');
+        
+        document.getElementById('quiz-progress').innerHTML = isKn ? `ಪ್ರಶ್ನೆ ${currentQ + 1} / ${mcqData.length}` : `Question ${currentQ + 1} / ${mcqData.length}`;
+        qTextEl.innerText = data.q;
+        
+        qTextEl.style.animation = 'none';
+        qTextEl.offsetHeight; 
+        qTextEl.style.animation = null; 
+
+        optEl.innerHTML = '';
+        
+        data.options.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerHTML = opt;
+            
+            btn.onclick = () => {
+                const all = optEl.querySelectorAll('.option-btn');
+                all.forEach(b => b.disabled = true);
+                
+                if (i === data.ans) {
+                    btn.classList.add('correct'); 
+                    fbEl.innerHTML = isKn ? '✅ ಉತ್ತಮಮ್!' : '✅ Excellent!'; 
+                    fbEl.style.color = 'var(--success-green)'; 
+                    score++;
+                    speak(data.full);
+                } else {
+                    btn.classList.add('wrong'); 
+                    all[data.ans].classList.add('correct'); 
+                    fbEl.innerHTML = isKn ? '❌ ಪ್ರಯತ್ನಿಸಿ!' : '❌ Try Again!'; 
+                    fbEl.style.color = 'var(--error-red)';
+                    speak(data.full);
+                }
+
+                // AUTO ADVANCE AFTER 2 SECONDS
+                setTimeout(() => {
+                    currentQ++;
+                    loadQuestion();
+                }, 2000);
+            };
+            optEl.appendChild(btn);
+        });
+    }
+    
+    function showMCQResult() {
+        const isKn = document.body.classList.contains('lang-kn');
+        qTextEl.innerText = "🏆";
+        qTextEl.style.animation = "none";
+        
+        optEl.style.display = "block";
+        optEl.innerHTML = `<div style="text-align:center; font-size:2rem; margin:20px 0; font-family:'Laila', sans-serif; font-weight:bold; color:var(--text-brown);">${isKn ? 'ನಿಮ್ಮ ಅಂಕಗಳು' : 'Your Score'}: <b style="color:var(--text-maroon);">${score} / ${mcqData.length}</b></div>`;
+        
+        if(score >= 4) { 
+            fbEl.innerHTML = isKn ? "🎉 ಅತ್ಯದ್ಭುತ!" : "🎉 Excellent!"; 
+            document.getElementById('finish-btn').classList.remove('btn-disabled');
+            
+            const rewardSec = document.getElementById('reward-section');
+            rewardSec.classList.add('show');
+            setTimeout(() => {
+                rewardSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                speak("अभिनन्दनम्");
+            }, 800);
+
+        } else { 
+            fbEl.innerHTML = isKn ? "ದಯವಿಟ್ಟು ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಗಮನಿಸಿ!" : "Please review the lesson again!"; 
+            const retryBtn = document.createElement('button');
+            retryBtn.className = 'btn btn-outline';
+            retryBtn.style.margin = '20px auto 0 auto';
+            retryBtn.style.display = 'block';
+            retryBtn.innerHTML = isKn ? '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ' : '↺ Try Again';
+            retryBtn.onclick = () => { 
+                currentQ = 0; score = 0; 
+                qTextEl.style.animation = "pop 0.4s ease-out";
+                optEl.style.display = "grid";
+                loadQuestion(); 
+            };
+            optEl.appendChild(retryBtn);
+        }
+    }
+
+    window.onload = () => {
+        const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${savedLang}`);
+        
+        document.getElementById('reward-section').classList.remove('show');
+        initDragDropQuiz(); // Start with Drag and Drop
+    };
 </script>
+
 </body>
 </html>
