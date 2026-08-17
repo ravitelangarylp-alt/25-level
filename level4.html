@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita Level 4 - ಮಹಾ-ಪರೀಕ್ಷಾ</title>
+    <title>संस्कृत-सोपानम् ४ - सङ्ख्याः (Numbers)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
@@ -14,11 +14,10 @@
             --text-brown: #4a2511;
             --text-maroon: #800000;
             --accent-gold: #d4af37;
-            --card-bg: #ffffff;
             --success-green: #22c55e;
             --error-red: #ef4444;
-            --masc-blue: #1e3a8a;
-            --fem-pink: #9d174d;
+            --number-yellow: #fef08a;
+            --number-border: #eab308;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,409 +31,563 @@
             color: var(--text-brown);
             line-height: 1.6;
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            padding-bottom: 80px;
         }
 
-        /* Nav & Headers */
-        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: rgba(255, 255, 255, 0.4); border-bottom: 2px solid rgba(212, 175, 55, 0.3); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); }
-        .logo-home { font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px; }
-        .lang-switch-btn { background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon); padding: 6px 15px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-        .lang-switch-btn:hover { background: var(--accent-gold); color: white; }
+        .top-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-        header { text-align: center; margin-bottom: 40px; }
-        .level-badge { display: inline-block; background-color: var(--text-maroon); color: white; padding: 6px 18px; border-radius: 20px; font-size: 1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(128,0,0,0.2); }
-        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 2.8rem; margin-bottom: 10px; }
+        .logo-home { 
+            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
+            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
+            transition: transform 0.2s;
+        }
+        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
         
-        .sk-text { font-family: 'Tiro Devanagari Sanskrit', serif; font-weight: 800; }
+        .lang-switch-btn {
+            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
+            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+
+        header { text-align: center; margin-bottom: 30px; margin-top: 40px; }
+        .level-badge { display: inline-block; background-color: var(--text-maroon); color: white; padding: 8px 25px; border-radius: 30px; font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(128,0,0,0.2); }
+        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.3rem; color: #666; font-weight: 600; }
+
+        /* Custom Intro Banner without images */
+        .intro-banner {
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            border: 4px dashed #ca8a04; border-radius: 20px; padding: 30px;
+            margin-bottom: 40px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex; justify-content: center; align-items: center; gap: 20px;
+        }
+        .banner-icon { font-size: 4rem; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1)); animation: float 3s ease-in-out infinite;}
+        .banner-text { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 3rem; color: #854d0e; font-weight: bold; letter-spacing: 5px;}
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+        /* Intro Section */
+        .intro-section {
+            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 8px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        /* Numbers Grid with Emojis */
+        .numbers-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;
+        }
+        .num-card {
+            background: var(--number-yellow); border: 3px solid var(--number-border); border-radius: 15px;
+            padding: 20px 10px; text-align: center; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; gap: 8px;
+            position: relative; overflow: hidden;
+        }
+        .num-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(234, 179, 8, 0.3); border-color: #b45309;}
         
-        /* Stacked Game Sections (Visible one below the other) */
-        .game-section { background: var(--card-bg); border-radius: 20px; padding: 35px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 8px solid var(--accent-gold); }
-        .game-title { font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; color: var(--text-maroon); margin-bottom: 25px; text-align: center; }
-        .progress-indicator { text-align: center; margin-bottom: 20px; font-weight: 800; color: var(--accent-gold); font-size: 1.1rem; }
+        .n-visual { font-size: 1.6rem; margin-bottom: 5px; line-height: 1.3; min-height: 45px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 0 5px;}
+        .n-digit { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 3.5rem; font-weight: bold; color: var(--text-maroon); line-height: 1; margin-bottom: 5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);}
+        .n-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; font-weight: bold; color: var(--text-brown); }
+        .n-en { font-family: 'Laila', sans-serif; font-size: 1.1rem; color: #555; font-weight: bold; background: #fff; padding: 2px 15px; border-radius: 15px;}
+        .n-audio { margin-top: 5px; font-size: 1.2rem; background: #fff; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; }
+
+        /* Quiz Section Enhancements */
+        .exam-section { background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-top: 8px solid var(--text-maroon); }
+        .exam-header { text-align: center; margin-bottom: 30px; }
+        .exam-title { font-family: 'Inknut Antiqua', serif; font-size: 2.2rem; color: var(--text-brown); }
         
-        /* Game 1: Drag & Drop */
-        .dnd-container { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
-        .dnd-col { display: flex; flex-direction: column; gap: 15px; width: 45%; }
-        .drag-item, .drop-zone { padding: 15px; border: 2px dashed #ccc; border-radius: 12px; text-align: center; font-size: 1.5rem; background: #fffaf0; cursor: grab; transition: all 0.2s; }
-        .drop-zone { background: #f8f9fa; color: #888; }
-        .drop-zone.matched { background: #dcfce7; border-color: var(--success-green); color: var(--text-brown); font-weight: bold; }
-        .drag-item:active { cursor: grabbing; transform: scale(0.95); }
+        .quiz-progress { font-weight: 600; color: var(--accent-gold); text-align: center; margin-bottom: 15px; font-size: 1.2rem;}
+        .q-image-box { text-align: center; margin-bottom: 25px; }
+        
+        .q-num-display { 
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 6.5rem; background: linear-gradient(135deg, #fffaf0, #fef08a); 
+            display: inline-block; width: 150px; height: 150px; line-height: 150px; border-radius: 50%; 
+            border: 5px solid var(--accent-gold); box-shadow: 0 15px 25px rgba(212,175,55,0.3); 
+            color: var(--text-maroon); font-weight: bold; animation: pop 0.5s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        @keyframes pop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        
+        /* Colorful and Large Question Font */
+        .quiz-question { 
+            font-family: 'Laila', sans-serif;
+            font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 30px;
+            background: -webkit-linear-gradient(45deg, #b91c1c, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        /* Game 2, 4, 5: General Options Grid */
-        .visual-img { width: 100%; max-width: 400px; height: 250px; object-fit: cover; border-radius: 15px; margin: 0 auto 20px; display: block; border: 4px solid #fdf5e6; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .options-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .opt-btn { background: #fff; border: 2px solid #ddd; padding: 15px; border-radius: 12px; font-size: 1.4rem; cursor: pointer; transition: all 0.2s; text-align: left; display: flex; align-items: center; }
-        .opt-btn:hover { border-color: var(--accent-gold); box-shadow: 0 4px 10px rgba(212,175,55,0.1); }
-        .opt-btn.correct { background: #dcfce7; border-color: var(--success-green); }
-        .opt-btn.wrong { background: #fee2e2; border-color: var(--error-red); }
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
+        .option-btn { 
+            background: linear-gradient(145deg, #ffffff, #fefaf0); 
+            border: 3px solid #fcd34d; padding: 18px 25px; border-radius: 15px; width: 100%; 
+            cursor: pointer; text-align: center; transition: all 0.3s ease; 
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2rem; font-weight: bold; 
+            color: #9a3412; line-height:1.4; box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+        .option-btn:hover:not(:disabled) { border-color: #d97706; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.2); background: linear-gradient(145deg, #fef08a, #fde047); color: #800000;}
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.8; }
+        .option-btn.correct { background: #dcfce7; border-color: var(--success-green); color: var(--success-green); transform: none; box-shadow: none;}
+        .option-btn.wrong { background: #fee2e2; border-color: var(--error-red); color: var(--error-red); transform: none; box-shadow: none;}
+        
+        .mq-feedback { font-weight: bold; font-size: 1.5rem; text-align: center; min-height: 35px; margin-top: 25px;}
 
-        /* Game 3: True / False */
-        .tf-actions { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
-        .tf-btn { padding: 15px 40px; font-size: 1.2rem; font-weight: bold; border-radius: 30px; cursor: pointer; border: none; color: white; transition: transform 0.2s; }
-        .tf-true { background: var(--success-green); }
-        .tf-false { background: var(--error-red); }
-        .tf-btn:hover { transform: scale(1.05); }
+        /* --- NEW SHLOKA REWARD SECTION (HTML BOARD) --- */
+        @keyframes magicFlash {
+            0% { box-shadow: 0 0 0px var(--accent-gold); transform: scale(0.95); opacity: 0;}
+            50% { box-shadow: 0 0 50px var(--accent-gold); transform: scale(1.02); opacity: 1;}
+            100% { box-shadow: 0 0 15px var(--accent-gold); transform: scale(1); opacity: 1;}
+        }
+        
+        .reward-section {
+            background: linear-gradient(135deg, #fffaf0, #fef08a); border-radius: 20px; padding: 50px 40px; margin-bottom: 50px;
+            border: 4px solid var(--accent-gold); text-align: center; display: none; 
+        }
+        .reward-section.show { display: block; animation: magicFlash 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+        
+        .reward-title { font-family: 'Inknut Antiqua', serif; font-size: 3rem; color: #800000; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);}
+        .reward-desc { font-size: 1.4rem; color: var(--text-brown); font-weight: bold; margin-bottom: 30px; line-height: 1.6;}
 
-        /* Game 4: Fill in the Blanks */
-        .fitb-sentence { font-size: 2rem; text-align: center; margin: 30px 0; color: var(--text-brown); border-bottom: 2px solid #ccc; padding-bottom: 10px; }
-        .blank-space { display: inline-block; width: 80px; border-bottom: 3px solid var(--text-maroon); text-align: center; color: var(--masc-blue); min-height: 40px; }
+        .song-btn-blue {
+            background: #2563eb; color: white; text-decoration: none;
+            border-radius: 40px; padding: 15px 40px; border: none; 
+            font-family: 'Inknut Antiqua', serif; font-weight: bold; font-size: 1.4rem;
+            cursor: pointer; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 15px; margin-bottom: 40px;
+        }
+        .song-btn-blue:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(37, 99, 235, 0.5); }
 
-        /* Game 6: Time Attack */
-        .time-attack-header { display: flex; justify-content: space-between; align-items: center; background: #fffaf0; padding: 15px 25px; border-radius: 15px; border: 2px solid var(--error-red); margin-bottom: 20px; }
-        .timer { font-size: 1.8rem; font-weight: bold; color: var(--error-red); font-family: monospace; }
-        .ta-question { font-size: 1.6rem; text-align: center; margin-bottom: 20px; }
-        #ta-start-btn { display: block; margin: 0 auto; background: var(--error-red); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 30px; cursor: pointer; transition: transform 0.2s; }
-        #ta-start-btn:hover { transform: scale(1.05); }
-        #ta-area { display: none; }
+        /* HTML Shloka Board replacing the image */
+        .shloka-board {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            border: 6px solid #fde047; border-radius: 20px; padding: 40px 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2); max-width: 800px; margin: 0 auto;
+            position: relative; overflow: hidden;
+        }
+        /* Aesthetic background element */
+        .shloka-board::after {
+            content: 'ॐ'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 20rem; color: rgba(255,255,255,0.05); z-index: 1; pointer-events: none;
+        }
+        
+        .shloka-sk {
+            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2.2rem; line-height: 1.8;
+            color: #fef08a; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-weight: bold;
+            margin-bottom: 30px; z-index: 2; position: relative;
+        }
+        .shloka-sk span.hl-blue { color: #93c5fd; }
+        .shloka-sk span.hl-pink { color: #fbcfe8; }
+        .shloka-sk span.hl-green { color: #86efac; }
+        .shloka-sk span.hl-red { color: #fca5a5; }
 
-        /* Utilities */
-        .speak-btn { background: #fdf5e6; border: 2px solid var(--accent-gold); cursor: pointer; font-size: 1.8rem; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .feedback { text-align: center; font-weight: bold; font-size: 1.2rem; min-height: 30px; margin-top: 15px; }
-        .section-complete-msg { font-size: 1.5rem; color: var(--success-green); text-align: center; font-weight: bold; padding: 30px 0; display: none; }
+        .shloka-en {
+            font-family: 'Laila', sans-serif; font-size: 1.25rem; line-height: 1.6;
+            color: #fff; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;
+            z-index: 2; position: relative;
+        }
 
-        /* Modals */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+        /* Nav Buttons */
+        .nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 20px; border-top: 2px solid #eee;}
+        .btn { font-family: 'Laila', sans-serif; font-weight: 700; font-size: 1.1rem; padding: 12px 28px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .btn-outline { background: #fff; border: 2px solid var(--text-brown); color: var(--text-brown); }
+        .btn-outline:hover { background: var(--text-brown); color: #fff; }
+        .btn-primary { background: var(--text-maroon); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(128, 0, 0, 0.2); }
+        .btn-disabled { opacity: 0.5; pointer-events: none; filter: grayscale(100%); }
+
+        /* Modal Settings */
+        .treasure-btn-main { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; border-radius: 30px; padding: 15px 35px; border: none; font-family: 'Inknut Antiqua', serif; font-weight: bold; font-size: 1.3rem; cursor: pointer; margin: 40px auto; box-shadow: 0 8px 15px rgba(30, 58, 138, 0.2); transition: 0.3s; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(5px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
         .modal-overlay.show { display: flex; }
-        .modal-content { background: var(--bg-parchment); padding: 40px; border-radius: 20px; border: 4px solid var(--accent-gold); text-align: center; max-width: 500px; width: 100%; }
-        .trophy { font-size: 5rem; margin-bottom: 10px; }
-        .next-btn { display: block; margin: 25px auto 0; background: var(--success-green); color: white; border: none; padding: 12px 30px; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1.2rem; text-decoration: none;}
+        .ratnakosha-modal-content { background: #fdfaf2; width: 100%; max-width: 500px; border-radius: 15px; border: 3px solid #1e3a8a; padding: 0; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); max-height: 85vh; overflow: hidden; display: flex; flex-direction: column; }
+        .ratnakosha-header { background: #e0f2fe; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #bae6fd; }
+        .ratnakosha-header h2 { font-family: 'Inknut Antiqua', serif; color: #1e3a8a; font-size: 1.5rem; margin: 0; display:flex; align-items:center; gap:10px;}
+        .ratnakosha-close { font-size: 2rem; cursor: pointer; color: #1e3a8a; border: none; background: none; font-weight: bold;}
+        .ratnakosha-list { padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #fdf5e6; }
+        .ratnakosha-item { background: #fff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .rk-sk-box { display: flex; align-items: center; gap: 15px; }
+        .rk-emoji { font-size: 1.5rem; }
+        .rk-sk-text { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.5rem; font-weight: bold; }
+        .rk-mean { font-size: 1.1rem; font-weight: bold; color: var(--text-brown); font-family: 'Laila', sans-serif;}
+
+        @media (max-width: 768px) {
+            .quiz-options { grid-template-columns: 1fr; }
+            .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+            .shloka-sk { font-size: 1.5rem; }
+            .shloka-en { font-size: 1rem; }
+            .intro-banner { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body class="lang-kn">
 
 <nav class="top-nav">
     <a href="index.html" class="logo-home">🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span></a>
-    <button class="lang-switch-btn" onclick="toggleLanguage()">🌐 <span class="kn-text">English</span><span class="en-text">ಕನ್ನಡ</span></button>
+    <button class="lang-switch-btn" onclick="toggleLanguage()">🌐 <span class="kn-text">English</span><span class="en-text">कನ್ನಡ</span></button>
 </nav>
 
 <div class="container">
     <header>
-        <div class="level-badge">Level 4</div>
-        <h1><span class="kn-text">ಮಹಾ-ಪರೀಕ್ಷಾ</span><span class="en-text">Grand Assessment</span></h1>
-        <p class="subtitle"><span class="kn-text">ನಿಮ್ಮ ಜ್ಞಾನವನ್ನು ಪರೀಕ್ಷಿಸುವ ೬ ಹಂತದ ಸವಾಲುಗಳು</span><span class="en-text">6 Challenges to test your mastery</span></p>
+        <div class="level-badge">
+            <span class="kn-text">सोपानम् ४</span>
+            <span class="en-text">sopāna 4</span>
+        </div>
+        <h1><span class="kn-text">सङ्ख्याः (ಸಂಖ್ಯೆಗಳು)</span><span class="en-text">saṅkhyāḥ (Numbers)</span></h1>
+        <p class="subtitle">
+            <span class="kn-text">೧ ರಿಂದ ೧೦ ರವರೆಗಿನ ಸರಳ ಸಂಖ್ಯೆಗಳನ್ನು ಕಲಿಯೋಣ</span>
+            <span class="en-text">Let's learn simple numbers from 1 to 10</span>
+        </p>
     </header>
 
-    <div class="game-section" id="sec-dnd">
-        <h2 class="game-title">೧. <span class="kn-text">ಸಂಬಂಧ ಸೇತು (ಹೊಂದಿಸಿ ಬರೆಯಿರಿ)</span><span class="en-text">Sambandha Setu (Match the pairs)</span></h2>
-        <div class="dnd-container">
-            <div class="dnd-col" id="drag-items">
-                <div class="drag-item sk-text" draggable="true" id="drag-yah">यः</div>
-                <div class="drag-item sk-text" draggable="true" id="drag-ayam">अयम्</div>
-                <div class="drag-item sk-text" draggable="true" id="drag-kah">कः</div>
+    <!-- Custom HTML Intro Banner without images -->
+    <div class="intro-banner">
+        <div class="banner-icon">👶👧</div>
+        <div class="banner-text">१ २ ३ ४ ५ ...</div>
+        <div class="banner-icon">📚✨</div>
+    </div>
+
+    <!-- Intro Section -->
+    <div class="intro-section">
+        <h2 style="font-family: 'Inknut Antiqua', serif; font-size: 2rem; color: var(--text-maroon); margin-bottom: 30px;">
+            <span class="kn-text">ಕೇಳಿ ಮತ್ತು ಕಲಿಯಿರಿ</span><span class="en-text">Listen and Learn</span>
+        </h2>
+
+        <div class="numbers-grid">
+            <div class="num-card" onclick="speak('एकम्')">
+                <div class="n-visual">🌸</div>
+                <span class="n-digit">१</span>
+                <span class="n-sk">एकम्</span>
+                <span class="n-en">1</span>
+                <span class="n-audio">🔊</span>
             </div>
-            <div class="dnd-col" id="drop-zones">
-                <div class="drop-zone sk-text" data-match="drag-kah">___? (Who?)</div>
-                <div class="drop-zone sk-text" data-match="drag-yah">___ पठति, सः...</div>
-                <div class="drop-zone sk-text" data-match="drag-ayam">___ बालकः (Near)</div>
+            <div class="num-card" onclick="speak('द्वे')">
+                <div class="n-visual">🌳🌳</div>
+                <span class="n-digit">२</span>
+                <span class="n-sk">द्वे</span>
+                <span class="n-en">2</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('त्रीणि')">
+                <div class="n-visual">✏️✏️✏️</div>
+                <span class="n-digit">३</span>
+                <span class="n-sk">त्रीणि</span>
+                <span class="n-en">3</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('चत्वारि')">
+                <div class="n-visual">🍎🍎🍎🍎</div>
+                <span class="n-digit">४</span>
+                <span class="n-sk">चत्वारि</span>
+                <span class="n-en">4</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('पञ्च')">
+                <div class="n-visual">⭐⭐⭐⭐⭐</div>
+                <span class="n-digit">५</span>
+                <span class="n-sk">पञ्च</span>
+                <span class="n-en">5</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('षट्')">
+                <div class="n-visual">🎈🎈🎈🎈🎈🎈</div>
+                <span class="n-digit">६</span>
+                <span class="n-sk">षट्</span>
+                <span class="n-en">6</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('सप्त')">
+                <div class="n-visual">🦋🦋🦋🦋🦋🦋🦋</div>
+                <span class="n-digit">७</span>
+                <span class="n-sk">सप्त</span>
+                <span class="n-en">7</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('अष्ट')">
+                <div class="n-visual">🍓🍓🍓🍓<br>🍓🍓🍓🍓</div>
+                <span class="n-digit">८</span>
+                <span class="n-sk">अष्ट</span>
+                <span class="n-en">8</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('नव')">
+                <div class="n-visual">🍬🍬🍬🍬🍬<br>🍬🍬🍬🍬</div>
+                <span class="n-digit">९</span>
+                <span class="n-sk">नव</span>
+                <span class="n-en">9</span>
+                <span class="n-audio">🔊</span>
+            </div>
+            <div class="num-card" onclick="speak('दश')">
+                <div class="n-visual">🪙🪙🪙🪙🪙<br>🪙🪙🪙🪙🪙</div>
+                <span class="n-digit">१०</span>
+                <span class="n-sk">दश</span>
+                <span class="n-en">10</span>
+                <span class="n-audio">🔊</span>
             </div>
         </div>
-        <div class="feedback" id="fb-g1"></div>
     </div>
 
-    <div class="game-section" id="sec-visual">
-        <h2 class="game-title">೨. <span class="kn-text">ದೃಷ್ಟಿ-ಜ್ಞಾನಮ್ (ಚಿತ್ರ-ಶಬ್ದ ಪರೀಕ್ಷೆ)</span><span class="en-text">Drishti-Jnanam (Visual Quiz)</span></h2>
-        
-        <div id="visual-content">
-            <div class="progress-indicator"><span class="kn-text">ಪ್ರಶ್ನೆ</span><span class="en-text">Question</span> <span id="visual-idx">1</span>/5</div>
-            <img id="visual-img" src="" class="visual-img">
-            <p id="visual-q" style="text-align:center; font-weight:600; margin-bottom:15px; font-size:1.1rem; color:#555;"></p>
-            <div class="options-grid" id="visual-opts"></div>
-            <div class="feedback" id="visual-fb"></div>
+    <!-- Knowledge Quiz Section -->
+    <div class="exam-section" id="quiz-container">
+        <div class="exam-header">
+            <h2 class="exam-title">🧠 <span class="kn-text">ज्ञान-परीक्षा</span><span class="en-text">Knowledge Quiz</span></h2>
+            <div class="quiz-progress" id="quiz-progress"></div>
         </div>
-        <div id="visual-complete" class="section-complete-msg">🎉 <span class="kn-text">ಈ ವಿಭಾಗ ಪೂರ್ಣಗೊಂಡಿದೆ! ಕೆಳಗಿನ ಸವಾಲಿಗೆ ಹೋಗಿ.</span><span class="en-text">Section Completed! Move to the next challenge.</span></div>
-    </div>
-
-    <div class="game-section" id="sec-tf">
-        <h2 class="game-title">೩. <span class="kn-text">ಸತ್ಯಂ ವಾ ಅಸತ್ಯಮ್ (ಸರಿ / ತಪ್ಪು)</span><span class="en-text">Satyam Va Asatyam (True/False)</span></h2>
         
-        <div id="tf-content">
-            <div class="progress-indicator"><span class="kn-text">ಪ್ರಶ್ನೆ</span><span class="en-text">Question</span> <span id="tf-idx">1</span>/5</div>
-            <img id="tf-img" src="" class="visual-img">
-            <div id="tf-statement" class="sk-text" style="text-align:center; font-size:2rem; color:var(--text-maroon); margin-bottom:15px;"></div>
-            <div class="tf-actions">
-                <button class="tf-btn tf-true" onclick="handleTF(true)"><span class="kn-text">ಸತ್ಯಮ್</span><span class="en-text">True</span></button>
-                <button class="tf-btn tf-false" onclick="handleTF(false)"><span class="kn-text">ಅಸತ್ಯಮ್</span><span class="en-text">False</span></button>
-            </div>
-            <div class="feedback" id="tf-fb"></div>
+        <div class="q-image-box">
+            <span class="q-num-display" id="quiz-emoji">५</span>
         </div>
-        <div id="tf-complete" class="section-complete-msg">🎉 <span class="kn-text">ಈ ವಿಭಾಗ ಪೂರ್ಣಗೊಂಡಿದೆ! ಕೆಳಗಿನ ಸವಾಲಿಗೆ ಹೋಗಿ.</span><span class="en-text">Section Completed! Move to the next challenge.</span></div>
-    </div>
-
-    <div class="game-section" id="sec-fitb">
-        <h2 class="game-title">೪. <span class="kn-text">ವಾಕ್ಯ ನಿರ್ಮಾಣ (ಬಿಟ್ಟ ಸ್ಥಳ ತುಂಬಿ)</span><span class="en-text">Vakya Nirmana (Fill in the blanks)</span></h2>
         
-        <div id="fitb-content">
-            <div class="progress-indicator"><span class="kn-text">ಪ್ರಶ್ನೆ</span><span class="en-text">Question</span> <span id="fitb-idx">1</span>/5</div>
-            <div id="fitb-sentence" class="fitb-sentence sk-text"></div>
-            <div class="options-grid" id="fitb-opts" style="grid-template-columns: repeat(3, 1fr); gap:10px;"></div>
-            <div class="feedback" id="fitb-fb"></div>
+        <div class="quiz-question" id="quiz-question">
+            <span class="kn-text">ಈ ಸಂಖ್ಯೆಯನ್ನು ಗುರುತಿಸಿ:</span><span class="en-text">Identify this number:</span>
         </div>
-        <div id="fitb-complete" class="section-complete-msg">🎉 <span class="kn-text">ಈ ವಿಭಾಗ ಪೂರ್ಣಗೊಂಡಿದೆ! ಕೆಳಗಿನ ಸವಾಲಿಗೆ ಹೋಗಿ.</span><span class="en-text">Section Completed! Move to the next challenge.</span></div>
-    </div>
-
-    <div class="game-section" id="sec-listen">
-        <h2 class="game-title">೫. <span class="kn-text">ಶ್ರವಣ-ಪರೀಕ್ಷಾ (ಆಲಿಸಿ ಉತ್ತರಿಸಿ)</span><span class="en-text">Shravana-Pariksha (Listen & Answer)</span></h2>
+        <div class="quiz-options" id="quiz-options"></div>
         
-        <div id="listen-content">
-            <div class="progress-indicator"><span class="kn-text">ಪ್ರಶ್ನೆ</span><span class="en-text">Question</span> <span id="listen-idx">1</span>/5</div>
-            <button class="speak-btn" id="listen-btn">🔊</button>
-            <div class="options-grid" id="listen-opts"></div>
-            <div class="feedback" id="listen-fb"></div>
+        <div class="quiz-controls" style="text-align: center;">
+            <p id="quiz-feedback" class="mq-feedback"></p>
+            <!-- Note: Next Button removed for Automatic progression -->
         </div>
-        <div id="listen-complete" class="section-complete-msg">🎉 <span class="kn-text">ಈ ವಿಭಾಗ ಪೂರ್ಣಗೊಂಡಿದೆ! ಕೆಳಗಿನ ಸವಾಲಿಗೆ ಹೋಗಿ.</span><span class="en-text">Section Completed! Move to the next challenge.</span></div>
     </div>
 
-    <div class="game-section" id="sec-timeattack">
-        <h2 class="game-title">೬. <span class="kn-text">ಅಂತಿಮ ಸವಾಲು: ಟೈಮ್ ಅಟ್ಯಾಕ್</span><span class="en-text">Final Boss: Time Attack</span></h2>
-        
-        <p style="text-align:center; font-weight:600; margin-bottom:20px; color:#555;">
-            <span class="kn-text">ನೀವು ೪೫ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ೧೨ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಬೇಕು!</span>
-            <span class="en-text">Answer 12 questions in 45 seconds!</span>
+    <!-- MAGICAL REWARD SECTION (SHLOKA) -->
+    <div id="reward-section" class="reward-section">
+        <h2 class="reward-title">✨ अभिनन्दनम् ! ✨</h2>
+        <p class="reward-desc">
+            <span class="kn-text">ಪಾಠ ಮುಗಿದಿದೆ! ದಯವಿಟ್ಟು ಈ ಸುಂದರವಾದ ಶ್ಲೋಕವನ್ನು ಕೇಳಿ, ಕಂಠಪಾಠ ಮಾಡಿ ಮತ್ತು ಅದರ ಅರ್ಥವನ್ನು ತಿಳಿದುಕೊಳ್ಳಿ.</span>
+            <span class="en-text">Lesson complete! Please listen to this beautiful Shloka, memorize it, and understand its meaning.</span>
         </p>
 
-        <button id="ta-start-btn" onclick="startBossLevel()"><span class="kn-text">ಸವಾಲನ್ನು ಪ್ರಾರಂಭಿಸಿ</span><span class="en-text">Start Challenge</span></button>
-        
-        <div id="ta-area">
-            <div class="time-attack-header">
-                <div style="font-weight:bold; font-size:1.2rem;"><span class="kn-text">ಪ್ರಶ್ನೆ:</span><span class="en-text">Score:</span> <span id="ta-score">0</span>/12</div>
-                <div class="timer" id="ta-timer">00:45</div>
+        <!-- 🎵 New Shloka Audio Link 🎵 -->
+        <a href="https://sanskrit.ie/sanskrit/devotional/dc0640e0-8137-4c41-a704-9577b1aa1d3e" target="_blank" class="song-btn-blue">
+            🎶 <span class="kn-text">ಶ್ಲೋಕವನ್ನು ಆಲಿಸಿ (Play Audio)</span><span class="en-text">Listen to Shloka</span>
+        </a>
+
+        <!-- Custom HTML Shloka Board replacing the image -->
+        <div class="shloka-board">
+            <div class="shloka-sk">
+                <span class="hl-blue">त्वमेव</span> <span class="hl-pink">माता</span> च पिता <span class="hl-blue">त्वमेव</span> ।<br>
+                <span class="hl-blue">त्वमेव</span> बन्धुश्च सखा <span class="hl-blue">त्वमेव</span> ।<br>
+                <span class="hl-blue">त्वमेव</span> <span class="hl-green">विद्या</span> द्रविणम् <span class="hl-blue">त्वमेव</span> ।<br>
+                <span class="hl-blue">त्वमेव</span> सर्वं मम <span class="hl-red">देवदेव</span> ॥
             </div>
-            <div class="ta-question sk-text" id="ta-q-text"></div>
-            <div class="options-grid" id="ta-opts" style="grid-template-columns: 1fr 1fr;"></div>
+            <div class="shloka-en">
+                <span class="kn-text">ನೀನೇ ತಾಯಿ, ನೀನೇ ತಂದೆ.<br>ನೀನೇ ಬಂಧು, ನೀನೇ ಸಖ.<br>ನೀನೇ ವಿದ್ಯೆ, ನೀನೇ ಸಂಪತ್ತು.<br>ಹೇ ದೇವ, ನೀನೇ ನನ್ನ ಸರ್ವಸ್ವ.</span>
+                <span class="en-text">You alone are mother and you alone are father;<br>Only you are a relative and a friend;<br>You alone are knowledge, you alone are wealth;<br>You alone are my all, O God of gods!</span>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="modal-overlay" id="cert-modal">
-    <div class="modal-content">
-        <div class="trophy">🏆</div>
-        <h2 style="font-family:'Inknut Antiqua'; color:var(--text-maroon); margin-bottom:10px;"><span class="kn-text">ಅದ್ಭುತ! ಲೆವೆಲ್ ೪ ಪೂರ್ಣಗೊಂಡಿದೆ!</span><span class="en-text">Excellent! Level 4 Completed!</span></h2>
-        <p style="font-weight:600; margin-bottom:20px; color:#555;"><span class="kn-text">ನೀವು ಸಂಸ್ಕೃತದ ಪ್ರಾಥಮಿಕ ಸರ್ವನಾಮಗಳ ಮೇಲೆ ಹಿಡಿತ ಸಾಧಿಸಿದ್ದೀರಿ.</span><span class="en-text">You have mastered the basic Sanskrit pronouns.</span></p>
-        
-        <div style="background:#fdf5e6; padding:20px; border-radius:10px; border:2px dashed var(--accent-gold); margin-bottom:20px;">
-            <div class="sk-text" style="font-size:1.4rem; color:var(--masc-blue);">यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः ।</div>
-        </div>
-
-        <a href="index.html" class="next-btn" style="display:inline-block; text-align:center;">
-            🏠 <span class="kn-text">ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ</span><span class="en-text">Return Home</span>
+    <!-- Nav Buttons -->
+    <div class="nav-buttons">
+        <a href="index.html" class="btn btn-outline" style="border-color:#555; color:#555;">
+            🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
+        </a>
+        <button class="treasure-btn-main" onclick="openRatnakoshaModal()" style="margin:0;">
+            💎 <span class="kn-text">शब्द-रत्नकोशः</span><span class="en-text">śabda-ratnakośa</span>
+        </button>
+        <a href="level5.html" id="finish-btn" class="btn btn-primary btn-disabled">
+            <span class="kn-text">ಮುಂದಿನ सोपान →</span><span class="en-text">Next Stage →</span>
         </a>
     </div>
 </div>
 
-<div class="modal-overlay" id="error-modal">
-    <div class="modal-content" style="max-width: 400px; border-color: var(--error-red);">
-        <h2 style="color:var(--error-red); margin-bottom:15px;">❌ <span class="kn-text">ನಿಯಮವನ್ನು ನೆನಪಿಸಿಕೊಳ್ಳಿ</span><span class="en-text">Remember the Rule</span></h2>
-        <p id="error-modal-msg" style="font-weight:600; font-size:1.1rem; color:#444;"></p>
-        <button onclick="document.getElementById('error-modal').classList.remove('show')" style="margin-top:20px; padding:10px 30px; border-radius:20px; border:none; cursor:pointer; font-weight:bold; background:#eee; font-size:1.1rem;">OK</button>
+<!-- SHABDA RATNAKOSHA MODAL -->
+<div class="modal-overlay" id="ratnakosha-modal">
+    <div class="ratnakosha-modal-content">
+        <div class="ratnakosha-header">
+            <h2>💎 <span class="kn-text">शब्द-रत्नकोशः</span><span class="en-text">Word Treasure</span></h2>
+            <button class="ratnakosha-close" onclick="closeRatnakoshaModal()">&times;</button>
+        </div>
+        <div class="ratnakosha-list" id="ratnakosha-list">
+            <!-- Injected via JS -->
+        </div>
     </div>
 </div>
 
 <script>
-    /* --- DATA ARRAYS (Using correct image paths and British English standards) --- */
-    
-    const visualData = [
-        { img: "Images/L4_V1_Mountain.png", q_kn: "ಚಿತ್ರದಲ್ಲಿರುವ ಬೆಟ್ಟ ದೂರದಲ್ಲಿದೆ", q_en: "The mountain is far away", opts: ["सः पर्वतः", "अयं पर्वतः", "एषः पर्वतः"], a: 0 },
-        { img: "Images/L4_V2_Book.png", q_kn: "ಪುಸ್ತಕವು ಬಾಲಕನ ಎದುರೇ ಇದೆ", q_en: "The book is right in front", opts: ["सः पुस्तकम्", "अयं पुस्तकम्", "तस्य पुस्तकम्"], a: 1 },
-        { img: "Images/L4_V3_Girl.png", q_kn: "ಹುಡುಗಿಯು ಸ್ವಲ್ಪ ದೂರದಲ್ಲಿ ನಿಂತಿದ್ದಾಳೆ", q_en: "The girl is standing a bit far", opts: ["एषा बालिका", "इयं बालिका", "सा बालिका"], a: 2 },
-        { img: "Images/L4_V4_Boy.png", q_kn: "ಬಾಲಕನು ನಿನ್ನ ಎದುರಿಗೇ ಇದ್ದಾನೆ", q_en: "The boy is right in front of you", opts: ["अयम् बालकः", "सः बालकः", "कः बालकः"], a: 0 },
-        { img: "Images/L4_V5_River.png", q_kn: "ನದಿ ಬಹಳ ದೂರದಲ್ಲಿದೆ", q_en: "The river is far away", opts: ["इयं नदी", "सा नदी", "एषा नदी"], a: 1 }
-    ];
-
-    const tfData = [
-        { img: "Images/L4_TF1_GirlPen.png", s: "अस्य लेखनी ।", isTrue: false, fb_kn: "ಹುಡುಗಿಯ ಒಡೆತನಕ್ಕೆ 'अस्याः' ಬಳಸಬೇಕು.", fb_en: "Use 'अस्याः' for feminine possession." },
-        { img: "Images/L4_TF2_BoyBook.png", s: "अस्य पुस्तकम् ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹುಡುಗನಿಗೆ 'अस्य' ಬಳಸುತ್ತೇವೆ.", fb_en: "Correct! 'अस्य' is for masculine." },
-        { img: "Images/L4_TF3_FarTemple.png", s: "सः पर्वतः ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ದೂರವಿರುವ ಬೆಟ್ಟಕ್ಕೆ 'सः' ಸೂಕ್ತ.", fb_en: "Correct! 'सः' is used for remote objects." },
-        { img: "Images/L4_TF4_PillarShadow.png", s: "एतस्य छाया ।", isTrue: true, fb_kn: "ಸರಿಯಾಗಿದೆ! ಹತ್ತಿರವಿರುವ ವಸ್ತುವಿನ ನೆರಳು.", fb_en: "Correct! Shadow of a near object." },
-        { img: "Images/L4_TF5_StudyLogic.png", s: "यः पठति, सा जानाति ।", isTrue: false, fb_kn: "ಪುಲ್ಲಿಂಗ 'यः' ಜೊತೆಗೆ 'सः' ಇರಬೇಕು.", fb_en: "Masculine 'यः' must pair with 'सः'." }
-    ];
-
-    const fitbData = [
-        { s: "___ पठति, सः जानाति ।", opts: ["यः", "या", "कः"], a: 0, word: "यः" },
-        { s: "___ पठति, सा जानाति ।", opts: ["यः", "या", "सा"], a: 1, word: "या" },
-        { s: "एतत् ___ पुस्तकम्? (Whose-M)", opts: ["कः", "का", "कस्य"], a: 2, word: "कस्य" },
-        { s: "एतत् ___ लेखनी? (Whose-F)", opts: ["कस्याः", "कस्य", "का"], a: 0, word: "कस्याः" },
-        { s: "सा ___? (Who is she?)", opts: ["कः", "का", "या"], a: 1, word: "का" }
-    ];
-
-    const listenData = [
-        { sk: "कस्याः लेखनी?", opts_kn: ["ಯಾರ ಪೆನ್ನು? (ಸ್ತ್ರೀ)", "ಯಾರ ಪೆನ್ನು? (ಪುಂ)", "ಅವಳು ಯಾರು?"], opts_en: ["Whose pen is it? (F)", "Whose pen is it? (M)", "Who is she?"], a: 0 },
-        { sk: "सः कः?", opts_kn: ["ಅವನು ಯಾರು?", "ಇವನು ಯಾರು?", "ಯಾರದ್ದು?"], opts_en: ["Who is he?", "Who is this?", "Whose?"], a: 0 },
-        { sk: "इदं कस्य?", opts_kn: ["ಇದು ಇವಳದ್ದು", "ಇದು ಯಾರದ್ದು? (ಪುಂ)", "ಅವನು ಓದುತ್ತಾನೆ"], opts_en: ["This is hers", "Whose is this? (M)", "He reads"], a: 1 },
-        { sk: "सा का?", opts_kn: ["ಅವನು ಯಾರು?", "ಅವಳು ಯಾರು?", "ಯಾರು ಓದುತ್ತಾರೋ"], opts_en: ["Who is he?", "Who is she?", "The one who reads"], a: 1 },
-        { sk: "यः पठति", opts_kn: ["ಯಾರು ಓದುತ್ತಾನೋ", "ಅವನು ಓದುತ್ತಾನೆ", "ಯಾರ ಪೆನ್ನು?"], opts_en: ["He who reads", "He reads", "Whose pen is it?"], a: 0 }
-    ];
-
-    const taData = [
-        { q_kn: "ಯಾರದ್ದು? (ಸ್ತ್ರೀ)", q_en: "Whose? (Fem)", opts: ["कस्याः", "कस्य"], a: 0 },
-        { q_kn: "ಯಾರು? (ಪುಂ)", q_en: "Who? (Masc)", opts: ["का", "कः"], a: 1 },
-        { q_kn: "ಅವನು (ದೂರ)", q_en: "He (Far)", opts: ["एषः", "सः"], a: 1 },
-        { q_kn: "ಇವಳು (ಹತ್ತಿರ)", q_en: "She (Near)", opts: ["इयम्", "सा"], a: 0 },
-        { q_kn: "ಅವಳದ್ದು", q_en: "Her (Possessive)", opts: ["तस्याः", "तस्य"], a: 0 },
-        { q_kn: "ಯಾರು ಓದುತ್ತಾನೋ..", q_en: "He who reads..", opts: ["यः", "या"], a: 0 },
-        { q_kn: "ಅವಳು.. (ಸಂಬಂಧ)", q_en: "She.. (Correlative)", opts: ["सा", "सः"], a: 0 },
-        { q_kn: "ಯಾರದ್ದು? (ಪುಂ)", q_en: "Whose? (Masc)", opts: ["कस्य", "कस्याः"], a: 0 },
-        { q_kn: "ಇವನು (ಪ್ರತ್ಯಕ್ಷ)", q_en: "This man (Direct)", opts: ["अयम्", "सः"], a: 0 },
-        { q_kn: "ಯಾರು ಓದುತ್ತಾಳೋ..", q_en: "She who reads..", opts: ["या पठति", "यः पठति"], a: 0 },
-        { q_kn: "ಅವನ (ದೂರ)", q_en: "His (Far)", opts: ["तस्य", "एतस्य"], a: 0 },
-        { q_kn: "ಅವನು ಯಾರು?", q_en: "Who is he?", opts: ["सः कः?", "सा का?"], a: 0 }
-    ];
-
-    /* --- GLOBAL UTILS --- */
     function speak(text) {
         if ('speechSynthesis' in window) {
-            const u = new SpeechSynthesisUtterance(text); u.lang = 'hi-IN'; u.rate = 0.85;
+            const u = new SpeechSynthesisUtterance(text); u.lang = 'hi-IN'; u.rate = 0.8;
             window.speechSynthesis.speak(u);
         }
     }
 
     function toggleLanguage() {
         const isKn = document.body.classList.contains('lang-kn');
-        if (isKn) { document.body.classList.remove('lang-kn'); document.body.classList.add('lang-en'); } 
-        else { document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn'); }
-        
-        loadVisual(); loadTF(); loadFITB(); loadListen(); if(document.getElementById('ta-area').style.display === 'block') loadTA();
-    }
-    const isKn = () => document.body.classList.contains('lang-kn');
-
-    /* --- GAME 1: Drag & Drop --- */
-    let matches = 0;
-    const dragItems = document.querySelectorAll('.drag-item');
-    const dropZones = document.querySelectorAll('.drop-zone');
-
-    dragItems.forEach(item => { item.addEventListener('dragstart', (e) => { e.dataTransfer.setData('text/plain', e.target.id); }); });
-    dropZones.forEach(zone => {
-        zone.addEventListener('dragover', (e) => { e.preventDefault(); });
-        zone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const draggedId = e.dataTransfer.getData('text/plain');
-            if(zone.getAttribute('data-match') === draggedId && !zone.classList.contains('matched')) {
-                zone.classList.add('matched'); zone.innerHTML = document.getElementById(draggedId).innerHTML + ' ✅';
-                document.getElementById(draggedId).style.visibility = 'hidden'; matches++;
-                if(matches === 3) document.getElementById('fb-g1').innerHTML = '<span style="color:var(--success-green); font-size:1.3rem;">🎉 ಅದ್ಭುತ! ಈ ವಿಭಾಗ ಪೂರ್ಣಗೊಂಡಿದೆ. ಕೆಳಗಿನ ಸವಾಲಿಗೆ ಹೋಗಿ.</span>';
-            } else if (!zone.classList.contains('matched')) {
-                zone.style.borderColor = 'red'; setTimeout(() => zone.style.borderColor = '#ccc', 500);
-            }
-        });
-    });
-
-    /* --- GAME 2: Visual Quiz --- */
-    let vIdx = 0;
-    function loadVisual() {
-        if(vIdx >= 5) { document.getElementById('visual-content').style.display = 'none'; document.getElementById('visual-complete').style.display = 'block'; return; }
-        const d = visualData[vIdx];
-        document.getElementById('visual-idx').innerText = vIdx + 1;
-        document.getElementById('visual-img').src = d.img;
-        document.getElementById('visual-q').innerText = isKn() ? d.q_kn : d.q_en;
-        const optArea = document.getElementById('visual-opts'); optArea.innerHTML = '';
-        d.opts.forEach((o, i) => {
-            const b = document.createElement('button'); b.className = 'opt-btn sk-text'; b.innerHTML = `<span style="font-family:'Inknut Antiqua'; color:#888; margin-right:15px; width:20px;">${String.fromCharCode(65+i)}.</span> ${o}`;
-            b.onclick = () => {
-                const all = optArea.querySelectorAll('.opt-btn'); all.forEach(x => x.disabled = true);
-                if(i === d.a) { b.classList.add('correct'); document.getElementById('visual-fb').innerHTML = '✅ ಉತ್ತಮಮ್!'; vIdx++; setTimeout(loadVisual, 1200); }
-                else { b.classList.add('wrong'); document.getElementById('visual-fb').innerHTML = '❌ ಪ್ರಯತ್ನಿಸಿ!'; setTimeout(loadVisual, 1200); }
-            };
-            optArea.appendChild(b);
-        });
-    }
-
-    /* --- GAME 3: True / False --- */
-    let tfIdx = 0;
-    function loadTF() {
-        if(tfIdx >= 5) { document.getElementById('tf-content').style.display = 'none'; document.getElementById('tf-complete').style.display = 'block'; return; }
-        const d = tfData[tfIdx];
-        document.getElementById('tf-idx').innerText = tfIdx + 1;
-        document.getElementById('tf-img').src = d.img;
-        document.getElementById('tf-statement').innerText = d.s;
-        document.getElementById('tf-fb').innerHTML = '';
-        document.querySelectorAll('.tf-btn').forEach(b => b.disabled = false);
-    }
-    function handleTF(clickedTrue) {
-        document.querySelectorAll('.tf-btn').forEach(b => b.disabled = true);
-        const d = tfData[tfIdx];
-        if(clickedTrue === d.isTrue) {
-            document.getElementById('tf-fb').innerHTML = '✅ ಸರಿಯಾಗಿದೆ!'; document.getElementById('tf-fb').style.color = 'var(--success-green)';
-            tfIdx++; setTimeout(loadTF, 1200);
+        if (isKn) {
+            document.body.classList.remove('lang-kn'); document.body.classList.add('lang-en');
         } else {
-            document.getElementById('error-modal-msg').innerText = isKn() ? d.fb_kn : d.fb_en;
-            document.getElementById('error-modal').classList.add('show');
-            tfIdx++; setTimeout(loadTF, 1500);
+            document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn');
+        }
+        renderRatnakoshaVocab();
+        loadQuestion();
+    }
+
+    // --- KNOWLEDGE QUIZ LOGIC (Numbers 1-10) ---
+    const mcqData = [
+        { digit: "४", options: ["चत्वारि", "पञ्च", "सप्त", "नव"], ans: 0, full: "चत्वारि" },
+        { digit: "८", options: ["षट्", "अष्ट", "द्वे", "दश"], ans: 1, full: "अष्ट" },
+        { digit: "३", options: ["एकम्", "नव", "त्रीणि", "चत्वारि"], ans: 2, full: "त्रीणि" },
+        { digit: "१०", options: ["सप्त", "अष्ट", "नव", "दश"], ans: 3, full: "दश" },
+        { digit: "१", options: ["एकम्", "द्वे", "त्रीणि", "पञ्च"], ans: 0, full: "एकम्" },
+        { digit: "६", options: ["सप्त", "षट्", "नव", "अष्ट"], ans: 1, full: "षट्" }
+    ];
+
+    let currentQ = 0; let score = 0;
+    const qEmojiEl = document.getElementById('quiz-emoji');
+    const optEl = document.getElementById('quiz-options');
+    const fbEl = document.getElementById('quiz-feedback');
+
+    function loadQuestion() {
+        fbEl.innerHTML = '';
+        
+        if(currentQ >= mcqData.length) {
+            showMCQResult();
+            return;
+        }
+
+        const data = mcqData[currentQ];
+        const isKn = document.body.classList.contains('lang-kn');
+        
+        document.getElementById('quiz-progress').innerHTML = isKn ? `ಪ್ರಶ್ನೆ ${currentQ + 1} / ${mcqData.length}` : `Question ${currentQ + 1} / ${mcqData.length}`;
+        qEmojiEl.innerText = data.digit;
+        
+        // Ensure re-animation of pop
+        qEmojiEl.style.animation = 'none';
+        qEmojiEl.offsetHeight; /* trigger reflow */
+        qEmojiEl.style.animation = null; 
+
+        optEl.innerHTML = '';
+        
+        data.options.forEach((opt, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerHTML = opt;
+            
+            btn.onclick = () => {
+                const all = optEl.querySelectorAll('.option-btn');
+                all.forEach(b => b.disabled = true); // Disable all buttons after choice
+                
+                if (i === data.ans) {
+                    btn.classList.add('correct'); 
+                    fbEl.innerHTML = isKn ? '✅ ಉತ್ತಮಮ್!' : '✅ Excellent!'; 
+                    fbEl.style.color = 'var(--success-green)'; 
+                    score++;
+                    speak(data.full);
+                } else {
+                    btn.classList.add('wrong'); 
+                    all[data.ans].classList.add('correct');
+                    fbEl.innerHTML = isKn ? '❌ ಪ್ರಯತ್ನಿಸಿ!' : '❌ Try Again!'; 
+                    fbEl.style.color = 'var(--error-red)';
+                    speak(data.full);
+                }
+
+                // Auto-advance to next question after 2 seconds
+                setTimeout(() => {
+                    nextQuestion();
+                }, 2000);
+            };
+            optEl.appendChild(btn);
+        });
+    }
+
+    function nextQuestion() { 
+        currentQ++; 
+        loadQuestion(); 
+    }
+    
+    function showMCQResult() {
+        const isKn = document.body.classList.contains('lang-kn');
+        document.getElementById('quiz-question').innerHTML = isKn ? "ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ!" : "Quiz completed!";
+        qEmojiEl.innerText = "🏆";
+        qEmojiEl.style.animation = "none";
+        
+        optEl.style.display = "block";
+        optEl.innerHTML = `<div style="text-align:center; font-size:2rem; margin:20px 0; font-family:'Laila', sans-serif; font-weight:bold; color:var(--text-brown);">${isKn ? 'ನಿಮ್ಮ ಅಂಕಗಳು' : 'Your Score'}: <b style="color:var(--text-maroon);">${score} / ${mcqData.length}</b></div>`;
+        
+        if(score >= 5) { 
+            fbEl.innerHTML = isKn ? "🎉 ಅತ್ಯದ್ಭುತ!" : "🎉 Excellent!"; 
+            document.getElementById('finish-btn').classList.remove('btn-disabled');
+            
+            // SHOW MAGICAL REWARD SECTION (SHLOKA)
+            const rewardSec = document.getElementById('reward-section');
+            rewardSec.classList.add('show');
+            setTimeout(() => {
+                rewardSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                speak("अभिनन्दनम्");
+            }, 800);
+
+        } else { 
+            fbEl.innerHTML = isKn ? "ದಯವಿಟ್ಟು ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಗಮನಿಸಿ!" : "Please review the lesson again!"; 
+            const retryBtn = document.createElement('button');
+            retryBtn.className = 'btn btn-outline';
+            retryBtn.style.margin = '20px auto 0 auto';
+            retryBtn.style.display = 'block';
+            retryBtn.innerHTML = isKn ? '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ' : '↺ Try Again';
+            retryBtn.onclick = () => { 
+                currentQ = 0; score = 0; 
+                qEmojiEl.style.animation = "pop 0.5s ease-out";
+                optEl.style.display = "grid";
+                loadQuestion(); 
+            };
+            optEl.appendChild(retryBtn);
         }
     }
 
-    /* --- GAME 4: Fill in the Blanks --- */
-    let fIdx = 0;
-    function loadFITB() {
-        if(fIdx >= 5) { document.getElementById('fitb-content').style.display = 'none'; document.getElementById('fitb-complete').style.display = 'block'; return; }
-        const d = fitbData[fIdx];
-        document.getElementById('fitb-idx').innerText = fIdx + 1;
-        document.getElementById('fitb-sentence').innerHTML = d.s.replace('___', '<span class="blank-space">___</span>');
-        document.getElementById('fitb-fb').innerHTML = '';
-        const optArea = document.getElementById('fitb-opts'); optArea.innerHTML = '';
-        d.opts.forEach((o, i) => {
-            const b = document.createElement('button'); b.className = 'opt-btn sk-text'; b.innerText = o; b.style.justifyContent = 'center';
-            b.onclick = () => {
-                const all = optArea.querySelectorAll('.opt-btn'); all.forEach(x => x.disabled = true);
-                if(i === d.a) { 
-                    b.classList.add('correct'); 
-                    document.getElementById('fitb-sentence').innerHTML = d.s.replace('___', `<span class="blank-space" style="color:var(--success-green);">${d.word}</span>`);
-                    document.getElementById('fitb-fb').innerHTML = '✅ ಉತ್ತಮಮ್!'; speak(d.s.replace('___', d.word).replace(/\(.*\)/g, ''));
-                    fIdx++; setTimeout(loadFITB, 2000); 
-                }
-                else { b.classList.add('wrong'); document.getElementById('fitb-fb').innerHTML = '❌ ತಪ್ಪು!'; setTimeout(loadFITB, 1200); }
-            };
-            optArea.appendChild(b);
+
+    // --- SHABDA RATNAKOSHA LOGIC ---
+    const ratnakoshaData = [
+        { sk: "एकम्", kn: "ಒಂದು", en: "One", type: "neut", emoji: "१" },
+        { sk: "द्वे", kn: "ಎರಡು", en: "Two", type: "neut", emoji: "२" },
+        { sk: "त्रीणि", kn: "ಮೂರು", en: "Three", type: "neut", emoji: "३" },
+        { sk: "चत्वारि", kn: "ನಾಲ್ಕು", en: "Four", type: "neut", emoji: "४" },
+        { sk: "पञ्च", kn: "ಐದು", en: "Five", type: "neut", emoji: "५" },
+        { sk: "षट्", kn: "ಆರು", en: "Six", type: "neut", emoji: "६" },
+        { sk: "सप्त", kn: "ಏಳು", en: "Seven", type: "neut", emoji: "७" },
+        { sk: "अष्ट", kn: "ಎಂಟು", en: "Eight", type: "neut", emoji: "८" },
+        { sk: "नव", kn: "ಒಂಬತ್ತು", en: "Nine", type: "neut", emoji: "९" },
+        { sk: "दश", kn: "ಹತ್ತು", en: "Ten", type: "neut", emoji: "१०" }
+    ];
+
+    function openRatnakoshaModal() { document.getElementById('ratnakosha-modal').classList.add('show'); }
+    function closeRatnakoshaModal() { document.getElementById('ratnakosha-modal').classList.remove('show'); }
+
+    function renderRatnakoshaVocab() {
+        const isKn = document.body.classList.contains('lang-kn');
+        const listContainer = document.getElementById('ratnakosha-list');
+        listContainer.innerHTML = '';
+        
+        ratnakoshaData.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'ratnakosha-item';
+            
+            row.innerHTML = `
+                <div class="rk-sk-box">
+                    <span class="rk-emoji" style="font-family:'Tiro Devanagari Sanskrit', serif; color:var(--text-maroon); font-weight:bold;">${item.emoji}</span>
+                    <span class="rk-sk-text text-masc">${item.sk}</span>
+                </div>
+                <span class="rk-mean">${isKn ? item.kn : item.en}</span>
+            `;
+            listContainer.appendChild(row);
         });
     }
 
-    /* --- GAME 5: Listening --- */
-    let lIdx = 0;
-    function loadListen() {
-        if(lIdx >= 5) { document.getElementById('listen-content').style.display = 'none'; document.getElementById('listen-complete').style.display = 'block'; return; }
-        const d = listenData[lIdx];
-        document.getElementById('listen-idx').innerText = lIdx + 1;
-        document.getElementById('listen-btn').onclick = () => speak(d.sk);
-        document.getElementById('listen-fb').innerHTML = '';
-        const optArea = document.getElementById('listen-opts'); optArea.innerHTML = '';
-        const opts = isKn() ? d.opts_kn : d.opts_en;
-        opts.forEach((o, i) => {
-            const b = document.createElement('button'); b.className = 'opt-btn'; b.innerHTML = `<span style="font-family:'Inknut Antiqua'; color:#888; margin-right:15px; width:20px;">${String.fromCharCode(65+i)}.</span> ${o}`;
-            b.onclick = () => {
-                const all = optArea.querySelectorAll('.opt-btn'); all.forEach(x => x.disabled = true);
-                if(i === d.a) { b.classList.add('correct'); document.getElementById('listen-fb').innerHTML = '✅ ಸರಿ!'; lIdx++; setTimeout(loadListen, 1200); }
-                else { b.classList.add('wrong'); document.getElementById('listen-fb').innerHTML = '❌ ತಪ್ಪು!'; setTimeout(loadListen, 1200); }
-            };
-            optArea.appendChild(b);
-        });
-    }
-
-    /* --- GAME 6: Time Attack --- */
-    let taIdx = 0; let taScore = 0; let taTimer; let taTime = 45;
-    function startBossLevel() {
-        document.getElementById('ta-start-btn').style.display = 'none'; document.getElementById('ta-area').style.display = 'block';
-        loadTA();
-        taTimer = setInterval(() => {
-            taTime--; document.getElementById('ta-timer').innerText = `00:${taTime < 10 ? '0'+taTime : taTime}`;
-            if(taTime <= 0) { clearInterval(taTimer); document.getElementById('ta-area').innerHTML = '<h3 style="color:var(--error-red); text-align:center;">ಸಮಯ ಮುಗಿಯಿತು! ಪುಟವನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಿ.</h3>'; }
-        }, 1000);
-    }
-    function loadTA() {
-        if(taIdx >= 12) { clearInterval(taTimer); document.getElementById('cert-modal').classList.add('show'); return; }
-        const d = taData[taIdx];
-        document.getElementById('ta-score').innerText = taIdx;
-        document.getElementById('ta-q-text').innerText = isKn() ? d.q_kn : d.q_en;
-        const optArea = document.getElementById('ta-opts'); optArea.innerHTML = '';
-        d.opts.forEach((o, i) => {
-            const b = document.createElement('button'); b.className = 'opt-btn sk-text'; b.innerText = o; b.style.justifyContent = 'center';
-            b.onclick = () => {
-                if(i === d.a) { taIdx++; loadTA(); }
-                else { taTime -= 2; b.style.background = 'var(--error-red)'; b.style.color = '#fff'; setTimeout(()=> {b.style.background='#fff'; b.style.color='var(--text-brown)';}, 300); }
-            };
-            optArea.appendChild(b);
-        });
-    }
-
-    // Initialize
-    window.onload = () => { loadVisual(); loadTF(); loadFITB(); loadListen(); };
+    window.onload = () => {
+        const savedLang = localStorage.getItem('trayeeLang') || 'kn';
+        document.body.classList.remove('lang-kn', 'lang-en');
+        document.body.classList.add(`lang-${savedLang}`);
+        
+        // Hide reward section initially
+        document.getElementById('reward-section').classList.remove('show');
+        
+        renderRatnakoshaVocab();
+        loadQuestion();
+    };
 </script>
+
 </body>
 </html>
