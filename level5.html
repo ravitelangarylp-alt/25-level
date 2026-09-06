@@ -1,719 +1,445 @@
 <!DOCTYPE html>
-<html lang="kn">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>संस्कृत-सोपानम् ५ - इदम् = एतत्</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
-    
+    <title>Samskrita - Level 5: Ayam, Iyam, Idam</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Playfair+Display:wght@700;800&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-parchment: #fdf5e6;
-            --text-brown: #4a2511;
-            --text-maroon: #800000;
-            --accent-gold: #d4af37;
-            --success-green: #22c55e;
-            --error-red: #ef4444;
+            --bg-gradient: linear-gradient(135deg, #FAFAF9 0%, #FFF5F5 50%, #FEF9C3 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #FEF08A;
+            --maroon-rich: #781014;
+            --maroon-light: #FFF0F0;
+            --text-main: #1C1917;
+            --text-muted: #57534E;
+            --success: #059669;
+            --error: #E11D48;
             
-            /* Gender Colors */
-            --neut-bg: #fef08a; --neut-border: #eab308; --neut-text: #854d0e;
-            --fem-bg: #fbcfe8;  --fem-border: #ec4899; --fem-text: #be185d;
-            --masc-bg: #bae6fd; --masc-border: #3b82f6; --masc-text: #1d4ed8;
+            /* Gender Color Codes based on Reference Images */
+            --color-m-bg: #E0F2FE; /* Light Blue */
+            --color-m-border: #0284C7;
+            --color-f-bg: #FCE7F3; /* Light Pink */
+            --color-f-border: #DB2777;
+            --color-n-bg: #FEF9C3; /* Light Yellow */
+            --color-n-border: #CA8A04;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg-gradient); color: var(--text-main); display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .app-container { width: 100%; max-width: 850px; padding: 0 20px 60px 20px; }
 
-        body.lang-en .kn-text { display: none !important; }
-        body.lang-kn .en-text { display: none !important; }
+        /* Navigation */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; position: sticky; top: 0; background: rgba(250, 250, 249, 0.7); backdrop-filter: blur(15px); z-index: 100; border-bottom: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 30px; }
+        .home-btn { display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 800; color: var(--maroon-rich); font-size: 1.2rem; transition: transform 0.2s ease; }
+        .home-btn:hover { transform: translateY(-2px); }
+        .home-icon { background: var(--maroon-light); padding: 8px; border-radius: 12px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 12px; background: #E7E5E4; border-radius: 20px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);}
+        .progress-bar { height: 100%; width: 5%; background: linear-gradient(90deg, var(--maroon-rich), #D4AF37); border-radius: 20px; transition: width 0.5s ease; }
+        .lang-badge { font-weight: 800; color: var(--text-muted); background: white; padding: 8px 16px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #E7E5E4;}
 
-        body {
-            font-family: 'Laila', sans-serif;
-            background-color: var(--bg-parchment);
-            color: var(--text-brown);
-            line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            padding-bottom: 80px;
-        }
+        /* Typography */
+        .sanskrit { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; color: var(--maroon-rich); }
+        .diacritic { font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #9F1239; font-weight: 600; letter-spacing: 0.5px; }
+        .title-main { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--maroon-rich); text-align: center; margin-bottom: 10px; font-weight: 800;}
+        .subtitle { text-align: center; color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; }
 
-        .top-nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-        }
+        /* Glass Cards */
+        .glass-card { background: var(--card-bg); border-radius: 24px; padding: 35px; margin-bottom: 40px; box-shadow: 0 10px 40px -10px rgba(120, 16, 20, 0.1); border: 1px solid rgba(255,255,255,1); backdrop-filter: blur(10px); }
+        .section-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; border-bottom: 2px dashed #E7E5E4; padding-bottom: 15px; }
+        .section-icon { font-size: 2rem; background: linear-gradient(135deg, var(--accent-gold-light) 0%, #FCD34D 100%); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 10px rgba(212,175,55,0.3);}
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: 800;}
 
-        .logo-home { 
-            font-family: 'Laila', sans-serif; font-size: 1.1rem; color: var(--text-brown); 
-            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 5px;
-            transition: transform 0.2s;
-        }
-        .logo-home:hover { transform: translateY(-2px); color: var(--text-maroon); }
+        /* Gender Coded Grids */
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .color-box { padding: 25px 20px; border-radius: 20px; position: relative; text-align: center; border: 2px solid; transition: transform 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;}
+        .color-box:hover { transform: scale(1.02); }
         
-        .lang-switch-btn {
-            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
-            padding: 6px 15px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700;
-            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
-        }
+        .box-m { background: var(--color-m-bg); border-color: var(--color-m-border); }
+        .box-f { background: var(--color-f-bg); border-color: var(--color-f-border); }
+        .box-n { background: var(--color-n-bg); border-color: var(--color-n-border); }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
-
-        header { text-align: center; margin-bottom: 30px; margin-top: 40px; }
-        .level-badge { display: inline-block; background-color: var(--text-maroon); color: white; padding: 8px 25px; border-radius: 30px; font-size: 1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(128,0,0,0.2); }
-        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { font-size: 1.3rem; color: #666; font-weight: 600; }
-
-        /* General Section Styles */
-        .section-board {
-            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 8px solid var(--accent-gold);
-        }
-        .board-title { text-align: center; font-family: 'Inknut Antiqua', serif; font-size: 2.2rem; color: var(--text-maroon); margin-bottom: 20px; }
-        .board-desc { text-align: center; font-size: 1.2rem; font-weight: bold; color: #555; margin-bottom: 30px;}
-
-        /* Rule Grid */
-        .rule-grid {
-            display: grid; grid-template-columns: 1fr 2.5fr 1fr; gap: 15px;
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-bottom: 20px;
-        }
-        .rg-box { padding: 20px; border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
-        .bg-gray { background: #f3f4f6; color: #374151; font-family: 'Laila', sans-serif; font-size: 2rem;}
-
-        /* Sutra Explanation Box */
-        .sutra-explanation {
-            margin-top: 30px; text-align: left; background: #fdfaf2; padding: 25px 30px; 
-            border-radius: 15px; border-left: 6px solid var(--accent-gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .sutra-explanation p { font-size: 1.25rem; color: var(--text-brown); margin-bottom: 12px; font-weight: 600;}
-        .sutra-explanation p:last-child { margin-bottom: 0; }
-        .sutra-sk { font-family: 'Tiro Devanagari Sanskrit', serif; color: var(--text-maroon); font-size: 1.4rem; }
-
-        /* Examples Grid */
-        .examples-wrapper { display: flex; flex-direction: column; gap: 30px; }
-        .gender-block { border-radius: 15px; padding: 25px; border: 3px solid; }
-        .block-masc { background: var(--masc-bg); border-color: var(--masc-border); }
-        .block-fem { background: var(--fem-bg); border-color: var(--fem-border); }
-        .block-neut { background: var(--neut-bg); border-color: var(--neut-border); }
+        .avatar-emoji { font-size: 3.5rem; margin-bottom: 15px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
         
-        .block-header { text-align: center; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2.2rem; font-weight: bold; margin-bottom: 20px; color: #111;}
-        .block-header span { font-size: 1.2rem; font-family: 'Laila', sans-serif; color: #555; display: block; margin-top: 5px;}
+        /* THE TRIO SORTING GAME */
+        .sort-game-area { background: #F8FAFC; border: 2px dashed #CBD5E1; border-radius: 20px; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; position: relative;}
+        .sort-target-card { background: white; padding: 25px 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; border: 2px solid var(--accent-gold); margin-bottom: 30px; min-width: 200px; transition: 0.3s;}
         
-        .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; }
-        .v-item { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: center; align-items: center;}
-        .v-item:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 8px 12px rgba(0,0,0,0.1);}
-        .v-emoji { font-size: 3rem; display: block; margin-bottom: 5px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));}
-        .v-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.5rem; font-weight: bold; color: #111; line-height: 1.2;}
-        .v-mean { font-family: 'Laila', sans-serif; font-size: 0.95rem; font-weight: bold; color: #666; margin-top: 5px;}
-
-        /* Drag and Drop Exam Section */
-        .emoji-pool { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 25px; background: #f9fafb; border: 3px dashed #ccc; border-radius: 15px; min-height: 120px; margin-bottom: 40px; transition: all 0.3s ease; }
-        .draggable-item { cursor: grab; background: #fff; border-radius: 12px; padding: 10px 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); user-select: none; border: 2px solid #e5e7eb; display: flex; flex-direction: column; align-items: center; gap: 2px;}
-        .draggable-item:active { cursor: grabbing; transform: scale(1.05); }
-        .draggable-item.dragging { opacity: 0.5; }
-        .d-emoji { font-size: 2.2rem; }
-        .d-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.3rem; font-weight: bold; color: #111;}
-        .d-mean { font-family: 'Laila', sans-serif; font-size: 0.85rem; font-weight: bold; color: #666;}
-
-        .drop-zones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .drop-zone { border: 4px dashed; border-radius: 20px; padding: 20px; min-height: 300px; display: flex; flex-direction: column; align-items: center; transition: 0.3s; position: relative;}
+        .baskets-container { display: flex; gap: 15px; justify-content: center; width: 100%; flex-wrap: wrap;}
+        .basket { flex: 1; min-width: 100px; padding: 20px 10px; border-radius: 16px; border: 3px dashed; cursor: pointer; text-align: center; transition: all 0.2s; display: flex; flex-direction: column; align-items: center;}
+        .basket:active { transform: scale(0.95); }
         
-        .drop-hint-top { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: var(--text-maroon); background: rgba(255,255,255,0.8); padding: 5px 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);}
-        .drop-dash { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2.5rem; margin-bottom: 10px; color: rgba(0,0,0,0.3);}
-        .drop-hint-bottom { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; margin-top: auto; color: var(--text-maroon); background: rgba(255,255,255,0.8); padding: 5px 20px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);}
+        .basket-m { background: rgba(224, 242, 254, 0.5); border-color: var(--color-m-border); color: var(--color-m-border);}
+        .basket-m:hover { background: var(--color-m-bg); }
         
-        .zone-masc { border-color: var(--masc-border); background: var(--masc-bg); }
-        .zone-fem { border-color: var(--fem-border); background: var(--fem-bg); }
-        .zone-neut { border-color: var(--neut-border); background: var(--neut-bg); }
-        .drop-zone.drag-over { transform: scale(1.02); filter: brightness(0.95); }
+        .basket-f { background: rgba(252, 231, 243, 0.5); border-color: var(--color-f-border); color: var(--color-f-border);}
+        .basket-f:hover { background: var(--color-f-bg); }
         
-        .drop-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; margin-bottom: 15px;}
-        .drop-grid .draggable-item { cursor: default; border-color: var(--success-green); box-shadow: none; padding: 5px 10px; background: rgba(255,255,255,0.95);}
+        .basket-n { background: rgba(254, 249, 195, 0.5); border-color: var(--color-n-border); color: var(--color-n-border);}
+        .basket-n:hover { background: var(--color-n-bg); }
 
-        /* Knowledge Quiz Section */
-        .q-display-box { text-align: center; margin-bottom: 30px; }
-        .q-text-display { 
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 4rem; 
-            background: linear-gradient(135deg, #fffaf0, #fef08a); 
-            display: inline-block; padding: 20px 50px; border-radius: 20px; 
-            border: 5px solid var(--accent-gold); box-shadow: 0 15px 25px rgba(212,175,55,0.3); 
-            color: var(--text-maroon); font-weight: bold; animation: pop 0.4s ease-out;
-        }
-        @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .basket-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px;}
+        .basket-sub { font-size: 0.85rem; font-weight: 600; opacity: 0.8; }
+
+        /* Voice Test Section */
+        .voice-card { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 20px; margin-bottom: 15px; border: 2px solid #F1F5F9; }
+        .mic-btn { background: linear-gradient(135deg, #1E1B4B 0%, #312E81 100%); color: white; width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 8px 20px rgba(30, 27, 75, 0.3); transition: all 0.3s ease; }
+        .mic-btn.listening { background: var(--error); animation: ripple 1.5s infinite; }
+        @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
+
+        /* Quiz */
+        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
+        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
+        .opt-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 35px; border: 2px solid #E2E8F0; background: white; border-radius: 16px; cursor: pointer; box-shadow: 0 4px 0 #E2E8F0; min-width: 150px; }
+        .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
+        .opt-btn.correct { background: #D1FAE5; border-color: #059669; box-shadow: 0 4px 0 #059669; }
+        .opt-btn.wrong { background: #FFE4E6; border-color: #E11D48; box-shadow: 0 4px 0 #E11D48; }
         
-        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px;}
-        .option-btn { 
-            background: linear-gradient(145deg, #ffffff, #fefaf0); 
-            border: 3px solid #e5e7eb; padding: 20px 25px; border-radius: 15px; width: 100%; 
-            cursor: pointer; text-align: center; transition: all 0.2s ease; 
-            font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 2rem; font-weight: bold; 
-            color: var(--text-brown); box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-        }
-        .option-btn:hover:not(:disabled) { border-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.2); }
-        .option-btn:disabled { cursor: not-allowed; opacity: 0.9; }
-        .option-btn.correct { background: #dcfce7; border-color: var(--success-green); color: var(--success-green); transform: none; box-shadow: none;}
-        .option-btn.wrong { background: #fee2e2; border-color: var(--error-red); color: var(--error-red); transform: none; box-shadow: none;}
-        .mq-feedback { font-weight: bold; font-size: 1.5rem; text-align: center; min-height: 35px; margin-top: 25px;}
-
-        /* Reward Section */
-        @keyframes magicFlash {
-            0% { box-shadow: 0 0 0px var(--accent-gold); transform: scale(0.95); opacity: 0;}
-            50% { box-shadow: 0 0 50px var(--accent-gold); transform: scale(1.02); opacity: 1;}
-            100% { box-shadow: 0 0 15px var(--accent-gold); transform: scale(1); opacity: 1;}
-        }
-        .reward-section {
-            background: linear-gradient(135deg, #fffaf0, #fef08a); border-radius: 20px; padding: 50px 40px; margin-bottom: 50px;
-            border: 4px solid var(--accent-gold); text-align: center; display: none; 
-        }
-        .reward-section.show { display: block; animation: magicFlash 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-        .reward-title { font-family: 'Inknut Antiqua', serif; font-size: 3rem; color: #800000; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);}
-        .reward-desc { font-size: 1.4rem; color: var(--text-brown); font-weight: bold; margin-bottom: 30px;}
-
-        /* Nav Buttons */
-        .nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding-top: 20px; border-top: 2px solid #eee;}
-        .btn { font-family: 'Laila', sans-serif; font-weight: 700; font-size: 1.1rem; padding: 12px 28px; border-radius: 25px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .btn-outline { background: #fff; border: 2px solid var(--text-brown); color: var(--text-brown); }
-        .btn-outline:hover { background: var(--text-brown); color: #fff; }
-        .btn-primary { background: var(--text-maroon); color: #fff; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(128, 0, 0, 0.2); }
-        .btn-disabled { opacity: 0.5; pointer-events: none; filter: grayscale(100%); }
-
-        @media (max-width: 768px) {
-            .rule-grid { grid-template-columns: 1fr; }
-            .drop-zones { grid-template-columns: 1fr; }
-            .quiz-options { grid-template-columns: 1fr; }
-            .q-text-display { font-size: 2.5rem; padding: 15px 30px;}
-        }
+        .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
+        .shake { animation: shake 0.4s; }
+        @keyframes shake { 0%, 100%{transform:translateX(0);} 25%{transform:translateX(-10px);} 75%{transform:translateX(10px);} }
+        
+        .stars { font-size: 4rem; color: #E7E5E4; text-align: center; letter-spacing: 10px; margin: 20px 0; }
+        .stars .filled { color: var(--accent-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.4); animation: popIn 0.5s forwards; opacity: 0; transform: scale(0); display: inline-block;}
+        @keyframes popIn { to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body class="lang-kn">
+<body>
 
-<nav class="top-nav">
-    <a href="index.html" class="logo-home">🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span></a>
-    <button class="lang-switch-btn" onclick="toggleLanguage()">🌐 <span class="kn-text">English</span><span class="en-text">कನ್ನಡ</span></button>
-</nav>
-
-<div class="container">
-    <header>
-        <div class="level-badge">
-            <span class="kn-text">सोपानम् ५</span>
-            <span class="en-text">sopāna 5</span>
-        </div>
-        <h1><span class="kn-text">इदम् = एतत्</span><span class="en-text">idam = etat</span></h1>
-        <p class="subtitle">
-            <span class="kn-text">"ಇದು" ಎಂದು ಹೇಳಲು ಎರಡು ಸಮಾನಾರ್ಥಕ ವಿಧಾನಗಳು!</span>
-            <span class="en-text">Two synonymous ways to say "This"!</span>
-        </p>
-    </header>
-
-    <!-- Rule Board -->
-    <div class="section-board">
-        <h2 class="board-title">
-            <span class="kn-text">समानार्थकाः (ಸಮಾನಾರ್ಥಕ ಪದಗಳು)</span>
-            <span class="en-text">Synonyms</span>
-        </h2>
-        
-        <div class="rule-grid">
-            <div class="rg-box bg-gray" style="grid-row: span 3; font-size: 3rem;">
-                <span class="kn-text">ಇದು!</span><span class="en-text">This!</span>
-            </div>
-            <div class="rg-box" style="background:var(--neut-bg); color:var(--neut-text);">इदम् = एतत्</div>
-            <div class="rg-box" style="background:var(--neut-bg); color:#16a34a;">-अम्</div>
-            
-            <div class="rg-box" style="background:var(--fem-bg); color:var(--fem-text);">इयम् = एषा</div>
-            <div class="rg-box" style="background:var(--fem-bg); color:#16a34a;">-आ</div>
-            
-            <div class="rg-box" style="background:var(--masc-bg); color:var(--masc-text);">अयम् = एषः</div>
-            <div class="rg-box" style="background:var(--masc-bg); color:#16a34a;">-अः</div>
-        </div>
-
-        <!-- Sutra Explanation -->
-        <div class="sutra-explanation">
-            <p>
-                <span class="kn-text"><b>೧.</b> <span class="sutra-sk">इदम्</span> ಅಥವಾ <span class="sutra-sk">एतत्</span> ಶಬ್ದ ಬಂದಾಗ <span class="sutra-sk">'-अम्'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ वनम्, वस्त्रम्, शस्त्रम् ಮುಂತಾದ ನಪುಂಸಕಲಿಂಗ ಶಬ್ದಗಳು ಸೇರುತ್ತವೆ.</span>
-                <span class="en-text"><b>1.</b> With <span class="sutra-sk">idam</span> or <span class="sutra-sk">etat</span>, neuter words ending in <span class="sutra-sk">'-am'</span> like vanam, vastram are used.</span>
-            </p>
-            <p>
-                <span class="kn-text"><b>೨.</b> <span class="sutra-sk">इयम्</span> ಅಥವಾ <span class="sutra-sk">एषा</span> ಬಂದಾಗ <span class="sutra-sk">'-आ'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ सीता, गङ्गा ಮುಂತಾದ ಸ್ತ್ರೀಲಿಂಗ ಶಬ್ದಗಳು ಸೇರುತ್ತವೆ.</span>
-                <span class="en-text"><b>2.</b> With <span class="sutra-sk">iyam</span> or <span class="sutra-sk">eshā</span>, feminine words ending in <span class="sutra-sk">'-ā'</span> like Sītā, Gangā are used.</span>
-            </p>
-            <p>
-                <span class="kn-text"><b>೩.</b> <span class="sutra-sk">अयम्</span> ಅಥವಾ <span class="sutra-sk">एषः</span> ಬಂದಾಗ <span class="sutra-sk">'-अः'</span> ದಿಂದ ಅಂತ್ಯವಾಗುವ रामः, कृष्णः ಮುಂತಾದ ಪುಲ್ಲಿಂಗ ಶಬ್ದಗಳನ್ನು ಬಳಸಬೇಕು.</span>
-                <span class="en-text"><b>3.</b> With <span class="sutra-sk">ayam</span> or <span class="sutra-sk">eshah</span>, masculine words ending in <span class="sutra-sk">'-ah'</span> like Rāmah, Krishnah are used.</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Examples Board -->
-    <div class="section-board">
-        <h2 class="board-title">
-            <span class="kn-text">उदाहरणानि (ಉದಾಹರಣೆಗಳು)</span>
-            <span class="en-text">Examples</span>
-        </h2>
-        <p class="board-desc">
-            <span class="kn-text">ಇಲ್ಲಿ 'अयम् अस्ति' (ಇದು ಇದೆ) ಎಂದು ನೀಡಲಾಗಿದೆ. ನಾವು ಕಲಿತಂತೆ 'अयम्' ಎಂದರೆ 'एषः' ಕೂಡ ಹೌದು.</span>
-            <span class="en-text">Here 'ayam asti' is given. As we learned, 'ayam' also means 'eshah'.</span>
-        </p>
-
-        <div class="examples-wrapper">
-            <!-- Masculine Block -->
-            <div class="gender-block block-masc">
-                <div class="block-header">
-                    अयम् अस्ति ... 
-                    <span class="kn-text">(एषः अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
-                    <span class="en-text">(Can also use एषः अस्ति ...)</span>
-                </div>
-                <div class="vocab-grid">
-                    <div class="v-item" onclick="speak('अयं मत्स्यः अस्ति। एषः मत्स्यः अस्ति।')">
-                        <span class="v-emoji">🐟</span><div class="v-sk">मत्स्यः</div>
-                        <div class="v-mean"><span class="kn-text">(ಮೀನು)</span><span class="en-text">(Fish)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं हंसः अस्ति।')">
-                        <span class="v-emoji">🦢</span><div class="v-sk">हंसः</div>
-                        <div class="v-mean"><span class="kn-text">(ಹಂಸ)</span><span class="en-text">(Swan)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं दूतः अस्ति।')">
-                        <span class="v-emoji">🏃‍♂️</span><div class="v-sk">दूतः</div>
-                        <div class="v-mean"><span class="kn-text">(ದೂತ/ಸಂದೇಶವಾಹಕ)</span><span class="en-text">(Messenger)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं भूतः अस्ति।')">
-                        <span class="v-emoji">👻</span><div class="v-sk">भूतः</div>
-                        <div class="v-mean"><span class="kn-text">(ಭೂತ)</span><span class="en-text">(Ghost)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं पुत्रः अस्ति।')">
-                        <span class="v-emoji">👦</span><div class="v-sk">पुत्रः</div>
-                        <div class="v-mean"><span class="kn-text">(ಮಗ)</span><span class="en-text">(Son)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं पौत्रः अस्ति।')">
-                        <span class="v-emoji">👶</span><div class="v-sk">पौत्रः</div>
-                        <div class="v-mean"><span class="kn-text">(ಮೊಮ್ಮಗ)</span><span class="en-text">(Grandson)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं वीरः अस्ति।')">
-                        <span class="v-emoji">🦸‍♂️</span><div class="v-sk">वीरः</div>
-                        <div class="v-mean"><span class="kn-text">(ವೀರ/ಶೂರ)</span><span class="en-text">(Warrior)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('अयं कलाकारः अस्ति।')">
-                        <span class="v-emoji">👨‍🎨</span><div class="v-sk">कलाकारः</div>
-                        <div class="v-mean"><span class="kn-text">(ಕಲಾವಿದ)</span><span class="en-text">(Artist)</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feminine Block -->
-            <div class="gender-block block-fem">
-                <div class="block-header">
-                    इयम् अस्ति ... 
-                    <span class="kn-text">(एषा अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
-                    <span class="en-text">(Can also use एषा अस्ति ...)</span>
-                </div>
-                <div class="vocab-grid">
-                    <div class="v-item" onclick="speak('इयं सेना अस्ति। एषा सेना अस्ति।')">
-                        <span class="v-emoji">🎖️</span><div class="v-sk">सेना</div>
-                        <div class="v-mean"><span class="kn-text">(ಸೈನ್ಯ)</span><span class="en-text">(Army)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं कन्या अस्ति।')">
-                        <span class="v-emoji">👧</span><div class="v-sk">कन्या</div>
-                        <div class="v-mean"><span class="kn-text">(ಹುಡುಗಿ)</span><span class="en-text">(Girl)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं वीणा अस्ति।')">
-                        <span class="v-emoji">🪕</span><div class="v-sk">वीणा</div>
-                        <div class="v-mean"><span class="kn-text">(ವೀಣೆ)</span><span class="en-text">(Veena)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं घण्टा अस्ति।')">
-                        <span class="v-emoji">🔔</span><div class="v-sk">घण्टा</div>
-                        <div class="v-mean"><span class="kn-text">(ಗಂಟೆ)</span><span class="en-text">(Bell)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं रेखा अस्ति।')">
-                        <span class="v-emoji">➖</span><div class="v-sk">रेखा</div>
-                        <div class="v-mean"><span class="kn-text">(ಗೆರೆ)</span><span class="en-text">(Line)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं शाखा अस्ति।')">
-                        <span class="v-emoji">🌿</span><div class="v-sk">शाखा</div>
-                        <div class="v-mean"><span class="kn-text">(ಕೊಂಬೆ)</span><span class="en-text">(Branch)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं शिक्षा अस्ति।')">
-                        <span class="v-emoji">🎓</span><div class="v-sk">शिक्षा</div>
-                        <div class="v-mean"><span class="kn-text">(ಶಿಕ್ಷಣ)</span><span class="en-text">(Education)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इयं दीक्षा अस्ति।')">
-                        <span class="v-emoji">📿</span><div class="v-sk">दीक्षा</div>
-                        <div class="v-mean"><span class="kn-text">(ದೀಕ್ಷೆ)</span><span class="en-text">(Initiation)</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Neuter Block -->
-            <div class="gender-block block-neut">
-                <div class="block-header">
-                    इदम् अस्ति ... 
-                    <span class="kn-text">(एतत् अस्ति ... ಕೂಡ ಬಳಸಬಹುದು)</span>
-                    <span class="en-text">(Can also use एतत् अस्ति ...)</span>
-                </div>
-                <div class="vocab-grid">
-                    <div class="v-item" onclick="speak('इदं अस्त्रम् अस्ति। एतत् अस्त्रम् अस्ति।')">
-                        <span class="v-emoji">🚀</span><div class="v-sk">अस्त्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಎಸೆಯುವ ಆಯುಧ)</span><span class="en-text">(Missile)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं वस्त्रम् अस्ति।')">
-                        <span class="v-emoji">👕</span><div class="v-sk">वस्त्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಬಟ್ಟೆ)</span><span class="en-text">(Cloth)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं शस्त्रम् अस्ति।')">
-                        <span class="v-emoji">🗡️</span><div class="v-sk">शस्त्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಹಿಡಿಯುವ ಆಯುಧ)</span><span class="en-text">(Weapon)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं शास्त्रम् अस्ति।')">
-                        <span class="v-emoji">📖</span><div class="v-sk">शास्त्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಶಾಸ್ತ್ರ/ಗ್ರಂಥ)</span><span class="en-text">(Scripture)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं चक्रम् अस्ति।')">
-                        <span class="v-emoji">☸️</span><div class="v-sk">चक्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಚಕ್ರ)</span><span class="en-text">(Wheel)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं तक्रम् अस्ति।')">
-                        <span class="v-emoji">🥛</span><div class="v-sk">तक्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಮಜ್ಜಿಗೆ)</span><span class="en-text">(Buttermilk)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं यन्त्रम् अस्ति।')">
-                        <span class="v-emoji">⚙️</span><div class="v-sk">यन्त्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ಯಂತ್ರ)</span><span class="en-text">(Machine)</span></div>
-                    </div>
-                    <div class="v-item" onclick="speak('इदं नक्षत्रम् अस्ति।')">
-                        <span class="v-emoji">⭐</span><div class="v-sk">नक्षत्रम्</div>
-                        <div class="v-mean"><span class="kn-text">(ನಕ್ಷತ್ರ)</span><span class="en-text">(Star)</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Drag and Drop Game Section -->
-    <div class="section-board" id="drag-section">
-        <h2 class="board-title">
-            <span class="kn-text">अभ्यासः - चित्र-विभाजनम्</span>
-            <span class="en-text">Practice - Drag & Drop</span>
-        </h2>
-        <p class="board-desc">
-            <span class="kn-text">ಪದಗಳನ್ನು ಎಳೆದು ಸರಿಯಾದ ಜಾಗದಲ್ಲಿ ಇಟ್ಟು, ಪೂರ್ಣ ವಾಕ್ಯವನ್ನು ರಚಿಸಿ.</span>
-            <span class="en-text">Drag words to the correct place to form a complete sentence.</span>
-        </p>
-
-        <div class="emoji-pool" id="emoji-pool">
-            <!-- Items injected via JS -->
-        </div>
-
-        <div class="drop-zones">
-            <!-- Masculine Zone -->
-            <div class="drop-zone zone-masc" data-gender="masc">
-                <div class="drop-hint-top">अयम् / एषः</div>
-                <h3 class="drop-dash">___</h3>
-                <div class="drop-grid" id="zone-masc-grid"></div>
-                <div class="drop-hint-bottom">अस्ति</div>
-            </div>
-            
-            <!-- Feminine Zone -->
-            <div class="drop-zone zone-fem" data-gender="fem">
-                <div class="drop-hint-top">इयम् / एषा</div>
-                <h3 class="drop-dash">___</h3>
-                <div class="drop-grid" id="zone-fem-grid"></div>
-                <div class="drop-hint-bottom">अस्ति</div>
-            </div>
-            
-            <!-- Neuter Zone -->
-            <div class="drop-zone zone-neut" data-gender="neut">
-                <div class="drop-hint-top">इदम् / एतत्</div>
-                <h3 class="drop-dash">___</h3>
-                <div class="drop-grid" id="zone-neut-grid"></div>
-                <div class="drop-hint-bottom">अस्ति</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Knowledge Quiz Section (AUTO ADVANCE) -->
-    <div class="section-board" id="quiz-container" style="display: none;">
-        <div class="board-title">🧠 <span class="kn-text">ज्ञान-परीक्षा</span><span class="en-text">Knowledge Quiz</span></div>
-        <div class="quiz-progress" id="quiz-progress"></div>
-        
-        <div class="q-display-box">
-            <div class="q-text-display" id="quiz-text">अयम् = ?</div>
-        </div>
-        
-        <div class="quiz-options" id="quiz-options"></div>
-        
-        <div class="quiz-controls" style="text-align: center;">
-            <p id="quiz-feedback" class="mq-feedback"></p>
-            <!-- Auto advance logic handles progression -->
-        </div>
-    </div>
-
-    <!-- REWARD SECTION -->
-    <div id="reward-section" class="reward-section">
-        <h2 class="reward-title">✨ उत्तमम् ! ✨</h2>
-        <p class="reward-desc">
-            <span class="kn-text">ಅಭಿನಂದನೆಗಳು! ನೀವು ಈ ಹಂತವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ.</span>
-            <span class="en-text">Congratulations! You have successfully completed this level.</span>
-        </p>
-    </div>
-
-    <!-- Nav Buttons -->
-    <div class="nav-buttons">
-        <a href="index.html" class="btn btn-outline">
-            🏠 <span class="kn-text">ಮುಖಪುಟ</span><span class="en-text">Home</span>
+<div class="app-container">
+    
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <a href="index.html" class="home-btn">
+            <span class="home-icon">🏠</span> Home
         </a>
-        <a href="level6.html" id="finish-btn" class="btn btn-primary btn-disabled">
-            <span class="kn-text">ಮುಂದಿನ सोपान →</span><span class="en-text">Next Stage →</span>
-        </a>
+        <div class="progress-container">
+            <div class="progress-bar" id="main-progress"></div>
+        </div>
+        <div class="lang-badge">EN 🇬🇧</div>
+    </nav>
+
+    <div style="text-align: center;">
+        <h1 class="title-main">Ayam, Iyam, Idam</h1>
+        <p class="subtitle">The Twin Words! An elegant way to say "This".</p>
     </div>
+
+    <!-- 1. Observe & Absorb (Color Coded) -->
+    <div class="glass-card">
+        <div class="section-header">
+            <div class="section-icon">🎨</div>
+            <h2 class="section-title">1. Observe the Colours</h2>
+        </div>
+        <p style="color: var(--text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 20px;">These words mean exactly the same as <strong>Eṣaḥ, Eṣā, Etat</strong>.<br>Look at the colour matching to remember their gender!</p>
+
+        <div class="color-grid">
+            <!-- 1. Masc -->
+            <div class="color-box box-m" onclick="speak('अयं सूर्यः अस्ति')">
+                <div class="avatar-emoji">☀️</div>
+                <div class="sanskrit" style="color:var(--color-m-border);">अयं सूर्यः <br><small style="font-size:1.2rem;">(एषः सूर्यः)</small></div>
+                <div class="diacritic" style="color:#0369A1; margin-top:5px;">Ayaṃ sūryaḥ</div>
+                <div style="color:#0284C7; font-weight:600; margin-top:10px;">This is the sun (M)</div>
+            </div>
+            
+            <!-- 2. Fem -->
+            <div class="color-box box-f" onclick="speak('इयं माता अस्ति')">
+                <div class="avatar-emoji">🤱</div>
+                <div class="sanskrit" style="color:var(--color-f-border);">इयं माता <br><small style="font-size:1.2rem;">(एषा माता)</small></div>
+                <div class="diacritic" style="color:#BE185D; margin-top:5px;">Iyaṃ mātā</div>
+                <div style="color:#DB2777; font-weight:600; margin-top:10px;">This is mother (F)</div>
+            </div>
+
+            <!-- 3. Neuter -->
+            <div class="color-box box-n" onclick="speak('इदं स्योतम् अस्ति')">
+                <div class="avatar-emoji">🎒</div>
+                <div class="sanskrit" style="color:var(--color-n-border);">इदं स्योतम् <br><small style="font-size:1.2rem;">(एतत् स्योतम्)</small></div>
+                <div class="diacritic" style="color:#A16207; margin-top:5px;">Idaṃ syotam</div>
+                <div style="color:#CA8A04; font-weight:600; margin-top:10px;">This is a bag (N)</div>
+            </div>
+            
+            <!-- 4. Masc (Boy) -->
+            <div class="color-box box-m" onclick="speak('अयं बालकः अस्ति')">
+                <div class="avatar-emoji">👦</div>
+                <div class="sanskrit" style="color:var(--color-m-border);">अयं बालकः</div>
+                <div class="diacritic" style="color:#0369A1; margin-top:5px;">Ayaṃ bālakaḥ</div>
+                <div style="color:#0284C7; font-weight:600; margin-top:10px;">This is a boy (M)</div>
+            </div>
+
+            <!-- 5. Fem (Girl) -->
+            <div class="color-box box-f" onclick="speak('इयं बालिका अस्ति')">
+                <div class="avatar-emoji">👧</div>
+                <div class="sanskrit" style="color:var(--color-f-border);">इयं बालिका</div>
+                <div class="diacritic" style="color:#BE185D; margin-top:5px;">Iyaṃ bālikā</div>
+                <div style="color:#DB2777; font-weight:600; margin-top:10px;">This is a girl (F)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. THE TRIO SORTING GAME -->
+    <div class="glass-card">
+        <div class="section-header">
+            <div class="section-icon">📥</div>
+            <h2 class="section-title">2. The Trio Sorter</h2>
+        </div>
+        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">They all end in 'm' (म्), but they belong to different genders!<br>Tap the correct basket to sort the word.</p>
+        
+        <div class="sort-game-area" id="sort-area">
+            
+            <div class="sort-target-card" id="target-card">
+                <div class="sanskrit" style="font-size: 3rem; color: var(--maroon-rich);" id="sort-word-sk">अयम्</div>
+                <div class="diacritic" style="font-size: 1.5rem;" id="sort-word-en">Ayam</div>
+            </div>
+
+            <div class="baskets-container">
+                <div class="basket basket-m" onclick="handleSort('M')">
+                    <div class="basket-title">🟦 Masculine</div>
+                    <div class="basket-sub">(Like Eṣaḥ)</div>
+                </div>
+                <div class="basket basket-f" onclick="handleSort('F')">
+                    <div class="basket-title">🟪 Feminine</div>
+                    <div class="basket-sub">(Like Eṣā)</div>
+                </div>
+                <div class="basket basket-n" onclick="handleSort('N')">
+                    <div class="basket-title">🟨 Neuter</div>
+                    <div class="basket-sub">(Like Etat)</div>
+                </div>
+            </div>
+
+        </div>
+        <p id="sort-fb" class="feedback-msg"></p>
+    </div>
+
+    <!-- 3. Voice Test -->
+    <div class="glass-card">
+        <div class="section-header">
+            <div class="section-icon">🎙️</div>
+            <h2 class="section-title">3. Pronunciation Check</h2>
+        </div>
+        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read aloud.</p>
+        
+        <div class="voice-card box-m">
+            <div><div class="sanskrit">अयं सूर्यः अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Ayaṃ sūryaḥ asti.</div></div>
+            <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
+        </div>
+        <div class="voice-card box-f">
+            <div><div class="sanskrit">इयं माता अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Iyaṃ mātā asti.</div></div>
+            <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
+        </div>
+        <div class="voice-card box-n">
+            <div><div class="sanskrit">इदं स्योतम् अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Idaṃ syotam asti.</div></div>
+            <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
+        </div>
+        <div class="voice-card box-m">
+            <div><div class="sanskrit">अयं बालकः अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Ayaṃ bālakaḥ asti.</div></div>
+            <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
+        </div>
+        <div class="voice-card box-f">
+            <div><div class="sanskrit">इयं बालिका अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Iyaṃ bālikā asti.</div></div>
+            <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
+        </div>
+        <p id="voice-fb" class="feedback-msg"></p>
+    </div>
+
+    <!-- 4. Auto-advance Quiz -->
+    <div class="glass-card">
+        <div class="section-header">
+            <div class="section-icon">🧠</div>
+            <h2 class="section-title">4. Knowledge Check</h2>
+        </div>
+        <div class="quiz-container" id="quiz-box">
+            <div class="q-text" id="q-text">Loading...</div>
+            <div class="opt-grid" id="opt-container"></div>
+            <div id="quiz-fb" class="feedback-msg"></div>
+        </div>
+    </div>
+
 </div>
 
 <script>
     function speak(text) {
         if ('speechSynthesis' in window) {
-            const u = new SpeechSynthesisUtterance(text); u.lang = 'hi-IN'; u.rate = 0.8;
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'hi-IN'; u.rate = 0.85;
             window.speechSynthesis.speak(u);
         }
     }
 
-    function toggleLanguage() {
-        const isKn = document.body.classList.contains('lang-kn');
-        if (isKn) {
-            document.body.classList.remove('lang-kn'); document.body.classList.add('lang-en');
-        } else {
-            document.body.classList.remove('lang-en'); document.body.classList.add('lang-kn');
-        }
-        
-        // Re-render drag pool to update language if needed
-        renderDragPool();
-
-        // Update quiz text if it's currently active
-        if(document.getElementById('quiz-container').style.display !== 'none') {
-            loadQuestion();
-        }
-    }
-
-    // --- DRAG AND DROP LOGIC ---
-    const dragItems = [
-        { word: "मत्स्यः", emoji: "🐟", gender: "masc", kn: "ಮೀನು", en: "Fish" },
-        { word: "सेना", emoji: "🎖️", gender: "fem", kn: "ಸೈನ್ಯ", en: "Army" },
-        { word: "अस्त्रम्", emoji: "🚀", gender: "neut", kn: "ಕ್ಷಿಪಣಿ", en: "Missile" },
-        { word: "हंसः", emoji: "🦢", gender: "masc", kn: "ಹಂಸ", en: "Swan" },
-        { word: "कन्या", emoji: "👧", gender: "fem", kn: "ಹುಡುಗಿ", en: "Girl" },
-        { word: "चक्रम्", emoji: "☸️", gender: "neut", kn: "ಚಕ್ರ", en: "Wheel" },
-        { word: "वीरः", emoji: "🦸‍♂️", gender: "masc", kn: "ವೀರ", en: "Warrior" },
-        { word: "वीणा", emoji: "🪕", gender: "fem", kn: "ವೀಣೆ", en: "Veena" },
-        { word: "वस्त्रम्", emoji: "👕", gender: "neut", kn: "ಬಟ್ಟೆ", en: "Cloth" }
+    // --- TRIO SORTING GAME LOGIC ---
+    const sortChallenges = [
+        { sk: "इदम्", en: "Idam", type: "N", sound: "इदम्" },
+        { sk: "अयम्", en: "Ayam", type: "M", sound: "अयम्" },
+        { sk: "इयम्", en: "Iyam", type: "F", sound: "इयम्" },
+        { sk: "एषः", en: "Eṣaḥ", type: "M", sound: "एषः" }, // Throwing in Eṣaḥ to test equivalence
+        { sk: "एषा", en: "Eṣā", type: "F", sound: "एषा" }
     ];
 
-    let currentDragItems = [];
+    let currentSort = 0;
+    const targetCard = document.getElementById('target-card');
+    const sortFb = document.getElementById('sort-fb');
 
-    function renderDragPool() {
-        const pool = document.getElementById('emoji-pool');
-        const isKn = document.body.classList.contains('lang-kn');
-        
-        // Only render if game isn't finished
-        if(currentDragItems.length === 0 && pool.children.length === 0) return;
-
-        pool.innerHTML = '';
-        currentDragItems.forEach(item => {
-            const el = document.createElement('div');
-            el.className = 'draggable-item';
-            el.innerHTML = `<span class="d-emoji">${item.emoji}</span><span class="d-sk">${item.word}</span><span class="d-mean">(${isKn ? item.kn : item.en})</span>`;
-            el.setAttribute('draggable', true);
-            el.dataset.gender = item.gender;
-            el.dataset.word = item.word;
-            el.dataset.id = item.word; // Unique identifier
-
-            el.addEventListener('dragstart', (e) => {
-                el.classList.add('dragging');
-                e.dataTransfer.setData('text/plain', item.gender + '|' + item.word + '|' + item.emoji + '|' + (isKn ? item.kn : item.en));
-            });
-            el.addEventListener('dragend', () => el.classList.remove('dragging'));
-
-            pool.appendChild(el);
-        });
-    }
-
-    function initDragDropQuiz() {
-        // Create a shuffled copy for the game
-        currentDragItems = [...dragItems].sort(() => 0.5 - Math.random());
-        renderDragPool();
-
-        const zones = document.querySelectorAll('.drop-zone');
-        zones.forEach(zone => {
-            zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('drag-over'); });
-            zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-            zone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                zone.classList.remove('drag-over');
-                
-                const data = e.dataTransfer.getData('text/plain');
-                if(!data) return;
-                
-                const parts = data.split('|');
-                const itemGender = parts[0];
-                const itemWord = parts[1];
-                const itemEmoji = parts[2];
-                const itemMean = parts[3];
-                const targetGender = zone.dataset.gender;
-
-                if(itemGender === targetGender) {
-                    const droppedEl = document.createElement('div');
-                    droppedEl.className = 'draggable-item';
-                    droppedEl.innerHTML = `<span class="d-emoji" style="font-size:1.5rem;">${itemEmoji}</span><span style="font-size:1.1rem; font-weight:bold;">${itemWord}</span><span style="font-size:0.8rem; color:#666;">(${itemMean})</span>`;
-                    droppedEl.style.cursor = 'default';
-                    
-                    let prefix = (targetGender === 'masc') ? "अयं " : (targetGender === 'fem') ? "इयं " : "इदं ";
-                    speak(prefix + itemWord + " अस्ति");
-                    
-                    // Hide the dash since word is placed
-                    zone.querySelector('.drop-dash').style.display = 'none';
-                    zone.querySelector('.drop-grid').appendChild(droppedEl);
-                    
-                    // Remove from active array
-                    currentDragItems = currentDragItems.filter(item => item.word !== itemWord);
-                    renderDragPool();
-
-                    checkDragWinCondition();
-                } else {
-                    speak('पुनः प्रयत्नं करोतु');
-                    zone.style.borderColor = 'var(--error-red)';
-                    setTimeout(() => zone.style.borderColor = '', 500);
-                }
-            });
-        });
-    }
-
-    function checkDragWinCondition() {
-        const pool = document.getElementById('emoji-pool');
-        if(currentDragItems.length === 0) {
-            pool.style.border = 'none';
-            pool.style.background = 'transparent';
-            
-            const isKn = document.body.classList.contains('lang-kn');
-            pool.innerHTML = `<h2 style="color:var(--success-green); font-family:'Tiro Devanagari Sanskrit', serif; font-size:2rem;">उत्तमम्! इदानीं ज्ञान-परीक्षा 👇</h2>`;
-            
-            // Show the auto-advance knowledge quiz
-            setTimeout(() => {
-                const quizSec = document.getElementById('quiz-container');
-                quizSec.style.display = 'block';
-                quizSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                loadQuestion();
-            }, 1000);
-        }
-    }
-
-    // --- AUTO-ADVANCE QUIZ LOGIC ---
-    const mcqData = [
-        { q: "अयम् = ?", options: ["एषः", "एषा", "एतत्", "सः"], ans: 0, full: "अयम् = एषः" },
-        { q: "इयम् = ?", options: ["एतत्", "एषः", "एषा", "सा"], ans: 2, full: "इयम् = एषा" },
-        { q: "इदम् = ?", options: ["एषा", "एतत्", "एषः", "तत्"], ans: 1, full: "इदम् = एतत्" },
-        { q: "एषः कः?", options: ["एषः सूर्यः", "एषा माता", "एतत् स्योतम्", "एषः स्योतम्"], ans: 0, full: "एषः सूर्यः" },
-        { q: "एषा का?", options: ["एषा सूर्यः", "एषा माता", "एतत् माता", "एषः माता"], ans: 1, full: "एषा माता" }
-    ];
-
-    let currentQ = 0; let score = 0;
-    const qTextEl = document.getElementById('quiz-text');
-    const optEl = document.getElementById('quiz-options');
-    const fbEl = document.getElementById('quiz-feedback');
-
-    function loadQuestion() {
-        fbEl.innerHTML = '';
-        
-        if(currentQ >= mcqData.length) {
-            showMCQResult();
+    function loadSortCard() {
+        if(currentSort >= sortChallenges.length) {
+            targetCard.style.display = 'none';
+            document.querySelector('.baskets-container').style.display = 'none';
+            sortFb.innerHTML = "🎉 <span style='color:var(--success)'>All Sorted Perfectly!</span>";
+            document.getElementById('main-progress').style.width = '60%';
             return;
         }
 
-        const data = mcqData[currentQ];
-        const isKn = document.body.classList.contains('lang-kn');
+        const data = sortChallenges[currentSort];
+        document.getElementById('sort-word-sk').innerText = data.sk;
+        document.getElementById('sort-word-en').innerText = data.en;
         
-        document.getElementById('quiz-progress').innerHTML = isKn ? `ಪ್ರಶ್ನೆ ${currentQ + 1} / ${mcqData.length}` : `Question ${currentQ + 1} / ${mcqData.length}`;
-        qTextEl.innerText = data.q;
-        
-        qTextEl.style.animation = 'none';
-        qTextEl.offsetHeight; 
-        qTextEl.style.animation = null; 
-
-        optEl.innerHTML = '';
-        
-        data.options.forEach((opt, i) => {
-            const btn = document.createElement('button');
-            btn.className = 'option-btn';
-            btn.innerHTML = opt;
-            
-            btn.onclick = () => {
-                const all = optEl.querySelectorAll('.option-btn');
-                all.forEach(b => b.disabled = true);
-                
-                if (i === data.ans) {
-                    btn.classList.add('correct'); 
-                    fbEl.innerHTML = isKn ? '✅ ಉತ್ತಮಮ್!' : '✅ Excellent!'; 
-                    fbEl.style.color = 'var(--success-green)'; 
-                    score++;
-                    speak(data.full);
-                } else {
-                    btn.classList.add('wrong'); 
-                    all[data.ans].classList.add('correct'); 
-                    fbEl.innerHTML = isKn ? '❌ ಪ್ರಯತ್ನಿಸಿ!' : '❌ Try Again!'; 
-                    fbEl.style.color = 'var(--error-red)';
-                    speak(data.full);
-                }
-
-                // AUTO ADVANCE AFTER 2 SECONDS
-                setTimeout(() => {
-                    currentQ++;
-                    loadQuestion();
-                }, 2000);
-            };
-            optEl.appendChild(btn);
-        });
+        // Reset styles
+        targetCard.style.backgroundColor = "white";
+        targetCard.style.borderColor = "var(--accent-gold)";
+        sortFb.innerText = "";
     }
-    
-    function showMCQResult() {
-        const isKn = document.body.classList.contains('lang-kn');
-        qTextEl.innerText = "🏆";
-        qTextEl.style.animation = "none";
-        
-        optEl.style.display = "block";
-        optEl.innerHTML = `<div style="text-align:center; font-size:2rem; margin:20px 0; font-family:'Laila', sans-serif; font-weight:bold; color:var(--text-brown);">${isKn ? 'ನಿಮ್ಮ ಅಂಕಗಳು' : 'Your Score'}: <b style="color:var(--text-maroon);">${score} / ${mcqData.length}</b></div>`;
-        
-        if(score >= 4) { 
-            fbEl.innerHTML = isKn ? "🎉 ಅತ್ಯದ್ಭುತ!" : "🎉 Excellent!"; 
-            document.getElementById('finish-btn').classList.remove('btn-disabled');
-            
-            const rewardSec = document.getElementById('reward-section');
-            rewardSec.classList.add('show');
-            setTimeout(() => {
-                rewardSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                speak("अभिनन्दनम्");
-            }, 800);
 
-        } else { 
-            fbEl.innerHTML = isKn ? "ದಯವಿಟ್ಟು ಪಾಠವನ್ನು ಮತ್ತೊಮ್ಮೆ ಗಮನಿಸಿ!" : "Please review the lesson again!"; 
-            const retryBtn = document.createElement('button');
-            retryBtn.className = 'btn btn-outline';
-            retryBtn.style.margin = '20px auto 0 auto';
-            retryBtn.style.display = 'block';
-            retryBtn.innerHTML = isKn ? '↺ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ' : '↺ Try Again';
-            retryBtn.onclick = () => { 
-                currentQ = 0; score = 0; 
-                qTextEl.style.animation = "pop 0.4s ease-out";
-                optEl.style.display = "grid";
-                loadQuestion(); 
-            };
-            optEl.appendChild(retryBtn);
+    function handleSort(selectedType) {
+        const data = sortChallenges[currentSort];
+        const baskets = document.querySelectorAll('.basket');
+        // Prevent clicking while animating
+        if(targetCard.style.opacity === '0') return; 
+
+        if (selectedType === data.type) {
+            // Correct!
+            sortFb.innerText = "✨ Correct!";
+            sortFb.style.color = "var(--success)";
+            speak(data.sound);
+            
+            // Color code the card before it disappears
+            if(data.type === 'M') targetCard.style.backgroundColor = "var(--color-m-bg)";
+            if(data.type === 'F') targetCard.style.backgroundColor = "var(--color-f-bg)";
+            if(data.type === 'N') targetCard.style.backgroundColor = "var(--color-n-bg)";
+            
+            targetCard.style.transform = "scale(0.8) translateY(20px)";
+            targetCard.style.opacity = "0";
+
+            setTimeout(() => {
+                currentSort++;
+                targetCard.style.transform = "scale(1) translateY(0)";
+                targetCard.style.opacity = "1";
+                loadSortCard();
+            }, 800);
+        } else {
+            // Wrong!
+            sortFb.innerText = "❌ Oops! Think about the Gender.";
+            sortFb.style.color = "var(--error)";
+            targetCard.classList.add('shake');
+            
+            setTimeout(() => {
+                targetCard.classList.remove('shake');
+            }, 500);
         }
     }
 
-    window.onload = () => {
-        const savedLang = localStorage.getItem('trayeeLang') || 'kn';
-        document.body.classList.remove('lang-kn', 'lang-en');
-        document.body.classList.add(`lang-${savedLang}`);
-        
-        document.getElementById('reward-section').classList.remove('show');
-        initDragDropQuiz(); // Start with Drag and Drop
-    };
-</script>
+    loadSortCard();
 
+
+    // --- Voice Logic ---
+    function simulateVoice(btn) {
+        if(btn.classList.contains('listening')) return;
+        const fb = document.getElementById('voice-fb');
+        
+        document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
+        btn.classList.add('listening');
+        fb.innerText = "Listening... Speak naturally.";
+        fb.style.color = "var(--accent-gold)";
+
+        setTimeout(() => {
+            btn.classList.remove('listening');
+            if(Math.random() > 0.2) {
+                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.style.color = "var(--success)";
+                btn.style.background = "var(--success)";
+                btn.innerText = "✓";
+                btn.disabled = true;
+            } else {
+                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.style.color = "var(--error)";
+            }
+        }, 2000);
+    }
+
+
+    // --- Quiz Logic ---
+    const quizData = [
+        { q: "Which word means 'This (Near)' for Masculine?", opts: [{sk:"अयम्", en:"Ayam"}, {sk:"इयम्", en:"Iyam"}], ans: 0 },
+        { q: "'Iyam' (इयम्) is exactly equal to which word?", opts: [{sk:"एषा", en:"Eṣā"}, {sk:"एषः", en:"Eṣaḥ"}], ans: 0 },
+        { q: "'Idam' (इदम्) is used for which gender?", opts: [{sk:"Neuter (It)", en:"Like Etat"}, {sk:"Masculine (He)", en:"Like Eṣaḥ"}], ans: 0 },
+        { q: "Translate 'This is a bag' (Neuter):", opts: [{sk:"इदं स्योतम् अस्ति", en:"Idaṃ syotam asti"}, {sk:"अयं सूर्यः अस्ति", en:"Ayaṃ sūryaḥ asti"}], ans: 0 },
+        { q: "___ mātā asti. (This is mother)", opts: [{sk:"इयम्", en:"Iyam"}, {sk:"अयम्", en:"Ayam"}], ans: 0 }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    function renderQuiz() {
+        const qBox = document.getElementById('quiz-box');
+        const fb = document.getElementById('quiz-fb');
+        
+        if (currentQ >= quizData.length) {
+            document.getElementById('main-progress').style.width = '100%';
+            let starsHtml = "";
+            for(let i=1; i<=5; i++) {
+                let delay = i * 0.2;
+                starsHtml += (i <= score) ? `<span class='filled' style='animation-delay: ${delay}s'>★</span>` : "☆";
+            }
+            qBox.innerHTML = `
+                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Mastered!</h3>
+                <div class="stars">${starsHtml}</div>
+                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">You scored ${score} out of 5!</p>
+                <p style="text-align:center; margin-top:15px; font-weight:600; color:var(--text-muted);">You now know all the ways to say "He, She, It" and "This" in Sanskrit!</p>
+            `;
+            return;
+        }
+
+        const data = quizData[currentQ];
+        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        fb.innerText = "";
+        
+        const optContainer = document.getElementById('opt-container');
+        optContainer.innerHTML = "";
+
+        data.opts.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = "opt-btn";
+            btn.innerHTML = `<span class="sanskrit" style="font-size:1.6rem; color:inherit;">${opt.sk}</span><span class="diacritic" style="color:inherit; margin-top:4px;">${opt.en}</span>`;
+            btn.onclick = () => handleAnswer(btn, idx, data.ans);
+            optContainer.appendChild(btn);
+        });
+    }
+
+    function handleAnswer(btn, selected, correct) {
+        const buttons = document.querySelectorAll('.opt-btn');
+        buttons.forEach(b => b.disabled = true);
+        const fb = document.getElementById('quiz-fb');
+
+        if(selected === correct) {
+            btn.classList.add('correct');
+            fb.innerText = "✨ Perfect!";
+            fb.style.color = "var(--success)";
+            score++;
+            speak("उत्तमम्");
+        } else {
+            btn.classList.add('wrong');
+            buttons[correct].classList.add('correct');
+            fb.innerText = "❌ Incorrect!";
+            fb.style.color = "var(--error)";
+        }
+
+        setTimeout(() => {
+            currentQ++;
+            renderQuiz();
+        }, 1500);
+    }
+
+    renderQuiz();
+</script>
 </body>
 </html>
