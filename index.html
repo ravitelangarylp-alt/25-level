@@ -1,325 +1,307 @@
 <!DOCTYPE html>
-<html lang="kn">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita Swayam Shikshaka - Home</title>
+    <title>Samskrita Swayam-Shikshaka - Home</title>
+    
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;600;800&family=Laila:wght@400;600;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&family=Playfair+Display:wght@600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-parchment: #fdf5e6;
-            --text-brown: #4a2511;
-            --text-maroon: #800000;
-            --accent-gold: #d4af37;
-            --card-bg: #ffffff;
-            --success-green: #22c55e;
-            --masc-blue: #1e3a8a;
-            --error-red: #ef4444;
+            /* Premium Colour Palette */
+            --bg-main: #FAFAF9;
+            --card-bg: #FFFFFF;
+            --maroon-rich: #781014;
+            --maroon-light: #FFF0F0;
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #FEF9C3;
+            --text-dark: #1C1917;
+            --text-muted: #57534E;
+            --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 40px -10px rgba(120, 16, 20, 0.15);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body.lang-en .kn-text { display: none !important; }
-        body.lang-kn .en-text { display: none !important; }
-
         body {
-            font-family: 'Laila', sans-serif;
-            background-color: var(--bg-parchment);
-            color: var(--text-brown);
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
             line-height: 1.6;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px 20px 80px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 80px; }
 
-        /* Top Nav */
+        /* Premium Top Navigation */
         .top-nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 25px; background: rgba(255, 255, 255, 0.4);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3); margin-bottom: 40px;
+            padding: 20px 0; margin-bottom: 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-home { 
-            font-family: 'Inknut Antiqua', serif; font-size: 1.5rem; color: var(--text-maroon); 
-            font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 10px;
+        .logo-box {
+            display: flex; align-items: center; gap: 10px;
+            font-family: 'Playfair Display', serif; font-weight: 800;
+            font-size: 1.5rem; color: var(--maroon-rich); text-decoration: none;
         }
-        
-        .lang-switch-btn {
-            background: #fff; border: 2px solid var(--accent-gold); color: var(--text-maroon);
-            padding: 8px 20px; border-radius: 20px; font-family: 'Laila', sans-serif; font-weight: 700; font-size: 1.1rem;
-            cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s;
-        }
-        .lang-switch-btn:hover { background: rgba(212, 175, 55, 0.1); transform: translateY(-2px); }
 
-        /* Hero Section */
-        header { text-align: center; margin-bottom: 50px; }
-        .hero-icon { font-size: 4rem; margin-bottom: 10px; display: inline-block; animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .lang-badge {
+            background: white; border: 1px solid #E7E5E4; color: var(--text-muted);
+            padding: 8px 16px; border-radius: 20px; font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); letter-spacing: 1px;
+        }
+
+        /* Hero Section with Branding */
+        header { text-align: center; margin-bottom: 60px; padding-top: 20px; }
         
-        h1 { font-family: 'Inknut Antiqua', serif; color: var(--text-maroon); font-size: 3rem; margin-bottom: 15px; line-height: 1.2; }
-        .subtitle { font-size: 1.3rem; color: #555; font-weight: 600; max-width: 700px; margin: 0 auto; }
+        .collaboration-badge {
+            display: inline-block; background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%);
+            color: white; padding: 8px 25px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: 600; letter-spacing: 1px;
+            margin-bottom: 25px; box-shadow: 0 4px 15px rgba(120, 16, 20, 0.2);
+        }
+        
+        .collab-gold { color: var(--accent-gold-light); font-weight: 800; }
+
+        h1 { font-family: 'Playfair Display', serif; color: var(--maroon-rich); font-size: 3.5rem; margin-bottom: 15px; line-height: 1.2; font-weight: 800; }
+        .subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px auto; font-weight: 400; }
 
         .motto-box {
-            text-align: center; background: rgba(128, 0, 0, 0.05);
-            border: 2px solid var(--accent-gold); padding: 20px; border-radius: 15px;
-            max-width: 600px; margin: 0 auto 40px; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+            text-align: center; background: var(--maroon-light);
+            border-left: 4px solid var(--accent-gold); padding: 20px; border-radius: 12px;
+            max-width: 600px; margin: 0 auto;
         }
-        .motto-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--text-maroon); font-weight: bold; display: block; margin-bottom: 5px; }
+        .motto-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: bold; display: block; margin-bottom: 5px; }
 
         /* Level Grid */
         .level-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px; padding: 20px 0;
         }
 
         .level-card {
-            background: var(--card-bg); border-radius: 15px; padding: 25px;
-            box-shadow: 0 8px 20px rgba(128, 0, 0, 0.06); border: 2px solid transparent;
-            text-decoration: none; color: var(--text-brown); display: flex; flex-direction: column;
-            transition: all 0.3s ease; position: relative; overflow: hidden;
+            background: var(--card-bg); border-radius: 20px; padding: 30px;
+            box-shadow: var(--shadow-soft); border: 1px solid rgba(0,0,0,0.03);
+            text-decoration: none; color: var(--text-dark); display: flex; flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
         }
         
         .level-card:hover {
-            transform: translateY(-5px); border-color: var(--accent-gold);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: var(--shadow-hover);
         }
 
         .level-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
-            background: var(--text-maroon); transition: width 0.3s ease;
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--maroon-rich); transition: width 0.3s ease;
         }
-        .level-card:hover::before { width: 10px; background: var(--accent-gold); }
+        .level-card:hover::before { width: 8px; background: var(--accent-gold); }
 
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-left: 15px; }
-        .l-num { font-size: 1.1rem; font-weight: 800; color: #888; background: #f3f4f6; padding: 4px 12px; border-radius: 20px;}
-        .l-icon { font-size: 2rem; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-left: 10px; }
+        .l-num { font-size: 0.95rem; font-weight: 800; color: var(--maroon-rich); background: var(--maroon-light); padding: 6px 15px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase;}
+        .l-icon { font-size: 2rem; background: var(--bg-main); width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px;}
 
-        .l-title { font-family: 'Inknut Antiqua', serif; font-size: 1.3rem; color: var(--text-maroon); margin-bottom: 10px; padding-left: 15px; line-height: 1.4;}
-        .l-desc { font-size: 0.95rem; color: #666; padding-left: 15px; line-height: 1.5;}
-        
-        /* Different colored cards for grouping */
-        .group-basics::before { background: var(--masc-blue); }
-        .group-story::before { background: var(--success-green); }
-        .group-exam::before { background: var(--error-red); }
-        .group-new::before { background: #8b5cf6; } /* Purple for advanced/new */
+        .l-title-sk { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.6rem; color: var(--maroon-rich); margin-bottom: 8px; padding-left: 10px; font-weight: bold;}
+        .l-desc-en { font-size: 1.05rem; color: var(--text-muted); padding-left: 10px; line-height: 1.5; font-weight: 500;}
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1.1rem; }
+            h1 { font-size: 2.5rem; }
             .level-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body class="lang-kn">
-
-<nav class="top-nav">
-    <div class="logo-home">
-        <span>🕉️</span>
-        <span class="kn-text">ಟೀಮ್ ತ್ರಯೀ</span>
-        <span class="en-text">Team Trayee</span>
-    </div>
-    <button class="lang-switch-btn" onclick="toggleLanguage()">
-        <span class="kn-text">🌐 English</span>
-        <span class="en-text">🌐 ಕನ್ನಡ</span>
-    </button>
-</nav>
+<body>
 
 <div class="container">
-    <header>
-        <div class="hero-icon">📚</div>
-        <h1>
-            <span class="kn-text">ಸಂಸ್ಕೃತ ಸ್ವಯಂ-ಶಿಕ್ಷಕಃ</span>
-            <span class="en-text">Samskrita Swayam Shikshaka</span>
-        </h1>
-        <p class="subtitle">
-            <span class="kn-text">ಸಂಸ್ಕೃತ ವ್ಯಾಕರಣ ಮತ್ತು ಸಂಭಾಷಣೆಯನ್ನು ಸುಲಭವಾಗಿ ಕಲಿಯುವ ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಮಾರ್ಗದರ್ಶಿ. ಯಾವ ಹಂತದಿಂದ ಬೇಕಾದರೂ ಕಲಿಯಲು ಪ್ರಾರಂಭಿಸಿ!</span>
-            <span class="en-text">Your digital guide to easily learn Sanskrit grammar and conversation. Start learning from any level directly!</span>
-        </p>
-    </header>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <a href="#" class="logo-box">
+            <span style="font-size: 2rem;">🕉️</span> Samskrita
+        </a>
+        <div class="lang-badge">EN 🇬🇧</div>
+    </nav>
 
-    <div class="motto-box">
-        <span class="motto-sk">समानशीलव्यसनेषु सख्यम् ।</span>
-        <span class="kn-text" style="color:#555; font-weight: 600;">"ಸಮಾನ ಆಸಕ್ತಿ ಮತ್ತು ಗುಣವುಳ್ಳವರಲ್ಲಿ ಸ್ನೇಹ ಬೆಳೆಯುತ್ತದೆ."</span>
-        <span class="en-text" style="color:#555; font-weight: 600;">"Friendship blossoms among those with similar virtues and interests."</span>
-    </div>
+    <!-- Hero Section -->
+    <header>
+        <!-- Prominent Branding Badge -->
+        <div class="collaboration-badge">
+            A collaborative initiative by <span class="collab-gold">Topper Institute</span> & <span class="collab-gold">Team Trayee</span>
+        </div>
+
+        <h1>Swayam-Shikshaka</h1>
+        <p class="subtitle">
+            Your premium digital guide to mastering Sanskrit grammar and conversation. Embark on an intuitive, interactive journey tailored for modern learners.
+        </p>
+
+        <div class="motto-box">
+            <span class="motto-sk">समानशीलव्यसनेषु सख्यम्</span>
+            <span style="color:var(--text-muted); font-weight: 600;">"Friendship blossoms among those with similar virtues and interests."</span>
+        </div>
+    </header>
 
     <!-- LEVEL GRID (Levels 1 to 25) -->
     <div class="level-grid">
         
-        <a href="level1.html" class="level-card group-basics">
+        <!-- Module 1: Basics & Verbs -->
+        <a href="level1.html" class="level-card">
             <div class="card-header"><span class="l-num">Level 1</span><span class="l-icon">👋</span></div>
-            <div class="l-title"><span class="kn-text">ಪರಿಚಯ & ಪ್ರಥಮಾ ವಿಭಕ್ತಿ</span><span class="en-text">Intro & 1st Case</span></div>
-            <div class="l-desc"><span class="kn-text">ಅಹಂ, ತ್ವಂ, ಸಃ - ದಿನನಿತ್ಯದ ಮಾತುಕತೆ ಮತ್ತು ಪ್ರಥಮಾ ವಿಭಕ್ತಿಯ ಪರಿಚಯ.</span><span class="en-text">Aham, Tvam, Sah - Daily conversation and Intro to Nominative Case.</span></div>
+            <div class="l-title-sk">अहं, त्वं, कः, का</div>
+            <div class="l-desc-en">Self Introduction: Master the art of introducing yourself and asking questions.</div>
         </a>
 
-        <a href="level2.html" class="level-card group-basics">
-            <div class="card-header"><span class="l-num">Level 2</span><span class="l-icon">🏃</span></div>
-            <div class="l-title"><span class="kn-text">ಕ್ರಿಯಾಪದಗಳ ಪರಿಚಯ</span><span class="en-text">Intro to Verbs</span></div>
-            <div class="l-desc"><span class="kn-text">ಸಂಸ್ಕೃತದಲ್ಲಿ ಕೆಲಸವನ್ನು ಸೂಚಿಸುವ ಪದಗಳ (Verbs) ಬಳಕೆ.</span><span class="en-text">Usage of action words (Verbs) in Sanskrit.</span></div>
+        <a href="level2.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 2</span><span class="l-icon">✨</span></div>
+            <div class="l-title-sk">अस्ति, असि, अस्मि</div>
+            <div class="l-desc-en">The "To Be" Verbs: Learn to construct complete sentences indicating existence.</div>
         </a>
 
-        <a href="level3.html" class="level-card group-basics">
-            <div class="card-header"><span class="l-num">Level 3</span><span class="l-icon">👥</span></div>
-            <div class="l-title"><span class="kn-text">ಪುರುಷ ಪರಿಚಯ</span><span class="en-text">The Three Persons</span></div>
-            <div class="l-desc"><span class="kn-text">ಪ್ರಥಮ, ಮಧ್ಯಮ ಮತ್ತು ಉತ್ತಮ ಪುರುಷಗಳ ಸ್ಪಷ್ಟ ವಿವರಣೆ.</span><span class="en-text">Clear explanation of First, Second and Third Person.</span></div>
+        <a href="level3.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 3</span><span class="l-icon">👉</span></div>
+            <div class="l-title-sk">सः, सा, तत्</div>
+            <div class="l-desc-en">Pronouns (Far): How to refer to people and objects at a distance (He, She, It).</div>
         </a>
 
-        <a href="level4.html" class="level-card group-basics">
-            <div class="card-header"><span class="l-num">Level 4</span><span class="l-icon">1️⃣ ♾️</span></div>
-            <div class="l-title"><span class="kn-text">ವಚನಗಳು</span><span class="en-text">Sanskrit Numbers</span></div>
-            <div class="l-desc"><span class="kn-text">ಏಕವಚನ, ದ್ವಿವಚನ ಮತ್ತು ಬಹುವಚನಗಳ ನಿಯಮಗಳು.</span><span class="en-text">Rules of Singular, Dual and Plural forms.</span></div>
+        <a href="level4.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 4</span><span class="l-icon">👇</span></div>
+            <div class="l-title-sk">एषः, एषा, एतत्</div>
+            <div class="l-desc-en">Pronouns (Near): How to refer to people and objects close to you.</div>
         </a>
 
-        <a href="level5.html" class="level-card group-basics">
-            <div class="card-header"><span class="l-num">Level 5</span><span class="l-icon">🧩</span></div>
-            <div class="l-title"><span class="kn-text">ಸರಳ ವಾಕ್ಯ ರಚನೆ</span><span class="en-text">Sentence Formation</span></div>
-            <div class="l-desc"><span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದವನ್ನು ಬಳಸಿ ಪುಟ್ಟ ವಾಕ್ಯಗಳನ್ನು ಕಟ್ಟುವುದು.</span><span class="en-text">Building small sentences using Subject and Verb.</span></div>
+        <a href="level5.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 5</span><span class="l-icon">📍</span></div>
+            <div class="l-title-sk">अयम्, इयम्, इदम्</div>
+            <div class="l-desc-en">Alternative Pronouns: Another classical way to say 'This' in all three genders.</div>
         </a>
 
-        <a href="level6.html" class="level-card group-basics">
-            <div class="card-header"><span class="l-num">Level 6</span><span class="l-icon">🔗</span></div>
-            <div class="l-title"><span class="kn-text">ಅವ್ಯಯಗಳು</span><span class="en-text">Indeclinables</span></div>
-            <div class="l-desc"><span class="kn-text">ಚ, ಅಪಿ, ಏವ, ಅತ್ರ, ತತ್ರ - ಎಂದಿಗೂ ಬದಲಾಗದ ಪದಗಳು.</span><span class="en-text">Cha, Api, Eva, Atra, Tatra - Words that never change.</span></div>
+        <a href="level6.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 6</span><span class="l-icon">❓</span></div>
+            <div class="l-title-sk">कः, का, किम्</div>
+            <div class="l-desc-en">Question Words: Mastering "Who?" and "What?" across masculine, feminine, and neuter.</div>
         </a>
 
         <a href="level7.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 7</span><span class="l-icon">🎯</span></div>
-            <div class="l-title"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಕರ್ಮ)</span><span class="en-text">2nd Case (Object)</span></div>
-            <div class="l-desc"><span class="kn-text">'ಅನ್ನು' ಪ್ರತ್ಯಯ. ಕೆಲಸದ ಗುರಿಯನ್ನು ಸೂಚಿಸುವ 'ಮ್ಯಾಜಿಕ್ ಬಿಂದು'.</span><span class="en-text">The Object case. The 'Magic Dot' that indicates the target of an action.</span></div>
+            <div class="card-header"><span class="l-num">Level 7</span><span class="l-icon">🌳</span></div>
+            <div class="l-title-sk">अकारान्त-शब्दाः</div>
+            <div class="l-desc-en">a-ending Nouns: Understanding the Nominative singular form for masculine and neuter words.</div>
         </a>
 
-        <a href="level8.html" class="level-card group-story">
-            <div class="card-header"><span class="l-num">Level 8</span><span class="l-icon">🦅</span></div>
-            <div class="l-title"><span class="kn-text">ಕಥಾ ಸಮಯ: ಗೃಧ್ರಸ್ಯ ಕರುಣಾ</span><span class="en-text">Story: Grudhrasya Karuna</span></div>
-            <div class="l-desc"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿಯ ಪ್ರಯೋಗಗಳನ್ನು ಕಥೆಯ ಮೂಲಕ ಓದಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.</span><span class="en-text">Read and comprehend the usage of 2nd case through a moral story.</span></div>
+        <a href="level8.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 8</span><span class="l-icon">🌸</span></div>
+            <div class="l-title-sk">आकारान्त-शब्दाः</div>
+            <div class="l-desc-en">ā-ending Nouns: Understanding the Nominative singular form for feminine words.</div>
         </a>
 
         <a href="level9.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 9</span><span class="l-icon">📍</span></div>
-            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ವಿಭಕ್ತಿ (ಅಧಿಕರಣ)</span><span class="en-text">7th Case (Location)</span></div>
-            <div class="l-desc"><span class="kn-text">'ಎಲ್ಲಿ?' ಮತ್ತು 'ಯಾವಾಗ?' - ಸ್ಥಳ ಹಾಗೂ ಸಮಯವನ್ನು ಸೂಚಿಸುವ ವಿಭಕ್ತಿ.</span><span class="en-text">'Where?' and 'When?' - The case that indicates location and time.</span></div>
+            <div class="card-header"><span class="l-num">Level 9</span><span class="l-icon">🏃</span></div>
+            <div class="l-title-sk">वर्तमानकालः (लट्लकारः)</div>
+            <div class="l-desc-en">Present Tense: Introduction to action words (verbs) for all three persons.</div>
         </a>
 
         <a href="level10.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 10</span><span class="l-icon">✨</span></div>
-            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span><span class="en-text">Saptami Magic Sutras</span></div>
-            <div class="l-desc"><span class="kn-text">ಎಲ್ಲಾ ಸ್ವರಗಳ ಏಕವಚನಕ್ಕೆ (ಅ-ಕಾರಾಂತದಿಂದ ವ್ಯಂಜನಾಂತದವರೆಗೆ) ಕೇವಲ ೮ ಅಕ್ಷರಗಳ ಸೂತ್ರ.</span><span class="en-text">The 8-letter magic sutra for all singular endings.</span></div>
+            <div class="card-header"><span class="l-num">Level 10</span><span class="l-icon">🎯</span></div>
+            <div class="l-title-sk">धातवः - भागः १</div>
+            <div class="l-desc-en">Action Words (Set 1): Learn common daily verbs like play, roam, run, and fall.</div>
         </a>
 
-        <a href="level11.html" class="level-card group-exam">
-            <div class="card-header"><span class="l-num">Level 11</span><span class="l-icon">📝</span></div>
-            <div class="l-title"><span class="kn-text">ಸಪ್ತಮೀ ಮಹಾ ಪರೀಕ್ಷೆ</span><span class="en-text">Saptami Mega Exam</span></div>
-            <div class="l-desc"><span class="kn-text">ಪಜಲ್, ಹೊಂದಿಸಿ ಬರೆಯಿರಿ, ವಿಜಾತೀಯ ಪದ ಗುರುತಿಸಿ - ನಿಮ್ಮ ಜ್ಞಾನದ ಒರೆಗಲ್ಲು.</span><span class="en-text">Puzzles, Match the following, Odd one out - Test your knowledge.</span></div>
+        <a href="level11.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 11</span><span class="l-icon">🗣️</span></div>
+            <div class="l-title-sk">धातवः - भागः २</div>
+            <div class="l-desc-en">Action Words (Set 2): Learn common verbs like speak, eat, laugh, and protect.</div>
         </a>
 
         <a href="level12.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 12</span><span class="l-icon">⚙️</span></div>
-            <div class="l-title"><span class="kn-text">ಕ್ರಿಯಾಪದ - ಬಹುವಚನ</span><span class="en-text">Verb Plurals</span></div>
-            <div class="l-desc"><span class="kn-text">ವರ್ತಮಾನ ಕಾಲದ ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳನ್ನು ರಚಿಸುವ ಸುಲಭ ಸೂತ್ರ.</span><span class="en-text">Easy formula to construct present tense plural verbs.</span></div>
+            <div class="card-header"><span class="l-num">Level 12</span><span class="l-icon">🌅</span></div>
+            <div class="l-title-sk">भविष्यत्कालः (लृट्लकारः)</div>
+            <div class="l-desc-en">Future Tense: Expressing actions that will happen tomorrow and the day after.</div>
         </a>
 
-        <a href="level13.html" class="level-card group-exam">
-            <div class="card-header"><span class="l-num">Level 13</span><span class="l-icon">🎓</span></div>
-            <div class="l-title"><span class="kn-text">ಆರುಣಿಯ ಕಥೆ & ಪರೀಕ್ಷೆ</span><span class="en-text">Aruni's Story & Exam</span></div>
-            <div class="l-desc"><span class="kn-text">ಕರ್ಮ, ಅಧಿಕರಣ ಮತ್ತು ಬಹುವಚನ ಕ್ರಿಯಾಪದಗಳೆಲ್ಲವೂ ಒಂದೇ ಕಥೆಯಲ್ಲಿ. ಸಮಗ್ರ ರಿವಿಷನ್!</span><span class="en-text">Karma, Adhikarana and Plural verbs applied in one classic story. Complete revision!</span></div>
+        <a href="level13.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 13</span><span class="l-icon">🔮</span></div>
+            <div class="l-title-sk">लृट्लकारः - अन्ये धातवः</div>
+            <div class="l-desc-en">Future Tense Expansion: Applying the future tense rules to the remaining verbs.</div>
         </a>
 
-        <a href="level14.html" class="level-card group-new">
-            <div class="card-header"><span class="l-num">Level 14</span><span class="l-icon">👑</span></div>
-            <div class="l-title"><span class="kn-text">ಷಷ್ಠೀ ವಿಭಕ್ತಿ (ಸಂಬಂಧ)</span><span class="en-text">6th Case (Possession)</span></div>
-            <div class="l-desc"><span class="kn-text">'ಯಾರದ್ದು?' (ಮಾಲೀಕತ್ವ) ಸೂಚಿಸುವ ಷಷ್ಠೀ ವಿಭಕ್ತಿಯ ಪರಿಚಯ (ಏಕವಚನ).</span><span class="en-text">Intro to the 6th case which answers 'Whose?' (Singular).</span></div>
+        <a href="level14.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 14</span><span class="l-icon">🕰️</span></div>
+            <div class="l-title-sk">भूतकालः (लङ्लकारः)</div>
+            <div class="l-desc-en">Past Tense (Third Person): Talking about actions that occurred yesterday.</div>
         </a>
 
-        <a href="level15.html" class="level-card group-new">
-            <div class="card-header"><span class="l-num">Level 15</span><span class="l-icon">🪄</span></div>
-            <div class="l-title"><span class="kn-text">ಷಷ್ಠೀ ಮ್ಯಾಜಿಕ್ ಸೂತ್ರ</span><span class="en-text">6th Case Magic Sutra</span></div>
-            <div class="l-desc"><span class="kn-text">ಯಾವುದೇ ಸ್ವರದಿಂದ ಅಂತ್ಯವಾಗುವ ಪದಗಳಿಗೆ ಷಷ್ಠೀ ವಿಭಕ್ತಿಯ ೬ ಸುಲಭ ಸೂತ್ರಗಳು.</span><span class="en-text">6 easy formulas for 6th case for words ending with any vowel.</span></div>
+        <a href="level15.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 15</span><span class="l-icon">⏪</span></div>
+            <div class="l-title-sk">लङ्लकारः (मध्यमपुरुषः)</div>
+            <div class="l-desc-en">Past Tense (Second Person): Expressing what 'You' did in the past.</div>
         </a>
 
-        <a href="level16.html" class="level-card group-story">
-            <div class="card-header"><span class="l-num">Level 16</span><span class="l-icon">🐰</span></div>
-            <div class="l-title"><span class="kn-text">ಕಥಾ ಸಮಯ: ಚತುರಃ ಶಶಕಃ</span><span class="en-text">Story: The Clever Hare</span></div>
-            <div class="l-desc"><span class="kn-text">ಬಣ್ಣಗಳ ಮೂಲಕ ಈವರೆಗೆ ಕಲಿತ ಎಲ್ಲಾ ವಿಭಕ್ತಿಗಳ ಮತ್ತು ವ್ಯಾಕರಣದ ರಿವಿಷನ್ ಕಥೆ.</span><span class="en-text">A revision story to learn all cases and grammar through colors.</span></div>
+        <a href="level16.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 16</span><span class="l-icon">📝</span></div>
+            <div class="l-title-sk">लङ्लकारः (उत्तमपुरुषः)</div>
+            <div class="l-desc-en">Past Tense (First Person): Expressing what 'I' did in the past.</div>
         </a>
 
-        <a href="level17.html" class="level-card group-new">
-            <div class="card-header"><span class="l-num">Level 17</span><span class="l-icon">👨‍👩‍👧‍👦</span></div>
-            <div class="l-title"><span class="kn-text">ಪ್ರಥಮಾ & ಕ್ರಿಯಾಪದ (ಬಹುವಚನ)</span><span class="en-text">Nominative & Verb Plural</span></div>
-            <div class="l-desc"><span class="kn-text">ಕರ್ತೃ ಮತ್ತು ಕ್ರಿಯಾಪದಗಳೆರಡನ್ನೂ ಒಟ್ಟಿಗೆ ಬಹುವಚನದಲ್ಲಿ ಪ್ರಯೋಗಿಸುವುದು.</span><span class="en-text">Applying plural for both Subject and Verb together.</span></div>
+        <a href="level17.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 17</span><span class="l-icon">🙏</span></div>
+            <div class="l-title-sk">आज्ञा / प्रार्थना (लोट्लकारः)</div>
+            <div class="l-desc-en">Imperative Mood: How to give commands and make polite requests.</div>
         </a>
 
-        <a href="level18.html" class="level-card group-new">
-            <div class="card-header"><span class="l-num">Level 18</span><span class="l-icon">🤝</span></div>
-            <div class="l-title"><span class="kn-text">ಮಧ್ಯಮ & ಉತ್ತಮ ಪುರುಷ (ಬಹುವಚನ)</span><span class="en-text">2nd & 1st Person Plural</span></div>
-            <div class="l-desc"><span class="kn-text">'ಯೂಯಮ್' (ನೀವೆಲ್ಲರೂ) ಮತ್ತು 'ವಯಮ್' (ನಾವೆಲ್ಲರೂ) ಪದಗಳ ಬಳಕೆ.</span><span class="en-text">Usage of 'Yuyam' (You all) and 'Vayam' (We all) in plural.</span></div>
+        <a href="level18.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 18</span><span class="l-icon">🛠️</span></div>
+            <div class="l-title-sk">कृ-धातुः (वर्तमानकालः)</div>
+            <div class="l-desc-en">The 'To Do' Verb: Mastering the versatile 'kRi' root in the present tense.</div>
         </a>
 
-        <a href="level19.html" class="level-card group-exam">
-            <div class="card-header"><span class="l-num">Level 19</span><span class="l-icon">📝</span></div>
-            <div class="l-title"><span class="kn-text">ಬಹುವಚನ ಮಹಾ ಪರೀಕ್ಷೆ</span><span class="en-text">Plural Mega Exam</span></div>
-            <div class="l-desc"><span class="kn-text">ಎಲ್ಲಾ ಪುರುಷಗಳ ಬಹುವಚನಗಳ ಸಂಪೂರ್ಣ ಅಭ್ಯಾಸ ಮತ್ತು ಮೆಗಾ ರಸಪ್ರಶ್ನೆ.</span><span class="en-text">Complete practice and mega quiz on plurals of all persons.</span></div>
+        <a href="level19.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 19</span><span class="l-icon">🚀</span></div>
+            <div class="l-title-sk">कृ-धातुः (भविष्यत्कालः)</div>
+            <div class="l-desc-en">The 'To Do' Verb (Future): Expressing tasks and actions you will do.</div>
         </a>
 
         <a href="level20.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 20</span><span class="l-icon">🎯</span></div>
-            <div class="l-title"><span class="kn-text">ದ್ವಿತೀಯಾ ವಿಭಕ್ತಿ (ಬಹುವಚನ)</span><span class="en-text">2nd Case Plural</span></div>
-            <div class="l-desc"><span class="kn-text">ಕರ್ಮ (Object) ಪದಗಳ ಬಹುವಚನ ರೂಪಗಳ (ಉದಾ: ರಾಮಾನ್, ಸೀತಾಃ) ಪರಿಚಯ.</span><span class="en-text">Introduction to plural forms of object words (e.g., Ramaan, Sitah).</span></div>
+            <div class="card-header"><span class="l-num">Level 20</span><span class="l-icon">📜</span></div>
+            <div class="l-title-sk">कृ-धातुः (भूतकालः)</div>
+            <div class="l-desc-en">The 'To Do' Verb (Past): Expressing tasks and actions that were completed.</div>
         </a>
 
         <a href="level21.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 21</span><span class="l-icon">🛠️</span></div>
-            <div class="l-title"><span class="kn-text">ತೃತೀಯಾ ವಿಭಕ್ತಿ (ಕರಣ)</span><span class="en-text">3rd Case (Instrument)</span></div>
-            <div class="l-desc"><span class="kn-text">'ಇಂದ' ಅಥವಾ 'ಮೂಲಕ' - ಕೆಲಸ ಮಾಡಲು ಸಹಾಯ ಮಾಡುವ ಸಾಧನದ ವಿಭಕ್ತಿ.</span><span class="en-text">The case indicating 'by' or 'with' (instrument of action).</span></div>
+            <div class="card-header"><span class="l-num">Level 21</span><span class="l-icon">📍</span></div>
+            <div class="l-title-sk">अत्र, तत्र</div>
+            <div class="l-desc-en">Adverbs of Place (Part 1): Using 'Here' and 'There' to indicate location.</div>
         </a>
 
         <a href="level22.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 22</span><span class="l-icon">🎁</span></div>
-            <div class="l-title"><span class="kn-text">ಚತುರ್ಥೀ ವಿಭಕ್ತಿ (ಸಂಪ್ರದಾನ)</span><span class="en-text">4th Case (Purpose/For)</span></div>
-            <div class="l-desc"><span class="kn-text">'ಗೋಸ್ಕರ' ಅಥವಾ 'ಗಾಗಿ' - ಯಾರಿಗಾಗಿ ಕೆಲಸ ನಡೆಯುತ್ತಿದೆ ಎಂದು ಸೂಚಿಸುವುದು.</span><span class="en-text">The case indicating purpose or 'for whom' the action is done.</span></div>
+            <div class="card-header"><span class="l-num">Level 22</span><span class="l-icon">🌍</span></div>
+            <div class="l-title-sk">एकत्र, अन्यत्र</div>
+            <div class="l-desc-en">Adverbs of Place (Part 2): Saying 'In one place' and 'Elsewhere'.</div>
         </a>
 
         <a href="level23.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 23</span><span class="l-icon">🍃</span></div>
-            <div class="l-title"><span class="kn-text">ಪಂಚಮೀ ವಿಭಕ್ತಿ (ಅಪಾದಾನ)</span><span class="en-text">5th Case (Separation)</span></div>
-            <div class="l-desc"><span class="kn-text">'ದೆಸೆಯಿಂದ' ಅಥವಾ 'ಇಂದ' - ಒಂದು ಕಡೆಯಿಂದ ದೂರವಾಗುವುದನ್ನು ಸೂಚಿಸುವುದು.</span><span class="en-text">The case indicating separation 'from' a point of origin.</span></div>
+            <div class="card-header"><span class="l-num">Level 23</span><span class="l-icon">🌌</span></div>
+            <div class="l-title-sk">बहुत्र, सर्वत्र</div>
+            <div class="l-desc-en">Adverbs of Place (Part 3): Expressing 'In many places' and 'Everywhere'.</div>
         </a>
 
         <a href="level24.html" class="level-card">
-            <div class="card-header"><span class="l-num">Level 24</span><span class="l-icon">🗣️</span></div>
-            <div class="l-title"><span class="kn-text">ಸಂಬೋಧನಾ ವಿಭಕ್ತಿ</span><span class="en-text">Vocative Case</span></div>
-            <div class="l-desc"><span class="kn-text">ಹೇ ರಾಮ! ಹೇ ಸೀತೇ! - ಕರೆಯಲು ಅಥವಾ ಸಂಬೋಧಿಸಲು ಬಳಸುವ ವಿಭಕ್ತಿ.</span><span class="en-text">He Rama! He Site! - The case used for calling or addressing someone.</span></div>
+            <div class="card-header"><span class="l-num">Level 24</span><span class="l-icon">🤔</span></div>
+            <div class="l-title-sk">प्रश्न-वाचकानि (अपि / किम्)</div>
+            <div class="l-desc-en">Classical Question Particles: Forming Yes/No questions using classical markers.</div>
         </a>
 
-        <a href="level25.html" class="level-card group-story">
-            <div class="card-header"><span class="l-num">Level 25</span><span class="l-icon">🏆</span></div>
-            <div class="l-title"><span class="kn-text">ಮಹಾ ರಿವಿಷನ್ & ಕಥೆ</span><span class="en-text">Grand Revision & Story</span></div>
-            <div class="l-desc"><span class="kn-text">ನಾವು ಕಲಿತ ಎಲ್ಲಾ ೮ ವಿಭಕ್ತಿಗಳು ಮತ್ತು ಕಾಲಗಳ ಸಮಗ್ರ ಅಭ್ಯಾಸದ ಕಥೆ!</span><span class="en-text">A grand story to revise all 8 cases and tenses we have learned!</span></div>
+        <a href="level25.html" class="level-card">
+            <div class="card-header"><span class="l-num">Level 25</span><span class="l-icon">🛑</span></div>
+            <div class="l-title-sk">नञ्-अव्ययम्</div>
+            <div class="l-desc-en">Negative Particles: Learning how to negate sentences and express 'No' or 'Not'.</div>
         </a>
 
     </div>
 </div>
-
-<script>
-    function setLanguage(lang) {
-        document.body.classList.remove('lang-kn', 'lang-en');
-        document.body.classList.add(`lang-${lang}`);
-        localStorage.setItem('trayeeLang', lang);
-    }
-
-    function toggleLanguage() {
-        const currentLang = localStorage.getItem('trayeeLang') || 'kn';
-        setLanguage(currentLang === 'kn' ? 'en' : 'kn');
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-        setLanguage(localStorage.getItem('trayeeLang') || 'kn');
-    });
-</script>
 
 </body>
 </html>
