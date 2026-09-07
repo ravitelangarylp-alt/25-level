@@ -83,14 +83,15 @@
         .rule-banner {
             background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%);
             padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0;
-            color: white; font-size: 1.1rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2);
+            color: white; font-size: 1.5rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2);
+            display: flex; justify-content: space-around; text-align: center;
         }
-        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.3rem;}
+        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.5rem;}
 
         .dialogue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .dialogue-box { background: white; padding: 25px 20px; border-radius: 20px; position: relative; border: 2px solid var(--maroon-light); text-align: center; transition: all 0.2s;}
         .dialogue-box:hover { border-color: var(--accent-gold); transform: scale(1.02); }
-        .avatar-emoji { font-size: 3.5rem; margin-bottom: 15px; display: inline-block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        .speaker-info { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; font-weight: 600; color: var(--text-muted); font-size: 2.5rem;}
         
         .speak-btn {
             position: absolute; right: 15px; top: 15px;
@@ -101,7 +102,7 @@
         }
         .speak-btn:hover { background: var(--maroon-rich); color: white; transform: scale(1.1); box-shadow: 0 4px 10px rgba(120,16,20,0.3);}
 
-        /* 2. New Game: Sentence Builder (Tap to Construct) */
+        /* 2. Sentence Builder (Tap to Construct) */
         .builder-area { background: #F8FAFC; border: 2px dashed #CBD5E1; border-radius: 16px; min-height: 80px; padding: 15px; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; align-items: center; justify-content: center;}
         .word-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; }
         
@@ -132,8 +133,8 @@
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
         /* 4. Quiz Section */
-        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .q-text { font-size: 2.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich); font-family: 'Tiro Devanagari Sanskrit', serif;}
         .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
         .opt-btn {
             display: flex; flex-direction: column; align-items: center; gap: 5px;
@@ -142,8 +143,8 @@
         }
         .opt-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 6px 0 var(--accent-gold); }
         .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
-        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); }
-        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); }
+        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); color: var(--success);}
+        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); color: var(--error);}
 
         /* Feedback & Stars */
         .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
@@ -171,75 +172,71 @@
 
     <!-- Header -->
     <h1 class="title-main">Asti, Asi, Asmi</h1>
-    <p class="subtitle">Master the "To Be" verbs and construct your first complete sentences.</p>
+    <p class="subtitle">Learn who gets अस्मि, असि, and अस्ति purely through pictures.</p>
 
-    <!-- 1. Observe & Absorb (5 Sentences) -->
+    <!-- 1. Observe & Absorb -->
     <div class="glass-card">
         <div class="section-header">
-            <div class="section-icon">✨</div>
-            <h2 class="section-title">1. Observe & Absorb</h2>
+            <div class="section-icon">👁️</div>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 1.1rem;">Notice the diacritic marks in English (e.g., <strong>ā, ḥ, ṃ</strong>) for accurate pronunciation.</p>
         
+        <!-- Pure Visual Grammar Rule -->
         <div class="rule-banner">
-            💡 <strong>The Golden Rule:</strong> 
-            <br><br>• With 'I' (अहम् / Ahaṃ), use <span class="rule-highlight">अस्मि (asmi)</span>
-            <br>• With 'You' (त्वम् / Tvaṃ), use <span class="rule-highlight">असि (asi)</span>
-            <br>• With 'Third Person' (बालकः / Bālakaḥ), use <span class="rule-highlight">अस्ति (asti)</span>
+            <div>🙋🏽‍♂️ / 🙋🏽‍♀️ ➡️ <span class="rule-highlight">अस्मि (asmi)</span></div>
+            <div>🫵🏽 ➡️ <span class="rule-highlight">असि (asi)</span></div>
+            <div>👦 / 👧 ➡️ <span class="rule-highlight">अस्ति (asti)</span></div>
         </div>
 
         <div class="dialogue-grid">
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('अहं छात्रः अस्मि।')">🔊</button>
-                <div class="avatar-emoji">👦</div>
+                <div class="speaker-info">🙋🏽‍♂️</div>
                 <div class="sanskrit">अहं छात्रः अस्मि।</div>
                 <div class="diacritic">Ahaṃ chātraḥ asmi.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">I am a student (M).</div>
             </div>
             
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('त्वं सीता असि।')">🔊</button>
-                <div class="avatar-emoji">👦 ➡️ 👧</div>
+                <div class="speaker-info">🙋🏽‍♂️ ➡️ 🫵🏽👧</div>
                 <div class="sanskrit">त्वं सीता असि।</div>
                 <div class="diacritic">Tvaṃ Sītā asi.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">You are Sita.</div>
             </div>
 
             <div class="dialogue-box">
+                <!-- Pointing at a third person -->
                 <button class="speak-btn" onclick="speak('जनकः अस्ति।')">🔊</button>
-                <div class="avatar-emoji">👨</div>
+                <div class="speaker-info">🙋🏽‍♂️ ➡️ 👨</div>
                 <div class="sanskrit">जनकः अस्ति।</div>
                 <div class="diacritic">Janakaḥ asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">Father is [present].</div>
             </div>
 
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('अहं जननी अस्मि।')">🔊</button>
-                <div class="avatar-emoji">👩</div>
+                <div class="speaker-info">🙋🏽‍♀️</div>
                 <div class="sanskrit">अहं जननी अस्मि।</div>
                 <div class="diacritic">Ahaṃ jananī asmi.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">I am a mother.</div>
             </div>
 
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('त्वं बालकः असि।')">🔊</button>
-                <div class="avatar-emoji">👩 ➡️ 👦</div>
+                <div class="speaker-info">👩 ➡️ 🫵🏽👦</div>
                 <div class="sanskrit">त्वं बालकः असि।</div>
                 <div class="diacritic">Tvaṃ bālakaḥ asi.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">You are a boy.</div>
             </div>
         </div>
     </div>
 
-    <!-- 2. NEW GAME: Sentence Builder (5 Challenges) -->
+    <!-- 2. Visual Sentence Builder -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧩</div>
-            <h2 class="section-title">2. Practise: Construct the Sentence</h2>
+            <h2 class="section-title">2. Practise</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Tap the words in the correct order to translate the sentence below.</p>
+        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Tap the words to describe the picture.</p>
         
-        <h3 style="text-align:center; color:var(--maroon-rich); font-size:1.8rem; margin-bottom:20px;" id="build-target-en">Loading...</h3>
+        <!-- Dev Note: English translations removed. Visual prompt only -->
+        <h3 style="text-align:center; font-size:3.5rem; margin-bottom:20px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" id="build-target-img">Loading...</h3>
         
         <div class="builder-area" id="builder-area">
             <!-- Selected words will appear here -->
@@ -249,17 +246,16 @@
             <!-- Chips will be generated here by JS -->
         </div>
         
-        <button class="check-btn" id="check-build-btn" onclick="checkBuiltSentence()">CHECK ANSWER</button>
+        <button class="check-btn" id="check-build-btn" onclick="checkBuiltSentence()">शुद्धम्? (Check)</button>
         <p id="build-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 3. Voice Test (5 Sentences) -->
+    <!-- 3. Voice Test -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read aloud using the diacritic guide.</p>
         
         <div class="voice-card">
             <div>
@@ -299,11 +295,11 @@
         <p id="voice-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 4. Auto-advance Quiz (5 Questions) -->
+    <!-- 4. Auto-advance Quiz (Visual blanks) -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
             <div class="q-text" id="q-text">Loading...</div>
@@ -324,13 +320,13 @@
         }
     }
 
-    // 2. NEW GAME: Sentence Builder Logic (Tap to Construct) - Now with 5 sentences
+    // 2. Visual Sentence Builder Logic (Zero English)
     const buildChallenges = [
-        { en: "I am Ganesha.", sk: ["अहम्", "गणेशः", "अस्मि"], options: [{sk:"अहम्", en:"Ahaṃ"}, {sk:"असि", en:"asi"}, {sk:"गणेशः", en:"Gaṇeśaḥ"}, {sk:"अस्मि", en:"asmi"}] },
-        { en: "You are Sita.", sk: ["त्वम्", "सीता", "असि"], options: [{sk:"त्वम्", en:"Tvaṃ"}, {sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}, {sk:"सीता", en:"Sītā"}] },
-        { en: "Father is present.", sk: ["जनकः", "अस्ति"], options: [{sk:"जनकः", en:"Janakaḥ"}, {sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}] },
-        { en: "I am a mother.", sk: ["अहम्", "जननी", "अस्मि"], options: [{sk:"अहम्", en:"Ahaṃ"}, {sk:"असि", en:"asi"}, {sk:"जननी", en:"jananī"}, {sk:"अस्मि", en:"asmi"}] },
-        { en: "You are a student.", sk: ["त्वम्", "छात्रः", "असि"], options: [{sk:"त्वम्", en:"Tvaṃ"}, {sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}, {sk:"छात्रः", en:"chātraḥ"}] }
+        { img: "🙋🏽‍♂️ गणेशः", sk: ["अहम्", "गणेशः", "अस्मि"], options: [{sk:"अहम्", en:"Ahaṃ"}, {sk:"असि", en:"asi"}, {sk:"गणेशः", en:"Gaṇeśaḥ"}, {sk:"अस्मि", en:"asmi"}] },
+        { img: "🫵🏽👧 सीता", sk: ["त्वम्", "सीता", "असि"], options: [{sk:"त्वम्", en:"Tvaṃ"}, {sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}, {sk:"सीता", en:"Sītā"}] },
+        { img: "👨 जनकः", sk: ["जनकः", "अस्ति"], options: [{sk:"जनकः", en:"Janakaḥ"}, {sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}] },
+        { img: "🙋🏽‍♀️ जननी", sk: ["अहम्", "जननी", "अस्मि"], options: [{sk:"अहम्", en:"Ahaṃ"}, {sk:"असि", en:"asi"}, {sk:"जननी", en:"jananī"}, {sk:"अस्मि", en:"asmi"}] },
+        { img: "🫵🏽👦 छात्रः", sk: ["त्वम्", "छात्रः", "असि"], options: [{sk:"त्वम्", en:"Tvaṃ"}, {sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}, {sk:"छात्रः", en:"chātraḥ"}] }
     ];
 
     let currentBuild = 0;
@@ -338,7 +334,7 @@
 
     function loadBuildChallenge() {
         if(currentBuild >= buildChallenges.length) {
-            document.getElementById('build-target-en').innerText = "🎉 All Sentences Built!";
+            document.getElementById('build-target-img').innerText = "🎉";
             document.getElementById('builder-area').style.display = 'none';
             document.getElementById('word-bank').style.display = 'none';
             document.getElementById('check-build-btn').style.display = 'none';
@@ -347,7 +343,7 @@
         }
 
         const challenge = buildChallenges[currentBuild];
-        document.getElementById('build-target-en').innerText = `"${challenge.en}"`;
+        document.getElementById('build-target-img').innerHTML = challenge.img;
         document.getElementById('builder-area').innerHTML = '';
         document.getElementById('build-fb').innerText = '';
         selectedWords = [];
@@ -373,12 +369,10 @@
         chipEl.classList.add('selected');
         selectedWords.push(sk);
 
-        // Add to builder area
         const builtChip = document.createElement('div');
         builtChip.className = 'word-chip';
         builtChip.innerHTML = `<span class="chip-sk">${sk}</span><span class="chip-en">${en}</span>`;
         builtChip.onclick = () => {
-            // Remove from builder area and unselect from bank
             builtChip.remove();
             chipEl.classList.remove('selected');
             selectedWords = selectedWords.filter(w => w !== sk);
@@ -391,7 +385,7 @@
         const fb = document.getElementById('build-fb');
         
         if(selectedWords.join(' ') === challenge.sk.join(' ')) {
-            fb.innerText = "✨ Perfect translation!";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
             speak(selectedWords.join(' '));
             
@@ -400,14 +394,13 @@
                 loadBuildChallenge();
             }, 1500);
         } else {
-            fb.innerText = "❌ Incorrect order or wrong words. Tap words to remove and try again.";
+            fb.innerText = "❌ Try again.";
             fb.style.color = "var(--error)";
             document.getElementById('builder-area').classList.add('shake');
             setTimeout(() => document.getElementById('builder-area').classList.remove('shake'), 500);
         }
     }
     
-    // Add simple shake animation for wrong answer
     const style = document.createElement('style');
     style.innerHTML = `@keyframes shake { 0%, 100%{transform:translateX(0);} 25%{transform:translateX(-10px);} 75%{transform:translateX(10px);} } .shake { animation: shake 0.4s; }`;
     document.head.appendChild(style);
@@ -421,31 +414,31 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Speak naturally.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
-    // 4. Auto-advance Quiz Engine (With Diacritics and 5 Questions)
+    // 4. Auto-advance Quiz Engine (Zero English Questions - Fill in the blank)
     const quizData = [
-        { q: "Which verb pairs with 'Aham' (अहम्)?", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}], ans: 0 },
-        { q: "Which verb pairs with 'Tvam' (त्वम्)?", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"असि", en:"asi"}], ans: 1 },
-        { q: "Ahaṃ śivaḥ _____ ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"असि", en:"asi"}], ans: 0 },
-        { q: "Tvaṃ Gītā _____ ।", opts: [{sk:"असि", en:"asi"}, {sk:"अस्ति", en:"asti"}], ans: 0 },
-        { q: "Bālakaḥ _____ ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}], ans: 1 }
+        { q: "🙋🏽‍♂️ अहम् <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}], ans: 0 },
+        { q: "🫵🏽 त्वम् <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"असि", en:"asi"}], ans: 1 },
+        { q: "🙋🏽‍♂️ अहं शिवः <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"असि", en:"asi"}], ans: 0 },
+        { q: "🫵🏽👧 त्वं गीता <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"असि", en:"asi"}, {sk:"अस्ति", en:"asti"}], ans: 0 },
+        { q: "👦 बालकः <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्मि", en:"asmi"}, {sk:"अस्ति", en:"asti"}], ans: 1 }
     ];
 
     let currentQ = 0;
@@ -463,18 +456,17 @@
                 starsHtml += (i <= score) ? `<span class='filled' style='animation-delay: ${delay}s'>★</span>` : "☆";
             }
             qBox.innerHTML = `
-                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Mastered!</h3>
+                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Complete!</h3>
                 <div class="stars">${starsHtml}</div>
                 <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">
-                    You scored ${score} out of 5! <br>
-                    <span style="font-size:1rem; color:var(--text-muted); font-weight:600; margin-top:10px; display:inline-block;">(Your mastery level has been updated in your profile)</span>
+                    ${score} / 5 <br>
                 </p>
             `;
             return;
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -496,14 +488,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Perfect!";
+            fb.innerText = "✨ शुद्धम्!";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Incorrect!";
+            fb.innerText = "❌";
             fb.style.color = "var(--error)";
         }
 
