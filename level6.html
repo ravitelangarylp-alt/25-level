@@ -58,8 +58,8 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: 800;}
 
         /* Rule Banner */
-        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.1rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); }
-        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.3rem;}
+        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.5rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); display: flex; justify-content: space-around; text-align: center; align-items: center;}
+        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.5rem;}
 
         /* Color Coded Grids */
         .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -104,13 +104,13 @@
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
         /* Quiz */
-        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .quiz-container { min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .q-text { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich); font-family: 'Tiro Devanagari Sanskrit', serif;}
         .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
         .opt-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 35px; border: 2px solid #E2E8F0; background: white; border-radius: 16px; cursor: pointer; box-shadow: 0 4px 0 #E2E8F0; min-width: 150px; }
         .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
-        .opt-btn.correct { background: #D1FAE5; border-color: #059669; box-shadow: 0 4px 0 #059669; }
-        .opt-btn.wrong { background: #FFE4E6; border-color: #E11D48; box-shadow: 0 4px 0 #E11D48; }
+        .opt-btn.correct { background: #D1FAE5; border-color: #059669; box-shadow: 0 4px 0 #059669; color: #059669;}
+        .opt-btn.wrong { background: #FFE4E6; border-color: #E11D48; box-shadow: 0 4px 0 #E11D48; color: #E11D48;}
         
         .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
         .shake { animation: shake 0.4s; }
@@ -138,22 +138,21 @@
 
     <div style="text-align: center;">
         <h1 class="title-main">Kaḥ, Kā, Kim</h1>
-        <p class="subtitle">It's time to ask questions! Who is he? Who is she? What is that?</p>
+        <p class="subtitle">Ask questions using pictures and colours. No translations needed!</p>
     </div>
 
     <!-- 1. Observe & Absorb -->
     <div class="glass-card">
         <div class="section-header">
-            <div class="section-icon">✨</div>
-            <h2 class="section-title">1. Observe & Absorb</h2>
+            <div class="section-icon">👁️</div>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 20px;">Match the Pronoun with the correct Question Word using the colours.</p>
-
+        
+        <!-- VISUAL RULE BANNER -->
         <div class="rule-banner">
-            💡 <strong>The Question Words:</strong> 
-            <br><br>• 🟦 Masculine (He): Use <span class="rule-highlight">कः (Kaḥ)</span> meaning "Who?"
-            <br>• 🟪 Feminine (She): Use <span class="rule-highlight">का (Kā)</span> meaning "Who?"
-            <br>• 🟨 Neuter (It): Use <span class="rule-highlight">किम् (Kim)</span> meaning "What?"
+            <div>👦 ➡️ <span class="rule-highlight">कः (Kaḥ)</span></div>
+            <div>👧 ➡️ <span class="rule-highlight">का (Kā)</span></div>
+            <div>🍎 ➡️ <span class="rule-highlight">किम् (Kim)</span></div>
         </div>
 
         <div class="color-grid">
@@ -163,7 +162,6 @@
                 <div class="avatar-emoji">👦</div>
                 <div class="sanskrit" style="color:var(--color-m-text);">सः कः? <br>सः रामः।</div>
                 <div class="diacritic" style="color:var(--color-m-text); margin-top:5px;">Saḥ kaḥ? Saḥ Rāmaḥ.</div>
-                <div style="color:var(--color-m-text); font-weight:600; margin-top:10px;">Who is he? He is Rama.</div>
             </div>
             
             <!-- 2. Fem -->
@@ -172,7 +170,6 @@
                 <div class="avatar-emoji">👧</div>
                 <div class="sanskrit" style="color:var(--color-f-text);">सा का? <br>सा सीता।</div>
                 <div class="diacritic" style="color:var(--color-f-text); margin-top:5px;">Sā kā? Sā Sītā.</div>
-                <div style="color:var(--color-f-text); font-weight:600; margin-top:10px;">Who is she? She is Sita.</div>
             </div>
 
             <!-- 3. Neuter -->
@@ -181,7 +178,6 @@
                 <div class="avatar-emoji">🍎</div>
                 <div class="sanskrit" style="color:var(--color-n-text);">तत् किम्? <br>तत् फलम्।</div>
                 <div class="diacritic" style="color:var(--color-n-text); margin-top:5px;">Tat kim? Tat phalam.</div>
-                <div style="color:var(--color-n-text); font-weight:600; margin-top:10px;">What is that? That is a fruit.</div>
             </div>
             
             <!-- 4. Masc (Near) -->
@@ -190,7 +186,6 @@
                 <div class="avatar-emoji">🧑</div>
                 <div class="sanskrit" style="color:var(--color-m-text);">एषः कः? <br>एषः शिवः।</div>
                 <div class="diacritic" style="color:var(--color-m-text); margin-top:5px;">Eṣaḥ kaḥ? Eṣaḥ Śivaḥ.</div>
-                <div style="color:var(--color-m-text); font-weight:600; margin-top:10px;">Who is this? This is Shiva.</div>
             </div>
 
             <!-- 5. Fem (Near) -->
@@ -199,7 +194,6 @@
                 <div class="avatar-emoji">🤱</div>
                 <div class="sanskrit" style="color:var(--color-f-text);">इयं का? <br>इयं माता।</div>
                 <div class="diacritic" style="color:var(--color-f-text); margin-top:5px;">Iyaṃ kā? Iyaṃ mātā.</div>
-                <div style="color:var(--color-f-text); font-weight:600; margin-top:10px;">Who is this? This is mother.</div>
             </div>
         </div>
     </div>
@@ -208,9 +202,9 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">💬</div>
-            <h2 class="section-title">2. Practise: Chat Simulator</h2>
+            <h2 class="section-title">2. Practise</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Your friend just sent you a message! Reply with the correct Question.</p>
+        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Reply to the message!</p>
         
         <div class="phone-container">
             <!-- Header -->
@@ -240,9 +234,8 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and ask the questions aloud.</p>
         
         <div class="voice-card box-m">
             <div><div class="sanskrit">सः कः?</div><div class="diacritic" style="margin-top: 5px;">Saḥ kaḥ?</div></div>
@@ -267,11 +260,11 @@
         <p id="voice-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 4. Auto-advance Quiz -->
+    <!-- 4. Auto-advance Quiz (Visual blanks) -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
             <div class="q-text" id="q-text">Loading...</div>
@@ -293,11 +286,11 @@
 
     // --- CHAT SIMULATOR LOGIC ---
     const chatChallenges = [
-        { img: "👦", friendMsg: "सः रामः अस्ति।", pronoun: "सः", target: "सः कः?", enTarget: "Saḥ kaḥ?", sound: "सः कः" },
-        { img: "👧", friendMsg: "एषा बालिका अस्ति।", pronoun: "एषा", target: "एषा का?", enTarget: "Eṣā kā?", sound: "एषा का" },
-        { img: "🎒", friendMsg: "इदं स्योतम् अस्ति।", pronoun: "इदं", target: "इदं किम्?", enTarget: "Idaṃ kim?", sound: "इदं किम्" },
-        { img: "🧑", friendMsg: "अयं शिवः अस्ति।", pronoun: "अयं", target: "अयं कः?", enTarget: "Ayaṃ kaḥ?", sound: "अयं कः" },
-        { img: "🤱", friendMsg: "सा माता अस्ति।", pronoun: "सा", target: "सा का?", enTarget: "Sā kā?", sound: "सा का" }
+        { img: "👦", friendMsg: "सः रामः अस्ति।", pronoun: "सः", target: "सः कः?", sound: "सः कः" },
+        { img: "👧", friendMsg: "एषा बालिका अस्ति।", pronoun: "एषा", target: "एषा का?", sound: "एषा का" },
+        { img: "🎒", friendMsg: "इदं स्योतम् अस्ति।", pronoun: "इदं", target: "इदं किम्?", sound: "इदं किम्" },
+        { img: "🧑", friendMsg: "अयं शिवः अस्ति।", pronoun: "अयं", target: "अयं कः?", sound: "अयं कः" },
+        { img: "🤱", friendMsg: "सा माता अस्ति।", pronoun: "सा", target: "सा का?", sound: "सा का" }
     ];
 
     let currentChat = 0;
@@ -313,7 +306,7 @@
     function loadChatChallenge() {
         if(currentChat >= chatChallenges.length) {
             replyArea.innerHTML = "";
-            chatFb.innerHTML = "🎉 <span style='color:var(--success)'>Chat Complete! You are a fluent texter.</span>";
+            chatFb.innerHTML = "🎉 <span style='color:var(--success)'>शुद्धम्!</span>";
             document.getElementById('main-progress').style.width = '70%';
             return;
         }
@@ -378,7 +371,7 @@
 
         if (isCorrect) {
             speak(soundToPlay);
-            chatFb.innerText = "✨ Sent!";
+            chatFb.innerText = "✨ शुद्धम्! (Sent)";
             chatFb.style.color = "var(--success)";
             
             // Friend replies "Correct"
@@ -389,7 +382,7 @@
                 typingInd.style.display = "none";
                 const successRow = document.createElement('div');
                 successRow.className = "msg-row msg-friend";
-                successRow.innerHTML = `<div class="bubble bubble-friend"><div class="sanskrit" style="font-size:1.2rem; color:var(--success);">उत्तमम्! (Perfect!) 👍</div></div>`;
+                successRow.innerHTML = `<div class="bubble bubble-friend"><div class="sanskrit" style="font-size:1.2rem; color:var(--success);">उत्तमम्! 👍</div></div>`;
                 chatBox.insertBefore(successRow, typingInd);
                 scrollToBottom();
                 
@@ -400,7 +393,7 @@
             }, 800);
 
         } else {
-            chatFb.innerText = "❌ Oops! Gender mismatch.";
+            chatFb.innerText = "❌ Try again.";
             chatFb.style.color = "var(--error)";
             userRow.classList.add('shake');
             
@@ -421,7 +414,7 @@
                     btn.onclick = () => handleReply(opt.text, opt.isCorrect, data.sound);
                     replyArea.appendChild(btn);
                 });
-                chatFb.innerText = "Try again!";
+                chatFb.innerText = "";
             }, 1000);
         }
     }
@@ -437,32 +430,32 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Speak naturally.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
 
-    // --- Quiz Logic ---
+    // --- Visual Quiz Logic ---
     const quizData = [
-        { q: "Which question word means 'Who?' for a male (Masculine)?", opts: [{sk:"कः", en:"Kaḥ"}, {sk:"का", en:"Kā"}], ans: 0 },
-        { q: "If the answer is 'Sā Sītā', what is the correct question?", opts: [{sk:"सा का?", en:"Sā kā?"}, {sk:"सा कः?", en:"Sā kaḥ?"}], ans: 0 },
-        { q: "What is the question word for objects (Neuter)?", opts: [{sk:"किम्", en:"Kim"}, {sk:"का", en:"Kā"}], ans: 0 },
-        { q: "Translate 'Who is this?' (for a boy near you):", opts: [{sk:"एषः कः?", en:"Eṣaḥ kaḥ?"}, {sk:"एतत् किम्?", en:"Etat kim?"}], ans: 0 },
-        { q: "Idaṃ phalam. (This is a fruit) -> Idaṃ ___?", opts: [{sk:"किम्", en:"Kim"}, {sk:"कः", en:"Kaḥ"}], ans: 0 }
+        { q: "👦 रामः अस्ति। <br>सः <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ?", opts: [{sk:"कः", en:"Kaḥ"}, {sk:"का", en:"Kā"}], ans: 0 },
+        { q: "👧 सीता अस्ति। <br>सा <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ?", opts: [{sk:"का", en:"Kā"}, {sk:"कः", en:"Kaḥ"}], ans: 0 },
+        { q: "🍎 फलम् अस्ति। <br>तत् <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ?", opts: [{sk:"किम्", en:"Kim"}, {sk:"का", en:"Kā"}], ans: 0 },
+        { q: "📍👦 एषः बालकः अस्ति। <br>एषः <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ?", opts: [{sk:"कः", en:"Kaḥ"}, {sk:"किम्", en:"Kim"}], ans: 0 },
+        { q: "📍👧 इयं माता अस्ति। <br>इयं <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ?", opts: [{sk:"कः", en:"Kaḥ"}, {sk:"का", en:"Kā"}], ans: 1 }
     ];
 
     let currentQ = 0;
@@ -480,16 +473,15 @@
                 starsHtml += (i <= score) ? `<span class='filled' style='animation-delay: ${delay}s'>★</span>` : "☆";
             }
             qBox.innerHTML = `
-                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Interrogation Mastered!</h3>
+                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Mastered!</h3>
                 <div class="stars">${starsHtml}</div>
-                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">You scored ${score} out of 5!</p>
-                <p style="text-align:center; margin-top:15px; font-weight:600; color:var(--text-muted);">You can now ask 'Who' and 'What' confidently in Sanskrit!</p>
+                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">${score} / 5</p>
             `;
             return;
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -511,14 +503,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Perfect!";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Incorrect!";
+            fb.innerText = "❌ (Incorrect)";
             fb.style.color = "var(--error)";
         }
 
