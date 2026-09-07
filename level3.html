@@ -51,15 +51,20 @@
         .section-icon { font-size: 2rem; background: linear-gradient(135deg, var(--accent-gold-light) 0%, #FCD34D 100%); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 10px rgba(212,175,55,0.3);}
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: 800;}
 
-        /* Rule Banner */
-        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.1rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); }
-        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.3rem;}
+        /* Visual Rule Banner */
+        .rule-banner {
+            background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%);
+            padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0;
+            color: white; font-size: 1.5rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2);
+            display: flex; justify-content: space-around; text-align: center; align-items: center;
+        }
+        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.5rem;}
 
         /* Dialogue Box */
         .dialogue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .dialogue-box { background: white; padding: 25px 20px; border-radius: 20px; position: relative; border: 2px solid var(--maroon-light); text-align: center; transition: all 0.2s;}
         .dialogue-box:hover { border-color: var(--accent-gold); transform: scale(1.02); }
-        .avatar-emoji { font-size: 3.5rem; margin-bottom: 15px; display: inline-block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        .speaker-info { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; font-weight: 600; color: var(--text-muted); font-size: 2.5rem;}
         .speak-btn { position: absolute; right: 15px; top: 15px; background: var(--maroon-light); border: none; color: var(--maroon-rich); width: 45px; height: 45px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
         .speak-btn:hover { background: var(--maroon-rich); color: white; transform: scale(1.1); box-shadow: 0 4px 10px rgba(120,16,20,0.3);}
 
@@ -85,14 +90,14 @@
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
         /* Quiz Section & Feedback */
-        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .quiz-container { min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .q-text { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich); font-family: 'Tiro Devanagari Sanskrit', serif;}
         .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
         .opt-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 35px; border: 2px solid #E2E8F0; background: white; border-radius: 16px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 0 #E2E8F0; min-width: 150px; }
         .opt-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 6px 0 var(--accent-gold); }
         .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
-        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); }
-        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); }
+        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); color: var(--success);}
+        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); color: var(--error);}
         
         .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
         .stars { font-size: 4rem; color: #E7E5E4; text-align: center; letter-spacing: 10px; margin: 20px 0; }
@@ -119,76 +124,71 @@
 
     <div style="text-align: center;">
         <h1 class="title-main">Saḥ, Sā, Tat</h1>
-        <p class="subtitle">Mastering distant pronouns for He, She, and It.</p>
+        <p class="subtitle">Learn how to point to things far away (🔭) using pictures.</p>
     </div>
 
-    <!-- 1. Observe & Absorb (5 Sentences covering all genders) -->
+    <!-- 1. Observe & Absorb -->
     <div class="glass-card">
         <div class="section-header">
-            <div class="section-icon">✨</div>
-            <h2 class="section-title">1. Observe & Absorb</h2>
+            <div class="section-icon">👁️</div>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 1.1rem;">Learn how to point to someone or something far away using the correct gender.</p>
         
+        <!-- VISUAL RULE BANNER -->
         <div class="rule-banner">
-            💡 <strong>The Distant Pronouns Rule:</strong> 
-            <br><br>• For Masculine (He): <span class="rule-highlight">सः (Saḥ)</span>
-            <br>• For Feminine (She): <span class="rule-highlight">सा (Sā)</span>
-            <br>• For Neuter (It/That): <span class="rule-highlight">तत् (Tat)</span>
+            <div>🔭👦 ➡️ <span class="rule-highlight">सः (Saḥ)</span></div>
+            <div>🔭👧 ➡️ <span class="rule-highlight">सा (Sā)</span></div>
+            <div>🔭🍎 ➡️ <span class="rule-highlight">तत् (Tat)</span></div>
         </div>
 
         <div class="dialogue-grid">
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('सः रामः अस्ति।')">🔊</button>
-                <div class="avatar-emoji">👦</div>
+                <div class="speaker-info">🔭 ➡️ 👦</div>
                 <div class="sanskrit">सः रामः अस्ति।</div>
                 <div class="diacritic">Saḥ Rāmaḥ asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">He is Rama.</div>
             </div>
             
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('सा सीता अस्ति।')">🔊</button>
-                <div class="avatar-emoji">👧</div>
+                <div class="speaker-info">🔭 ➡️ 👧</div>
                 <div class="sanskrit">सा सीता अस्ति।</div>
                 <div class="diacritic">Sā Sītā asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">She is Sita.</div>
             </div>
 
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('तत् फलम् अस्ति।')">🔊</button>
-                <div class="avatar-emoji">🍎</div>
+                <div class="speaker-info">🔭 ➡️ 🍎</div>
                 <div class="sanskrit">तत् फलम् अस्ति।</div>
                 <div class="diacritic">Tat phalam asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">That is a fruit.</div>
             </div>
 
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('सः बालकः अस्ति।')">🔊</button>
-                <div class="avatar-emoji">👦</div>
+                <div class="speaker-info">🔭 ➡️ 👦</div>
                 <div class="sanskrit">सः बालकः अस्ति।</div>
                 <div class="diacritic">Saḥ bālakaḥ asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">He is a boy.</div>
             </div>
 
             <div class="dialogue-box">
                 <button class="speak-btn" onclick="speak('सा बालिका अस्ति।')">🔊</button>
-                <div class="avatar-emoji">👧</div>
+                <div class="speaker-info">🔭 ➡️ 👧</div>
                 <div class="sanskrit">सा बालिका अस्ति।</div>
                 <div class="diacritic">Sā bālikā asti.</div>
-                <div style="color:var(--text-muted); margin-top:8px; font-weight: 500;">She is a girl.</div>
             </div>
         </div>
     </div>
 
-    <!-- 2. THE SLOT MACHINE GAME (The Grammar Lock) -->
+    <!-- 2. THE SLOT MACHINE GAME -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎰</div>
-            <h2 class="section-title">2. Practise: The Grammar Lock</h2>
+            <h2 class="section-title">2. Practise</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Tap the arrows to rotate the combination lock and match the Gender perfectly!</p>
+        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Tap the arrows to rotate the combination lock and match the picture perfectly!</p>
         
-        <h3 style="text-align:center; color:var(--maroon-rich); font-size:1.8rem; margin-bottom:20px;" id="slot-target-en">Loading...</h3>
+        <!-- Dev Note: Visual Target instead of English sentence -->
+        <div style="text-align:center; font-size:3.5rem; margin-bottom:20px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" id="slot-target-img">Loading...</div>
         
         <div class="slot-machine-container" id="slot-container">
             <div class="lock-wheels">
@@ -220,18 +220,17 @@
                     <button class="wheel-btn" onclick="spinSlot(2, 1)">▼</button>
                 </div>
             </div>
-            <button class="unlock-btn" id="unlock-btn" onclick="checkUnlock()">🔓 UNLOCK</button>
+            <button class="unlock-btn" id="unlock-btn" onclick="checkUnlock()">🔓 शुद्धम्? (Check)</button>
             <p id="slot-fb" class="feedback-msg" style="margin-bottom: 0;"></p>
         </div>
     </div>
 
-    <!-- 3. Voice Test (5 Sentences) -->
+    <!-- 3. Voice Test -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read aloud using the diacritic guide.</p>
         
         <div class="voice-card">
             <div><div class="sanskrit">सः रामः अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Saḥ Rāmaḥ asti.</div></div>
@@ -256,11 +255,11 @@
         <p id="voice-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 4. Auto-advance Quiz (5 Questions) -->
+    <!-- 4. Auto-advance Quiz (Visual fill in the blanks) -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
             <div class="q-text" id="q-text">Loading...</div>
@@ -280,7 +279,7 @@
         }
     }
 
-    // --- NEW SLOT MACHINE LOGIC (3 Genders) ---
+    // --- NEW SLOT MACHINE LOGIC (Visual Cues Only) ---
     const slotData = [
         [{sk:"सः", en:"Saḥ"}, {sk:"सा", en:"Sā"}, {sk:"तत्", en:"Tat"}], // Subject Pronouns
         [{sk:"रामः", en:"Rāmaḥ"}, {sk:"सीता", en:"Sītā"}, {sk:"फलम्", en:"phalam"}, {sk:"बालकः", en:"bālakaḥ"}, {sk:"बालिका", en:"bālikā"}], // Nouns
@@ -288,11 +287,11 @@
     ];
 
     const slotChallenges = [
-        { en: "She is Sita.", target: [1, 1, 0] }, // Sā Sītā asti
-        { en: "That is a fruit.", target: [2, 2, 0] }, // Tat phalam asti
-        { en: "He is Rama.", target: [0, 0, 0] }, // Saḥ Rāmaḥ asti
-        { en: "She is a girl.", target: [1, 4, 0] }, // Sā bālikā asti
-        { en: "He is a boy.", target: [0, 3, 0] }  // Saḥ bālakaḥ asti
+        { img: "🔭👧 सीता", target: [1, 1, 0] }, // Sā Sītā asti
+        { img: "🔭🍎 फलम्", target: [2, 2, 0] }, // Tat phalam asti
+        { img: "🔭👦 रामः", target: [0, 0, 0] }, // Saḥ Rāmaḥ asti
+        { img: "🔭👧 बालिका", target: [1, 4, 0] }, // Sā bālikā asti
+        { img: "🔭👦 बालकः", target: [0, 3, 0] }  // Saḥ bālakaḥ asti
     ];
 
     let currentSlotChallenge = 0;
@@ -322,7 +321,7 @@
 
     function loadSlotChallenge() {
         if(currentSlotChallenge >= slotChallenges.length) {
-            document.getElementById('slot-target-en').innerText = "🎉 Lock Mastered!";
+            document.getElementById('slot-target-img').innerText = "🎉";
             document.querySelector('.lock-wheels').style.display = 'none';
             document.getElementById('unlock-btn').style.display = 'none';
             document.getElementById('main-progress').style.width = '60%';
@@ -333,11 +332,11 @@
         slotPositions = [0, 0, 0];
         updateSlotUI(0); updateSlotUI(1); updateSlotUI(2);
         
-        document.getElementById('slot-target-en').innerText = `Translate: "${slotChallenges[currentSlotChallenge].en}"`;
+        document.getElementById('slot-target-img').innerText = slotChallenges[currentSlotChallenge].img;
         document.getElementById('slot-fb').innerText = '';
         
         const btn = document.getElementById('unlock-btn');
-        btn.innerText = "🔓 UNLOCK";
+        btn.innerText = "🔓 शुद्धम्? (Check)";
         btn.classList.remove('unlocked');
     }
 
@@ -348,9 +347,9 @@
         const btn = document.getElementById('unlock-btn');
         
         if(slotPositions[0] === target[0] && slotPositions[1] === target[1] && slotPositions[2] === target[2]) {
-            fb.innerText = "✨ Safe Unlocked! Perfect Grammar.";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
-            btn.innerText = "✓ SUCCESS";
+            btn.innerText = "✓";
             btn.classList.add('unlocked');
             
             // Speak the sentence
@@ -362,7 +361,7 @@
                 loadSlotChallenge();
             }, 2000);
         } else {
-            fb.innerText = "❌ Incorrect combination. Check the gender matching!";
+            fb.innerText = "❌ Try again.";
             fb.style.color = "var(--error)";
             container.classList.add('shake');
             setTimeout(() => container.classList.remove('shake'), 500);
@@ -380,32 +379,32 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Speak naturally.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
 
-    // --- Quiz Logic ---
+    // --- Quiz Logic (Visual Fill in the blanks) ---
     const quizData = [
-        { q: "Which pronoun is used for a distant feminine person (She)?", opts: [{sk:"सा", en:"sā"}, {sk:"सः", en:"saḥ"}], ans: 0 },
-        { q: "_____ Rāmaḥ asti.", opts: [{sk:"सः", en:"saḥ"}, {sk:"सा", en:"sā"}], ans: 0 },
-        { q: "_____ phalam asti. (That is a fruit)", opts: [{sk:"तत्", en:"tat"}, {sk:"सः", en:"saḥ"}], ans: 0 },
-        { q: "Translate 'She is a girl':", opts: [{sk:"सा बालिका अस्ति", en:"Sā bālikā asti"}, {sk:"सः बालकः अस्ति", en:"Saḥ bālakaḥ asti"}], ans: 0 },
-        { q: "Saḥ janakaḥ _____ .", opts: [{sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}], ans: 0 }
+        { q: "🔭👧 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"सा", en:"sā"}, {sk:"सः", en:"saḥ"}], ans: 0 },
+        { q: "🔭👦 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> रामः अस्ति।", opts: [{sk:"सः", en:"saḥ"}, {sk:"सा", en:"sā"}], ans: 0 },
+        { q: "🔭🍎 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> फलम् अस्ति।", opts: [{sk:"तत्", en:"tat"}, {sk:"सः", en:"saḥ"}], ans: 0 },
+        { q: "🔭👧 सा बालिका <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्ति", en:"asti"}, {sk:"अस्मि", en:"asmi"}], ans: 0 },
+        { q: "🔭👨 सः जनकः <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> ।", opts: [{sk:"अस्ति", en:"asti"}, {sk:"असि", en:"asi"}], ans: 0 }
     ];
 
     let currentQ = 0;
@@ -423,18 +422,17 @@
                 starsHtml += (i <= score) ? `<span class='filled' style='animation-delay: ${delay}s'>★</span>` : "☆";
             }
             qBox.innerHTML = `
-                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Pronouns Mastered!</h3>
+                <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Complete!</h3>
                 <div class="stars">${starsHtml}</div>
                 <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">
-                    You scored ${score} out of 5! <br>
-                    <span style="font-size:1rem; color:var(--text-muted); font-weight:600; margin-top:10px; display:inline-block;">(Your mastery level has been updated in your profile)</span>
+                    ${score} / 5
                 </p>
             `;
             return;
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -456,14 +454,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Perfect!";
+            fb.innerText = "✨ शुद्धम्!";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Incorrect!";
+            fb.innerText = "❌";
             fb.style.color = "var(--error)";
         }
 
