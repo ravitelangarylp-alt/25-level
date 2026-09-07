@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samskrita - Level 4: Far vs Near (Eṣaḥ, Eṣā, Etat)</title>
-    <!-- Premium Fonts -->
+    <title>Samskrita - Level 4: Eṣaḥ, Eṣā, Etat</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Playfair+Display:wght@700;800&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -52,8 +51,8 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: 800;}
 
         /* Rule Banner */
-        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.1rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); }
-        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.3rem;}
+        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.5rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); display: flex; justify-content: space-around; text-align: center; align-items: center;}
+        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.5rem;}
 
         /* Contrast Grid (Observe) */
         .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;}
@@ -65,8 +64,7 @@
         .emoji-indicator.near { transform: scale(1.2); }
 
         /* THE SWIPE GAME */
-        /* THE SWIPE GAME */
-        .swipe-game-area { background: #F8FAFC; border: 2px dashed #CBD5E1; border-radius: 20px; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; min-height: 480px;} /* ಎತ್ತರವನ್ನು 350px ಇಂದ 480px ಗೆ ಹೆಚ್ಚಿಸಲಾಗಿದೆ */
+        .swipe-game-area { background: #F8FAFC; border: 2px dashed #CBD5E1; border-radius: 20px; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden; min-height: 480px;} 
         
         .swipe-card { background: white; width: 280px; padding: 30px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; position: absolute; top: 30px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s; border: 2px solid var(--accent-gold-light); z-index: 2;}
         .swipe-card.swipe-left { transform: translateX(-150%) rotate(-15deg); opacity: 0; }
@@ -77,11 +75,12 @@
         .card-emoji.near { transform: scale(1.1); }
         
         .swipe-controls { display: flex; justify-content: space-between; width: 100%; margin-top: auto; position: absolute; bottom: 30px; padding: 0 20px; z-index: 10;}
-        .swipe-btn { padding: 15px 25px; border-radius: 16px; font-size: 1.1rem; font-weight: 800; cursor: pointer; border: none; transition: 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; gap: 5px; width: 45%;}
+        .swipe-btn { padding: 15px 25px; border-radius: 16px; font-size: 1.3rem; font-weight: 800; cursor: pointer; border: none; transition: 0.2s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center; gap: 5px; width: 45%; font-family: 'Tiro Devanagari Sanskrit', serif;}
         .swipe-btn.btn-far { background: #F1F5F9; color: #475569; border: 2px solid #CBD5E1; }
         .swipe-btn.btn-far:hover { background: #E2E8F0; transform: scale(1.05) rotate(-3deg); }
         .swipe-btn.btn-near { background: var(--maroon-light); color: var(--maroon-rich); border: 2px solid #FECDD3; }
         .swipe-btn.btn-near:hover { background: #FFE4E6; transform: scale(1.05) rotate(3deg); }
+
         /* Voice & Quiz Styles */
         .voice-card { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: white; border-radius: 20px; margin-bottom: 15px; border: 2px solid #F1F5F9; transition: 0.2s;}
         .voice-card:hover { border-color: var(--accent-gold-light); box-shadow: 0 4px 12px rgba(212,175,55,0.1);}
@@ -89,13 +88,14 @@
         .mic-btn.listening { background: var(--error); animation: ripple 1.5s infinite; }
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
-        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .quiz-container { min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .q-text { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich); font-family: 'Tiro Devanagari Sanskrit', serif;}
         .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
         .opt-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 35px; border: 2px solid #E2E8F0; background: white; border-radius: 16px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 0 #E2E8F0; min-width: 150px; }
         .opt-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 6px 0 var(--accent-gold); }
-        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); }
-        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); }
+        .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
+        .opt-btn.correct { background: var(--success-light); border-color: var(--success); box-shadow: 0 4px 0 var(--success); color: var(--success);}
+        .opt-btn.wrong { background: #FFE4E6; border-color: var(--error); box-shadow: 0 4px 0 var(--error); color: var(--error);}
         
         .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
         .stars { font-size: 4rem; color: #E7E5E4; text-align: center; letter-spacing: 10px; margin: 20px 0; }
@@ -109,14 +109,13 @@
         .bonus-title { font-family: 'Playfair Display'; color: var(--accent-gold); font-size: 2.5rem; margin-bottom: 15px;}
         .eq-row { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; font-family: 'Tiro Devanagari Sanskrit'; font-size: 2.2rem;}
         .eq-sign { color: var(--accent-gold-light); font-family: 'Outfit'; font-weight: 800; }
-        .eq-en { font-family: 'Outfit'; font-size: 1.1rem; color: #94A3B8; display: block; margin-top: -5px;}
+        .eq-en { font-family: 'Outfit'; font-size: 1.8rem; display: block; margin-top: -5px;}
     </style>
 </head>
 <body>
 
 <div class="app-container">
     
-    <!-- Top Navigation -->
     <nav class="top-nav">
         <a href="index.html" class="home-btn">
             <span class="home-icon">🏠</span> Home
@@ -129,99 +128,88 @@
 
     <div style="text-align: center;">
         <h1 class="title-main">Eṣaḥ, Eṣā, Etat</h1>
-        <p class="subtitle">Just add 'E' to make it Near! Mastering pronouns for This / Here.</p>
+        <p class="subtitle">Just add 'ए' (E) to make it Near (📍).</p>
     </div>
 
-    <!-- 1. Observe & Absorb -->
     <div class="glass-card">
         <div class="section-header">
-            <div class="section-icon">✨</div>
-            <h2 class="section-title">1. Observe & Absorb</h2>
+            <div class="section-icon">👁️</div>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 1.1rem; text-align: center;">Notice the magic? Just add <strong>'ए' (E)</strong> to the words you already know!</p>
         
         <div class="rule-banner">
-            💡 <strong>The "Near" Magic Trick:</strong> 
-            <br><br>• सः (Saḥ - Far) ➡️ <span class="rule-highlight">एषः (Eṣaḥ - Near Male)</span>
-            <br>• सा (Sā - Far) ➡️ <span class="rule-highlight">एषा (Eṣā - Near Female)</span>
-            <br>• तत् (Tat - Far) ➡️ <span class="rule-highlight">एतत् (Etat - Near Object)</span>
+            <div>🔭👦 ➡️ 📍👦 <span class="rule-highlight">एषः</span></div>
+            <div>🔭👧 ➡️ 📍👧 <span class="rule-highlight">एषा</span></div>
+            <div>🔭🍎 ➡️ 📍🍎 <span class="rule-highlight">एतत्</span></div>
         </div>
 
         <div class="contrast-grid">
-            <!-- 1 -->
             <div class="contrast-box far">
                 <span class="emoji-indicator far">🔭👦</span>
                 <div class="sanskrit">सः रामः</div>
-                <div class="diacritic">Saḥ Rāmaḥ (Far)</div>
+                <div class="diacritic">Saḥ Rāmaḥ</div>
             </div>
             <div class="contrast-box near">
-                <span class="emoji-indicator near">👦</span>
+                <span class="emoji-indicator near">📍👦</span>
                 <div class="sanskrit">एषः रामः</div>
-                <div class="diacritic">Eṣaḥ Rāmaḥ (Near)</div>
+                <div class="diacritic">Eṣaḥ Rāmaḥ</div>
             </div>
-            <!-- 2 -->
             <div class="contrast-box far">
                 <span class="emoji-indicator far">🔭👧</span>
                 <div class="sanskrit">सा सीता</div>
-                <div class="diacritic">Sā Sītā (Far)</div>
+                <div class="diacritic">Sā Sītā</div>
             </div>
             <div class="contrast-box near">
-                <span class="emoji-indicator near">👧</span>
+                <span class="emoji-indicator near">📍👧</span>
                 <div class="sanskrit">एषा सीता</div>
-                <div class="diacritic">Eṣā Sītā (Near)</div>
+                <div class="diacritic">Eṣā Sītā</div>
             </div>
-            <!-- 3 -->
             <div class="contrast-box far">
                 <span class="emoji-indicator far">🔭🍎</span>
                 <div class="sanskrit">तत् फलम्</div>
-                <div class="diacritic">Tat phalam (Far)</div>
+                <div class="diacritic">Tat phalam</div>
             </div>
             <div class="contrast-box near">
-                <span class="emoji-indicator near">🍎</span>
+                <span class="emoji-indicator near">📍🍎</span>
                 <div class="sanskrit">एतत् फलम्</div>
-                <div class="diacritic">Etat phalam (Near)</div>
+                <div class="diacritic">Etat phalam</div>
             </div>
-            <!-- 4 & 5 Omitted for brevity in UI, but rule of 5 met in logic below -->
         </div>
     </div>
 
-    <!-- 2. THE SWIPE GAME -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎴</div>
             <h2 class="section-title">2. The Swipe Game</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Look at the image size! Is the subject <strong>Far (सः/सा/तत्)</strong> or <strong>Near (एषः/एषा/एतत्)</strong>?</p>
+        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">Is it <strong>🔭 (Far)</strong> or <strong>📍 (Near)</strong>?</p>
         
         <div class="swipe-game-area" id="swipe-area">
             
             <div class="swipe-card" id="active-card">
                 <div class="card-emoji far" id="swipe-img">🔭👦</div>
                 <div class="sanskrit" style="font-size: 2.2rem; margin: 15px 0;" id="swipe-blank">___ बालकः</div>
-                <div class="diacritic" style="font-size: 1.2rem;" id="swipe-hint">___ is a boy.</div>
             </div>
 
             <div class="swipe-controls">
                 <button class="swipe-btn btn-far" onclick="handleSwipe('far')">
-                    <span style="font-size:1.8rem;">👈</span>
-                    <span>FAR<br><small>(Saḥ/Sā/Tat)</small></span>
+                    <span style="font-size:1.8rem;">👈 🔭</span>
+                    <span>सः / सा / तत्</span>
                 </button>
                 <button class="swipe-btn btn-near" onclick="handleSwipe('near')">
-                    <span style="font-size:1.8rem;">👉</span>
-                    <span>NEAR<br><small>(Eṣaḥ/Eṣā/Etat)</small></span>
+                    <span style="font-size:1.8rem;">👉 📍</span>
+                    <span>एषः / एषा / एतत्</span>
                 </button>
             </div>
         </div>
         <p id="swipe-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 3. Voice Test -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read the <strong>Near</strong> pronouns aloud.</p>
         
         <div class="voice-card">
             <div><div class="sanskrit">एषः रामः अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Eṣaḥ Rāmaḥ asti.</div></div>
@@ -246,11 +234,10 @@
         <p id="voice-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 4. Quiz Section -->
     <div class="glass-card" id="quiz-section">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
             <div class="q-text" id="q-text">Loading...</div>
@@ -258,27 +245,24 @@
             <div id="quiz-fb" class="feedback-msg"></div>
         </div>
 
-        <!-- 5. THE GOLDEN BONUS (Hidden initially) -->
         <div class="golden-bonus" id="golden-bonus">
             <div class="bonus-title">🏆 Pro-Tip Unlocked!</div>
-            <p style="font-size: 1.2rem; margin-bottom: 25px;">Did you know? Sanskrit has <strong>another</strong> set of words that mean exactly the same thing (This / Near)!</p>
+            <p style="font-size: 1.2rem; margin-bottom: 25px;">📍 (Near) has another set of words!</p>
             
             <div class="eq-row">
                 <span>एषः</span> <span class="eq-sign">=</span> <span>अयम्</span>
             </div>
-            <span class="eq-en">(Eṣaḥ = Ayam : This Male)</span>
+            <span class="eq-en">📍👦</span>
             
             <div class="eq-row">
                 <span>एषा</span> <span class="eq-sign">=</span> <span>इयम्</span>
             </div>
-            <span class="eq-en">(Eṣā = Iyam : This Female)</span>
+            <span class="eq-en">📍👧</span>
             
             <div class="eq-row">
                 <span>एतत्</span> <span class="eq-sign">=</span> <span>इदम्</span>
             </div>
-            <span class="eq-en">(Etat = Idam : This Object)</span>
-            
-            <p style="margin-top: 25px; color: var(--accent-gold-light); font-weight: 800;">You can use them interchangeably!</p>
+            <span class="eq-en">📍🍎</span>
         </div>
     </div>
 
@@ -293,13 +277,13 @@
         }
     }
 
-    // --- NEW SWIPE GAME LOGIC ---
+    // --- VISUAL SWIPE GAME LOGIC ---
     const swipeChallenges = [
-        { emoji: "👦", type: "near", sk: "___ बालकः", ans: "एषः बालकः", en: "This is a boy.", sound: "एषः बालकः अस्ति" },
-        { emoji: "🔭👧", type: "far", sk: "___ बालिका", ans: "सा बालिका", en: "That is a girl.", sound: "सा बालिका अस्ति" },
-        { emoji: "🍎", type: "near", sk: "___ फलम्", ans: "एतत् फलम्", en: "This is a fruit.", sound: "एतत् फलम् अस्ति" },
-        { emoji: "🔭👨", type: "far", sk: "___ जनकः", ans: "सः जनकः", en: "That is a father.", sound: "सः जनकः अस्ति" },
-        { emoji: "🧑", type: "near", sk: "___ जननी", ans: "एषा जननी", en: "This is a mother.", sound: "एषा जननी अस्ति" }
+        { emoji: "📍👦", type: "near", sk: "___ बालकः", ans: "एषः बालकः", sound: "एषः बालकः अस्ति" },
+        { emoji: "🔭👧", type: "far", sk: "___ बालिका", ans: "सा बालिका", sound: "सा बालिका अस्ति" },
+        { emoji: "📍🍎", type: "near", sk: "___ फलम्", ans: "एतत् फलम्", sound: "एतत् फलम् अस्ति" },
+        { emoji: "🔭👨", type: "far", sk: "___ जनकः", ans: "सः जनकः", sound: "सः जनकः अस्ति" },
+        { emoji: "📍👩", type: "near", sk: "___ जननी", ans: "एषा जननी", sound: "एषा जननी अस्ति" }
     ];
 
     let currentSwipe = 0;
@@ -310,7 +294,7 @@
         if(currentSwipe >= swipeChallenges.length) {
             activeCard.style.display = 'none';
             document.querySelector('.swipe-controls').style.display = 'none';
-            swipeFb.innerHTML = "🎉 <span style='color:var(--success)'>All Swipes Correct! Mastery Achieved.</span>";
+            swipeFb.innerHTML = "🎉 <span style='color:var(--success)'>शुद्धम्!</span>";
             document.getElementById('main-progress').style.width = '60%';
             return;
         }
@@ -326,7 +310,6 @@
         emojiEl.className = `card-emoji ${data.type}`;
         
         document.getElementById('swipe-blank').innerText = data.sk;
-        document.getElementById('swipe-hint').innerText = `Meaning: ${data.en}`;
         swipeFb.innerText = "";
     }
 
@@ -338,7 +321,7 @@
         if (direction === data.type) {
             // Correct!
             activeCard.classList.add(`swipe-${direction === 'far' ? 'left' : 'right'}`);
-            swipeFb.innerText = `✨ Correct! ${data.ans}`;
+            swipeFb.innerText = `✨ शुद्धम्! (Correct)`;
             swipeFb.style.color = "var(--success)";
             speak(data.sound);
             
@@ -349,7 +332,7 @@
             }, 1000);
         } else {
             // Wrong!
-            swipeFb.innerText = "❌ Oops! Look closely at the distance.";
+            swipeFb.innerText = "❌ Try again.";
             swipeFb.style.color = "var(--error)";
             activeCard.classList.add('shake');
             
@@ -370,32 +353,32 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Speak naturally.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
 
-    // --- Quiz Logic with GOLDEN BONUS ---
+    // --- Quiz Logic with VISUAL GOLDEN BONUS ---
     const quizData = [
-        { q: "Which pronoun means 'This (Near)' for a masculine person?", opts: [{sk:"एषः", en:"eṣaḥ"}, {sk:"सः", en:"saḥ"}], ans: 0 },
-        { q: "_____ Sītā asti. (She is Sita - Near)", opts: [{sk:"एषा", en:"eṣā"}, {sk:"सा", en:"sā"}], ans: 0 },
-        { q: "What is the near equivalent of 'Tat' (Neuter)?", opts: [{sk:"एतत्", en:"etat"}, {sk:"एषः", en:"eṣaḥ"}], ans: 0 },
-        { q: "Translate 'This is a boy':", opts: [{sk:"एषः बालकः अस्ति", en:"Eṣaḥ bālakaḥ asti"}, {sk:"सः बालकः अस्ति", en:"Saḥ bālakaḥ asti"}], ans: 0 },
-        { q: "If 'Sā' is Far (She), what is Near (This female)?", opts: [{sk:"एषा", en:"eṣā"}, {sk:"एतत्", en:"etat"}], ans: 0 }
+        { q: "📍👦 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> रामः अस्ति।", opts: [{sk:"एषः", en:"eṣaḥ"}, {sk:"सः", en:"saḥ"}], ans: 0 },
+        { q: "📍👧 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> सीता अस्ति।", opts: [{sk:"एषा", en:"eṣā"}, {sk:"सा", en:"sā"}], ans: 0 },
+        { q: "📍🍎 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> फलम् अस्ति।", opts: [{sk:"एतत्", en:"etat"}, {sk:"तत्", en:"tat"}], ans: 0 },
+        { q: "🔭👦 सः बालकः अस्ति। <br>📍👦 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> बालकः अस्ति।", opts: [{sk:"एषः", en:"eṣaḥ"}, {sk:"एषा", en:"eṣā"}], ans: 0 },
+        { q: "🔭👧 सा बालिका अस्ति। <br>📍👧 <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> बालिका अस्ति।", opts: [{sk:"एषा", en:"eṣā"}, {sk:"एतत्", en:"etat"}], ans: 0 }
     ];
 
     let currentQ = 0;
@@ -416,7 +399,7 @@
             qBox.innerHTML = `
                 <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Mastered!</h3>
                 <div class="stars">${starsHtml}</div>
-                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">You scored ${score} out of 5!</p>
+                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">${score} / 5</p>
             `;
             
             // REVEAL GOLDEN BONUS
@@ -429,7 +412,7 @@
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -451,14 +434,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Perfect!";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Incorrect!";
+            fb.innerText = "❌ (Incorrect)";
             fb.style.color = "var(--error)";
         }
 
