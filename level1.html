@@ -61,6 +61,7 @@
 
         /* Typography */
         .sanskrit { font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; font-weight: bold; color: var(--maroon-rich); }
+        .diacritic { font-family: 'Outfit', sans-serif; font-size: 1.1rem; color: #9F1239; font-weight: 600; letter-spacing: 0.5px; }
         .title-main { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--maroon-rich); text-align: center; margin-bottom: 10px; }
         .subtitle { text-align: center; color: var(--text-muted); font-size: 1.2rem; margin-bottom: 40px; }
 
@@ -79,32 +80,32 @@
 
         /* 1. Dialogue Section */
         .dialogue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .dialogue-box { background: var(--maroon-light); padding: 20px; border-radius: 20px; position: relative; border: 1px solid #FECACA;}
-        .speaker-info { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 600; color: var(--text-muted); }
-        .avatar-emoji { font-size: 2rem; }
+        .dialogue-box { background: var(--maroon-light); padding: 20px; border-radius: 20px; position: relative; border: 1px solid #FECACA; text-align: center;}
+        .speaker-info { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; font-weight: 600; color: var(--text-muted); font-size: 2.5rem;}
         
         .speak-btn {
-            position: absolute; right: 20px; bottom: 20px;
+            position: absolute; right: 15px; top: 15px;
             background: white; border: 2px solid var(--maroon-rich); color: var(--maroon-rich);
-            width: 45px; height: 45px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;
+            width: 40px; height: 40px; border-radius: 50%; font-size: 1.1rem; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
         }
         .speak-btn:hover { background: var(--maroon-rich); color: white; transform: scale(1.1); }
 
-        /* Rule Banner */
+        /* Visual Rule Banner (No Grammar Jargon) */
         .rule-banner {
             background: linear-gradient(135deg, var(--accent-gold-light) 0%, #FEF08A 100%);
             padding: 20px; border-radius: 16px; margin: 25px 0;
-            border-left: 6px solid var(--accent-gold); font-size: 1.1rem; color: #854D0E; font-weight: 600;
+            border-left: 6px solid var(--accent-gold); font-size: 1.5rem; color: #854D0E; font-weight: 600;
+            display: flex; justify-content: space-around; text-align: center;
         }
 
         /* 2. Drag & Drop Section */
         .word-bank { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; padding: 20px; background: #F8FAFC; border-radius: 16px; border: 1px dashed #CBD5E1; }
-        .draggable { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); color: white; padding: 10px 25px; border-radius: 12px; cursor: grab; box-shadow: 0 4px 15px rgba(120, 16, 20, 0.2); transition: transform 0.2s; }
+        .draggable { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); color: white; padding: 10px 25px; border-radius: 12px; cursor: grab; box-shadow: 0 4px 15px rgba(120, 16, 20, 0.2); transition: transform 0.2s; font-size: 1.5rem;}
         .draggable:active { cursor: grabbing; transform: scale(0.95); }
         
-        .dd-row { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: white; border-radius: 16px; margin-bottom: 15px; border: 1px solid #E2E8F0; }
+        .dd-row { display: flex; align-items: center; justify-content: flex-start; gap: 20px; padding: 15px; background: white; border-radius: 16px; margin-bottom: 15px; border: 1px solid #E2E8F0; font-size: 2.5rem;}
         .drop-zone { display: inline-block; width: 100px; height: 45px; border: 2px dashed #94A3B8; border-radius: 10px; vertical-align: middle; background: #F1F5F9; color: var(--maroon-rich); line-height: 40px; text-align: center; font-size: 1.5rem; transition: all 0.3s ease; }
         .drop-zone.filled { border: 2px solid var(--success); background: var(--success-light); font-weight: bold; }
 
@@ -118,9 +119,9 @@
         .mic-btn.listening { background: var(--error); animation: ripple 1.5s infinite; }
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
-        /* 4. Quiz Section */
-        .quiz-container { min-height: 200px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 600; margin-bottom: 25px; text-align: center; }
+        /* 4. Quiz Section (Visual only) */
+        .quiz-container { min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .q-text { font-size: 4rem; margin-bottom: 25px; text-align: center; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));}
         .opt-grid { display: flex; justify-content: center; gap: 20px; }
         .opt-btn {
             font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1.8rem; padding: 15px 40px;
@@ -135,7 +136,7 @@
         /* Feedback & Stars */
         .feedback-msg { font-weight: 800; text-align: center; margin-top: 20px; font-size: 1.2rem; min-height: 30px; }
         .stars { font-size: 4rem; color: #E7E5E4; text-align: center; letter-spacing: 10px; margin: 20px 0; }
-        .stars .filled { color: var(--accent-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.4); animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; transform: scale(0); display: inline-block;}
+        .stars .filled { color: var(--accent-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.4); animation: popIn 0.5s forwards; opacity: 0; transform: scale(0); display: inline-block;}
         
         @keyframes popIn { to { opacity: 1; transform: scale(1); } }
 
@@ -158,40 +159,53 @@
 
     <!-- Header -->
     <h1 class="title-main">Swayam Parichayaḥ</h1>
-    <p class="subtitle">Master the art of introducing yourself and asking questions.</p>
+    <p class="subtitle">Learn through pictures. No translations needed!</p>
 
     <!-- 1. Observe & Absorb -->
     <div class="glass-card">
         <div class="section-header">
-            <div class="section-icon">✨</div>
-            <h2 class="section-title">1. Observe & Absorb</h2>
+            <div class="section-icon">👁️</div>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="margin-bottom: 20px; color: var(--text-muted);">Listen to the dialogues. Pay close attention to how the question word changes based on who is being asked.</p>
         
+        <!-- VISUAL RULE BANNER (No Grammar Text) -->
         <div class="rule-banner">
-            💡 <strong>Grammar Note:</strong> The pronoun 'I' (अहम्) and 'You' (त्वम्) remain the same for everyone. However, to ask "Who?", use <span class="sanskrit" style="font-size:1.3rem;">कः</span> for a male and <span class="sanskrit" style="font-size:1.3rem;">का</span> for a female.
+            <div>🙋🏽‍♂️ / 🙋🏽‍♀️ = <span class="sanskrit">अहम्</span></div>
+            <div>🫵🏽 = <span class="sanskrit">त्वम्</span></div>
         </div>
 
         <div class="dialogue-grid">
             <div class="dialogue-box">
-                <div class="speaker-info"><span class="avatar-emoji">👦 ➡️ 👦</span> Boy asking a Boy</div>
+                <!-- Dev Note: Replace emojis with actual illustration of a boy pointing at another boy -->
+                <div class="speaker-info">🙋🏽‍♂️ ➡️ 🫵🏽👦</div>
                 <div class="sanskrit">अहं रामः। त्वं कः?</div>
-                <div style="color:var(--text-muted); margin-top:5px;">I am Rama. Who are you?</div>
+                <div class="diacritic" style="margin-top:10px;">Ahaṃ Rāmaḥ. Tvaṃ kaḥ?</div>
                 <button class="speak-btn" onclick="speak('अहं रामः। त्वं कः?')">🔊</button>
             </div>
             
             <div class="dialogue-box">
-                <div class="speaker-info"><span class="avatar-emoji">👦 ➡️ 👧</span> Boy asking a Girl</div>
+                <!-- Dev Note: Replace emojis with actual illustration of a boy pointing at a girl -->
+                <div class="speaker-info">🙋🏽‍♂️ ➡️ 🫵🏽👧</div>
                 <div class="sanskrit">अहं रामः। त्वं का?</div>
-                <div style="color:var(--text-muted); margin-top:5px;">I am Rama. Who are you?</div>
+                <div class="diacritic" style="margin-top:10px;">Ahaṃ Rāmaḥ. Tvaṃ kā?</div>
                 <button class="speak-btn" onclick="speak('अहं रामः। त्वं का?')">🔊</button>
             </div>
 
+            <!-- LEARNING IN PAIRS (Contextual Conversation) -->
             <div class="dialogue-box">
-                <div class="speaker-info"><span class="avatar-emoji">👧 ➡️ 👧</span> Girl asking a Girl</div>
-                <div class="sanskrit">अहं सीता। त्वं का?</div>
-                <div style="color:var(--text-muted); margin-top:5px;">I am Sita. Who are you?</div>
-                <button class="speak-btn" onclick="speak('अहं सीता। त्वं का?')">🔊</button>
+                <!-- Dev Note: Pic of Mother pointing at Father -->
+                <div class="speaker-info">👩 ➡️ 👨</div>
+                <div class="sanskrit">अहं माता अस्मि। त्वं कः असि?</div>
+                <div class="diacritic" style="margin-top:10px;">Ahaṃ mātā asmi. Tvaṃ kaḥ asi?</div>
+                <button class="speak-btn" onclick="speak('अहं माता अस्मि। त्वं कः असि?')">🔊</button>
+            </div>
+
+            <div class="dialogue-box">
+                <!-- Dev Note: Pic of Father pointing at Mother -->
+                <div class="speaker-info">👨 ➡️ 👩</div>
+                <div class="sanskrit">अहं पिता अस्मि। त्वं का असि?</div>
+                <div class="diacritic" style="margin-top:10px;">Ahaṃ pitā asmi. Tvaṃ kā asi?</div>
+                <button class="speak-btn" onclick="speak('अहं पिता अस्मि। त्वं का असि?')">🔊</button>
             </div>
         </div>
     </div>
@@ -200,9 +214,8 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧩</div>
-            <h2 class="section-title">2. Practise: Match the Words</h2>
+            <h2 class="section-title">2. Practise</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Drag the correct word from the bank and drop it into the blanks.</p>
         
         <div class="word-bank">
             <div class="draggable sanskrit" draggable="true">अहम्</div>
@@ -213,29 +226,30 @@
             <div class="draggable sanskrit" draggable="true">सीता</div>
         </div>
         
+        <!-- Dev Note: Use actual character images instead of emojis in production -->
         <div class="dd-row">
-            <div class="avatar-emoji">👦</div>
-            <div class="sanskrit"><span class="drop-zone sanskrit" data-ans="अहम्"></span> शिवः। <span style="font-size:1.1rem; color:#666; font-family:'Outfit';">(I am Shiva)</span></div>
+            <div>🙋🏽‍♂️</div>
+            <div class="sanskrit"><span class="drop-zone sanskrit" data-ans="अहम्"></span> शिवः।</div>
         </div>
         <div class="dd-row">
-            <div class="avatar-emoji">👦 ➡️ 👦</div>
+            <div>🙋🏽‍♂️ ➡️ 🫵🏽👦</div>
             <div class="sanskrit">अहं रामः। <span class="drop-zone sanskrit" data-ans="त्वम्"></span> कः?</div>
         </div>
         <div class="dd-row">
-            <div class="avatar-emoji">👧 ➡️ 👧</div>
+            <div>🙋🏽‍♀️ ➡️ 🫵🏽👧</div>
             <div class="sanskrit">अहं <span class="drop-zone sanskrit" data-ans="सीता"></span>। त्वं का?</div>
         </div>
         <div class="dd-row">
-            <div class="avatar-emoji">👦 ➡️ 👧</div>
+            <div>🙋🏽‍♂️ ➡️ 🫵🏽👧</div>
             <div class="sanskrit">अहं <span class="drop-zone sanskrit" data-ans="गणेशः"></span>। त्वं का?</div>
         </div>
         <div class="dd-row">
-            <div class="avatar-emoji">👧 ➡️ 👦</div>
-            <div class="sanskrit">अहं रञ्जिता। त्वं <span class="drop-zone sanskrit" data-ans="कः"></span> ?</div>
+            <div>👩 ➡️ 👨</div>
+            <div class="sanskrit">अहं माता अस्मि। त्वं <span class="drop-zone sanskrit" data-ans="कः"></span> असि?</div>
         </div>
         <div class="dd-row">
-            <div class="avatar-emoji">👦 ➡️ 👧</div>
-            <div class="sanskrit">अहं रामः। त्वं <span class="drop-zone sanskrit" data-ans="का"></span> ?</div>
+            <div>👨 ➡️ 👩</div>
+            <div class="sanskrit">अहं पिता अस्मि। त्वं <span class="drop-zone sanskrit" data-ans="का"></span> असि?</div>
         </div>
         
         <p id="drag-fb" class="feedback-msg"></p>
@@ -245,32 +259,41 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read the sentence aloud clearly.</p>
         
         <div class="voice-card">
-            <span class="sanskrit" style="font-size: 2rem;">अहं गणेशः।</span>
+            <div>
+                <span class="sanskrit" style="font-size: 2rem; display:block;">अहं गणेशः।</span>
+                <span class="diacritic">Ahaṃ Gaṇeśaḥ.</span>
+            </div>
             <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
         </div>
         <div class="voice-card">
-            <span class="sanskrit" style="font-size: 2rem;">त्वं कः?</span>
+            <div>
+                <span class="sanskrit" style="font-size: 2rem; display:block;">त्वं कः?</span>
+                <span class="diacritic">Tvaṃ kaḥ?</span>
+            </div>
             <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
         </div>
         <div class="voice-card">
-            <span class="sanskrit" style="font-size: 2rem;">अहं सीता, त्वं का?</span>
+            <div>
+                <span class="sanskrit" style="font-size: 2rem; display:block;">अहं माता अस्मि।</span>
+                <span class="diacritic">Ahaṃ mātā asmi.</span>
+            </div>
             <button class="mic-btn" onclick="simulateVoice(this)">🎤</button>
         </div>
         <p id="voice-fb" class="feedback-msg"></p>
     </div>
 
-    <!-- 4. Auto-advance Quiz -->
+    <!-- 4. Auto-advance Quiz (Visual Only) -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
+            <!-- Questions are purely visual emojis now -->
             <div class="q-text" id="q-text">Loading...</div>
             <div class="opt-grid" id="opt-container"></div>
             <div id="quiz-fb" class="feedback-msg"></div>
@@ -289,7 +312,7 @@
         }
     }
 
-    // 2. Advanced Drag & Drop Logic
+    // 2. Drag & Drop Logic
     const draggables = document.querySelectorAll('.draggable');
     const dropZones = document.querySelectorAll('.drop-zone');
     let draggedData = null;
@@ -308,13 +331,13 @@
             if(draggedData === this.getAttribute('data-ans')) {
                 this.innerText = draggedData;
                 this.classList.add('filled');
-                fb.innerText = "✨ Brilliant! Correct word.";
+                fb.innerText = "✨ शुद्धम्! (Correct)";
                 fb.style.color = "var(--success)";
                 speak(this.parentElement.innerText.replace(/[\n\r]/g, ''));
                 completedDrops++;
                 if(completedDrops === 6) { document.getElementById('main-progress').style.width = '60%'; }
             } else {
-                fb.innerText = "❌ Incorrect! Please check the gender and context.";
+                fb.innerText = "❌ (Incorrect)";
                 fb.style.color = "var(--error)";
             }
         });
@@ -327,31 +350,31 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Please speak.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Excellent pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We couldn't hear that clearly. Please try again.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
-    // 4. Auto-advance Quiz Engine (English Translation)
+    // 4. Auto-advance Quiz Engine (Zero English Questions)
     const quizData = [
-        { q: "Which Sanskrit word translates to 'I'?", opts: ["त्वम्", "अहम्"], ans: 1 },
-        { q: "👦 Which word is used to ask 'Who?' to a male?", opts: ["कः", "का"], ans: 0 },
-        { q: "👧 Which word is used to ask 'Who?' to a female?", opts: ["कः", "का"], ans: 1 },
-        { q: "👦 ➡️ 👧 (Boy asking a girl): अहं रामः। त्वं ___?", opts: ["कः", "का"], ans: 1 },
-        { q: "👧 ➡️ 👦 (Girl asking a boy): अहं सीता। त्वं ___?", opts: ["कः", "का"], ans: 0 }
+        { q: "🙋🏽‍♂️", opts: ["त्वम्", "अहम्"], ans: 1 },
+        { q: "🫵🏽", opts: ["अहम्", "त्वम्"], ans: 1 },
+        { q: "🙋🏽‍♂️ ➡️ 🫵🏽👦", opts: ["कः ?", "का ?"], ans: 0 },
+        { q: "🙋🏽‍♂️ ➡️ 🫵🏽👧", opts: ["कः ?", "का ?"], ans: 1 },
+        { q: "👩 ➡️ 👨<br><span class='sanskrit' style='font-size:1.8rem;'>त्वं ___ असि?</span>", opts: ["कः", "का"], ans: 0 }
     ];
 
     let currentQ = 0;
@@ -362,7 +385,6 @@
         const fb = document.getElementById('quiz-fb');
         
         if (currentQ >= quizData.length) {
-            // End of Quiz - Dramatic Star Reveal
             document.getElementById('main-progress').style.width = '100%';
             let starsHtml = "";
             for(let i=1; i<=5; i++) {
@@ -373,15 +395,15 @@
                 <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Complete!</h3>
                 <div class="stars">${starsHtml}</div>
                 <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">
-                    You scored ${score} out of 5! <br>
-                    <span style="font-size:1rem; color:var(--text-muted); font-weight:600; margin-top:10px; display:inline-block;">(Your mastery level has been updated in your profile)</span>
+                    ${score} / 5 <br>
                 </p>
             `;
             return;
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        // Render visual question (Emoji)
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -403,14 +425,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Spot on!";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Not quite right!";
+            fb.innerText = "❌";
             fb.style.color = "var(--error)";
         }
 
