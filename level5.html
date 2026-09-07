@@ -19,7 +19,7 @@
             --success: #059669;
             --error: #E11D48;
             
-            /* Gender Color Codes based on Reference Images */
+            /* Gender Color Codes */
             --color-m-bg: #E0F2FE; /* Light Blue */
             --color-m-border: #0284C7;
             --color-f-bg: #FCE7F3; /* Light Pink */
@@ -53,6 +53,10 @@
         .section-icon { font-size: 2rem; background: linear-gradient(135deg, var(--accent-gold-light) 0%, #FCD34D 100%); width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 10px rgba(212,175,55,0.3);}
         .section-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--maroon-rich); font-weight: 800;}
 
+        /* Rule Banner */
+        .rule-banner { background: linear-gradient(135deg, var(--maroon-rich) 0%, #9F1239 100%); padding: 20px 25px; border-radius: 16px; margin: 20px 0 30px 0; color: white; font-size: 1.5rem; font-weight: 500; box-shadow: 0 8px 20px rgba(120, 16, 20, 0.2); display: flex; justify-content: space-around; text-align: center; align-items: center;}
+        .rule-highlight { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; font-family: 'Tiro Devanagari Sanskrit'; font-size: 1.5rem;}
+
         /* Gender Coded Grids */
         .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .color-box { padding: 25px 20px; border-radius: 20px; position: relative; text-align: center; border: 2px solid; transition: transform 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center;}
@@ -81,8 +85,8 @@
         .basket-n { background: rgba(254, 249, 195, 0.5); border-color: var(--color-n-border); color: var(--color-n-border);}
         .basket-n:hover { background: var(--color-n-bg); }
 
-        .basket-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px;}
-        .basket-sub { font-size: 0.85rem; font-weight: 600; opacity: 0.8; }
+        .basket-title { font-size: 2rem; font-weight: 800; margin-bottom: 5px;}
+        .basket-sub { font-size: 1.2rem; font-weight: 600; opacity: 0.8; font-family: 'Tiro Devanagari Sanskrit';}
 
         /* Voice Test Section */
         .voice-card { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-radius: 20px; margin-bottom: 15px; border: 2px solid #F1F5F9; }
@@ -91,8 +95,8 @@
         @keyframes ripple { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(225, 29, 72, 0); } }
 
         /* Quiz */
-        .quiz-container { min-height: 220px; display: flex; flex-direction: column; justify-content: center; }
-        .q-text { font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich);}
+        .quiz-container { min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .q-text { font-size: 2.2rem; font-weight: 700; margin-bottom: 25px; text-align: center; color: var(--maroon-rich); font-family: 'Tiro Devanagari Sanskrit', serif;}
         .opt-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;}
         .opt-btn { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 15px 35px; border: 2px solid #E2E8F0; background: white; border-radius: 16px; cursor: pointer; box-shadow: 0 4px 0 #E2E8F0; min-width: 150px; }
         .opt-btn:active { transform: translateY(4px); box-shadow: 0 0 0 transparent; }
@@ -125,40 +129,45 @@
 
     <div style="text-align: center;">
         <h1 class="title-main">Ayam, Iyam, Idam</h1>
-        <p class="subtitle">The Twin Words! An elegant way to say "This".</p>
+        <p class="subtitle">Match the colours and pictures. No translations needed!</p>
     </div>
 
     <!-- 1. Observe & Absorb (Color Coded) -->
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎨</div>
-            <h2 class="section-title">1. Observe the Colours</h2>
+            <h2 class="section-title">1. Observe</h2>
         </div>
-        <p style="color: var(--text-muted); font-size: 1.1rem; text-align: center; margin-bottom: 20px;">These words mean exactly the same as <strong>Eṣaḥ, Eṣā, Etat</strong>.<br>Look at the colour matching to remember their gender!</p>
+        
+        <div class="rule-banner">
+            <div>📍👦 <span class="rule-highlight">अयम्</span></div>
+            <div>📍👧 <span class="rule-highlight">इयम्</span></div>
+            <div>📍🍎 <span class="rule-highlight">इदम्</span></div>
+        </div>
 
         <div class="color-grid">
             <!-- 1. Masc -->
             <div class="color-box box-m" onclick="speak('अयं सूर्यः अस्ति')">
                 <div class="avatar-emoji">☀️</div>
-                <div class="sanskrit" style="color:var(--color-m-border);">अयं सूर्यः <br><small style="font-size:1.2rem;">(एषः सूर्यः)</small></div>
+                <div class="sanskrit" style="color:var(--color-m-border);">अयं सूर्यः</div>
                 <div class="diacritic" style="color:#0369A1; margin-top:5px;">Ayaṃ sūryaḥ</div>
-                <div style="color:#0284C7; font-weight:600; margin-top:10px;">This is the sun (M)</div>
+                <div style="color:#0284C7; font-weight:800; font-family:'Tiro Devanagari Sanskrit'; margin-top:10px; font-size:1.3rem;">= एषः सूर्यः</div>
             </div>
             
             <!-- 2. Fem -->
             <div class="color-box box-f" onclick="speak('इयं माता अस्ति')">
                 <div class="avatar-emoji">🤱</div>
-                <div class="sanskrit" style="color:var(--color-f-border);">इयं माता <br><small style="font-size:1.2rem;">(एषा माता)</small></div>
+                <div class="sanskrit" style="color:var(--color-f-border);">इयं माता</div>
                 <div class="diacritic" style="color:#BE185D; margin-top:5px;">Iyaṃ mātā</div>
-                <div style="color:#DB2777; font-weight:600; margin-top:10px;">This is mother (F)</div>
+                <div style="color:#DB2777; font-weight:800; font-family:'Tiro Devanagari Sanskrit'; margin-top:10px; font-size:1.3rem;">= एषा माता</div>
             </div>
 
             <!-- 3. Neuter -->
             <div class="color-box box-n" onclick="speak('इदं स्योतम् अस्ति')">
                 <div class="avatar-emoji">🎒</div>
-                <div class="sanskrit" style="color:var(--color-n-border);">इदं स्योतम् <br><small style="font-size:1.2rem;">(एतत् स्योतम्)</small></div>
+                <div class="sanskrit" style="color:var(--color-n-border);">इदं स्योतम्</div>
                 <div class="diacritic" style="color:#A16207; margin-top:5px;">Idaṃ syotam</div>
-                <div style="color:#CA8A04; font-weight:600; margin-top:10px;">This is a bag (N)</div>
+                <div style="color:#CA8A04; font-weight:800; font-family:'Tiro Devanagari Sanskrit'; margin-top:10px; font-size:1.3rem;">= एतत् स्योतम्</div>
             </div>
             
             <!-- 4. Masc (Boy) -->
@@ -166,7 +175,7 @@
                 <div class="avatar-emoji">👦</div>
                 <div class="sanskrit" style="color:var(--color-m-border);">अयं बालकः</div>
                 <div class="diacritic" style="color:#0369A1; margin-top:5px;">Ayaṃ bālakaḥ</div>
-                <div style="color:#0284C7; font-weight:600; margin-top:10px;">This is a boy (M)</div>
+                <div style="color:#0284C7; font-weight:800; font-family:'Tiro Devanagari Sanskrit'; margin-top:10px; font-size:1.3rem;">= एषः बालकः</div>
             </div>
 
             <!-- 5. Fem (Girl) -->
@@ -174,7 +183,7 @@
                 <div class="avatar-emoji">👧</div>
                 <div class="sanskrit" style="color:var(--color-f-border);">इयं बालिका</div>
                 <div class="diacritic" style="color:#BE185D; margin-top:5px;">Iyaṃ bālikā</div>
-                <div style="color:#DB2777; font-weight:600; margin-top:10px;">This is a girl (F)</div>
+                <div style="color:#DB2777; font-weight:800; font-family:'Tiro Devanagari Sanskrit'; margin-top:10px; font-size:1.3rem;">= एषा बालिका</div>
             </div>
         </div>
     </div>
@@ -183,9 +192,8 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">📥</div>
-            <h2 class="section-title">2. The Trio Sorter</h2>
+            <h2 class="section-title">2. Practise</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px; font-size:1.1rem;">They all end in 'm' (म्), but they belong to different genders!<br>Tap the correct basket to sort the word.</p>
         
         <div class="sort-game-area" id="sort-area">
             
@@ -196,16 +204,16 @@
 
             <div class="baskets-container">
                 <div class="basket basket-m" onclick="handleSort('M')">
-                    <div class="basket-title">🟦 Masculine</div>
-                    <div class="basket-sub">(Like Eṣaḥ)</div>
+                    <div class="basket-title">🟦 📍👦</div>
+                    <div class="basket-sub">(= एषः)</div>
                 </div>
                 <div class="basket basket-f" onclick="handleSort('F')">
-                    <div class="basket-title">🟪 Feminine</div>
-                    <div class="basket-sub">(Like Eṣā)</div>
+                    <div class="basket-title">🟪 📍👧</div>
+                    <div class="basket-sub">(= एषा)</div>
                 </div>
                 <div class="basket basket-n" onclick="handleSort('N')">
-                    <div class="basket-title">🟨 Neuter</div>
-                    <div class="basket-sub">(Like Etat)</div>
+                    <div class="basket-title">🟨 📍🍎</div>
+                    <div class="basket-sub">(= एतत्)</div>
                 </div>
             </div>
 
@@ -217,9 +225,8 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🎙️</div>
-            <h2 class="section-title">3. Pronunciation Check</h2>
+            <h2 class="section-title">3. Pronunciation</h2>
         </div>
-        <p style="text-align:center; margin-bottom:20px;">Tap the microphone and read aloud.</p>
         
         <div class="voice-card box-m">
             <div><div class="sanskrit">अयं सूर्यः अस्ति।</div><div class="diacritic" style="margin-top: 5px;">Ayaṃ sūryaḥ asti.</div></div>
@@ -248,7 +255,7 @@
     <div class="glass-card">
         <div class="section-header">
             <div class="section-icon">🧠</div>
-            <h2 class="section-title">4. Knowledge Check</h2>
+            <h2 class="section-title">4. शुद्धम्? (Check)</h2>
         </div>
         <div class="quiz-container" id="quiz-box">
             <div class="q-text" id="q-text">Loading...</div>
@@ -273,7 +280,7 @@
         { sk: "इदम्", en: "Idam", type: "N", sound: "इदम्" },
         { sk: "अयम्", en: "Ayam", type: "M", sound: "अयम्" },
         { sk: "इयम्", en: "Iyam", type: "F", sound: "इयम्" },
-        { sk: "एषः", en: "Eṣaḥ", type: "M", sound: "एषः" }, // Throwing in Eṣaḥ to test equivalence
+        { sk: "एषः", en: "Eṣaḥ", type: "M", sound: "एषः" }, 
         { sk: "एषा", en: "Eṣā", type: "F", sound: "एषा" }
     ];
 
@@ -285,7 +292,7 @@
         if(currentSort >= sortChallenges.length) {
             targetCard.style.display = 'none';
             document.querySelector('.baskets-container').style.display = 'none';
-            sortFb.innerHTML = "🎉 <span style='color:var(--success)'>All Sorted Perfectly!</span>";
+            sortFb.innerHTML = "🎉 <span style='color:var(--success)'>शुद्धम्!</span>";
             document.getElementById('main-progress').style.width = '60%';
             return;
         }
@@ -308,7 +315,7 @@
 
         if (selectedType === data.type) {
             // Correct!
-            sortFb.innerText = "✨ Correct!";
+            sortFb.innerText = "✨ शुद्धम्! (Correct)";
             sortFb.style.color = "var(--success)";
             speak(data.sound);
             
@@ -328,7 +335,7 @@
             }, 800);
         } else {
             // Wrong!
-            sortFb.innerText = "❌ Oops! Think about the Gender.";
+            sortFb.innerText = "❌ Try again.";
             sortFb.style.color = "var(--error)";
             targetCard.classList.add('shake');
             
@@ -348,32 +355,32 @@
         
         document.querySelectorAll('.mic-btn').forEach(b => b.classList.remove('listening'));
         btn.classList.add('listening');
-        fb.innerText = "Listening... Speak naturally.";
+        fb.innerText = "Listening...";
         fb.style.color = "var(--accent-gold)";
 
         setTimeout(() => {
             btn.classList.remove('listening');
             if(Math.random() > 0.2) {
-                fb.innerText = "🌟 Spot on pronunciation!";
+                fb.innerText = "🌟 शुद्धम्! (Perfect)";
                 fb.style.color = "var(--success)";
                 btn.style.background = "var(--success)";
                 btn.innerText = "✓";
                 btn.disabled = true;
             } else {
-                fb.innerText = "❌ We didn't catch that. Try looking at the diacritics.";
+                fb.innerText = "❌ Try again.";
                 fb.style.color = "var(--error)";
             }
         }, 2000);
     }
 
 
-    // --- Quiz Logic ---
+    // --- Visual Quiz Logic ---
     const quizData = [
-        { q: "Which word means 'This (Near)' for Masculine?", opts: [{sk:"अयम्", en:"Ayam"}, {sk:"इयम्", en:"Iyam"}], ans: 0 },
-        { q: "'Iyam' (इयम्) is exactly equal to which word?", opts: [{sk:"एषा", en:"Eṣā"}, {sk:"एषः", en:"Eṣaḥ"}], ans: 0 },
-        { q: "'Idam' (इदम्) is used for which gender?", opts: [{sk:"Neuter (It)", en:"Like Etat"}, {sk:"Masculine (He)", en:"Like Eṣaḥ"}], ans: 0 },
-        { q: "Translate 'This is a bag' (Neuter):", opts: [{sk:"इदं स्योतम् अस्ति", en:"Idaṃ syotam asti"}, {sk:"अयं सूर्यः अस्ति", en:"Ayaṃ sūryaḥ asti"}], ans: 0 },
-        { q: "___ mātā asti. (This is mother)", opts: [{sk:"इयम्", en:"Iyam"}, {sk:"अयम्", en:"Ayam"}], ans: 0 }
+        { q: "📍👦 <br> <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> बालकः अस्ति।", opts: [{sk:"अयम्", en:"Ayam"}, {sk:"इयम्", en:"Iyam"}], ans: 0 },
+        { q: "📍👧 <br> <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> माता अस्ति।", opts: [{sk:"इयम्", en:"Iyam"}, {sk:"इदम्", en:"Idam"}], ans: 0 },
+        { q: "📍🍎 <br> <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> स्योतम् अस्ति।", opts: [{sk:"इदम्", en:"Idam"}, {sk:"अयम्", en:"Ayam"}], ans: 0 },
+        { q: "📍☀️ <br> <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> सूर्यः अस्ति।", opts: [{sk:"इदम्", en:"Idam"}, {sk:"अयम्", en:"Ayam"}], ans: 1 },
+        { q: "📍👧 <br> <span style='border-bottom: 2px dashed; padding: 0 20px;'></span> बालिका अस्ति।", opts: [{sk:"इयम्", en:"Iyam"}, {sk:"अयम्", en:"Ayam"}], ans: 0 }
     ];
 
     let currentQ = 0;
@@ -393,14 +400,13 @@
             qBox.innerHTML = `
                 <h3 style="color:var(--maroon-rich); font-family:'Playfair Display'; font-size:2rem; text-align:center;">Module Mastered!</h3>
                 <div class="stars">${starsHtml}</div>
-                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">You scored ${score} out of 5!</p>
-                <p style="text-align:center; margin-top:15px; font-weight:600; color:var(--text-muted);">You now know all the ways to say "He, She, It" and "This" in Sanskrit!</p>
+                <p style="font-size:1.3rem; color:var(--success); font-weight:800; text-align:center;">${score} / 5</p>
             `;
             return;
         }
 
         const data = quizData[currentQ];
-        document.getElementById('q-text').innerText = `Question ${currentQ + 1} of 5: ${data.q}`;
+        document.getElementById('q-text').innerHTML = data.q;
         fb.innerText = "";
         
         const optContainer = document.getElementById('opt-container');
@@ -422,14 +428,14 @@
 
         if(selected === correct) {
             btn.classList.add('correct');
-            fb.innerText = "✨ Perfect!";
+            fb.innerText = "✨ शुद्धम्! (Correct)";
             fb.style.color = "var(--success)";
             score++;
             speak("उत्तमम्");
         } else {
             btn.classList.add('wrong');
             buttons[correct].classList.add('correct');
-            fb.innerText = "❌ Incorrect!";
+            fb.innerText = "❌ (Incorrect)";
             fb.style.color = "var(--error)";
         }
 
